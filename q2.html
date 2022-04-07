@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>第2回 課題 - 東北大学プログラミング演習B (C#)</title>
+        <link rel="stylesheet" href="./css/cs.css">
+        <script type="text/javascript" src="./js/currentlink.js"></script>
+    </head>
+    <body>
+        <header>
+                      <nav>
+              <ul>
+                <li class="top"><a href="./">ホーム</a></li>
+                <li><a href="./setup.html">環境構築1</a></li>
+                <li><a href="./setup_gui.html">環境構築2</a></li>
+                <!-- <li><a href="./setup_gui.html">GUIライブラリ（Eto.Forms）の設定</a></li> -->
+                <li class="dd"><span class="ddt">講義資料</span>
+                  <ul> 
+                    <li><a href="./w1.html">第1回</a></li>
+                    <li><a href="./w2.html">第2回</a></li>
+                    <li><a href="./w3.html">第3回</a></li>
+                    <li><a href="./w4.html">第4回</a></li>
+                    <li><a href="./w5.html">第5回</a></li>
+                    <li><a href="./w6.html">第6回</a></li>
+                  </ul>
+                </li>
+                <li><a href="./links.html">参考書など</a></li>
+             </ul>
+            </nav>
+
+            
+               <h1>第2回 課題</h1>
+             
+            
+               <p class="last-update">最終更新: 2022-04-04 12:11:41</p> 
+            
+            <div class="qnav">
+              <ul>
+                <li><a href="w2.html">講義資料</a></li><li><a href="q2.html">課題</a></li>
+              </ul>
+            </div>   
+        </header>
+
+        <main role="main" class="with-right-nav">
+          <div class="toc">
+            <ul>
+              <li><a href="#課題の進め方">課題の進め方</a> </li>
+              <li><a href="#基本課題">基本課題</a></li>
+              <li><a href="#発展課題">発展課題</a> </li>
+            </ul>
+          </div>
+            <h2 id="課題の進め方">課題の進め方</h2>
+<h3 id="プロジェクトの作成">プロジェクトの作成</h3>
+<p>まずは，</p>
+<pre><span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span></pre>
+<p>という名前のプロジェクトを作成する．たとえば，Z0TB9999さんの第3回課題の提出であれば，プロジェクト名は<code>Z0TB9999_Q3</code>とする．</p>
+<p>Visual Studio場合はの「新しいプロジェクトの作成」（Windows）や「新規」/「New」（Mac）から，C#のコンソールアプリケーションテンプレートを
+選び，プロジェクト名を上記のものとする．コマンドラインで行う場合は<code>dotnet new console -o プロジェクト名</code>とすればよい．</p>
+<h3 id="課題の実施">課題の実施</h3>
+<p>.cs ファイルを問題文の指示の通りに作成する．提出する .csファイルには先頭部分に <strong>学籍番号と名前をコメントとして含める</strong> こと．</p>
+<h3 id="提出">提出</h3>
+<ol type="1">
+<li><code>obj</code>フォルダや<code>bin</code>フォルダ以下に含まれている中間生成物や実行形式は提出しなくてよい（し，サイズが大きいので含まれていると御互いにアップロードやダウンロードに時間がかかって辛い）ので，提出前にプロジェクトをクリーン（生成物を削除すること）する．
+<ul>
+<li>Visual Studioを使用している場合はプロジェクト名を右クリックして出てくる <em>「〜をクリーン」</em> を実行する</li>
+<li>コマンドラインの場合は当該フォルダに移動して<code>dotnet clean</code>する．</li>
+<li>あるいは以下の手順を実行する前に <code>obj</code> と <code>bin</code> フォルダを消したのでよい．</li>
+</ul></li>
+<li>以下の手順によりプロジェクトが含まれているフォルダを.zipにまとめる．いずれも「プロジェクト名.zip」が手に入る．
+<ul>
+<li>Windowsの場合は，プロジェクトが含まれているフォルダ（Visual Studioのスタートアップ画面で <em>「ローカルフォルダーを開く」</em> を選ぶと場所がわかる．デフォルトは<code>%HOMEPATH%\source\repos</code>）をエクスプローラーで表示し，そのプロジェクト名のフォルダを右クリックして
+<em>「送る」</em> から <em>「圧縮（zip形式）フォルダー」</em>
+を選択する．</li>
+<li>Macの場合は，プロジェクトが含まれているフォルダ（Visual Studioのデフォルトは<code>~/Projects/</code>）をFinder.appで表示し，そのプロジェクト名のフォルダをCtrl + クリック（あるいは二本指クリックか右クリック）して， <em>「”〜”を圧縮」</em> を選ぶ．</li>
+<li><code>git</code>で解答を管理しているのならば，
+<code>git archive --prefix=<span class="metaname">プロジェクト名/</span> <span class="metaname">ブランチ名</span> -o <span class="metaname">プロジェクト名</span>.zip</code>
+などとすればレポジトリの内容を纏めた.zipファイルを作成できる．
+<ul>
+<li><strong>公開レポジトリに解答を決して置かないように．</strong></li>
+</ul></li>
+</ul></li>
+<li>得られた「プロジェクト名.zip」をClassroom内の当該回の「課題」より提出する．
+<ul>
+<li>たとえば，Z0TB9999さんの第3回課題の提出であれば，提出するファイルの名前は<code>Z0TB9999_Q3.zip</code>とする．</li>
+</ul></li>
+</ol>          
+            <h2 id="基本課題">基本課題</h2>
+<p>「電卓」を表す以下の<code>Calc</code>クラスについて考える．</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Calc </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">protected</span> <span class="dt">double</span> val<span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Calc</span><span class="op">()</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>       val <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">virtual</span> <span class="dt">void</span> <span class="fu">Set</span><span class="op">(</span><span class="dt">double</span> d<span class="op">)</span> </span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>       val <span class="op">=</span> d<span class="op">;</span> </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">virtual</span> <span class="dt">void</span> <span class="fu">Add</span><span class="op">(</span><span class="dt">double</span> d<span class="op">)</span> </span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>       val <span class="op">+=</span> d<span class="op">;</span> </span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">virtual</span> <span class="dt">void</span> <span class="fu">Sub</span><span class="op">(</span><span class="dt">double</span> d<span class="op">)</span> </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>       val <span class="op">-=</span> d<span class="op">;</span> </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">virtual</span> <span class="dt">void</span> <span class="fu">Mul</span><span class="op">(</span><span class="dt">double</span> d<span class="op">)</span> </span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>       val <span class="op">*=</span> d<span class="op">;</span> </span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">virtual</span> <span class="dt">void</span> <span class="fu">Div</span><span class="op">(</span><span class="dt">double</span> d<span class="op">)</span> </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>       val <span class="op">/=</span> d<span class="op">;</span> </span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Report</span><span class="op">()</span> </span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Value: &quot;</span> <span class="op">+</span> val<span class="op">);</span> </span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>この<code>Calc</code>クラスを継承し，以下のメソッドを備えた関数電卓クラス <code>FunCalc</code> を作成せよ．</p>
+<table>
+<thead>
+<tr class="header">
+<th>メソッド名</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>public void Pow(double d)</code></td>
+<td>現在の値を<code>d</code>乗にする．</td>
+</tr>
+<tr class="even">
+<td><code>public void SetLogBase(double d)</code></td>
+<td>logの底を<code>d</code>に設定する．</td>
+</tr>
+<tr class="odd">
+<td><code>public void Log()</code></td>
+<td>現在の値をそのlogに設定する．</td>
+</tr>
+<tr class="even">
+<td><code>public void SetRadianMode()</code></td>
+<td>三角関数の角度の単位をラジアンに設定する．</td>
+</tr>
+<tr class="odd">
+<td><code>public void SetDegreeMode()</code></td>
+<td>三角関数の角度の単位を度に設定する．</td>
+</tr>
+<tr class="even">
+<td><code>public void Sin()</code></td>
+<td>現在の値を角度して，そのsinに現在を値を設定する．</td>
+</tr>
+<tr class="odd">
+<td><code>public void Cos()</code></td>
+<td>現在の値を角度して，そのcosに現在を値を設定する．</td>
+</tr>
+</tbody>
+</table>
+<p>これらのメソッドを実装するために <code>FunCalc</code>は適当なフィールド（ひとつとは限らない）を持つ必要がある．
+そうしたフィールドは <em>publicにはしない</em> ようにすること．
+また，度をラジアンに直す等の共通の処理はprivateなメソッドにまとめるとよい．</p>
+<p>提出するプログラムは以下のクラス <code>Program</code> を持つこと．</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Program </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">(</span><span class="dt">string</span><span class="op">[]</span> args<span class="op">)</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>       FunCalc fc <span class="op">=</span> <span class="kw">new</span> <span class="fu">FunCalc</span><span class="op">();</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>       <span class="co">// sin(30°)の計算</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">SetDegreeMode</span><span class="op">();</span> </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Set</span><span class="op">(</span><span class="dv">30</span><span class="op">);</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Sin</span><span class="op">();</span> </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>       <span class="co">// cos(π)の計算</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">SetRadianMode</span><span class="op">();</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Set</span><span class="op">(</span>Math<span class="op">.</span><span class="fu">PI</span><span class="op">);</span> </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Cos</span><span class="op">();</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 2^10 </span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Set</span><span class="op">(</span><span class="dv">2</span><span class="op">);</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Pow</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span> </span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>       <span class="co">// log₂(2^10) </span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">SetLogBase</span><span class="op">(</span><span class="dv">2</span><span class="op">);</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Log</span><span class="op">();</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>       <span class="co">// log₁₀(log₂(2^10))</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">SetLogBase</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Log</span><span class="op">();</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span>           </span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>期待される出力の例</p>
+<pre><code>Value: 0.49999999999999994
+Value: -1
+Value: 1024
+Value: 10
+Value: 1</code></pre>
+<div class="hint">
+<div class="title">
+<p>Hint</p>
+</div>
+<p>sinやcos，logや累乗を計算するのには<code>Math</code>クラスのstaticメソッド<code>Sin(double)</code>，<code>Cos(double)</code>，<code>Log(double,double)</code>，<code>Pow(double,double)</code>が利用できる．
+πについても<code>Math.PI</code>が利用可能である．
+詳細は， <a href="https://docs.microsoft.com/en-us/dotnet/api/system.math?view=net-6.0">.NET API リファレンスの関連ページ</a> を参照のこと．
+特に，<code>Log</code>や<code>Pow</code>がどっちの引数が何を表しているかをちゃんと確認するとよい．</p>
+<p>また言うまでもないかもだが，180° = πラジアン である．</p>
+</div>
+<h2 id="発展課題">発展課題</h2>
+<div class="caution">
+<div class="title">
+<p>Caution</p>
+</div>
+<p>本課題を完了できたのならば本課題の解答のみを提出すればよく，基本課題の解答は提出する必要はない．</p>
+</div>
+<p>基本課題で作成した <code>FunCalc</code>の一部の関数を変更し，不正な値が与えらえたときにエラーとして扱い，
+計算等はせずに <code>Error!</code> と表示するようにせよ． ただし，<code>Calc</code>クラスを <strong>変更してはならない．</strong></p>
+<p>具体的には以下のメソッドの動作を変更すれば十分である．</p>
+<table>
+<thead>
+<tr class="header">
+<th>メソッド名</th>
+<th>変更</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>SetLogBase(double d)</code></td>
+<td><code>d</code>が0以下か，1であればエラーとする．</td>
+</tr>
+<tr class="even">
+<td><code>Log()</code></td>
+<td><code>val</code>が0以下であればエラーとする．</td>
+</tr>
+<tr class="odd">
+<td><code>Div(double d)</code></td>
+<td><code>d</code>が0であればエラーとする．</td>
+</tr>
+</tbody>
+</table>
+<p>また，<code>Program.Main</code>にたとえば以下のように動作確認用の記述を追加してよい（既存の処理を削除してはならない）．</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Program </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">(</span><span class="dt">string</span><span class="op">[]</span> args<span class="op">)</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>       FunCalc fc <span class="op">=</span> <span class="kw">new</span> <span class="fu">FunCalc</span><span class="op">();</span> </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>       <span class="co">// sin(30°)の計算</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">SetDegreeMode</span><span class="op">();</span> </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Set</span><span class="op">(</span><span class="dv">30</span><span class="op">);</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Sin</span><span class="op">();</span> </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>       <span class="co">// cos(π)の計算</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">SetRadianMode</span><span class="op">();</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Set</span><span class="op">(</span>Math<span class="op">.</span><span class="fu">PI</span><span class="op">);</span> </span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Cos</span><span class="op">();</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 2^10 </span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Set</span><span class="op">(</span><span class="dv">2</span><span class="op">);</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Pow</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span> </span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>       <span class="co">// log₂(2^10) </span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">SetLogBase</span><span class="op">(</span><span class="dv">2</span><span class="op">);</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Log</span><span class="op">();</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>       <span class="co">// log₁₀(log₂(2^10))</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">SetLogBase</span><span class="op">(</span><span class="dv">10</span><span class="op">);</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Log</span><span class="op">();</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span>           </span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>       <span class="co">// エラー処理の動作確認用</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Div</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span>         <span class="co">// Error!</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span>       <span class="co">// 直前のfc.Report()と同じ値が表示される</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Set</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Log</span><span class="op">();</span>          <span class="co">// Error!</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span>       <span class="co">// Value: 0</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">SetLogBase</span><span class="op">(-</span><span class="dv">1</span><span class="op">);</span> <span class="co">// Error! </span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>       fc<span class="op">.</span><span class="fu">SetLogBase</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span>  <span class="co">// Error!</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="hint">
+<div class="title">
+<p>Hint</p>
+</div>
+<p>オーバライドを使う．</p>
+</div>
+        </main>
+
+        <footer>
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </footer>
+    </body>
+</html>

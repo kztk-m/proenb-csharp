@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>第1回 C#にさわってみよう - 東北大学プログラミング演習B (C#)</title>
+        <link rel="stylesheet" href="./css/cs.css">
+        <script type="text/javascript" src="./js/currentlink.js"></script>
+    </head>
+    <body>
+        <header>
+                      <nav>
+              <ul>
+                <li class="top"><a href="./">ホーム</a></li>
+                <li><a href="./setup.html">環境構築1</a></li>
+                <li><a href="./setup_gui.html">環境構築2</a></li>
+                <!-- <li><a href="./setup_gui.html">GUIライブラリ（Eto.Forms）の設定</a></li> -->
+                <li class="dd"><span class="ddt">講義資料</span>
+                  <ul> 
+                    <li><a href="./w1.html">第1回</a></li>
+                    <li><a href="./w2.html">第2回</a></li>
+                    <li><a href="./w3.html">第3回</a></li>
+                    <li><a href="./w4.html">第4回</a></li>
+                    <li><a href="./w5.html">第5回</a></li>
+                    <li><a href="./w6.html">第6回</a></li>
+                  </ul>
+                </li>
+                <li><a href="./links.html">参考書など</a></li>
+             </ul>
+            </nav>
+
+            
+               <h1>第1回 C#にさわってみよう</h1>
+             
+            
+               <p class="last-update">最終更新: 2022-04-04 12:11:41</p> 
+            
+            <div class="qnav">
+              <ul>
+                <li><a href="w1.html">講義資料</a></li><li><a href="q1.html">課題</a></li>
+              </ul>
+            </div>   
+        </header>
+
+        <main role="main" class="with-right-nav">
+            <div class="toc">
+<ul>
+<li><a href="#cプログラムの基本的な構造">C#プログラムの基本的な構造</a></li>
+<li><a href="#クラスのとても基本的な構造">クラスのとても基本的な構造</a>
+<ul>
+<li><a href="#例カウンター実装">例：カウンター実装</a></li>
+<li><a href="#フィールド宣言の基本的な形">フィールド宣言の基本的な形</a></li>
+<li><a href="#コンストラクタ宣言の基本的な形">コンストラクタ宣言の基本的な形</a></li>
+<li><a href="#メソッド宣言の基本的な形">メソッド宣言の基本的な形</a></li>
+</ul></li>
+<li><a href="#基本的な文statement">基本的な文（statement）</a>
+<ul>
+<li><a href="#宣言文">宣言文</a></li>
+<li><a href="#式文いわゆる代入文など">式文（いわゆる代入文など）</a></li>
+<li><a href="#return文">return文</a></li>
+<li><a href="#ブロック">ブロック</a></li>
+<li><a href="#if文">if文</a></li>
+<li><a href="#for文while文">for文，while文</a></li>
+<li><a href="#continue文break文">continue文，break文</a></li>
+</ul></li>
+<li><a href="#基本的な式expression">基本的な式（expression）</a>
+<ul>
+<li><a href="#メソッド呼出">メソッド呼出</a></li>
+<li><a href="#オブジェクト生成式new">オブジェクト生成式（<code>new</code>）</a></li>
+<li><a href="#インクリメントとデクリメント-">インクリメント（<code>++</code>）とデクリメント（<code>-</code>）</a></li>
+<li><a href="#四則演算">四則演算</a></li>
+<li><a href="#比較演算">比較演算</a></li>
+<li><a href="#論理演算">論理演算</a></li>
+<li><a href="#代入演算">代入演算</a></li>
+</ul></li>
+</ul>
+</div>
+<h2 id="cプログラムの基本的な構造">C#プログラムの基本的な構造</h2>
+<p>さて，<code>dotnet new console -o HelloWorld -f net5.0</code>で作成されるテンプレートに含まれている，
+以下のHello Worldプログラムについて考えてみよう．</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Program.cs </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">namespace</span> HelloWorldCS</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">class</span> Program</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">(</span><span class="dt">string</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello World!&quot;</span><span class="op">);</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>このプログラムはC#のプログラムの基本的な構造についての示唆に富んでいる．</p>
+<p>まず，最初に気付くのは<code>using System;</code>の後に<code>namespace HelloWorldCS {…}</code>が続いていることである．これらに関する説明は後の回で行うこととする．
+今はC#のプログラムはこのような要素を含むのだと思っておいてほしい（この説明も正確ではないが，その点も含めて後の回で行う）．</p>
+<p>次に興味深いのは<code>class Program {…}</code>の部分である．この部分は<code>Program</code>という <strong>クラス</strong> を宣言している．C#はオブジェクト指向言語であり，
+<strong>オブジェクト</strong> という概念が重要となる．ものすごく大雑把には，オブジェクトは， 「データと，それに関連する関数（ <strong>メソッド</strong> と呼ばれる）」をまとめたものであり，
+<strong>クラス</strong> はオブジェクトの定義の記述（方法の一つ）である．ものすごく大雑把にはC#のようなオブジェクト指向言語では， <em>オブジェクトを作成しそのメソッドを呼び出すことを繰り返すことで計算を行う</em> ．</p>
+<p>さて，クラス<code>Program</code>は<code>static void Main(string [] args)</code>というメソッドを持っている．この<code>Main</code>メソッドは特殊なものであり，Cのmain関数のように，
+プログラムが実行されるときに実行されるメソッドを表している．ここで<code>Console.WriteLine</code>は文字列が引数として与えられた場合にはそれを標準出力へ出力するメソッドであるので，
+このプログラムを実行すると<code>Hello World!</code>という文字列が標準出力に出力されることになる．</p>
+<h2 id="クラスのとても基本的な構造">クラスのとても基本的な構造</h2>
+<pre style="line-height:1.3">
+<span class="metaname">修飾子</span> <span class="kw">class</span> <span class="metaname">クラス名</span> 
+{
+    <span class="metaname">フィールドやコンストラクタ，メソッドの宣言の列</span>      
+}
+</pre>
+<h3 id="例カウンター実装">例：カウンター実装</h3>
+<p>基本的な構造は上記だが，これだとピンとこない人も多いと思うので，例を用いて説明する．今，カウンターを実装することを考える．カウンターの機能はシンプルに数をカウントするだけである．カウンターオブジェクトは内部でカウントを持っていて，作成時にカウントの初期値を指定することができる．またカウンターに対してできることは</p>
+<blockquote>
+<ul>
+<li>カウントを1増やす</li>
+<li>カウントを0にもどす</li>
+<li>現在のカウントを調べる</li>
+</ul>
+</blockquote>
+<p>のみであるようにしたい．</p>
+<h4 id="counterクラスのフィールドとコンストラクタ"><code>Counter</code>クラスのフィールドとコンストラクタ</h4>
+<p>ではこの要求を少しずつ形にしていってみよう．
+まずは，カウンターオブジェクトは内部でカウントを持っているので，以下を実装する．</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// クラスCounterの宣言</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Counter </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// int型のprivateフィールド count の宣言</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> count<span class="op">;</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Counterのコンストラクタ</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Counter</span><span class="op">(</span><span class="dt">int</span> c0<span class="op">)</span> </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">// フィールド count に c0 を代入</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        count <span class="op">=</span> c0<span class="op">;</span> </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>ここで，<code>private int count;</code>の部分が <strong>フィールド宣言</strong> である．これはカウンターオブジェクトが<code>count</code>という<code>int</code>型のフィールドを持っていることを
+表している．また， <em>private修飾子</em> はこのフィールドがこのクラスの外からはアクセスできないことを表している．<code>public Counter(int c0) {…}</code>の部分はこのクラスの
+<strong>コンストラクタ</strong> を定義している．コンストラクタはオブジェクトを生成する際に呼ばれ，ここではフィールド<code>count</code>を<code>c0</code>で初期化している．
+コンストラクタはクラスと同じ名前である必要がある． <em>public修飾子</em> はこのコンストラクタが <code>Counter</code> クラスの外からアクセスできることを表している．</p>
+<p>カウンターオブジェクトの作成，より正確な言い方をすれば<code>Counter</code>クラスの <strong>インスタンス</strong> （オブジェクトのことをインスタンスと呼ぶことがある）は <code>new</code>式を用いることで行うことができる．</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Counter c <span class="op">=</span> <span class="kw">new</span> <span class="fu">Counter</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span> </span></code></pre></div>
+<p>しかしながら，現在のままではこのカウンター<code>c</code>についてできることがない．
+たとえば，<code>count</code>はprivateフィールドなので，たとえば以下のプログラムはコンパイル時エラーとなる．</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">namespace</span> Week1 </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">class</span> Counter </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">private</span> <span class="dt">int</span> count<span class="op">;</span> </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">public</span> <span class="fu">Counter</span><span class="op">(</span><span class="dt">int</span> c0<span class="op">)</span> </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>            count <span class="op">=</span> c0<span class="op">;</span> </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">class</span> Program </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">(</span><span class="dt">string</span><span class="op">[]</span> args<span class="op">)</span> </span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>           Counter c <span class="op">=</span> <span class="kw">new</span> <span class="fu">Counter</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span> </span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>           <span class="co">// c.count.ToString()はオブジェクトcのフィールドcountの</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>           <span class="co">// ToString()メソッドを呼ぶの意</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>c<span class="op">.</span><span class="fu">count</span><span class="op">.</span><span class="fu">ToString</span><span class="op">());</span> <span class="co">// エラー</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>単に実行するだけならば，<code>Main</code>メソッドを<code>Counter</code>の中に書けばよい．</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">namespace</span> Week1 </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">class</span> Counter </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">private</span> <span class="dt">int</span> count<span class="op">;</span> </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">public</span> <span class="fu">Counter</span><span class="op">(</span><span class="dt">int</span> c0<span class="op">)</span> </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>            count <span class="op">=</span> c0<span class="op">;</span> </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">(</span><span class="dt">string</span><span class="op">[]</span> args<span class="op">)</span> </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>           Counter c <span class="op">=</span> <span class="kw">new</span> <span class="fu">Counter</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span> </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>c<span class="op">.</span><span class="fu">count</span><span class="op">.</span><span class="fu">ToString</span><span class="op">());</span> </span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>が，これは <em>あまりよくないコード</em> である．なぜならば，<code>Counter</code>はカウンターを実装するということが感心事であるのにそれ以外の処理を行っているためである．
+さらには，<code>Counter</code>は直接カウンターへのアクセスを防ぐために<code>count</code>をprivateフィールドにしたので，そのアクセス制限を台無しにしている．</p>
+</div>
+<h4 id="メソッドの追加">メソッドの追加</h4>
+<p>では，<code>Counter</code>クラスに <strong>（インスタンス）メソッド</strong> を追加してもっと面白くしてみよう．
+（インスタンス）メソッド<code>Method</code>はオブジェクト<code>o</code>に対し，<code>o.Method(arg1, arg2)</code>のよう形で呼出すことができる関数のようなものである．</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Counter </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>     <span class="kw">private</span> <span class="dt">int</span> count<span class="op">;</span> </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>     <span class="co">// コンストラクタ</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>     <span class="kw">public</span> <span class="fu">Counter</span><span class="op">(</span><span class="dt">int</span> c0<span class="op">)</span> </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>     <span class="op">{</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>         count <span class="op">=</span> c0<span class="op">;</span> </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>     <span class="op">}</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>     <span class="co">// メソッド</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>     <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Inc</span><span class="op">()</span> </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>     <span class="op">{</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>         count<span class="op">++;</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>     <span class="op">}</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>     <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Reset</span><span class="op">()</span> </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>     <span class="op">{</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>         count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> </span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>     <span class="op">}</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>     <span class="kw">public</span> <span class="dt">int</span> <span class="fu">GetCount</span><span class="op">()</span> </span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>     <span class="op">{</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>         <span class="kw">return</span> count<span class="op">;</span> </span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>     <span class="op">}</span>        </span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a> <span class="op">}</span></span></code></pre></div>
+<p>ここで，<code>Inc()</code>はカウントを1増加させ，<code>Reset()</code>はカウントを0にリセットし，<code>GetCount()</code>は現在のカウントを返すメソッドである．
+public修飾子が示すように，これらはpublicメソッドとして実装されてるため，<code>Counter</code>クラスの外側でも用いることができる．</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">namespace</span> Week1 </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">class</span> Counter </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">private</span> <span class="dt">int</span> count<span class="op">;</span> </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">public</span> <span class="fu">Counter</span><span class="op">(</span><span class="dt">int</span> c0<span class="op">)</span> </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>            count <span class="op">=</span> c0<span class="op">;</span> </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Inc</span><span class="op">()</span> </span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>            count<span class="op">++;</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Reset</span><span class="op">()</span> </span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>            count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> </span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        <span class="kw">public</span> <span class="dt">int</span> <span class="fu">GetCount</span><span class="op">()</span> </span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>            <span class="kw">return</span> count<span class="op">;</span> </span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span>        </span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    <span class="kw">class</span> Program </span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>        <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">(</span><span class="dt">string</span><span class="op">[]</span> args<span class="op">)</span> </span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>           Counter c <span class="op">=</span> <span class="kw">new</span> <span class="fu">Counter</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span> </span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;c.GetCount() = &quot;</span> <span class="op">+</span> c<span class="op">.</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">());</span> </span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>           c<span class="op">.</span><span class="fu">Inc</span><span class="op">();</span> </span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>           c<span class="op">.</span><span class="fu">Inc</span><span class="op">();</span> </span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;c.GetCount() = &quot;</span> <span class="op">+</span> c<span class="op">.</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">());</span> </span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>           c<span class="op">.</span><span class="fu">Reset</span><span class="op">();</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;c.GetCount() = &quot;</span> <span class="op">+</span> c<span class="op">.</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">());</span>  </span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>           c<span class="op">.</span><span class="fu">Inc</span><span class="op">();</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;c.GetCount() = &quot;</span> <span class="op">+</span> c<span class="op">.</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">());</span> </span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>このプログラムをビルド・実行すると以下の出力が得られる．</p>
+<pre><code>c.GetCount() = 0
+c.GetCount() = 2
+c.GetCount() = 0
+c.GetCount() = 1</code></pre>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>C#の慣習として public なメソッドやフィールド（およびプロパティ）の名前は大文字で始める．</p>
+</div>
+<h4 id="staticメソッドの追加">staticメソッドの追加</h4>
+<p>さらに<code>Counter</code>を便利なものにするために，<code>"12"</code>や<code>"-34"</code>といった文字列を構文解析してカウンターを作成することを考えてみよう．</p>
+<p>このような処理はコンストラクタとしても実装可能であるが，カウンターオブジェクトの生成という感心事からいささか複雑すぎるので避けたい．
+一方で，このような処理を<code>Counter</code>クラスの（インスタンス）メソッドとして実装することはできない．これは， <em>インタンスメソッドはインタンスを操作する</em>
+ものであるが，行いたい処理の時点では <em>インスタンスはまだ生成されていない</em> ためである．実際に，構文上においても，
+インスタンス<code>o</code>に対するインスタンスメソッド<code>Method</code>の呼出しは<code>o.Method(arg1, arg2)</code>となっていて，インスタンスが与えられなければインスタンスメソッドを
+呼び出すことができない．</p>
+<p><strong>static メソッド</strong> を用いればこの問題を解決することができる．static メソッドはざっくりと説明するならば，
+<em>インスタンスではなくクラスに属するメソッド</em> （この言い方は少し正確でない．C#だと構造体型がありそちらもstaticメソッドを持てるので）である．
+そのため，インスタンスが与えられなくても呼び出すことが可能である．
+具体的には以下の形のメソッドを追加する．</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">static</span> Counter <span class="fu">Parse</span><span class="op">(</span><span class="dt">string</span> s<span class="op">)</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">...</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><em>static修飾子</em> はこのメソッドがstaticメソッドであることを表している．</p>
+<p>さて，この関数の実装であるが， <a href="https://docs.microsoft.com/ja-jp/dotnet/api/?view=net-6.0">.NETのAPIリファレンス</a> をよく眺めれば，
+<code>Int32.Parse</code>メソッドを用いることで実装できることに気付く．</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">static</span> Counter <span class="fu">Parse</span><span class="op">(</span><span class="dt">string</span> s<span class="op">)</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>   <span class="dt">int</span> i <span class="op">=</span> Int32<span class="op">.</span><span class="fu">Parse</span><span class="op">(</span>s<span class="op">);</span> </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>   <span class="kw">return</span> <span class="kw">new</span> <span class="fu">Counter</span><span class="op">(</span>i<span class="op">);</span> </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p><code>Int32.Parse</code>も static メソッドの一つである．また，<code>Console.WriteLine</code>も実はstaticメソッドであった．
+このようにstaticメソッド<code>Method</code>はクラス<code>C</code>に対し，<code>C.Method(arg1, arg2)</code>のようにすることで呼び出すことができる．
+実際に以下のプログラムをビルド・実行してみよう．</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">namespace</span> Week1 </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">class</span> Counter </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">private</span> <span class="dt">int</span> count<span class="op">;</span> </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">public</span> <span class="kw">static</span> Counter <span class="fu">Parse</span><span class="op">(</span><span class="dt">string</span> s<span class="op">)</span> </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>            <span class="dt">int</span> i <span class="op">=</span> Int32<span class="op">.</span><span class="fu">Parse</span><span class="op">(</span>s<span class="op">);</span> </span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>            <span class="kw">return</span> <span class="kw">new</span> <span class="fu">Counter</span><span class="op">(</span>i<span class="op">);</span> </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>        <span class="kw">public</span> <span class="fu">Counter</span><span class="op">(</span><span class="dt">int</span> c0<span class="op">)</span> </span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>            count <span class="op">=</span> c0<span class="op">;</span> </span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Inc</span><span class="op">()</span> </span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>            count<span class="op">++;</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Reset</span><span class="op">()</span> </span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>            count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> </span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>        <span class="kw">public</span> <span class="dt">int</span> <span class="fu">GetCount</span><span class="op">()</span> </span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>            <span class="kw">return</span> count<span class="op">;</span> </span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span>        </span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>    <span class="kw">class</span> Program </span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>        <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">(</span><span class="dt">string</span><span class="op">[]</span> args<span class="op">)</span> </span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>           Counter c <span class="op">=</span> Counter<span class="op">.</span><span class="fu">Parse</span><span class="op">(</span><span class="st">&quot;3&quot;</span><span class="op">);</span> </span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;c.GetCount() = &quot;</span> <span class="op">+</span> c<span class="op">.</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">());</span> </span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>           c<span class="op">.</span><span class="fu">Inc</span><span class="op">();</span> </span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>           c<span class="op">.</span><span class="fu">Inc</span><span class="op">();</span> </span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;c.GetCount() = &quot;</span> <span class="op">+</span> c<span class="op">.</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">());</span> </span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>すると以下の出力が得られる．</p>
+<pre><code>c.GetCount() = 3
+c.GetCount() = 5</code></pre>
+<p>ところで，読者の中には以下では何故問題なのかと疑問に思った人もいるかもしれない．</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">static</span> Counter <span class="fu">Parse</span><span class="op">(</span><span class="dt">string</span> s<span class="op">)</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>   <span class="dt">int</span> i <span class="op">=</span> Int32<span class="op">.</span><span class="fu">Parse</span><span class="op">(</span>s<span class="op">);</span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>   count <span class="op">=</span> i<span class="op">;</span> <span class="co">// エラー</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>直観的には<code>Parse</code>はクラスに属するメソッドであるので，インスタンスに属するフィールド<code>count</code>を
+オブジェクト経由なしにアクセスすることができないためである．</p>
+<h3 id="フィールド宣言の基本的な形">フィールド宣言の基本的な形</h3>
+<pre style="line-height:1.3">
+<span class="metaname">修飾子</span> <span class="metaname">型</span> <span class="metaname">フィールド名</span>;
+</pre>
+<p>あるいは</p>
+<pre style="line-height:1.3">
+<span class="metaname">修飾子</span> <span class="metaname">型</span> <span class="metaname">フィールド名</span> = <span class="metaname">初期値</span>;
+</pre>
+<div class="admonition example">
+<p>例</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="dt">int</span> counter<span class="op">;</span> </span></code></pre></div>
+</div>
+<h4 id="修飾子">修飾子</h4>
+<p>上で出てきた<code>private</code>や<code>public</code>はアクセス修飾子と呼ばれ，たとえば以下のようなものがある（全部ではない）．</p>
+<blockquote>
+<ul>
+<li><code>private</code>: それを含むクラスの中からしかアクセスできない．メソッドやフィールドなどの修飾子を省略した場合はprivateになる．</li>
+<li><code>public</code>: どこからでもアクセスできる．</li>
+<li><code>protected</code>: 自身と派生クラス（次回）のみからアクセスできる．</li>
+<li><code>internal</code>: 同一コンパイル単位のかからアクセスできる．（ネストされていない）クラスの修飾子を省略した場合はinternalになる．</li>
+</ul>
+</blockquote>
+<p>ネストされていないクラスは<code>public</code>か<code>internal</code>にしかできない．</p>
+<p>前述の<code>static</code>も修飾子の一つである．</p>
+<h4 id="型">型</h4>
+<p>型には<code>Counter</code>等のクラスや，<code>int</code>等の数値型，<code>bool</code>（真偽値型）や<code>string</code>（文字列型）などがある．
+数値型にはたとえば，以下のようなものがある（全部ではない）．</p>
+<blockquote>
+<ul>
+<li>整数型
+<ul>
+<li><code>sbyte</code>: 符号付き8ビット（1バイト）整数型．-128〜127</li>
+<li><code>byte</code>: 符号なし8ビット（1バイト）整数型．0〜255</li>
+<li><code>int</code>: 符号付き32ビット整数型．-2,147,483,648〜2,147,483,647</li>
+<li><code>uint</code>: 符号なし32ビット整数型．0〜4,294,967,295</li>
+<li><code>long</code>: 符号付き64ビット整数型．-9,223,372,036,854,775,808〜9,223,372,036,854,775,807</li>
+<li><code>ulong</code>: 符号なし64ビット整数型．0〜18,446,744,073,709,551,615</li>
+</ul></li>
+<li>浮動小数点数型
+<ul>
+<li><code>float</code>: 単精度浮動小数点型</li>
+<li><code>double</code>: 倍精度浮動小数点型</li>
+</ul></li>
+</ul>
+</blockquote>
+<h3 id="コンストラクタ宣言の基本的な形">コンストラクタ宣言の基本的な形</h3>
+<pre style="line-height:1.3">
+<span class="metaname">修飾子</span> <span class="metaname">クラス名</span>(<span class="metaname">「パラメータの型 パラメータ」のコンマ区切りの列</span>) 
+{
+      <span class="metaname">文</span>
+      ...
+      <span class="metaname">文</span>
+}
+</pre>
+<div class="admonition example">
+<p>例</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="fu">Counter</span><span class="op">(</span><span class="dt">int</span> c0<span class="op">)</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    count <span class="op">=</span> c0<span class="op">;</span> </span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</div>
+<h3 id="メソッド宣言の基本的な形">メソッド宣言の基本的な形</h3>
+<pre style="line-height:1.3">
+<span class="metaname">修飾子</span> <span class="metaname">返り値の型</span> <span class="metaname">メソッド名</span>(<span class="metaname">「パラメータの型 パラメータ」のコンマ区切りの列</span>) 
+{
+      <span class="metaname">文</span>
+      ...
+      <span class="metaname">文</span>
+}
+</pre>
+<p>返り値がない場合は，<code>void</code>を「返り値の型」として用いる．</p>
+<div class="admonition example">
+<p>例</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">int</span> <span class="fu">GetCount</span><span class="op">()</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> count<span class="op">;</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">Reset</span><span class="op">()</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">(</span><span class="dt">string</span><span class="op">[]</span> args<span class="op">)</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>      Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello World!&quot;</span><span class="op">);</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</div>
+<h2 id="基本的な文statement">基本的な文（statement）</h2>
+<h3 id="宣言文">宣言文</h3>
+<p>（主に）変数を宣言する文．</p>
+<pre style="line-height:1.3">
+<span class="metaname">型</span> <span class="metaname">変数名</span>;
+</pre>
+
+<pre style="line-height:1.3">
+<span class="metaname">型</span> <span class="metaname">変数名</span> = <span class="metaname">初期値</span>;
+</pre>
+<div class="admonition example">
+<p>例</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Counter c <span class="op">=</span> <span class="kw">new</span> <span class="fu">Counter</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span> </span></code></pre></div>
+<p>式の型が明らかな場合には型の代わりに<code>var</code>と書くことができる．たとえば上記は</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> c <span class="op">=</span> <span class="kw">new</span> <span class="fu">Counter</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span></span></code></pre></div>
+<p>とも書ける．また，複数の宣言をまとめて行うことができる．</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x<span class="op">,</span> y <span class="op">=</span> <span class="dv">2</span><span class="op">,</span> z<span class="op">;</span> </span></code></pre></div>
+</div>
+<h3 id="式文いわゆる代入文など">式文（いわゆる代入文など）</h3>
+<p>「式」のみからなる文．全ての式が式文として使用できるわけではない．代表的なものは，インクリメントやデクリメント（前置後置），メソッド呼出，代入など．</p>
+<div class="admonition example">
+<p>例</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>count<span class="op">++;</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello World&quot;</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+</div>
+<h3 id="return文">return文</h3>
+<p>メソッドから値を返す．</p>
+<pre>
+<span class="kw">return</span> <span class="metaname">式</span>
+</pre>
+<div class="admonition example">
+<p>例</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">int</span> <span class="fu">GetValue</span><span class="op">()</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span> </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> count<span class="op">;</span> </span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</div>
+<h3 id="ブロック">ブロック</h3>
+<p>複数の文をまとめた文．</p>
+<pre style="line-height:1.3">
+{
+      <span class="metaname">文</span>
+      ...
+      <span class="metaname">文</span>
+}
+</pre>
+<h3 id="if文">if文</h3>
+<p>真偽値によって分岐を行う文．</p>
+<pre style="line-height:1.3">
+<span class="kw">if</span> (<span class="metaname">式</span>) <span class="metaname">式がtrueに評価されたときに実行される文</span> 
+</pre>
+
+<pre style="line-height:1.3">
+<span class="kw">if</span> (<span class="metaname">式</span>) <span class="metaname">式がtrueに評価されたときに実行される文</span> <span class="kw">else</span> <span class="metaname">式がfalseに評価されたときに実行される文</span>
+</pre>
+<div class="admonition example">
+<p>例</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">// a と bの小さいほうを返す．</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="op">(</span>a <span class="op">&lt;</span> b<span class="op">)</span> <span class="op">{</span> <span class="kw">return</span> a<span class="op">;</span> <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span> <span class="kw">return</span> b<span class="op">;</span> <span class="op">}</span> </span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">// isSwapがtrueならaとbの中身を入れ替える．</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="op">(</span>isSwap<span class="op">)</span> <span class="op">{</span> <span class="dt">var</span> tmp <span class="op">=</span> a<span class="op">;</span> a <span class="op">=</span> b<span class="op">;</span> b <span class="op">=</span> tmp<span class="op">;</span> <span class="op">}</span> </span></code></pre></div>
+</div>
+<div class="tip">
+<div class="title">
+<p>Tip</p>
+</div>
+<p>「式がtrueに評価されたときに実行される文」や「式がfalseに評価されたときに実行される文」
+のところにはブロックを書くようにするとよい．以下のようなミスを防ぐことができる．</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="op">(</span>x <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span> </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>   c<span class="op">++;</span> </span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>   d<span class="op">++;</span> <span class="co">// x &gt; 0 でないときも実行される．</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="op">(</span>x<span class="op">)</span> </span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>   <span class="kw">if</span> <span class="op">(</span>y<span class="op">)</span> a<span class="op">++;</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="kw">else</span> b<span class="op">++;</span> <span class="co">// 内側のifに対応するelse（b++やxがtrueがyがfalseのときに実行される）</span></span></code></pre></div>
+</div>
+<div class="caution">
+<div class="title">
+<p>Caution</p>
+</div>
+<p>C言語と異なり条件に来る式は<code>bool</code>型でなければならない．これは<code>for</code>や<code>while</code>でも同じ．</p>
+</div>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>細かい話ではあるが，宣言文単独は「式がtrueに評価されたときに実行される文」や「式がfalseに評価されたときに実行される文」に来ることができない．</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="op">(</span>x<span class="op">)</span> <span class="dt">int</span> b <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="co">// エラー</span></span></code></pre></div>
+<p>一方で以下は文法上は正しい．</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="op">(</span>x<span class="op">)</span> <span class="op">{</span><span class="dt">int</span> b <span class="op">=</span> <span class="dv">0</span><span class="op">;}</span> </span></code></pre></div>
+</div>
+<h3 id="for文while文">for文，while文</h3>
+<pre style="line-height:1.3">
+<span class="kw">for</span> (<span class="metaname">ループ変数宣言</span> ; <span class="metaname">繰り返し条件</span> ; <span class="metaname">ループ毎の後処理</span>) <span class="metaname">繰り返される文（ループ本体）</span> 
+</pre>
+
+
+<pre style="line-height:1.3">
+<span class="kw">while</span> (<span class="metaname">繰り返し条件</span>) <span class="metaname">繰り返される文（ループ本体）</span> 
+</pre>
+<div class="admonition example">
+<p>例</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> s <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co">// s は 0 から n - 1までの和．</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> i<span class="op">++</span> <span class="op">)</span> </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    s <span class="op">+=</span> i<span class="op">;</span> </span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span>      </span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 標準出力に&quot;yes&quot;を出力しつづける．</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="kw">while</span> <span class="op">(</span><span class="kw">true</span><span class="op">)</span> <span class="co">// 無限ループ</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;yes&quot;</span><span class="op">);</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>上のコードは<code>for</code>を用いても書ける．</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="op">(;;)</span> </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;yes&quot;</span><span class="op">);</span></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="kw">for</span> <span class="op">(;</span><span class="kw">true</span><span class="op">;)</span> </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;yes&quot;</span><span class="op">);</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</div>
+<h3 id="continue文break文">continue文，break文</h3>
+<p><code>continue</code>は次のループに移る．<code>break</code>はループから抜ける．</p>
+<h2 id="基本的な式expression">基本的な式（expression）</h2>
+<p>式：評価されて値となるもの．</p>
+<h3 id="メソッド呼出">メソッド呼出</h3>
+<div class="admonition example">
+<p>例</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello World!&quot;</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>c<span class="op">.</span><span class="fu">Inc</span><span class="op">()</span> </span></code></pre></div>
+<p>別の式の一部としても使うことができる．</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>c<span class="op">.</span><span class="fu">GetValue</span><span class="op">().</span><span class="fu">ToString</span><span class="op">()</span> </span></code></pre></div>
+</div>
+<h3 id="オブジェクト生成式new">オブジェクト生成式（<code>new</code>）</h3>
+<p>オブジェクトを生成する．</p>
+<div class="admonition example">
+<p>例</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">new</span> <span class="fu">Counter</span><span class="op">()</span></span></code></pre></div>
+<p>式なので，他の式の中でも（型が合えば）使うことができる．</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">new</span> <span class="fu">Counter</span><span class="op">().</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">()</span></span></code></pre></div>
+</div>
+<h3 id="インクリメントとデクリメント-">インクリメント（<code>++</code>）とデクリメント（<code>-</code>）</h3>
+<blockquote>
+<ul>
+<li><code>++x</code>は <code>x</code>に1を足して，足した後の値を返す．</li>
+<li><code>--x</code>は <code>x</code>から1を引いて，引いた後の値を返す．</li>
+<li><code>x++</code>は <code>x</code>に1を足して，足す前の値を返す．</li>
+<li><code>x--</code>は <code>x</code>から1を引いて，引く前の値を返す．</li>
+</ul>
+</blockquote>
+<div class="admonition example">
+<p>例</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> a <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> </span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;a = &quot;</span> <span class="op">+</span> a<span class="op">++.</span><span class="fu">ToString</span><span class="op">()</span> <span class="op">);</span> <span class="co">// a = 1</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;a = &quot;</span> <span class="op">+</span> a<span class="op">++.</span><span class="fu">ToString</span><span class="op">()</span> <span class="op">);</span> <span class="co">// a = 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> a <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> </span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;a = &quot;</span> <span class="op">+</span> <span class="op">(++</span>a<span class="op">).</span><span class="fu">ToString</span><span class="op">()</span> <span class="op">);</span> <span class="co">// a = 2</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;a = &quot;</span> <span class="op">+</span> <span class="op">(++</span>a<span class="op">).</span><span class="fu">ToString</span><span class="op">()</span> <span class="op">);</span> <span class="co">// a = 3</span></span></code></pre></div>
+<p>なお <code>++a.ToString()</code>は<code>++(a.ToString())</code>と解釈される（結果，エラーになる）．これはメソッド呼出構文のほうが結合が強いため．</p>
+</div>
+<h3 id="四則演算">四則演算</h3>
+<blockquote>
+<ul>
+<li><code>+</code> 可算</li>
+<li><code>-</code> 減算</li>
+<li><code>*</code> 乗算</li>
+<li><code>/</code> 除算</li>
+<li><code>%</code> 剰余（余り）</li>
+</ul>
+</blockquote>
+<div class="admonition example">
+<p>例</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="op">+</span> <span class="dv">4</span> </span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span> <span class="op">*</span> <span class="dv">4</span>   <span class="co">// 14に評価される</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span><span class="op">)</span> <span class="op">*</span> <span class="dv">4</span> <span class="co">// 20に評価される．</span></span></code></pre></div>
+</div>
+<h3 id="比較演算">比較演算</h3>
+<blockquote>
+<ul>
+<li><code>==</code> 等しい</li>
+<li><code>!=</code> 等しくない</li>
+<li><code>&lt;</code> 小なり</li>
+<li><code>&lt;=</code> 小なりイコール</li>
+<li><code>&gt;</code> 大なり</li>
+<li><code>&gt;=</code> 大なりイコール</li>
+</ul>
+</blockquote>
+<div class="admonition example">
+<p>例</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">==</span> <span class="dv">1</span> <span class="co">// true</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">!=</span> <span class="dv">1</span> <span class="co">// false</span></span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">2</span> <span class="co">// true </span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.0</span> <span class="op">&lt;=</span> <span class="fl">2.0</span> <span class="co">// true</span></span></code></pre></div>
+</div>
+<h3 id="論理演算">論理演算</h3>
+<blockquote>
+<ul>
+<li><code>&amp;&amp;</code> 論理積</li>
+<li><code>||</code> 論理和</li>
+<li><code>!</code> 論理否定</li>
+</ul>
+</blockquote>
+<div class="admonition example">
+<p>例</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="kw">true</span> <span class="op">&amp;&amp;</span> <span class="kw">false</span> <span class="co">// false </span></span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="kw">true</span> <span class="op">||</span> <span class="kw">false</span> <span class="co">// true</span></span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span><span class="kw">true</span> <span class="co">// false </span></span></code></pre></div>
+</div>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p><code>&amp;&amp;</code>および<code>||</code>は短絡する．すなわち<code>false &amp;&amp; e</code>および<code>true || e</code>の<code>e</code>は評価されない．</p>
+</div>
+<h3 id="代入演算">代入演算</h3>
+<blockquote>
+<ul>
+<li><code>x = e</code>は<code>x</code>に<code>e</code>を評価結果を代入する．また，それが，<code>x = e</code>の評価結果となる．</li>
+<li><code>x += e</code>は基本的には<code>x = x + e</code>に同じ</li>
+<li><code>x -= e</code>は基本的には<code>x = x - e</code>に同じ</li>
+<li><code>x *= e</code>は基本的には<code>x = x * e</code>に同じ</li>
+<li><code>x /= e</code>は基本的には<code>x = x / e</code>に同じ</li>
+<li><code>x %= e</code>は基本的には<code>x = x % e</code>に同じ</li>
+<li>他にも<code>&lt;&lt;=</code>や<code>|=</code>などがあるが，本講義では扱わない．</li>
+</ul>
+</blockquote>
+<div class="admonition example">
+<p>例</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> a<span class="op">;</span> </span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>a <span class="op">=</span> <span class="dv">1</span><span class="op">);</span>  <span class="co">// 1</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>a<span class="op">);</span>      <span class="co">// 1</span></span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>a <span class="op">+=</span> <span class="dv">1</span><span class="op">);</span> <span class="co">// 2</span></span></code></pre></div>
+</div>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p><code>x[f()] += e</code>は<code>x[f()] = x[f()] + e</code>と異なり，<code>f()</code>を一回しか呼ばない</p>
+</div>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>第5回および第6回では，「イベント」を扱うための特殊な<code>+=</code>および<code>-=</code>が登場する．</p>
+</div>
+
+        </main>
+
+        <footer>
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </footer>
+    </body>
+</html>

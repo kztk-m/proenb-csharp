@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>環境構築2（Eto.Formsの設定） - 東北大学プログラミング演習B (C#)</title>
+        <link rel="stylesheet" href="./css/cs.css">
+        <script type="text/javascript" src="./js/currentlink.js"></script>
+    </head>
+    <body>
+        <header>
+                      <nav>
+              <ul>
+                <li class="top"><a href="./">ホーム</a></li>
+                <li><a href="./setup.html">環境構築1</a></li>
+                <li><a href="./setup_gui.html">環境構築2</a></li>
+                <!-- <li><a href="./setup_gui.html">GUIライブラリ（Eto.Forms）の設定</a></li> -->
+                <li class="dd"><span class="ddt">講義資料</span>
+                  <ul> 
+                    <li><a href="./w1.html">第1回</a></li>
+                    <li><a href="./w2.html">第2回</a></li>
+                    <li><a href="./w3.html">第3回</a></li>
+                    <li><a href="./w4.html">第4回</a></li>
+                    <li><a href="./w5.html">第5回</a></li>
+                    <li><a href="./w6.html">第6回</a></li>
+                  </ul>
+                </li>
+                <li><a href="./links.html">参考書など</a></li>
+             </ul>
+            </nav>
+
+            
+               <h1>環境構築2（Eto.Formsの設定）</h1>
+            
+            
+            
+               <p class="last-update">最終更新: 2022-04-07 22:26:50</p> 
+            
+        </header>
+
+         
+        <main role="main" class="with-right-nav">
+            <div class="toc">
+<ul>
+<li><a href="#visual-studioの設定">Visual Studioの設定</a>
+<ul>
+<li><a href="#windows編">Windows編</a></li>
+<li><a href="#mac編">Mac編</a></li>
+</ul></li>
+<li><a href="#コマンドライン環境の設定">コマンドライン環境の設定</a></li>
+<li><a href="#gtkのインストール">GTKのインストール</a>
+<ul>
+<li><a href="#mac">Mac</a></li>
+</ul></li>
+</ul>
+</div>
+<p>（本ページに掲載されているスクリーンショットは，マイクロソフトの許諾を得て使用しています．）</p>
+<h2 id="visual-studioの設定">Visual Studioの設定</h2>
+<h3 id="windows編">Windows編</h3>
+<p>Visual Studio 2019を用いる．Eto.Formsの拡張機能は令和4年3月24日(木)時点ではまだVisual Studio 2022に対応していない．</p>
+<ol type="1">
+<li><p>Visual Studioを起動し，メニューバーが表示されている状態にする（たとえば，スタート画面から「コードなしで続行」する）．</p>
+<p><img src="images/ss_eto/win1.png" alt="image" /></p></li>
+<li><p>メニューの「拡張機能」以下の「拡張機能の管理」を開く．</p>
+<p><img src="images/ss_eto/win2.png" alt="image" /></p>
+<p>すると拡張機能の管理ウィンドウが表示されるので，右上の検索窓から”Eto.Forms”を検索する．すると，”Eto.Froms Visual Studio Addin”がリストされるので，
+「ダウンロード」する．</p>
+<p><img src="images/ss_eto/win4.png" alt="image" /></p></li>
+<li><p>すると，「変更内容がスケージュールされます。すべての Microsoft Visual Studio ウィンドウを閉じると変更が開始されます。」と
+表示されるので，一旦Visual Studioを終了させる．</p></li>
+<li><p>その後，以下のウィンドウが表示されるので，「Modify」を選択する．</p>
+<p><img src="images/ss_eto/win5.png" alt="image" /></p></li>
+<li><p>Visual Studioを再度立ち上げる．正しくインストールできていると，「新しいプロジェクト」作成時のテンプレート選択画面で「Eto.Forms Application」が選べるようになる．</p>
+<p><img src="images/ss_eto/win6.png" alt="image" /></p></li>
+<li><p>動作確認ついでに「続行」からプロジェクトを作成してみよう．例のごとくプロジェクト名とソリューション名は適当でよい（<code>HelloEto</code>とする）．</p>
+<p><img src="images/ss_eto/win7.png" alt="image" /></p>
+<p>プロジェクト名とソリューション名を入力後，以下のウィンドウが表示されるがこれは何も変更しなくてよい．</p>
+<p><img src="images/ss_eto/win8.png" alt="image" /></p></li>
+<li><p>作成すると，<code>HelloEto</code> の他に <code>HelloEto.Mac</code>，<code>HelloEto.Gtk</code>，<code>HelloEto.Wpf</code>というプロジェクトが作成されていることがわかる．
+演習では<code>HelloEto</code>（に相当するフォルダ）以下の<code>MainForm.cs</code>を編集することになる．
+ここでは，<code>HelloEto.Wpf</code>をビルド・実行する．（<code>HelloEto.Mac</code>はビルドできるがWindowsで実行できない．<code>HelloEto.Gtk</code>もビルドできるが実行にGTKのインストールが必要）．</p>
+<p><img src="images/ss_eto/win9.png" alt="image" /></p></li>
+<li><p>▶ボタンの左の枠から「HelloEto.Wpf」を選ぶ．選択後，右のソリューションエクプローラーで同プロジェクトが太字になる．</p>
+<p><img src="images/ss_eto/win_wpf1.png" alt="image" /></p></li>
+<li><p>▶ボタンを押すと，以下のウィンドウが表示される．</p>
+<p><img src="images/ss_eto/win_wpf2.png" alt="image" /></p></li>
+<li><p>いつものようなウィンドウタイトルや閉じるボタンが表示されていないように見えるかもしれないが，
+ウィンドウを拡大したら隠れていただけであったことがわかる．黒いパネルはVisual Studio由来であり，実際にコマンドラインからビルド・実行すると表示されない．</p>
+<p><img src="images/ss_eto/win_wpf3.png" alt="image" /></p></li>
+<li><p>“Click Me!”と書かれた部分をクリックするとダイアログが表示される．</p></li>
+<li><p>ウィンドウ右上の閉じるボタンか，Ctrl + Q を押すか，メニューからQuitを選択してプログラムを終了する．</p></li>
+</ol>
+<h3 id="mac編">Mac編</h3>
+<ol type="1">
+<li><p><a href="https://github.com/picoe/Eto/releases">Eto.Fromのリリースページ</a> から，<code>Eto.Addin.VisualStudio.Mac-X.X.X.mpack</code> の最新版を入手する．
+令和4年3月23日(水)時点での最新版は <code>Eto.Addin.VisualStudio.Mac-2.6.1.mpack</code>．</p></li>
+<li><p>メニューの「Visual Studio」以下の「Extensions…」（または「拡張機能…」）を開く．</p></li>
+<li><p>ウィンドウが出てくるので，「ファイルからインストール…」を選び，先程のダウンロードした.mackファイルを選択する．</p></li>
+<li><p>すると，「次のパッケージがインストールされます」と出てくるので，「install」をクリックしインストールする．</p></li>
+<li><p>Visual Studio を再起動する．</p></li>
+<li><p>正しくインストールできていると，「新しいプロジェクト」作成時のテンプレート選択画面で「Multiplatform」（あるいは「マルチプラットフォーム」）以下から「Eto Application」が選べるようになる．</p></li>
+<li><p>動作確認ついでに「続行」からプロジェクトを作成してみよう．例のごとくプロジェクト名とソリューション名は適当でよい（<code>HelloEto</code>とする）．</p></li>
+<li><p>作成すると，<code>HelloEto</code> の他に <code>HelloEto.Mac</code>，<code>HelloEto.Gtk</code>，<code>HelloEto.Wpf</code>というプロジェクトが作成されていることがわかる．
+演習では<code>HelloEto</code>（に相当するフォルダ）以下の<code>MainForm.cs</code>を編集することになる．
+このうち，<code>HelloEto.Wpf</code>はMac版のVisual Studioではビルドできない．ここでは，動作確認のために<code>HelloEto.Mac</code>を（GTKをインストールするのであれば<code>HelloEto.Gtk</code>も）実行してみよう．</p>
+<blockquote>
+<div class="caution">
+<div class="title">
+<p>Caution</p>
+</div>
+<p><a href="https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/permissions">Microsoftの著作物利用のガイドラインを見ると</a>，
+Visual Studio 2022 for Macはまだ正式リリース前なのでスクリーンショットを掲載できないようである．
+このプロジェクトの作成以降は Visual Studio 2019 for Mac を用いたので問題がない…わけではないがなんとかなりはするので，
+代わりにVisual Studio 2019 for Macのスクリーンショットを用いて説明する．画面の構成に大きく違いがあれば都度述べる．</p>
+</div>
+</blockquote>
+<p><img src="images/ss_eto/mac6.png" alt="image" /></p>
+<ul>
+<li><span class="title-ref">HelloEto.Mac</span>
+<ol type="i">
+<li><p>▶ボタンの右に「HelloEto.Mac」が表示されていなければ，その部分をクリックして「HelloEto.Mac」を選択する．左の「ソリューション」の部分で，プロジェクト名「HelloEto.Mac」が太字になっていることを確認する．</p></li>
+<li><p>ここで，Visual Studio 2022 for Mac Previewにおいては▶ボタンがかなづちボタンになっていることに気付くかもしれない．
+これは，Visual Studioはビルドしかせず，実行してくれないことを表している．
+（Visual Studio 2019 for Macだと「▶」のままだが，同様の問題がある．）
+実行するには設定が必要になる．</p>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>少なくとも私（松田）の環境においてVisual Studio 2019 for Macのバージョン 8.10.21 (build 4)ではそもそもビルドに失敗する．
+この問題の一番簡単なワークアラウンドは，Visual Studio 2022 for Mac PreviewやVSCode等を使うことだが，
+<a href="https://github.com/picoe/Eto/issues/2180#issuecomment-1088189064">プロジェクトファイルを修正することでもVisual Studio 2019 for Macでもプロジェクトをビルドできるようになる（Thanks, Curtis Wensley氏）．</a></p>
+<p>具体的には <code>プロジェクト名.Mac</code> 以下にある <code>プロジェクト名.Mac.csproj</code> を以下に述べる通りに編集する（Visual Studio上では，プロジェクトを
+右クリックして，コンテキストメニューから「プロジェクト ファイルの編集」を選ぶことで編集できる）．</p>
+<p>おそらく行頭にある</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Project</span><span class="ot"> Sdk=</span><span class="st">&quot;Microsoft.NET.Sdk&quot;</span>&gt;</span></code></pre></div>
+<p>を</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">Project</span><span class="ot"> Sdk=</span><span class="st">&quot;Microsoft.NET.Sdk&quot;</span><span class="ot"> TreatAsLocalProperty=</span><span class="st">&quot;UseAppHost&quot;</span>&gt;</span></code></pre></div>
+<p>のように変更し，その直下にある</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">PropertyGroup</span>&gt;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">OutputType</span>&gt;Exe&lt;/<span class="kw">OutputType</span>&gt;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- 中略 --&gt;</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">PropertyGroup</span>&gt;</span></code></pre></div>
+<p>の部分に</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">PropertyGroup</span>&gt;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">OutputType</span>&gt;Exe&lt;/<span class="kw">OutputType</span>&gt;</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- 中略 --&gt;</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="kw">UseAppHost</span>&gt;True&lt;/<span class="kw">UseAppHost</span>&gt;</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">PropertyGroup</span>&gt;</span></code></pre></div>
+<p>と<code>&lt;UseAppHost&gt;True&lt;/UseAppHost&gt;</code>を追加する．</p>
+</div>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p><a href="https://github.com/picoe/Eto/wiki/Quick-Start#visual-studio-for-mac-86">生成された実行形式を起動するには，生成された.appファイルをopenするか，その中の実行ファイルを実行する必要がある</a> ．
+この点は <code>dotnet</code> を用いる場合でも同様である．</p>
+</div></li>
+<li><p>左の「ソリューション」の <code>HelloEto.Mac</code> の部分をダブルクリックすると，プロジェクトオプション編集用ウィンドウが表示される．
+「実行」&gt;「構成」&gt;「Default」の項目から，「開始アクション」の「外部プログラムの開始」に以下を入力する（.appの中身なので，「…」ボタンからは選択できない）．</p>
+<pre class><code>bin/Debug/net5.0/HelloEto.Mac.app/Contents/MacOS/HelloEto.Mac</code></pre>
+<p><img src="images/ss_eto/mac_mac2.png" alt="image" /></p>
+<p>（スクリーンショットはVisual Studio 2019 for Macのもの．Visual Studio 2022 for Mac Previewだとこのパネルのデザインが多少異なる．）
+この変更は一回行うのみでよい．</p>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>Visual Studio 2019 for Macだと絶対パスでないとうまくいかないようだったが，
+上記のように相対パスを入力してもVisual Studio 2022 for Mac Previewで一度実行に成功してからは，
+Visual Studio 2019 for Mac上でも実行に成功するようになった．</p>
+<p>詳しい情報がわかれば追記するが，Visual Studio 2022 for Macの正式版が出るほうが先になるかもしれない．</p>
+</div></li>
+<li><p>しばらく待つと，Eto.Formsのアイコン（テンプレート選択画面で表示される円の中に菱形のもの）のアプケーションが起動していることが確認できるので，
+アイコンをクリックするなりしてフォーカスをそのアプリケーションに写す．</p></li>
+<li><p>以下のようなウィンドゥが表示される．</p>
+<p><img src="images/ss_eto/mac_mac4.png" alt="image" /></p></li>
+<li><p>ツールバー上のボタン「Click Me!」は初期ウィンドゥサイズだと隠れてしまっている．拡張して表示しよう．</p>
+<p><img src="images/ss_eto/mac_mac5.png" alt="image" /></p></li>
+<li><p>「Click Me!」の上の部分にマウスポインタを持ってくると，色が変わる部分があるのでそこをクリックするとダイアログが表示される．</p>
+<ul>
+<li>「Click Me!」自体はクリックできない．</li>
+</ul>
+<p><img src="images/ss_eto/mac_mac6.png" alt="image" /></p></li>
+<li><p>Command + Q を押すか，メニューからQuitを選択してプログラムを終了する．</p>
+<div class="caution">
+<div class="title">
+<p>Caution</p>
+</div>
+<p>ウィンドウ左上の閉じるボタンはプログラムを終了させない．この挙動はMacの一般的なアプリケーションプログラムと同様である．</p>
+</div></li>
+</ol></li>
+<li><span class="title-ref">HelloEto.Gtk</span>
+<ol type="i">
+<li><p>GTKをインストールする（参考：<a href="#gtkのインストール">GTKのインストール</a>）</p></li>
+<li><p>▶ボタンの右に「HelloEto.Gtk」が表示されていることを確認する．そうでなければ，その部分をクリックして「HelloEto.Gtk」を選択する．
+左の「ソリューション」の部分で，プロジェクト名<code>HelloEto.Gtk</code> が太字になっていることを確認する．</p></li>
+<li><p>しばらく待つと，「実行形式ファイル」アイコンのアプケーションが起動していることが確認できるので，アイコンをクリックするなりしてフォーカスをそのアプリケーションに写す．</p></li>
+<li><p>以下のようなウィンドゥが表示される．</p>
+<p><img src="images/ss_eto/mac_gtk3.png" alt="image" /></p></li>
+<li><p>“Click Me!”と書かれたボタンをクリックするとダイアログが表示される．</p></li>
+<li><p>ウィンドウ左上の閉じるボタンか，Ctrl + Q を押すか，メニューからQuitを選択してプログラムを終了する．</p></li>
+</ol></li>
+</ul></li>
+</ol>
+<h2 id="コマンドライン環境の設定">コマンドライン環境の設定</h2>
+<p>WindowsだとPowerShell，Macだと適当な仮想端末アプリケーション（Terminal.app）を使って以下を実行する．</p>
+<ol type="1">
+<li><p>以下を行う（設定自体はこれで終わり）．</p>
+<pre class><code>dotnet new -i &quot;Eto.Forms.Templates::*&quot;</code></pre></li>
+<li><p>確認のために以下を実行してみる．</p>
+<pre class><code>dotnet new -l eto</code></pre>
+<p>たとえば，以下のように表示されるはず．</p>
+<pre class><code>これらのテンプレートは、入力: 'eto' と一致しました
+
+テンプレート名             短い名前  言語        タグ
+-------------------------  --------  ----------  ------------------
+Eto Application            etoapp    [C#],F#,VB  Cross Platform/Eto
+Eto Panel, Dialog or Form  etofile   [C#],F#,VB  Cross Platform/Eto</code></pre></li>
+<li><p>動作確認</p>
+<ol type="i">
+<li><p>適当なディレクトリに移動し，その下に適当な名前のディレクトリを作成する（<code>HelloEto</code>とする）</p>
+<pre class><code>mkdir HelloEto </code></pre></li>
+<li><p>作成したディレクトリに移動する．</p>
+<pre class><code>cd HelloEto </code></pre></li>
+<li><p>以下を実行するを実行する．</p>
+<pre class><code>dotnet new etoapp </code></pre>
+<p>その後<code>ls</code>してみると以下のようなディレクトリが生成されたのがわかる（Windowsだと<code>ls</code>は<code>dir</code>の別名なので表示は異なる）．</p>
+<pre class><code>$ ls 
+HelloEto/     HelloEto.Gtk/ HelloEto.Mac/ HelloEto.Wpf/</code></pre></li>
+</ol></li>
+</ol>
+<blockquote>
+<ol>
+<li>buildおよび実行してみる．
+<ul>
+<li><p>Windowsの場合，まず以下を実行しプロジェクトHelloEto.Wpfをビルドする．</p>
+<pre class><code>dotnet build HelloEto.Wpf </code></pre>
+<p>その後以下のコマンドでビルドしたプログラムを実行する．</p>
+<pre class><code>dotnet run --project HelloEto.Wpf</code></pre>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>Mac環境だと .Wpf版はビルドできない．</p>
+</div></li>
+<li><p>Macの場合，まず以下を実行しプロジェクトHelloEto.Macをビルドする．</p>
+<pre class><code>dotnet build HelloEto.Mac</code></pre>
+<p>その後以下のコマンドでビルドしたプログラムを実行する（net5.0の部分は対象のフレームワークによって異なる）．</p>
+<pre class><code>open HelloEto.Mac/bin/Debug/net5.0/HelloEto.Mac.app</code></pre>
+<div class="caution">
+<div class="title">
+<p>Caution</p>
+</div>
+<p><code>dotnet run --project HelloEto.Mac</code> では実行に失敗する．</p>
+</div>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>Windows環境だと，.Mac版はビルドできるが実行できない．</p>
+</div></li>
+<li><p>GTKがインストールされているのならば（参考：<a href="#gtkのインストール">GTKのインストール</a>），GTK版をビルド・実行してみるのもよい．
+まず，以下を実行しビルドする．</p>
+<pre class><code>dotnet build HelloEto.Gtk</code></pre>
+<p>つぎに，以下を実行しビルドしたプログラムを実行する．</p>
+<pre class><code>dotnet run --project HelloEto.Gtk</code></pre></li>
+</ul></li>
+</ol>
+</blockquote>
+<h2 id="gtkのインストール">GTKのインストール</h2>
+<p>オプショナル．Macだと<code>dotnet run</code>で実行できないのが面倒だし，遅かれ早かれ<code>brew</code>は入れることになると思うので，インストールするのがよいかもしれない．</p>
+<p>Windows環境については情報収集中．</p>
+<h3 id="mac">Mac</h3>
+<ol type="1">
+<li><a href="https://brew.sh/">Homebrew</a> をトップページに書いてあることに従いインストールする．</li>
+<li>ターミナルから <code>brew install gtk+3</code> を実行する
+<ul>
+<li><code>brew update</code>も必要かもしれない</li>
+</ul></li>
+</ol>
+
+        </main>
+        
+
+        <footer>
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </footer>
+    </body>
+</html>

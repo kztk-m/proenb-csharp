@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>第5回 課題 - 東北大学プログラミング演習B (C#)</title>
+        <link rel="stylesheet" href="./css/cs.css">
+        <script type="text/javascript" src="./js/currentlink.js"></script>
+    </head>
+    <body>
+        <header>
+                      <nav>
+              <ul>
+                <li class="top"><a href="./">ホーム</a></li>
+                <li><a href="./setup.html">環境構築1</a></li>
+                <li><a href="./setup_gui.html">環境構築2</a></li>
+                <!-- <li><a href="./setup_gui.html">GUIライブラリ（Eto.Forms）の設定</a></li> -->
+                <li class="dd"><span class="ddt">講義資料</span>
+                  <ul> 
+                    <li><a href="./w1.html">第1回</a></li>
+                    <li><a href="./w2.html">第2回</a></li>
+                    <li><a href="./w3.html">第3回</a></li>
+                    <li><a href="./w4.html">第4回</a></li>
+                    <li><a href="./w5.html">第5回</a></li>
+                    <li><a href="./w6.html">第6回</a></li>
+                  </ul>
+                </li>
+                <li><a href="./links.html">参考書など</a></li>
+             </ul>
+            </nav>
+
+            
+               <h1>第5回 課題</h1>
+             
+            
+               <p class="last-update">最終更新: 2022-04-06 12:59:18</p> 
+            
+            <div class="qnav">
+              <ul>
+                <li><a href="w5.html">講義資料</a></li><li><a href="q5.html">課題</a></li>
+              </ul>
+            </div>   
+        </header>
+
+        <main role="main" class="with-right-nav">
+          <div class="toc">
+            <ul>
+              <li><a href="#課題の進め方">課題の進め方</a> </li>
+              <li><a href="#基本課題">基本課題</a></li>
+              <li><a href="#発展課題">発展課題</a> </li>
+            </ul>
+          </div>
+            <h2 id="課題の進め方">課題の進め方</h2>
+<h3 id="プロジェクトの作成">プロジェクトの作成</h3>
+<p>まずは，</p>
+<pre><span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span></pre>
+<p>という名前のプロジェクトを作成する．たとえば，Z0TB9999さんの第3回課題の提出であれば，プロジェクト名は<code>Z0TB9999_Q3</code>とする．</p>
+<p>Visual Studio場合はの「新しいプロジェクトの作成」（Windows）や「新規」/「New」（Mac）から，C#のコンソールアプリケーションテンプレートを
+選び，プロジェクト名を上記のものとする．コマンドラインで行う場合は<code>dotnet new console -o プロジェクト名</code>とすればよい．</p>
+<h3 id="課題の実施">課題の実施</h3>
+<p>.cs ファイルを問題文の指示の通りに作成する．提出する .csファイルには先頭部分に <strong>学籍番号と名前をコメントとして含める</strong> こと．</p>
+<h3 id="提出">提出</h3>
+<ol type="1">
+<li><code>obj</code>フォルダや<code>bin</code>フォルダ以下に含まれている中間生成物や実行形式は提出しなくてよい（し，サイズが大きいので含まれていると御互いにアップロードやダウンロードに時間がかかって辛い）ので，提出前にプロジェクトをクリーン（生成物を削除すること）する．
+<ul>
+<li>Visual Studioを使用している場合はプロジェクト名を右クリックして出てくる <em>「〜をクリーン」</em> を実行する</li>
+<li>コマンドラインの場合は当該フォルダに移動して<code>dotnet clean</code>する．</li>
+<li>あるいは以下の手順を実行する前に <code>obj</code> と <code>bin</code> フォルダを消したのでよい．</li>
+</ul></li>
+<li>以下の手順によりプロジェクトが含まれているフォルダを.zipにまとめる．いずれも「プロジェクト名.zip」が手に入る．
+<ul>
+<li>Windowsの場合は，プロジェクトが含まれているフォルダ（Visual Studioのスタートアップ画面で <em>「ローカルフォルダーを開く」</em> を選ぶと場所がわかる．デフォルトは<code>%HOMEPATH%\source\repos</code>）をエクスプローラーで表示し，そのプロジェクト名のフォルダを右クリックして
+<em>「送る」</em> から <em>「圧縮（zip形式）フォルダー」</em>
+を選択する．</li>
+<li>Macの場合は，プロジェクトが含まれているフォルダ（Visual Studioのデフォルトは<code>~/Projects/</code>）をFinder.appで表示し，そのプロジェクト名のフォルダをCtrl + クリック（あるいは二本指クリックか右クリック）して， <em>「”〜”を圧縮」</em> を選ぶ．</li>
+<li><code>git</code>で解答を管理しているのならば，
+<code>git archive --prefix=<span class="metaname">プロジェクト名/</span> <span class="metaname">ブランチ名</span> -o <span class="metaname">プロジェクト名</span>.zip</code>
+などとすればレポジトリの内容を纏めた.zipファイルを作成できる．
+<ul>
+<li><strong>公開レポジトリに解答を決して置かないように．</strong></li>
+</ul></li>
+</ul></li>
+<li>得られた「プロジェクト名.zip」をClassroom内の当該回の「課題」より提出する．
+<ul>
+<li>たとえば，Z0TB9999さんの第3回課題の提出であれば，提出するファイルの名前は<code>Z0TB9999_Q3.zip</code>とする．</li>
+</ul></li>
+</ol>          
+            <h2 id="基本課題">基本課題</h2>
+<h3 id="その1">その1</h3>
+<p>ラベルを</p>
+<pre><code>Label</code></pre>
+<p>ボタンを</p>
+<pre><code>(Button)</code></pre>
+<p>テキストボックスを</p>
+<pre><code>[          ]</code></pre>
+<p>テキストエリアを</p>
+<pre><code>+-------------+
+|             |
+|             |
++-------------+</code></pre>
+<p>というアスキーアートで書くことにする．</p>
+<p>このとき，Eto.Formを用いて以下のようにコントロールが配置されているウィンドゥを作成しなさい．
+<strong>ただし，テンプレートから生成されたコードのうち，MainForm.cs のみ変更すること．</strong></p>
+<pre><code>File: [                       ]  (Load) 
++-------------------------------------+
+|                                     |
+|                                     |
+|                                     |
+|                                     |
+|                                     |
++-------------------------------------+
+Ready</code></pre>
+<p>ただし，以下を満たすこと．</p>
+<ul>
+<li>“File:”，”Ready”の部分は<code>Label</code>を用いて実現</li>
+<li>“<a href="File:%22の右のテキストボックスは">File:"の右のテキストボックスは</a><code>TextBox</code>を用いて実現</li>
+<li>“(Load)”の部分は<code>Button</code>を用いて実現</li>
+<li>中央のテキストエリアは<code>TextArea</code>を用いて実現</li>
+<li>ウィンドウのサイズは十分に大きい（たとえば400x300程）</li>
+<li>TextBoxの部分にはプレースホルダーテキストを設定してもよいし，しなくてもよい
+<ul>
+<li><code>PlaceholderText</code>プロパティ（<code>string</code>型）を用いると設定できる．</li>
+</ul></li>
+</ul>
+<h3 id="その2">その2</h3>
+<p>便宜上，上記で”Ready”と書かれている部分を「ステータス行」と呼ぶことにする．</p>
+<p>上記のアプリケーションに以下の機能を実装せよ．</p>
+<ul>
+<li>“Load”ボタンが押されたら，テキストボックスに入力されたテキストファイルを開き，
+その内容を中央のテキストボックスに表示する．
+<ul>
+<li>ただし，もしファイルが見付からなければ，中央のテキストボックスには何もせず，
+ステータス行にその旨を表示（たとえば”Error: File not found”など）</li>
+<li><code>PathTooLongException</code>，<code>DirectoryNotFoundException</code>，<code>NotSupportedException</code>のいずれかが発生したら，
+ステータス行に”Invalid path”などと表示．</li>
+<li><code>UnauthorizedAccessException</code>か<code>SecurityException</code>が発生したら，ステータス行にその旨を表示（たとえば，”Permission denied”など）</li>
+<li><code>IOException</code>が発生した場合の処理は規定しない</li>
+<li>読み込みに成功したら，ステータス行に”Load ok”と表示する．</li>
+</ul></li>
+</ul>
+<div class="hint">
+<div class="title">
+<p>Hint</p>
+</div>
+<p>テキストボックスに入力されたテキストを取得するには<code>Text</code>プロパティを用いる．テキストエリアにテキストを設定するには，
+当該オブジェクトの<code>Text</code>を用いる．</p>
+<p>例外処理については <a href="./w4.html">前回</a> 参照．</p>
+</div>
+<h2 id="発展課題">発展課題</h2>
+<p>上記アプリケーションを拡張し，”Save”ボタンを追加せよ．コントロールの配置は以下のようにせよ．</p>
+<pre><code>File: [                ]  (Load) (Save)
++-------------------------------------+
+|                                     |
+|                                     |
+|                                     |
+|                                     |
+|                                     |
++-------------------------------------+
+Ready</code></pre>
+<p>“Save”ボタンが押されたときには，その時点でのテキストエリアの内容を，
+その時点でのテキストボックスに入力されたファイルに保存する機能を実装せよ．</p>
+<p>ただし，</p>
+<ul>
+<li>もしファイルが見付からなければそのファイルを作成するようにし，
+ファイルが見付かったならばそのファイルを上書きするようにする．</li>
+<li><code>PathTooLongException</code>，<code>DirectoryNotFoundException</code>，<code>NotSupportedException</code>のいずれかが発生したら，
+ステータス行に”Invalid path”などと表示．</li>
+<li><code>UnauthorizedAccessException</code>か<code>SecurityException</code>が発生したら，ステータス行にその旨を表示（たとえば，”Permission denied”など）</li>
+<li><code>IOException</code>が発生した場合の処理は規定しない</li>
+<li>書き込みに成功したら，ステータス行に”Save ok”と表示する</li>
+</ul>
+        </main>
+
+        <footer>
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </footer>
+    </body>
+</html>

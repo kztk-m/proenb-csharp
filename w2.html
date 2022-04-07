@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>第2回 継承 - 東北大学プログラミング演習B (C#)</title>
+        <link rel="stylesheet" href="./css/cs.css">
+        <script type="text/javascript" src="./js/currentlink.js"></script>
+    </head>
+    <body>
+        <header>
+                      <nav>
+              <ul>
+                <li class="top"><a href="./">ホーム</a></li>
+                <li><a href="./setup.html">環境構築1</a></li>
+                <li><a href="./setup_gui.html">環境構築2</a></li>
+                <!-- <li><a href="./setup_gui.html">GUIライブラリ（Eto.Forms）の設定</a></li> -->
+                <li class="dd"><span class="ddt">講義資料</span>
+                  <ul> 
+                    <li><a href="./w1.html">第1回</a></li>
+                    <li><a href="./w2.html">第2回</a></li>
+                    <li><a href="./w3.html">第3回</a></li>
+                    <li><a href="./w4.html">第4回</a></li>
+                    <li><a href="./w5.html">第5回</a></li>
+                    <li><a href="./w6.html">第6回</a></li>
+                  </ul>
+                </li>
+                <li><a href="./links.html">参考書など</a></li>
+             </ul>
+            </nav>
+
+            
+               <h1>第2回 継承</h1>
+             
+            
+               <p class="last-update">最終更新: 2022-04-04 12:11:41</p> 
+            
+            <div class="qnav">
+              <ul>
+                <li><a href="w2.html">講義資料</a></li><li><a href="q2.html">課題</a></li>
+              </ul>
+            </div>   
+        </header>
+
+        <main role="main" class="with-right-nav">
+            <div class="toc">
+<ul>
+<li><a href="#オブジェクト指向言語の利点">オブジェクト指向言語の利点</a></li>
+<li><a href="#継承inheritance">継承（inheritance）</a>
+<ul>
+<li><a href="#例電話機">例：電話機</a></li>
+</ul></li>
+<li><a href="#object型"><code>object</code>型</a></li>
+<li><a href="#オーバロードoverload">オーバロード（overload）</a></li>
+<li><a href="#キャスト">キャスト</a></li>
+<li><a href="#練習問題">練習問題</a></li>
+</ul>
+</div>
+<h2 id="オブジェクト指向言語の利点">オブジェクト指向言語の利点</h2>
+<p><a href="./w1.html">前回</a>，オブジェクトというのは大雑把には「データと，それに関連する関数」をまとめたものであり，
+「オブジェクトの作成やオブジェクトに対するメソッドを呼び出しを基本としてプログラムを構成する」のが
+（C#などにおける）オブジェクト指向プログラミングであると述べた．
+そして，実際に例や課題を通してオブジェクト指向プログラミングを体験してもらった．</p>
+<p>では，そのようなアプローチにどのような利点があるだろうか．ひとつは <strong>カプセル化</strong> である．
+アクセス指定子を適切に設定することにより，関数やデータをプログラムの他のパートから隠蔽することができる．
+また，クラスを利用することによって，「データ」と「それに関連する関数」という明らかに関連の深いものを，
+自然に局所にまとめることが可能となる．
+これにより，クラスを開発する側はプログラムの他の部分を気にすることなく内部実装を変更することができるようになるし，
+クラスやそのクラスのオブジェクトを使う側は内部の詳細を気にすることなしにそのクラスやそのオブジェクトを利用することができる．
+こうした，部品毎に分けてプログラムを開発できることは <strong>モジュラリティ</strong> と呼ばれ，実用的なプログラミング言語が兼ね備えているべき能力の一つである．</p>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>クラスやオブジェクトが（オブジェクト指向）言語のモジュラリティを支える全てではない．
+一方で，クラスではうまくまとめきれない感心事をまとめるためにアスペクト指向言語などの言語が提案されている．
+また，後半学ぶF#のような（典型的な）関数プログラミング言語では得意とする抽象化が異なる（「visitorパターン」や「expression problem」について調べてみよ）．</p>
+</div>
+<p>また <strong>継承</strong> によるコードの再利用性や，その継承を利用した <strong>ポリモーフィズム</strong> （「多態性」や「多相性」など． <em>同じコードで異なる型のデータを扱えること</em> ）も
+C#のようなクラスべースのオブジェクト指向言語の利点である．</p>
+<p>今回の演習では，それを詳しくみることにする．</p>
+<h2 id="継承inheritance">継承（inheritance）</h2>
+<p>継承は，元となるクラス<code>B</code>（基底クラス，親クラスなど）からアクセスレベルがprivateでない（protected，internalや publicなど）なフィールドやメソッド等を
+すべて受け継いだクラス<code>D</code>（派生クラス，子クラスなど）を作成する手法である．
+その際において以下が可能となる．</p>
+<blockquote>
+<ul>
+<li><code>D</code>のインスタンスは<code>B</code>のインスタンスして扱うことができる（<code>D</code>は<code>B</code>の <strong>部分型（subtype）</strong> ）</li>
+<li>クラス<code>B</code>の <strong>仮想メソッド（virtual method）</strong> を クラス<code>D</code>は <strong>オーバライド（override）</strong> することができる．
+<ul>
+<li><p><code>D</code>が<code>B</code>の仮想メソッド<code>f()</code>をオーバライドしているしている場合，以下で呼び出されるメソッドは
+元々の<code>B</code>のものではなく<code>D</code>がオーバライドしたものとなる．</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>B b <span class="op">=</span> <span class="kw">new</span> <span class="fu">D</span><span class="op">();</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>b<span class="op">.</span><span class="fu">f</span><span class="op">();</span>          </span></code></pre></div></li>
+</ul></li>
+</ul>
+</blockquote>
+<h3 id="例電話機">例：電話機</h3>
+<p>例を通して継承を説明しよう．以下の<code>Phone</code>クラスを考える．</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Phone </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 電話番号</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">protected</span> <span class="dt">string</span> number<span class="op">;</span> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Phone</span><span class="op">(</span><span class="dt">string</span> n<span class="op">)</span> </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>       number <span class="op">=</span> n<span class="op">;</span> </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Call</span><span class="op">()</span> </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Called!&quot;</span><span class="op">);</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 仮想メソッド</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">virtual</span> <span class="dt">void</span> <span class="fu">Info</span><span class="op">()</span> </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Phone: &quot;</span> <span class="op">+</span> number<span class="op">);</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>これを元に，電話番号の他にメールアドレスも持つ <code>MobilePhone</code> クラスを作成してみる．
+C#では継承は，クラス定義の際にクラス名の横に<code>: 基底クラス</code>とすることで行える．</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// MobilePhoneはPhoneの派生クラス</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MobilePhone <span class="op">:</span> Phone</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">protected</span> <span class="dt">string</span> email<span class="op">;</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// &quot;: base(n)&quot; の部分は基底クラスのコンストラクタを呼ぶ．ここでは Phone(n) </span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 省略は &quot;: base()&quot; と同じ意味である．</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// そのため，もしここで省略すると Phone()は定義されていないためエラーになる．</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">MobilePhone</span><span class="op">(</span><span class="dt">string</span> n<span class="op">,</span> <span class="dt">string</span> e<span class="op">)</span> <span class="op">:</span> <span class="kw">base</span><span class="op">(</span>n<span class="op">)</span> </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>       email <span class="op">=</span> e<span class="op">;</span> </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">// MobilePhoneはPhoneに含まれないメソッドを含んでもよい．</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Mail</span><span class="op">()</span> </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Mailed!&quot;</span><span class="op">);</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span>   </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 仮想メソッドをオーバライド</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">override</span> <span class="dt">void</span> <span class="fu">Info</span><span class="op">()</span> </span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 基底クラスの Info() を呼ぶ</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>       <span class="kw">base</span><span class="op">.</span><span class="fu">Info</span><span class="op">();</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;EMail: &quot;</span> <span class="op">+</span> email<span class="op">);</span> </span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span>       </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>以下のように，MobilePhoneのインスタンスに対しては基底クラスのメソッドも，MobilePhoneのメソッドも呼び出すことができる．</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>MobilePhone mp <span class="op">=</span> <span class="kw">new</span> <span class="fu">MobilePhone</span><span class="op">(</span><span class="st">&quot;090-0000-0000&quot;</span><span class="op">,</span> <span class="st">&quot;nobody@example.com&quot;</span><span class="op">);</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>mp<span class="op">.</span><span class="fu">Call</span><span class="op">();</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>mp<span class="op">.</span><span class="fu">Mail</span><span class="op">();</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>mp<span class="op">.</span><span class="fu">Info</span><span class="op">();</span> </span></code></pre></div>
+<p>上を（適当なMainメソッドを用意するなどして）実行すると，以下となる．</p>
+<pre><code>Called!
+Mailed! 
+Phone: 090-0000-0000
+EMail: nobody@example.com </code></pre>
+<p>前述したように，MobilePhoneのインスタンスはPhoneのインスタンスでもある．
+そのため，以下のようなコードも記述できる．</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Phone p <span class="op">=</span> <span class="kw">new</span> <span class="fu">MobilePhone</span><span class="op">(</span><span class="st">&quot;090-0000-0000&quot;</span><span class="op">,</span> <span class="st">&quot;nobody@example.com&quot;</span><span class="op">);</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>p<span class="op">.</span><span class="fu">Call</span><span class="op">();</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">// p.Mail(); はエラーになる．MailはPhoneのメソッドではないので</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>p<span class="op">.</span><span class="fu">Info</span><span class="op">();</span> </span></code></pre></div>
+<p>実行結果は以下となる．</p>
+<pre><code>Called!
+Phone: 090-0000-0000
+EMail: nobody@example.com </code></pre>
+<p>ここで注目すべきことは二つある．一つは</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Phone p <span class="op">=</span> <span class="op">...</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>p<span class="op">.</span><span class="fu">Call</span><span class="op">();</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>p<span class="op">.</span><span class="fu">Info</span><span class="op">();</span> </span></code></pre></div>
+<p>というコードは<code>p</code>に代入されるものがPhoneのインスタンスであろうがMobilePhoneのインスタンスであろうが動作する．
+このように同じコードで異なるデータを扱えることをポリモーフィズムと言う．</p>
+<p>もう一つは<code>Info()</code>は仮想メソッドであるので<code>p.Info()</code>の挙動は実際に<code>p</code>に代入されるインスタンスにより変わりうる．
+現時点では<code>Phone</code>の派生クラスは<code>MobilePhone</code>しかないが，別の派生クラスを定義したり<code>MobilePhone</code>をさらに派生したりすること
+も可能である．</p>
+<p>実際に以下のコードを実行することで動作を確認してみよう．</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Phone </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">protected</span> <span class="dt">string</span> number<span class="op">;</span> </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">Phone</span><span class="op">(</span><span class="dt">string</span> n<span class="op">)</span> </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>       number <span class="op">=</span> n<span class="op">;</span> </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Call</span><span class="op">()</span> </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Called!&quot;</span><span class="op">);</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">virtual</span> <span class="dt">void</span> <span class="fu">Info</span><span class="op">()</span> </span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Phone: &quot;</span> <span class="op">+</span> number<span class="op">);</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MobilePhone <span class="op">:</span> Phone </span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">protected</span> <span class="dt">string</span> email<span class="op">;</span> </span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">MobilePhone</span><span class="op">(</span><span class="dt">string</span> n<span class="op">,</span> <span class="dt">string</span> e<span class="op">)</span> <span class="op">:</span> <span class="kw">base</span><span class="op">(</span>n<span class="op">)</span> </span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>       email <span class="op">=</span> e<span class="op">;</span> </span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Mail</span><span class="op">()</span> </span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Mailed!&quot;</span><span class="op">);</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span>   </span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">override</span> <span class="dt">void</span> <span class="fu">Info</span><span class="op">()</span> </span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>       <span class="kw">base</span><span class="op">.</span><span class="fu">Info</span><span class="op">();</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;EMail: &quot;</span> <span class="op">+</span> email<span class="op">);</span> </span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span>       </span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Program </span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">CallAndInfo</span><span class="op">(</span>Phone p<span class="op">)</span> </span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>       p<span class="op">.</span><span class="fu">Call</span><span class="op">();</span> </span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>       p<span class="op">.</span><span class="fu">Info</span><span class="op">();</span> </span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">(</span><span class="dt">string</span><span class="op">[]</span> args<span class="op">)</span> </span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>       <span class="fu">CallAndInfo</span><span class="op">(</span> <span class="kw">new</span> <span class="fu">Phone</span><span class="op">(</span><span class="st">&quot;090-0000-0000&quot;</span><span class="op">)</span> <span class="op">);</span> </span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;--------------------&quot;</span><span class="op">);</span></span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>       <span class="fu">CallAndInfo</span><span class="op">(</span> <span class="kw">new</span> <span class="fu">MobilePhone</span><span class="op">(</span><span class="st">&quot;090-0000-0000&quot;</span><span class="op">,</span> <span class="st">&quot;nobody@example.com&quot;</span> <span class="op">));</span></span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>実行結果は以下となる．</p>
+<pre><code>Called!
+Phone: 090-0000-0000
+--------------------
+Called!
+Phone: 090-0000-0000
+EMail: nobody@example.com</code></pre>
+<h2 id="object型"><code>object</code>型</h2>
+<p>C#には<code>object</code>という，全ての型の祖先となる型が存在する．<code>object</code>の興味深い仮想メソッドの一つに<code>ToString()</code>がある．</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> a <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> b <span class="op">=</span> <span class="kw">true</span><span class="op">;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> c <span class="op">=</span> <span class="fl">2.3</span><span class="op">;</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>a<span class="op">);</span> <span class="co">// 1</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>b<span class="op">);</span> <span class="co">// True</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>c<span class="op">);</span> <span class="co">// 2.3 </span></span></code></pre></div>
+<p>以上のコードが<code>a</code>と<code>b</code>と<code>c</code>の型が違うにもかかわらず動作するのは，<code>Console.WriteLine(object)</code>が中で<code>ToString()</code>を呼んでいるためである．</p>
+<h2 id="オーバロードoverload">オーバロード（overload）</h2>
+<p>C#ではクラスは引数の型や数の異なる複数の同名のメソッドやコンストラクタを持つ（ <strong>オーバロード</strong> ）ことができる．
+たとえば，<a href="./w1.html">前回</a>の<code>Counter</code>クラスに以下のコンストラクタやメソッドを追加することができる．</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="fu">Counter</span><span class="op">()</span> <span class="op">:</span> <span class="kw">this</span><span class="op">(</span><span class="dv">0</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="fu">Counter</span><span class="op">(</span> Counter c <span class="op">)</span> <span class="op">:</span> <span class="kw">this</span><span class="op">(</span>c<span class="op">.</span><span class="fu">GetValue</span><span class="op">())</span> <span class="op">{</span> <span class="op">}</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">void</span> <span class="fu">Inc</span><span class="op">(</span><span class="dt">int</span> c<span class="op">)</span> </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    count <span class="op">+=</span> c<span class="op">;</span> </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>オーバロードも（広義の）ポリモーフィズムを実現する言語機能の一つである．</p>
+<div class="admonition example">
+<p>例</p>
+<p>たとえば，+演算子は多数オーバロードされていて，たとえばそれにより通常の加算だけでなく，
+文字列同士の連接や<code>ToString()</code>を経由した文字列の連接が行える．</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello&quot;</span> <span class="op">+</span> <span class="st">&quot; &quot;</span> <span class="op">+</span> <span class="st">&quot;World!&quot;</span><span class="op">);</span> <span class="co">// Hello World!</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;i = &quot;</span> <span class="op">+</span> i<span class="op">);</span>               <span class="co">// i = 0 </span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> d <span class="op">=</span> <span class="fl">2.3</span><span class="op">;</span> </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>d <span class="op">+</span> <span class="st">&quot;.&quot;</span><span class="op">);</span>                  <span class="co">// 2.3.</span></span></code></pre></div>
+<p>最初の<code>WriteLine</code>では，引数として<code>string</code>2つを受けとる+演算子（2つとも）が使用されている．
+二個目の例では，第一引数として<code>string</code>，第二引数として<code>object</code>を受けとる+演算子が，
+最後の例では，第一引数として<code>object</code>，第二引数として<code>string</code>を受けとる+演算子が使用されている．</p>
+</div>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>継承によるポリモーフィズムは部分型ポリモーフィズム（subtype polyrmorphism）と呼ばれるものの一種であるが，
+オーバロードによるポリモーフィズムはアドホックポリモーフィズム（ad-hoc polymorphism）と呼ばれるものの一種である．</p>
+</div>
+<h2 id="キャスト">キャスト</h2>
+<p>C#では，数値型をより広い型や浮動小数点数型に変換したり，
+派生クラスのインスタンスを基底クラスのインスタンスに変換したりするのに陽な操作は不要である．</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">byte</span> b <span class="op">=</span> <span class="bn">0xbe</span><span class="op">;</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> i <span class="op">=</span> b<span class="op">;</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> d <span class="op">=</span> i<span class="op">;</span> </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>Phone p <span class="op">=</span> <span class="kw">new</span> <span class="fu">MobilePhone</span><span class="op">(</span><span class="st">&quot;090-0000-0000&quot;</span><span class="op">,</span> <span class="st">&quot;nobody@example.com&quot;</span> <span class="op">);</span> </span></code></pre></div>
+<p>一方で，その逆をするにはキャストが必要である．</p>
+<pre style="line-height:1.3">
+(<span class="metaname">型</span>) <span class="metaname">式</span>
+</pre>
+<p>デフォルトだと，整数型をより小さい整数型にキャストするときには上位ビットが切り詰められ，
+同じサイズの整数型にキャストするときは同じビット表現がキャスト先の型として解釈されることになる．
+定数がキャストされるときにキャスト先の型の収まらない場合は <strong>例外</strong> （後の回で詳しく紹介する．捕捉しなければエラーとなる）が発生する．</p>
+<div class="admonition example">
+<p>例</p>
+<pre class><code>int  i = 0x1ff;           
+byte b = 0xff;
+Console.WriteLine((byte)   i); // 255
+Console.WriteLine((sbyte) bb); // -1</code></pre>
+</div>
+<p>また，クラスについてはキャスト元がキャスト先の型を持ちえない場合はやはり例外が発生する．</p>
+<div class="admonition example">
+<p>例</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dt">object</span> o <span class="op">=</span> <span class="kw">new</span> <span class="fu">Object</span><span class="op">();</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="op">((</span>MobilePhone<span class="op">)</span> o<span class="op">).</span><span class="fu">Mail</span><span class="op">();</span> <span class="co">// 例外発生</span></span></code></pre></div>
+<p>以下はキャストに成功する．</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Phone p <span class="op">=</span> <span class="kw">new</span> <span class="fu">MobilePhone</span><span class="op">(</span><span class="st">&quot;090-0000-0000&quot;</span><span class="op">,</span> <span class="st">&quot;nobody@example.com&quot;</span> <span class="op">);</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="op">((</span>MobilePhone<span class="op">)</span> p<span class="op">).</span><span class="fu">Mail</span><span class="op">();</span> <span class="co">// Mailed!</span></span></code></pre></div>
+</div>
+<p>なお，暗黙の型変換が行える場合にもキャストを用いて陽に行ってもよい．</p>
+<div class="admonition example">
+<p>例</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span>  i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="dt">long</span> l <span class="op">=</span> <span class="op">(</span><span class="dt">long</span><span class="op">)</span> i<span class="op">;</span> </span></code></pre></div>
+</div>
+<h2 id="練習問題">練習問題</h2>
+<div class="caution">
+<div class="title">
+<p>Caution</p>
+</div>
+<p>練習問題の解答は提出しない．講義中にトライしわからない点を質問するのに使うとよい．</p>
+</div>
+<p>上述の<code>MobilePhone</code>クラスをさらに継承し，以下のコンストラクタ・メソッドを持つクラス<code>SmartPhone</code>を作成しなさい．</p>
+<table>
+<thead>
+<tr class="header">
+<th>コンストラクタ・メソッド</th>
+<th>実装すべき挙動</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>public SmartPhone(string n, string e, string o)</code></td>
+<td>電話番号<code>n</code>，メールアドレス<code>e</code>，持ち主<code>o</code>を受けとるコンストラクタ．</td>
+</tr>
+<tr class="even">
+<td><code>public void Touch()</code></td>
+<td>単に標準出力に<code>Touched!</code>と出力する．</td>
+</tr>
+<tr class="odd">
+<td><code>public override void Info()</code></td>
+<td>電話番号，メールアドレスに加え，持ち主の情報も標準出力に出力する．</td>
+</tr>
+</tbody>
+</table>
+<p>また，<code>MobilePhone</code>の例にならい，適切な<code>Main</code>メソッドを<code>Program</code>クラスに実装し動作確認せよ．
+特に，<code>SmartPhone</code>のインスタンスが，<code>MobilePhone</code>のインスタンスとしても<code>Phone</code>のインスタンスとしても使えることがわかるようにせよ．</p>
+<div class="hint">
+<div class="title">
+<p>Hint</p>
+</div>
+<p>上記の仕様は他にフィールドをもってはいけないとは書いていない．
+上記を達成するためにはどんなフィールドが必要になるかを考えてみよう．</p>
+</div>
+
+        </main>
+
+        <footer>
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </footer>
+    </body>
+</html>

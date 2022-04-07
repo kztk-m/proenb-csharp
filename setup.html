@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>環境構築1 - 東北大学プログラミング演習B (C#)</title>
+        <link rel="stylesheet" href="./css/cs.css">
+        <script type="text/javascript" src="./js/currentlink.js"></script>
+    </head>
+    <body>
+        <header>
+                      <nav>
+              <ul>
+                <li class="top"><a href="./">ホーム</a></li>
+                <li><a href="./setup.html">環境構築1</a></li>
+                <li><a href="./setup_gui.html">環境構築2</a></li>
+                <!-- <li><a href="./setup_gui.html">GUIライブラリ（Eto.Forms）の設定</a></li> -->
+                <li class="dd"><span class="ddt">講義資料</span>
+                  <ul> 
+                    <li><a href="./w1.html">第1回</a></li>
+                    <li><a href="./w2.html">第2回</a></li>
+                    <li><a href="./w3.html">第3回</a></li>
+                    <li><a href="./w4.html">第4回</a></li>
+                    <li><a href="./w5.html">第5回</a></li>
+                    <li><a href="./w6.html">第6回</a></li>
+                  </ul>
+                </li>
+                <li><a href="./links.html">参考書など</a></li>
+             </ul>
+            </nav>
+
+            
+               <h1>環境構築1</h1>
+            
+            
+            
+               <p class="last-update">最終更新: 2022-04-07 22:42:40</p> 
+            
+        </header>
+
+         
+        <main role="main" class="with-right-nav">
+            <div class="toc">
+<ul>
+<li><a href="#visual-studioのインストール">Visual Studioのインストール</a>
+<ul>
+<li><a href="#windows編">Windows編</a></li>
+<li><a href="#mac編">Mac編</a></li>
+</ul></li>
+<li><a href="#net-sdkのインストール-windowsmac-ほぼ共通">.NET SDKのインストール （Windows/Mac ほぼ共通）</a></li>
+</ul>
+</div>
+<p>以下の二つの方法を紹介する．</p>
+<ul>
+<li>Microsoft Visual Studioを用いる（<a href="#windows編">Windows編</a>/<a href="#mac編">Mac編</a>． 初心者向け）</li>
+<li><a href="#net-sdkのインストール-windowsmac-ほぼ共通">.NET SDKのインストール （Windows/Mac ほぼ共通）</a> をしてコマンドラインインターフェースにて演習を進める（中級者向け）</li>
+</ul>
+<p>後者は，仮想端末での作業に抵抗がなくかつ好みのエディタ（VSCode，Emacs，Viクローン等）を使用したい人にはおススメである．
+本ページではLinuxにおける環境の構築法については述べない．</p>
+<p>なお，このページで紹介している方法ではF#演習のための環境構築にもなっている．
+C#演習の第5週・第6週目の課題を進めるには <a href="./setup_gui.html">さらなる準備（別ページ）</a> が必要である（こちらはC#演習分のみ）．</p>
+<p>（本ページに掲載されているスクリーンショットは，マイクロソフトの許諾を得て使用しています．）</p>
+<h2 id="visual-studioのインストール">Visual Studioのインストール</h2>
+<h3 id="windows編">Windows編</h3>
+<p>C#演習ではVisual Studio Community 2019 （ <em>最新版ではない</em> ）を用いる．</p>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>最新版はVisual Studio Community 2022だが，C#演習の第5週・第6週目の課題で使用するライブラリを使用するためのVisual Studio拡張がVisual Studio 2019向けであるためである．プロジェクトやソリューションの作成をコマンドラインで実行した後で，Visual Studioを使うことも可能であるので，Visual Studio Community 2022でも演習を進めること自体は可能である．あるいは，ディスク容量とインストール時間さえ気にしなければ，Visual Studio Community 2022をまずはインストールし，C#演習の第5週・第6週目の課題を進めるときだけ Visual Studio Community 2019を用いることも可能である．</p>
+</div>
+<p><strong>インストール中はネットワーク接続が必要なことに注意する．</strong></p>
+<ol>
+<li><p><a href="https://docs.microsoft.com/ja-jp/visualstudio/releases/2019/release-notes">Visual Studio 2019のリリースノート</a> より，
+“Download Community 2019”のリンクを辿り，Visual Studio Community 2019をダウンロードする．</p>
+<p>すると <code>vs_community__英数字の列.exe</code> というファイルがダウンロードされる．</p></li>
+<li><p>ダウンロードしたファイルを実行する．ライセンス条項には目を通しておこう．</p>
+<ol>
+<li>途中でインストールする項目が聞かれるので，「ワークロード」タブにある <em>「.NETデスクトップ開発」</em> をチェックし，その「インストール詳細」から
+<em>「F# デスクトップ言語のサポート」</em> にもチェックを入れる．6 GB強のディスク容量が必要となる．</li>
+</ol>
+<p><img src="images/ss_dl_win4.png" alt="image" /></p></li>
+<li><p>「インストール」ボタンを押してインストールを完了させる．1.5 GBほどのダウンロードが生じるので高速なネット回線が利用可能なところで行おう．</p></li>
+<li><p>起動時にいろいろ聞かれるが適当に答えたのでよい．最終的には以下の画面が表示される．インストーラは閉じてOK．</p>
+<p><img src="images/ss_dl_win7.png" alt="image" /></p></li>
+<li><p>動作確認もしておこう．</p>
+<ol type="i">
+<li><p>上記で「新しいプロジェクトの作成」を選ぶ．</p></li>
+<li><p>テンプレート選択画面で，C#の「コンソール アプリ」を選ぶ．</p>
+<p><img src="images/ss_chk_win2.png" alt="image" /></p></li>
+<li><p>プロジェクト名とソリューション名を聞かれるので適当に入力する．たとえば，どちらも <code>HelloWorldCS</code> にしたのでよい（<code>CS</code>はC#の気持ち）．</p>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>プロジェクトは一つの実行形式やライブラリを作成するためのコード等を全てまとめたものであり，ソリューションは関連するプロジェクトをまとめたもの（参考：<a href="https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2022">What are solutions and projects in Visual Studio?</a>）．
+あえて英語版にリンクしたのは，日本語版だと”a project contains all files that are compiled into an executable, library, or website”の”a”や”an”がうまく訳出されていないように感じたため．</p>
+</div>
+<p><img src="images/ss_chk_win3.png" alt="image" /></p></li>
+<li><p>フレームワークを選んで「作成」する．ここではデフォルトのままでよい．</p>
+<p><img src="images/ss_chk_win4.png" alt="image" /></p></li>
+<li><p>エディタで <code>Program.cs</code> が開かれた状態になる．</p>
+<p><img src="images/ss_chk_win5.png" alt="image" /></p></li>
+<li><p>コードを実行するには上の左よりのあたりにある「▶ HelloWorldCS」と書かれたボタンを押す．
+すると，ビルドが行われ実行形式が作成された後にその実行形式が実行される．
+ビルド時の出力等が表示された後に，「Microsoft Visual Studio デバッグコンソール」に <code>Hello, World!</code> と表示されればOK．</p>
+<p><img src="images/ss_chk_win6.png" alt="image" /></p></li>
+<li><p>F#でも同様であることを確認しておこう（テンプレートを選ぶ場面でF#の「コンソール アプリ」を選べばよい）．</p></li>
+</ol></li>
+</ol>
+<h3 id="mac編">Mac編</h3>
+<p>C#演習ではVisual Studio 2019 for Macではなく，Visual Studio 2022 for Mac Previewの使用を推奨する．</p>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>Visual Studio 2019 for Macだと，少くとも私の環境において，第5回および第6回の講義で利用予定である <a href="https://github.com/picoe/Eto">Eto.Forms</a> の利用に問題が生じためである．
+より具体的には，私の環境だと <a href="https://github.com/picoe/Eto/wiki/Quick-Start">指示</a> の通りに Eto.Addin.MonoDevelop.mpack の最新版を <a href="https://github.com/picoe/Eto/releases">Release</a> ページからダウンロードし，拡張機能としてインストールした後で，テンプレート選択画面で <span class="title-ref">Eto.Forms</span> を選んでプロジェクトを作成しようとするとソリューション名入力画面でVisual Studioが高い割合で落ちる．</p>
+<p>プロジェクトやソリューションの作成をコマンドラインで実行した後で，Visual Studioを使うことも可能であるので，Visual Studio 2019 for Macでも演習を進めること自体は可能である．
+あるいは，ディスク容量とインストール時間さえ気にしなければ，Visual Studio 2019 for Macをまずはインストールし，
+C#の演習の第5・6回目の内容をすすめるときだけ，Visual Studio 2022 for Macを使うという手もある．</p>
+</div>
+<p><strong>インストール中はネットワーク接続が必要なことに注意する．</strong></p>
+<ol>
+<li><p><a href="https://visualstudio.microsoft.com/ja/vs/mac/preview/">Visual Studio 2022 for Mac プレビューのダウンロードページ</a> より，
+Visual Studio 2022 for Macをダウンロードする．</p>
+<p>すると <code>visualstudioformacpreviewinstaller-17.0.0.191.dmg</code>みたいな名前のファイルがダウンロードされる（数字の部分はダウンロードするタイミングによって違うかもしれない）．</p></li>
+<li><p>「ダウンロード」から上のファイルをクリックする（あるいはFinderでダブルクリックすると），どでかいアイコンが表示されたウィンドウが表示されるので，
+アイコンをダブルクリックしてインストールを開始する．</p></li>
+<li><p>「“Install Visual Studio for Mac Preview.app”はインターネットからダウンロードされたアプリケーションです。開いてもよろしいですか?」と聞かれるので，「開く」．</p></li>
+<li><p>すると「Visual Studio for Mac Previewをダウンロードしていただき、ありがとうございます」と書かれた画面が表示される．
+ライセンス条項を確認し問題なければ「続行」を選んでインストールを続ける．</p></li>
+<li><p>「何をインストールしますか？」と聞かれる．「.NET」だけ選べば十分．</p></li>
+<li><p>あとは，画面に従ってインストールを完了させる（数十分ほど時間がかかるかもしれない）．また，何度かパスワードが聞かれる．</p></li>
+<li><p>上で「完了時にVisual Studio Previewを開く」をチェックしていたら（なにもしていなければそうなっているはず），
+起動時にいろいろ聞かれるかもだが最終的に「Visual Studio 2022 for Mac」と書かれたウィンドウが表示される．</p>
+<ul>
+<li>2022年3月18日現在ではまだローカライズが完全でないようであり，一部英語の項目等が残っている．</li>
+</ul></li>
+<li><p>動作確認もしておこう．</p>
+<div class="caution">
+<div class="title">
+<p>Caution</p>
+</div>
+<p><a href="https://www.microsoft.com/en-us/legal/intellectualproperty/copyright/permissions">ガイドラインを見ると</a>，
+Visual Studio 2022 for Macはまだ正式リリース前なのでスクリーンショットを掲載できないようである．
+よって，代わりにVisual Studio 2019 for Macのものを用いる．画面の構成に大きく違いがあれば都度述べる．</p>
+</div>
+<ol type="i">
+<li><p>上記のウィンドウ（一旦Visual Studioを閉じても，また起動すれば上記が表示される）で，「New」あるいは「新規」を選択する．</p></li>
+<li><p>テンプレート選択画面で「Console Application」あるいは「コンソールアプリケーション」を選ぶ．</p>
+<p><img src="images/ss_chk_mac2.png" alt="image" /></p>
+<ul>
+<li>C#/F#は使用する言語を選ぶ．ここでは好きな言語を選んでおいたのでよいだろう．</li>
+</ul></li>
+<li><p>ターゲットフレームワークを聞かれるので適当に選ぶ．</p>
+<p><img src="images/ss_chk_mac3.png" alt="image" /></p>
+<ul>
+<li>Visual Studio 2022 for Macでは「.NET 6.0」も選べる．.NET 6.0を選ぶとテンプレートに含まれるHello Worldのプログラムが，
+C# 9.0の新機能を利用したものとなる．</li>
+</ul></li>
+<li><p>プロジェクト名とソリューション名を聞かれるので適当に入力する．たとえば，どちらも <code>HelloWorldCS</code> にしたのでよい（<code>CS</code>はC#の気持ち）．</p>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>プロジェクトは一つの実行形式やライブラリを作成するためのコード等を全てまとめたものであり，ソリューションは関連するプロジェクトをまとめたもの（参考：<a href="https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2022">What are solutions and projects in Visual Studio?</a>）．</p>
+</div>
+<p><img src="images/ss_chk_mac4.png" alt="image" /></p></li>
+<li><p>エディタで <code>Program.cs</code> が開かれた状態になる．</p>
+<p><img src="images/ss_chk_mac5.png" alt="image" /></p></li>
+<li><p>コードを実行するには左上のほうにある▶ボタンを押す．すると，ビルドが行われ実行形式が作成された後にその実行形式が実行される．
+ビルド時の出力等がされた後に以下のように「Terminal」/「ターミナル」に <code>Hello, World!</code> と表示されればOK．</p>
+<p><img src="images/ss_chk_mac6.png" alt="image" /></p></li>
+</ol></li>
+</ol>
+<h2 id="net-sdkのインストール-windowsmac-ほぼ共通">.NET SDKのインストール （Windows/Mac ほぼ共通）</h2>
+<p>Visual Studioに含まれているので，上記を行っている場合は以下を行う必要はない．</p>
+<ol type="1">
+<li><p><a href="https://dotnet.microsoft.com/ja-jp/download">.NET SDKのダウンロードページ</a> より，software development kit (SDK)をダウンロードする．</p>
+<ul>
+<li>Windowsの人はWindows版のSDKをダウンロードする．</li>
+<li>Mac版についてはいわゆるintel MacとM1 Macではダウンロードするものが違うので注意．前者はx64版を後者はArm64版をダウンロードしよう．</li>
+</ul></li>
+<li><p>ダウンロードしたインストーラを実行し，指示に従ってインストールを完了する．</p>
+<ul>
+<li>Windows版なら<code>dotnet-sdk-6.0.201-win-x64.exe</code>みたいな名前</li>
+<li>Macのx64版なら<code>dotnet-sdk-6.0.201-osx-x64.pkg</code> みたいな名前</li>
+</ul></li>
+<li><p>以下「<a href>Windows/Mac 共通</a>」へ</p></li>
+<li><p>ターミナル（WindowsだとコマンドプロンプトPowerShell，MacだとTerminal.appやiTerm.app）を開き，以下を実行する．</p>
+<pre class><code>dotnet --list-sdks</code></pre>
+<p>以下は私の環境における出力だが，このようにダウンロードしたSDK（6.0.XXX）が表示されたらばOK．</p>
+<pre class><code>3.1.417 [/usr/local/share/dotnet/sdk]
+5.0.406 [/usr/local/share/dotnet/sdk]
+6.0.201 [/usr/local/share/dotnet/sdk]</code></pre></li>
+<li><p>動作確認もしておこう（F#の場合は <code>dotnet new console -o HelloWorldCS</code> の代わりに <code>dotnet new console -o HelloWorldCS -lang F#</code> とする）．</p>
+<ol type="i">
+<li><p>適当なディレクトリに移動して以下を実行する．</p>
+<pre class><code>dotnet new console -o HelloWorldCS --langVersion 8.0</code></pre></li>
+<li><p><code>HelloWorldCS</code> というディレクトリができているので，そこに移動する．</p>
+<pre class><code>cd HelloWorldCS </code></pre>
+<p>中身を<code>ls</code>で確認してみよう．たとえば，Macだと以下のように表示される（Windowsだと <code>ls</code> は <code>dir</code> の別名なので，表示は多少異なる）．</p>
+<pre class><code>HelloWorldCS.csproj  Program.cs           obj/</code></pre>
+<p>プログラムを書くには， <code>Program.cs</code> を変更すればよい．現時点では <code>Program.cs</code> の中身は以下の通りである．</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">namespace</span> HelloWorldCS</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">class</span> Program</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">(</span><span class="dt">string</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello, World!&quot;</span><span class="op">);</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div></li>
+<li><p>以下をを実行してビルドする．</p>
+<pre class><code>dotnet build</code></pre></li>
+<li><p>以下を実行してビルドしたプログラムを実行する．</p>
+<pre class><code>dotnet run </code></pre>
+<p>すると，”Hello, World!”が表示されるのが確認できるはずだ．</p></li>
+</ol></li>
+</ol>
+
+        </main>
+        
+
+        <footer>
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </footer>
+    </body>
+</html>
