@@ -58,15 +58,35 @@
             </ul>
           </div>
             <h2 id="課題の進め方">課題の進め方</h2>
-<h3 id="プロジェクトの作成">プロジェクトの作成</h3>
-<p>まずは，</p>
+<h3 id="プロジェクトソリューションの作成">プロジェクト/ソリューションの作成</h3>
+<p>Visual Studio場合はの「新しいプロジェクトの作成」（Windows）や「新規」/「New」（Mac）から，C#の「コンソール アプリケーション」テンプレートを
+選び，プロジェクト名とソリューション名を</p>
 <pre><span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span></pre>
-<p>という名前のプロジェクトを作成する．たとえば，Z0TB9999さんの第3回課題の提出であれば，プロジェクト名は<code>Z0TB9999_Q3</code>とする．</p>
-<p>Visual Studio場合はの「新しいプロジェクトの作成」（Windows）や「新規」/「New」（Mac）から，C#のコンソールアプリケーションテンプレートを
-選び，プロジェクト名を上記のものとする．コマンドラインで行う場合は<code>dotnet new console -o プロジェクト名</code>とすればよい．</p>
+<p>とする．たとえば，Z0TB9999さんの第3回課題の提出であれば，プロジェクト名とソリューション名はともに<code>Z0TB9999_Q3</code>とする．</p>
+<p>コマンドラインで行う場合は</p>
+<pre>dotnet new console -o <span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span></pre>
+<p>を実行し <code><span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span></code> プロジェクトを作成する．たとえば，Z0TB9999さんの第3回課題の提出であれば，<code>dotnet new console -o Z0TB9999_Q3</code>とする．
+この場合はソリューションは作成されないがそれで問題はない．</p>
 <h3 id="課題の実施">課題の実施</h3>
-<p>.cs ファイルを問題文の指示の通りに作成する．提出する .csファイルには先頭部分に <strong>学籍番号と名前をコメントとして含める</strong> こと．</p>
+<p>.cs ファイルを問題文の指示の通りに作成する．提出する .csファイルには先頭部分に <strong>学籍番号と名前をコメントとして含める</strong> こと．なので，たとえば学籍番号Z0TB9999の仙台 青葉さんの提出ファイルは</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Z0TB9999</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 仙台 青葉</span></span></code></pre></div>
+<p>という行から始まる．</p>
 <h3 id="提出">提出</h3>
+<p>Visual Studioでプロジェクト/ソリューションを作成した場合は以下のような構造になっているので，「クリーン」を実施した後に一番外側のフォルダ（ソリューション名のフォルダ）をzipで圧縮して提出する．</p>
+<pre style="line-height: 1.3"><span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span>/
+├── <span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span>.sln
+└── <span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span>/
+    ├── <span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span>.csproj
+    ├── Program.cs 
+    └── obj </pre>
+<p>一方でコマンドラインで作成した場合は</p>
+<pre style="line-height: 1.3"><span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span>/
+├── <span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span>.csproj
+├── Program.cs 
+└── obj 
+</pre>
+<p>となっているので一番外側のフォルダ（プロジェクト名のフォルダ）をzipで圧縮して提出する．</p>
 <ol type="1">
 <li><code>obj</code>フォルダや<code>bin</code>フォルダ以下に含まれている中間生成物や実行形式は提出しなくてよい（し，サイズが大きいので含まれていると御互いにアップロードやダウンロードに時間がかかって辛い）ので，提出前にプロジェクトをクリーン（生成物を削除すること）する．
 <ul>
@@ -76,20 +96,20 @@
 </ul></li>
 <li>以下の手順によりプロジェクトが含まれているフォルダを.zipにまとめる．いずれも「プロジェクト名.zip」が手に入る．
 <ul>
-<li>Windowsの場合は，プロジェクトが含まれているフォルダ（Visual Studioのスタートアップ画面で <em>「ローカルフォルダーを開く」</em> を選ぶと場所がわかる．デフォルトは<code>%HOMEPATH%\source\repos</code>）をエクスプローラーで表示し，そのプロジェクト名のフォルダを右クリックして
-<em>「送る」</em> から <em>「圧縮（zip形式）フォルダー」</em>
-を選択する．</li>
-<li>Macの場合は，プロジェクトが含まれているフォルダ（Visual Studioのデフォルトは<code>~/Projects/</code>）をFinder.appで表示し，そのプロジェクト名のフォルダをCtrl + クリック（あるいは二本指クリックか右クリック）して， <em>「”〜”を圧縮」</em> を選ぶ．</li>
-<li><code>git</code>で解答を管理しているのならば，
-<code>git archive --prefix=<span class="metaname">プロジェクト名/</span> <span class="metaname">ブランチ名</span> -o <span class="metaname">プロジェクト名</span>.zip</code>
-などとすればレポジトリの内容を纏めた.zipファイルを作成できる．
+<li><p>WindowsでVisual Studioを使用している場合は，ソリューション（〜.sln）が含まれているフォルダ（Visual Studioのスタートアップ画面で <em>「ローカルフォルダーを開く」</em> を選ぶと場所がわかる．デフォルトは<code>%HOMEPATH%\source\repos</code>）をエクスプローラーで表示し，その下の <code><span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span></code> という名前のフォルダを右クリックして
+<em>「送る」</em> から <em>「圧縮（zip形式）フォルダー」</em> を選択する．</p></li>
+<li><p>MacでVisual Studioを使用している場合は，ソリューション（〜.sln）が含まれているフォルダ（Visual Studioのデフォルトは<code>~/Projects/</code>）をFinder.appで表示し，その下の <code><span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span></code> という名前のフォルダをCtrl + クリック（あるいは二本指クリックか右クリック）して， <em>「”〜”を圧縮」</em> を選ぶ．</p></li>
+<li><p>コマンドラインで実行している場合は，プロジェクト名のフォルダに対して同様のことをする．</p></li>
+<li><p><code>git</code>で解答を管理しているのならば，</p>
+<pre>git archive --prefix=<span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span>/ <span class="metaname">ブランチ名</span> -o <span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span>.zip</pre>
+<p>などとすればレポジトリの内容を纏めた.zipファイルを作成できる．</p>
 <ul>
 <li><strong>公開レポジトリに解答を決して置かないように．</strong></li>
 </ul></li>
 </ul></li>
-<li>得られた「プロジェクト名.zip」をClassroom内の当該回の「課題」より提出する．
+<li>得られた「<code><span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span></code>.zip」をClassroom内の当該回の「課題」より提出する．
 <ul>
-<li>たとえば，Z0TB9999さんの第3回課題の提出であれば，提出するファイルの名前は<code>Z0TB9999_Q3.zip</code>とする．</li>
+<li>たとえば，Z0TB9999さんの第3回課題の提出であれば，提出するファイルの名前は<code>Z0TB9999_Q3.zip</code>になる．</li>
 </ul></li>
 </ol>          
             <h2 id="基本課題">基本課題</h2>
