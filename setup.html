@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-        <title>環境構築1 - 東北大学プログラミング演習B (C#)</title>
+        <title>第0回 環境構築1（C#/F#共通） - 東北大学プログラミング演習B (C#)</title>
         <link rel="stylesheet" href="./css/cs.css">
         <script type="text/javascript" src="./js/currentlink.js"></script>
     </head>
@@ -13,16 +13,23 @@
                       <nav>
               <ul>
                 <li class="top"><a href="./">ホーム</a></li>
-                <li><a href="./setup.html">環境構築1</a></li>
-                <li><a href="./setup_gui.html">環境構築2</a></li>
+                <!-- <li><a href="./setup.html">環境構築1</a></li> -->
+                <!-- <li><a href="./setup_gui.html">環境構築2</a></li> -->
+                <li class="dd"><span class="ddt">環境構築</span>
+                  <ul>
+                    <li><a href="./setup.html">環境構築1（C#/F#共通）</a></li>
+                    <li><a href="./setup_gui.html">環境構築2（C#演習用）</a></li>
+                    <li><a href="./setup_q.html">確認用課題</a></li>
+                  </ul>
+                </li>
                 <li class="dd"><span class="ddt">講義資料</span>
                   <ul> 
-                    <li><a href="./w1.html">第1回</a></li>
-                    <li><a href="./w2.html">第2回</a></li>
-                    <li><a href="./w3.html">第3回</a></li>
-                    <li><a href="./w4.html">第4回</a></li>
-                    <li><a href="./w5.html">第5回</a></li>
-                    <li><a href="./w6.html">第6回</a></li>
+                    <li><a href="./w1.html">第1回資料</a><a href="./q1.html">第1回課題</a></li>
+                    <li><a href="./w2.html">第2回資料</a><a href="./q2.html">第2回課題</a></li>
+                    <li><a href="./w3.html">第3回資料</a><a href="./q3.html">第3回課題</a></li>
+                    <li><a href="./w4.html">第4回資料</a><a href="./q4.html">第4回課題</a></li>
+                    <li><a href="./w5.html">第5回資料</a><a href="./q5.html">第5回課題</a></li>
+                    <li><a href="./w6.html">第6回資料</a><a href="./q6.html">第6回課題</a></li>
                   </ul>
                 </li>
                 <li><a href="./links.html">参考書など</a></li>
@@ -30,15 +37,18 @@
             </nav>
 
             
-               <h1>環境構築1</h1>
+               <h1>第0回 環境構築1（C#/F#共通）</h1>
+             
             
+               <p class="last-update">最終更新: 2022-04-11 18:55:14</p> 
             
-            
-               <p class="last-update">最終更新: 2022-04-07 22:42:40</p> 
-            
+            <div class="qnav">
+              <ul>
+                <li><a href="setup.html">環境設定1</a></li><li><a href="setup_gui.html">環境設定2</a></li><li><a href="setup_q.html">課題</a></li>
+              </ul>
+            </div>   
         </header>
 
-         
         <main role="main" class="with-right-nav">
             <div class="toc">
 <ul>
@@ -62,7 +72,7 @@ C#演習の第5週・第6週目の課題を進めるには <a href="./setup_gui.
 <p>（本ページに掲載されているスクリーンショットは，マイクロソフトの許諾を得て使用しています．）</p>
 <h2 id="visual-studioのインストール">Visual Studioのインストール</h2>
 <h3 id="windows編">Windows編</h3>
-<p>C#演習ではVisual Studio Community 2019 （ <em>最新版ではない</em> ）を用いる．</p>
+<p>WindowsではVisual Studio Community 2019 （ <em>最新版ではない</em> ）を用いる．</p>
 <div class="note">
 <div class="title">
 <p>Note</p>
@@ -72,7 +82,7 @@ C#演習の第5週・第6週目の課題を進めるには <a href="./setup_gui.
 <p><strong>インストール中はネットワーク接続が必要なことに注意する．</strong></p>
 <ol>
 <li><p><a href="https://docs.microsoft.com/ja-jp/visualstudio/releases/2019/release-notes">Visual Studio 2019のリリースノート</a> より，
-“Download Community 2019”のリンクを辿り，Visual Studio Community 2019をダウンロードする．</p>
+“Download Community 2019 <span class="underline">↓</span>”と書かれた青いボタンを押し，Visual Studio Community 2019をダウンロードする．</p>
 <p>すると <code>vs_community__英数字の列.exe</code> というファイルがダウンロードされる．</p></li>
 <li><p>ダウンロードしたファイルを実行する．ライセンス条項には目を通しておこう．</p>
 <ol>
@@ -81,12 +91,13 @@ C#演習の第5週・第6週目の課題を進めるには <a href="./setup_gui.
 </ol>
 <p><img src="images/ss_dl_win4.png" alt="image" /></p></li>
 <li><p>「インストール」ボタンを押してインストールを完了させる．1.5 GBほどのダウンロードが生じるので高速なネット回線が利用可能なところで行おう．</p></li>
-<li><p>起動時にいろいろ聞かれるが適当に答えたのでよい．最終的には以下の画面が表示される．インストーラは閉じてOK．</p>
+<li><p>起動時にいろいろ聞かれるが適当に答えたのでよい（サインインのアカウントも好きなものでよいし，設定しなくてもよい）．
+インストールが終了すると自動的にVisual Studio 2019が起動され，以下の画面が表示される．インストーラのウィンドウのほうは閉じてOK．</p>
 <p><img src="images/ss_dl_win7.png" alt="image" /></p></li>
 <li><p>動作確認もしておこう．</p>
 <ol type="i">
 <li><p>上記で「新しいプロジェクトの作成」を選ぶ．</p></li>
-<li><p>テンプレート選択画面で，C#の「コンソール アプリ」を選ぶ．</p>
+<li><p>テンプレート選択画面で，C#の「コンソール アプリケーション」を選ぶ．</p>
 <p><img src="images/ss_chk_win2.png" alt="image" /></p></li>
 <li><p>プロジェクト名とソリューション名を聞かれるので適当に入力する．たとえば，どちらも <code>HelloWorldCS</code> にしたのでよい（<code>CS</code>はC#の気持ち）．</p>
 <div class="note">
@@ -101,11 +112,19 @@ C#演習の第5週・第6週目の課題を進めるには <a href="./setup_gui.
 <p><img src="images/ss_chk_win4.png" alt="image" /></p></li>
 <li><p>エディタで <code>Program.cs</code> が開かれた状態になる．</p>
 <p><img src="images/ss_chk_win5.png" alt="image" /></p></li>
-<li><p>コードを実行するには上の左よりのあたりにある「▶ HelloWorldCS」と書かれたボタンを押す．
+<li><p>コードを実行するには上のツールバーの真ん中あたりにある「▶ HelloWorldCS」と書かれたボタンを押す．
 すると，ビルドが行われ実行形式が作成された後にその実行形式が実行される．
 ビルド時の出力等が表示された後に，「Microsoft Visual Studio デバッグコンソール」に <code>Hello, World!</code> と表示されればOK．</p>
 <p><img src="images/ss_chk_win6.png" alt="image" /></p></li>
-<li><p>F#でも同様であることを確認しておこう（テンプレートを選ぶ場面でF#の「コンソール アプリ」を選べばよい）．</p></li>
+<li><p>F#でも同様であることを確認しておこう（新しいプロジェクトを作成する際のテンプレートを選ぶ場面で，「すべての言語」を「F#」に変更し，「コンソール アプリケーション」を選べばよい）．</p>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>もし以上のとおりやった上でF#でのビルドに失敗し，「パッケージ FSharp.Core が見つかりません。ソース Microsoft Visual Studio Offline Packages には、この ID のパッケージが存在しません。」というエラーメッセージが出る場合は，コマンドライン（WindowsだとPowerShellか「コマンド プロンプト」を利用）から</p>
+<pre><code>dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org</code></pre>
+<p>を実行する．あるいは，以下の「<a href="#net-sdkのインストール-windowsmac-ほぼ共通">.NET SDKのインストール （Windows/Mac ほぼ共通）</a>」の手順1～4を読みSDKをインストールするとよい．（それでも直らなければ，教員・TAに質問をしてください．）</p>
+</div></li>
 </ol></li>
 </ol>
 <h3 id="mac編">Mac編</h3>
@@ -133,7 +152,9 @@ Visual Studio 2022 for Macをダウンロードする．</p>
 <li><p>「何をインストールしますか？」と聞かれる．「.NET」だけ選べば十分．</p></li>
 <li><p>あとは，画面に従ってインストールを完了させる（数十分ほど時間がかかるかもしれない）．また，何度かパスワードが聞かれる．</p></li>
 <li><p>上で「完了時にVisual Studio Previewを開く」をチェックしていたら（なにもしていなければそうなっているはず），
-起動時にいろいろ聞かれるかもだが最終的に「Visual Studio 2022 for Mac」と書かれたウィンドウが表示される．</p>
+インストールが終了すると自動的にVisual Studio 2022 for Macが起動される．
+起動時にいろいろ聞かれるが適当に答えたのでよい（サインインのアカウントも好きなものでよいし，設定しなくてもよい）．
+最終的に「Visual Studio 2022 for Mac」と書かれたウィンドウが表示される．</p>
 <ul>
 <li>2022年3月18日現在ではまだローカライズが完全でないようであり，一部英語の項目等が残っている．</li>
 </ul></li>
@@ -151,7 +172,7 @@ Visual Studio 2022 for Macはまだ正式リリース前なのでスクリーン
 <li><p>テンプレート選択画面で「Console Application」あるいは「コンソールアプリケーション」を選ぶ．</p>
 <p><img src="images/ss_chk_mac2.png" alt="image" /></p>
 <ul>
-<li>C#/F#は使用する言語を選ぶ．ここでは好きな言語を選んでおいたのでよいだろう．</li>
+<li>C#/F#の部分は使用する言語を選ぶ．両方の言語について動作確認しよう．</li>
 </ul></li>
 <li><p>ターゲットフレームワークを聞かれるので適当に選ぶ．</p>
 <p><img src="images/ss_chk_mac3.png" alt="image" /></p>
@@ -172,7 +193,16 @@ C# 9.0の新機能を利用したものとなる．</li>
 <li><p>コードを実行するには左上のほうにある▶ボタンを押す．すると，ビルドが行われ実行形式が作成された後にその実行形式が実行される．
 ビルド時の出力等がされた後に以下のように「Terminal」/「ターミナル」に <code>Hello, World!</code> と表示されればOK．</p>
 <p><img src="images/ss_chk_mac6.png" alt="image" /></p></li>
-</ol></li>
+<li><p>上記の動作確認はC#/F#の両方について行おう．</p></li>
+</ol>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>もし以上のとおりやった上でF#でのビルドに失敗し，「パッケージ FSharp.Core が見つかりません。ソース Microsoft Visual Studio Offline Packages には、この ID のパッケージが存在しません。」というエラーメッセージが出る場合は，コマンドライン（MacだとTerminal.app）から</p>
+<pre><code>dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org</code></pre>
+<p>を実行する．あるいは，以下の「<a href="#net-sdkのインストール-windowsmac-ほぼ共通">.NET SDKのインストール （Windows/Mac ほぼ共通）</a>」の手順1～4を読みSDKをインストールするとよい．（それでも直らなければ，教員・TAに質問をしてください．）</p>
+</div></li>
 </ol>
 <h2 id="net-sdkのインストール-windowsmac-ほぼ共通">.NET SDKのインストール （Windows/Mac ほぼ共通）</h2>
 <p>Visual Studioに含まれているので，上記を行っている場合は以下を行う必要はない．</p>
@@ -187,44 +217,57 @@ C# 9.0の新機能を利用したものとなる．</li>
 <li>Windows版なら<code>dotnet-sdk-6.0.201-win-x64.exe</code>みたいな名前</li>
 <li>Macのx64版なら<code>dotnet-sdk-6.0.201-osx-x64.pkg</code> みたいな名前</li>
 </ul></li>
-<li><p>以下「<a href>Windows/Mac 共通</a>」へ</p></li>
-<li><p>ターミナル（WindowsだとコマンドプロンプトPowerShell，MacだとTerminal.appやiTerm.app）を開き，以下を実行する．</p>
+<li><p>ターミナル（WindowsだとPowerShellか「コマンド プロンプト」，MacだとTerminal.appやiTerm.app）を開き，以下を実行する．</p>
 <pre class><code>dotnet --list-sdks</code></pre>
 <p>以下は私の環境における出力だが，このようにダウンロードしたSDK（6.0.XXX）が表示されたらばOK．</p>
 <pre class><code>3.1.417 [/usr/local/share/dotnet/sdk]
 5.0.406 [/usr/local/share/dotnet/sdk]
 6.0.201 [/usr/local/share/dotnet/sdk]</code></pre></li>
-<li><p>動作確認もしておこう（F#の場合は <code>dotnet new console -o HelloWorldCS</code> の代わりに <code>dotnet new console -o HelloWorldCS -lang F#</code> とする）．</p>
+<li><p>動作確認もしておこう．</p>
 <ol type="i">
 <li><p>適当なディレクトリに移動して以下を実行する．</p>
-<pre class><code>dotnet new console -o HelloWorldCS --langVersion 8.0</code></pre></li>
+<pre class><code>dotnet new console -o HelloWorldCS --langVersion 8.0</code></pre>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p><code>--langVersion 8.0</code>の部分は必須ではない．単に，Visual Studio 2019 にて C#の「コンソール アプリケーション」テンプレートと
+生成されるHello Worldのコードを一致させたかったためである．なお，上述のように Visual Studio 2022 を使用した場合は，
+下記とは異なるHello Worldのコード（C# 9.0の機能を利用したもの）が出力される．</p>
+</div></li>
 <li><p><code>HelloWorldCS</code> というディレクトリができているので，そこに移動する．</p>
 <pre class><code>cd HelloWorldCS </code></pre>
 <p>中身を<code>ls</code>で確認してみよう．たとえば，Macだと以下のように表示される（Windowsだと <code>ls</code> は <code>dir</code> の別名なので，表示は多少異なる）．</p>
 <pre class><code>HelloWorldCS.csproj  Program.cs           obj/</code></pre>
 <p>プログラムを書くには， <code>Program.cs</code> を変更すればよい．現時点では <code>Program.cs</code> の中身は以下の通りである．</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">namespace</span> HelloWorldCS</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">class</span> Program</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">(</span><span class="dt">string</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello, World!&quot;</span><span class="op">);</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">namespace</span> HelloWorldCS</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">class</span> Program</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">(</span><span class="dt">string</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello, World!&quot;</span><span class="op">);</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div></li>
 <li><p>以下をを実行してビルドする．</p>
 <pre class><code>dotnet build</code></pre></li>
 <li><p>以下を実行してビルドしたプログラムを実行する．</p>
 <pre class><code>dotnet run </code></pre>
 <p>すると，”Hello, World!”が表示されるのが確認できるはずだ．</p></li>
+<li><p>F#でも同様であることを確認しておこう（<code>dotnet new</code>を実行する場面で，<code>dotnet new console -o HelloWorldCS</code> の代わりに <code>dotnet new console -lang "F#" -o HelloWorldFS</code> とする．また，このコマンドだと<code>HelloWorldCS</code>ではなく<code>HelloWorldFS</code>というディレクトリが作成される）</p>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>F#でもターゲットフレームワークが .NET 5.0 のときと .NET 6.0 のときで出力される Hello World のコードが変わる．</p>
+</div></li>
 </ol></li>
 </ol>
 
         </main>
-        
 
         <footer>
             Site proudly generated by

@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-        <title>環境構築2（Eto.Formsの設定） - 東北大学プログラミング演習B (C#)</title>
+        <title>第0回 環境構築2（C#演習用） - 東北大学プログラミング演習B (C#)</title>
         <link rel="stylesheet" href="./css/cs.css">
         <script type="text/javascript" src="./js/currentlink.js"></script>
     </head>
@@ -13,16 +13,23 @@
                       <nav>
               <ul>
                 <li class="top"><a href="./">ホーム</a></li>
-                <li><a href="./setup.html">環境構築1</a></li>
-                <li><a href="./setup_gui.html">環境構築2</a></li>
+                <!-- <li><a href="./setup.html">環境構築1</a></li> -->
+                <!-- <li><a href="./setup_gui.html">環境構築2</a></li> -->
+                <li class="dd"><span class="ddt">環境構築</span>
+                  <ul>
+                    <li><a href="./setup.html">環境構築1（C#/F#共通）</a></li>
+                    <li><a href="./setup_gui.html">環境構築2（C#演習用）</a></li>
+                    <li><a href="./setup_q.html">確認用課題</a></li>
+                  </ul>
+                </li>
                 <li class="dd"><span class="ddt">講義資料</span>
                   <ul> 
-                    <li><a href="./w1.html">第1回</a></li>
-                    <li><a href="./w2.html">第2回</a></li>
-                    <li><a href="./w3.html">第3回</a></li>
-                    <li><a href="./w4.html">第4回</a></li>
-                    <li><a href="./w5.html">第5回</a></li>
-                    <li><a href="./w6.html">第6回</a></li>
+                    <li><a href="./w1.html">第1回資料</a><a href="./q1.html">第1回課題</a></li>
+                    <li><a href="./w2.html">第2回資料</a><a href="./q2.html">第2回課題</a></li>
+                    <li><a href="./w3.html">第3回資料</a><a href="./q3.html">第3回課題</a></li>
+                    <li><a href="./w4.html">第4回資料</a><a href="./q4.html">第4回課題</a></li>
+                    <li><a href="./w5.html">第5回資料</a><a href="./q5.html">第5回課題</a></li>
+                    <li><a href="./w6.html">第6回資料</a><a href="./q6.html">第6回課題</a></li>
                   </ul>
                 </li>
                 <li><a href="./links.html">参考書など</a></li>
@@ -30,15 +37,18 @@
             </nav>
 
             
-               <h1>環境構築2（Eto.Formsの設定）</h1>
+               <h1>第0回 環境構築2（C#演習用）</h1>
+             
             
+               <p class="last-update">最終更新: 2022-04-11 18:58:29</p> 
             
-            
-               <p class="last-update">最終更新: 2022-04-07 22:26:50</p> 
-            
+            <div class="qnav">
+              <ul>
+                <li><a href="setup.html">環境設定1</a></li><li><a href="setup_gui.html">環境設定2</a></li><li><a href="setup_q.html">課題</a></li>
+              </ul>
+            </div>   
         </header>
 
-         
         <main role="main" class="with-right-nav">
             <div class="toc">
 <ul>
@@ -54,6 +64,10 @@
 </ul></li>
 </ul>
 </div>
+<p>C#演習第5・6回課題ではクロスプラットフォームGUIフレームワーク<a href="https://github.com/picoe/Eto">Eto.Forms</a>を用いるので，その環境をセットアップする．
+<a href="./setup.html">環境設定1</a>で「Visual Studioのインストール」を選んだ人は，<a href="#visual-studioの設定">Visual Studioの設定</a>を，
+「.NET SDKのインストール （Windows/Mac ほぼ共通）」を選んだ人は「<a href="#コマンドライン環境の設定">コマンドライン環境の設定</a>」を参照する．</p>
+<p>また，GTK用アプリケーションを作成したい人は<a href="#gtkのインストール">GTKのインストール</a>を参照する（現状Mac環境のみ記載．Windows環境は情報収集中）．</p>
 <p>（本ページに掲載されているスクリーンショットは，マイクロソフトの許諾を得て使用しています．）</p>
 <h2 id="visual-studioの設定">Visual Studioの設定</h2>
 <h3 id="windows編">Windows編</h3>
@@ -63,7 +77,7 @@
 <p><img src="images/ss_eto/win1.png" alt="image" /></p></li>
 <li><p>メニューの「拡張機能」以下の「拡張機能の管理」を開く．</p>
 <p><img src="images/ss_eto/win2.png" alt="image" /></p>
-<p>すると拡張機能の管理ウィンドウが表示されるので，右上の検索窓から”Eto.Forms”を検索する．すると，”Eto.Froms Visual Studio Addin”がリストされるので，
+<p>すると拡張機能の管理ウィンドウが表示されるので，右上の検索窓から”Eto.Forms”を検索する．すると，”Eto.Forms Visual Studio Addin”がリストされるので，
 「ダウンロード」する．</p>
 <p><img src="images/ss_eto/win4.png" alt="image" /></p></li>
 <li><p>すると，「変更内容がスケージュールされます。すべての Microsoft Visual Studio ウィンドウを閉じると変更が開始されます。」と
@@ -173,9 +187,9 @@ Visual Studio 2019 for Mac上でも実行に成功するようになった．</p
 </div></li>
 <li><p>しばらく待つと，Eto.Formsのアイコン（テンプレート選択画面で表示される円の中に菱形のもの）のアプケーションが起動していることが確認できるので，
 アイコンをクリックするなりしてフォーカスをそのアプリケーションに写す．</p></li>
-<li><p>以下のようなウィンドゥが表示される．</p>
+<li><p>以下のようなウィンドウが表示される．</p>
 <p><img src="images/ss_eto/mac_mac4.png" alt="image" /></p></li>
-<li><p>ツールバー上のボタン「Click Me!」は初期ウィンドゥサイズだと隠れてしまっている．拡張して表示しよう．</p>
+<li><p>ツールバー上のボタン「Click Me!」は初期ウィンドウサイズだと隠れてしまっている．拡張して表示しよう．</p>
 <p><img src="images/ss_eto/mac_mac5.png" alt="image" /></p></li>
 <li><p>「Click Me!」の上の部分にマウスポインタを持ってくると，色が変わる部分があるのでそこをクリックするとダイアログが表示される．</p>
 <ul>
@@ -196,7 +210,7 @@ Visual Studio 2019 for Mac上でも実行に成功するようになった．</p
 <li><p>▶ボタンの右に「HelloEto.Gtk」が表示されていることを確認する．そうでなければ，その部分をクリックして「HelloEto.Gtk」を選択する．
 左の「ソリューション」の部分で，プロジェクト名<code>HelloEto.Gtk</code> が太字になっていることを確認する．</p></li>
 <li><p>しばらく待つと，「実行形式ファイル」アイコンのアプケーションが起動していることが確認できるので，アイコンをクリックするなりしてフォーカスをそのアプリケーションに写す．</p></li>
-<li><p>以下のようなウィンドゥが表示される．</p>
+<li><p>以下のようなウィンドウが表示される．</p>
 <p><img src="images/ss_eto/mac_gtk3.png" alt="image" /></p></li>
 <li><p>“Click Me!”と書かれたボタンをクリックするとダイアログが表示される．</p></li>
 <li><p>ウィンドウ左上の閉じるボタンか，Ctrl + Q を押すか，メニューからQuitを選択してプログラムを終了する．</p></li>
@@ -210,6 +224,12 @@ Visual Studio 2019 for Mac上でも実行に成功するようになった．</p
 <pre class><code>dotnet new -i &quot;Eto.Forms.Templates::*&quot;</code></pre></li>
 <li><p>確認のために以下を実行してみる．</p>
 <pre class><code>dotnet new -l eto</code></pre>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p><code>dotnet</code>のバージョンによっては，<code>dotnet new eto -l</code>のように書かなけれならないかもしれない．</p>
+</div>
 <p>たとえば，以下のように表示されるはず．</p>
 <pre class><code>これらのテンプレートは、入力: 'eto' と一致しました
 
@@ -223,7 +243,7 @@ Eto Panel, Dialog or Form  etofile   [C#],F#,VB  Cross Platform/Eto</code></pre>
 <pre class><code>mkdir HelloEto </code></pre></li>
 <li><p>作成したディレクトリに移動する．</p>
 <pre class><code>cd HelloEto </code></pre></li>
-<li><p>以下を実行するを実行する．</p>
+<li><p>以下を実行する．</p>
 <pre class><code>dotnet new etoapp </code></pre>
 <p>その後<code>ls</code>してみると以下のようなディレクトリが生成されたのがわかる（Windowsだと<code>ls</code>は<code>dir</code>の別名なので表示は異なる）．</p>
 <pre class><code>$ ls 
@@ -238,6 +258,12 @@ HelloEto/     HelloEto.Gtk/ HelloEto.Mac/ HelloEto.Wpf/</code></pre></li>
 <pre class><code>dotnet build HelloEto.Wpf </code></pre>
 <p>その後以下のコマンドでビルドしたプログラムを実行する．</p>
 <pre class><code>dotnet run --project HelloEto.Wpf</code></pre>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>「warning NU1701: パッケージ XXXX はプロジェクトのターゲット フレームワーク YYYY ではなく ZZZZ を使用して復元されました。このパッケージは、使用しているプロジェクトと完全な互換性がない可能性があります。」という警告が多数表示されるが，他にエラーや警告がなければ無視してよい．</p>
+</div>
 <div class="note">
 <div class="title">
 <p>Note</p>
@@ -281,7 +307,6 @@ HelloEto/     HelloEto.Gtk/ HelloEto.Mac/ HelloEto.Wpf/</code></pre></li>
 </ol>
 
         </main>
-        
 
         <footer>
             Site proudly generated by
