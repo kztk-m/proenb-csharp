@@ -40,7 +40,7 @@
                <h1>第3回 課題</h1>
              
             
-               <p class="last-update">最終更新: 2022-04-04 12:11:41</p> 
+               <p class="last-update">最終更新: 2022-04-12 12:12:02</p> 
             
             <div class="qnav">
               <ul>
@@ -68,9 +68,9 @@
 <p>を実行し <code><span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span></code> プロジェクトを作成する．たとえば，Z0TB9999さんの第3回課題の提出であれば，<code>dotnet new console -o Z0TB9999_Q3</code>とする．
 この場合はソリューションは作成されないがそれで問題はない．</p>
 <h3 id="課題の実施">課題の実施</h3>
-<p>.cs ファイルを問題文の指示の通りに作成する．提出する .csファイルには先頭部分に <strong>学籍番号と名前をコメントとして含める</strong> こと．なので，たとえば学籍番号Z0TB9999の仙台 青葉さんの提出ファイルは</p>
+<p>.cs ファイルを問題文の指示の通りに作成する．提出する .csファイルには先頭部分に <strong>学籍番号と名前をコメントとして含める</strong> こと．なので，たとえば学籍番号Z0TB9999の東北 大学さんの提出ファイルは</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Z0TB9999</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 仙台 青葉</span></span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 東北 大学</span></span></code></pre></div>
 <p>という行から始まる．</p>
 <h3 id="提出">提出</h3>
 <p>Visual Studioでプロジェクト/ソリューションを作成した場合は以下のような構造になっているので，「クリーン」を実施した後に一番外側のフォルダ（ソリューション名のフォルダ）をzipで圧縮して提出する．</p>
@@ -126,66 +126,66 @@
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>      Price <span class="op">=</span> p<span class="op">;</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 以下はItemオブジェクト同士の等価性検査を行えるようにするためのもの．</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 本課題を進める上で理解する必要はない．</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>   <span class="co">// </span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 参考： https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/how-to-define-value-equality-for-a-type</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>   <span class="co">// ここに書かれている通り，C#的にはclassでなくrecordを使うべきではある．</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>   <span class="co">// object.Equals のオーバライド</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>   <span class="co">// ジェネリックでないコレクションはこっちを使う場合がある？</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">override</span> <span class="dt">bool</span> <span class="fu">Equals</span><span class="op">(</span><span class="dt">object</span> o<span class="op">)</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>      <span class="co">// e as T は (T) e に近いが， (T) eと異なり T へのキャストが失敗したらnullとなる．</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="fu">Equals</span><span class="op">(</span>o <span class="kw">as</span> Item<span class="op">);</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>   <span class="co">// System.IEquatable&lt;Item&gt;.Equals の定義（オーバライドでなく定義であることの詳細は次回）</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>   <span class="co">// List&lt;Item&gt;やLinkedList&lt;Item&gt;のRemove等はこっちを使う</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="dt">bool</span> <span class="fu">Equals</span><span class="op">(</span>Item o<span class="op">)</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>      <span class="co">// &amp;&amp;の短絡を利用．oがnull のときは o.Name や o.Price は 評価されない．</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>      <span class="co">// o != null と書くと下に定義した演算子が呼ばれ無限ループする</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="op">(</span><span class="dt">object</span><span class="op">)</span> o <span class="op">!=</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> Name <span class="op">==</span> o<span class="op">.</span><span class="fu">Name</span> <span class="op">&amp;&amp;</span> Price <span class="op">==</span> o<span class="op">.</span><span class="fu">Price</span><span class="op">;</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>   <span class="co">// aとbがItem型であるときに a == bと書いたときに呼ばれる．</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>   <span class="co">// aとbがItem型であるときにも a.Equals(b) は a が Itemの派生型のインスタンスであるときには</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 上のメソッドは呼ばれない場合がある．対し，a == b はこのメソッドが呼ばれることに注意．</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="kw">operator</span> <span class="op">==(</span>Item a<span class="op">,</span> Item b<span class="op">)</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>      <span class="kw">if</span> <span class="op">((</span><span class="dt">object</span><span class="op">)</span> a <span class="op">==</span> <span class="kw">null</span><span class="op">)</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>      <span class="op">{</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>            <span class="kw">return</span> <span class="op">(</span><span class="dt">object</span><span class="op">)</span> b <span class="op">==</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> a<span class="op">.</span><span class="fu">Equals</span><span class="op">(</span>b<span class="op">);</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="kw">operator</span> <span class="op">!=(</span>Item a<span class="op">,</span> Item b<span class="op">)</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>   <span class="co">// デバッグ用．課題で直接は使用しない．</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">override</span> <span class="dt">string</span> <span class="fu">ToString</span><span class="op">()</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      <span class="co">// {Name = Chocolate, Price = 250} みたいな文字列に</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="st">&quot;{Name = &quot;</span> <span class="op">+</span> Name <span class="op">+</span> <span class="st">&quot;, Price = &quot;</span> <span class="op">+</span> Price <span class="op">+</span> <span class="st">&quot;}&quot;</span><span class="op">;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 以下はItemオブジェクト同士の等価性検査を行えるようにするためのもの．</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 本課題を進める上で理解する必要はない．</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>   <span class="co">// </span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 参考： https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/how-to-define-value-equality-for-a-type</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>   <span class="co">// ここに書かれている通り，C#的にはclassでなくrecordを使うべきではある．</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>   <span class="co">// object.Equals のオーバライド</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>   <span class="co">// ジェネリックでないコレクションはこっちを使う場合がある？</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">override</span> <span class="dt">bool</span> <span class="fu">Equals</span><span class="op">(</span><span class="dt">object</span> o<span class="op">)</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>      <span class="co">// e as T は (T) e に近いが， (T) eと異なり T へのキャストが失敗したらnullとなる．</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>      <span class="co">// null はどこも指していない参照．</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="fu">Equals</span><span class="op">(</span>o <span class="kw">as</span> Item<span class="op">);</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>   <span class="co">// インタフェース System.IEquatable&lt;Item&gt; のメソッド Equals の定義</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>   <span class="co">// List&lt;Item&gt;やLinkedList&lt;Item&gt;のRemove等はこっちを使う</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="dt">bool</span> <span class="fu">Equals</span><span class="op">(</span>Item o<span class="op">)</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>      <span class="co">// &amp;&amp;の短絡を利用．oがnull のときは o.Name や o.Price は 評価されない．</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>      <span class="co">// o != null と書くと下に定義した演算子が呼ばれ無限ループする</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="op">(</span><span class="dt">object</span><span class="op">)</span> o <span class="op">!=</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> Name <span class="op">==</span> o<span class="op">.</span><span class="fu">Name</span> <span class="op">&amp;&amp;</span> Price <span class="op">==</span> o<span class="op">.</span><span class="fu">Price</span><span class="op">;</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>   <span class="co">// aとbがItem型であるときに a == bと書いたときに呼ばれる．</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>   <span class="co">// aとbがItem型であるときにも a.Equals(b) は a が Itemの派生型のインスタンスであるときには</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 上のメソッドは呼ばれない場合がある．対し，a == b はこのメソッドが呼ばれることに注意．</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="kw">operator</span> <span class="op">==(</span>Item a<span class="op">,</span> Item b<span class="op">)</span></span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="op">!(</span>a <span class="op">==</span> b<span class="op">);</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 今回は関係ないが GetHashCode も実装しないと </span></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>   <span class="co">// HashSet や Dictionary につっこんだときの挙動が変になる．</span></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">override</span> <span class="dt">int</span> <span class="fu">GetHashCode</span><span class="op">()</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="op">(</span>Name<span class="op">,</span> Price<span class="op">).</span><span class="fu">GetHashCode</span><span class="op">();</span></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">override</span> <span class="dt">string</span> <span class="fu">ToString</span><span class="op">()</span></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>      <span class="co">// {Name = Chocolate, Price = 250} みたいな文字列に</span></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="st">&quot;{Name = &quot;</span> <span class="op">+</span> Name <span class="op">+</span> <span class="st">&quot;, Price = &quot;</span> <span class="op">+</span> Price <span class="op">+</span> <span class="st">&quot;}&quot;</span><span class="op">;</span></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>      <span class="kw">if</span> <span class="op">((</span><span class="dt">object</span><span class="op">)</span> a <span class="op">==</span> <span class="kw">null</span><span class="op">)</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>      <span class="op">{</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>            <span class="kw">return</span> <span class="op">(</span><span class="dt">object</span><span class="op">)</span> b <span class="op">==</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> a<span class="op">.</span><span class="fu">Equals</span><span class="op">(</span>b<span class="op">);</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="kw">operator</span> <span class="op">!=(</span>Item a<span class="op">,</span> Item b<span class="op">)</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="op">!(</span>a <span class="op">==</span> b<span class="op">);</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 今回は関係ないが GetHashCode も実装しないと </span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>   <span class="co">// HashSet や Dictionary につっこんだときの挙動が変になる．</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">override</span> <span class="dt">int</span> <span class="fu">GetHashCode</span><span class="op">()</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="op">(</span>Name<span class="op">,</span> Price<span class="op">).</span><span class="fu">GetHashCode</span><span class="op">();</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>そのとき<code>Item</code>で表される商品を扱うためのショッピングカートを表すクラス <code>Cart</code> を作成せよ．</p>
 <p>カートは以下の2種類の情報を管理する．</p>
-<blockquote>
 <ul>
 <li>カート内の商品：ユーザは商品（<code>Item</code>）を追加したり削除したりできる</li>
 <li>予算：作成時に指定し，予算を超えるときは商品をカートに追加することはできない</li>
 </ul>
-</blockquote>
 <p>また，以下のpublicなコンストラクタやメソッドを持つ．</p>
 <table>
 <thead>
@@ -209,7 +209,7 @@
 </tr>
 <tr class="even">
 <td><code>void Report()</code></td>
-<td>カート内の全商品，合計金額，購入した場合の予算の残りを標準出力に出力する．ただし，<code>for</code>文や<code>while</code>文（<code>do</code>文も）を使ってはならない（<code>foreach</code>文を使う？）</td>
+<td>カート内の全商品，合計金額，購入した場合の予算の残りを標準出力に出力する．ただし，<code>for</code>文や<code>while</code>文（資料で紹介していないが<code>do</code>文も）を使ってはならない（<code>foreach</code>文を使う？）</td>
 </tr>
 <tr class="odd">
 <td><code>int Budget</code></td>
@@ -333,7 +333,7 @@
 <p><code>List&lt;Item&gt;</code>を使って，既に表示した商品かどうかを管理し，既に表示した商品ならば何もせず，そうでなければカートの中その商品の数を
 数えるとよいう方法で実装できる．与えられた要素がリストに含まれているかの検査を <code>foreach</code> で書くのは難しくないが，<code>List&lt;T&gt;.Contains(T)</code> メソッドを
 使うことができる（<a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.contains?view=net-6.0#system-collections-generic-list-1-contains(-0)">当該メソッドの詳細</a>）．</p>
-<p>ただ，今回分では紹介しなかったが連想配列を表すクラス<code>Dictionary&lt;Item, int&gt;</code>を使うのが自然か．このクラスがどのようなコンストラクタかメソッドを知るには <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-6.0">.NET API リファレンスの当該クラスのページ</a> を見るとよい．次回の演習でも少し紹介する．</p>
+<p>ただ，今回分では紹介しなかったが連想配列を表すクラス<code>Dictionary&lt;Item, int&gt;</code>を使うのがより自然だろう．このクラスがどのようなコンストラクタかメソッドを知るには <a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-6.0">.NET API リファレンスの当該クラスのページ</a> を見るとよい．次回の演習でも少し紹介する．</p>
 </div>
         </main>
 

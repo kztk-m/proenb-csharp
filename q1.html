@@ -40,7 +40,7 @@
                <h1>第1回 課題</h1>
              
             
-               <p class="last-update">最終更新: 2022-04-04 12:11:41</p> 
+               <p class="last-update">最終更新: 2022-04-12 10:20:34</p> 
             
             <div class="qnav">
               <ul>
@@ -68,9 +68,9 @@
 <p>を実行し <code><span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span></code> プロジェクトを作成する．たとえば，Z0TB9999さんの第3回課題の提出であれば，<code>dotnet new console -o Z0TB9999_Q3</code>とする．
 この場合はソリューションは作成されないがそれで問題はない．</p>
 <h3 id="課題の実施">課題の実施</h3>
-<p>.cs ファイルを問題文の指示の通りに作成する．提出する .csファイルには先頭部分に <strong>学籍番号と名前をコメントとして含める</strong> こと．なので，たとえば学籍番号Z0TB9999の仙台 青葉さんの提出ファイルは</p>
+<p>.cs ファイルを問題文の指示の通りに作成する．提出する .csファイルには先頭部分に <strong>学籍番号と名前をコメントとして含める</strong> こと．なので，たとえば学籍番号Z0TB9999の東北 大学さんの提出ファイルは</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Z0TB9999</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 仙台 青葉</span></span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 東北 大学</span></span></code></pre></div>
 <p>という行から始まる．</p>
 <h3 id="提出">提出</h3>
 <p>Visual Studioでプロジェクト/ソリューションを作成した場合は以下のような構造になっているので，「クリーン」を実施した後に一番外側のフォルダ（ソリューション名のフォルダ）をzipで圧縮して提出する．</p>
@@ -198,13 +198,21 @@ MyCard: 600</code></pre>
 <p>本課題を完了できたのならば本課題の解答のみを提出すればよく，基本課題の解答は提出する必要はない．</p>
 </div>
 <p>基本課題で作成したクラス <code>EmoneyCard</code> に以下のメソッドを追加せよ．</p>
-<ul>
-<li><code>public bool TransferFrom(EmoneyCard ec, int b)</code> このメソッドは，<code>ec</code> の残高が <code>b</code>（非負と仮定してよい）以上であれば，
-<code>ec</code>の残高を<code>b</code>減らし，自身の残高を<code>b</code>増やし，<code>true</code>を返す．そうでなければ，<code>false</code>を返す．
-<ul>
-<li>ヒント：<code>ec.Pay(int b)</code>と<code>Charge(int b)</code>を使う？</li>
-</ul></li>
-</ul>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><code>public bool TransferFrom(EmoneyCard ec, int b)</code></p></td>
+<td><p>このメソッドは，<code>ec</code> の残高が <code>b</code>（非負と仮定してよい）以上であれば，
+<code>ec</code>の残高を<code>b</code>減らし，自身の残高を<code>b</code>増やし，<code>true</code>を返す．そうでなければ，<code>false</code>を返す．</p></td>
+</tr>
+</tbody>
+</table>
+<div class="hint">
+<div class="title">
+<p>Hint</p>
+</div>
+<p><code>ec.Pay(int b)</code>と<code>Charge(int b)</code>を使う？</p>
+</div>
 <p>また，<code>Program</code>クラスの<code>Main</code>メソッドを以下のように変更せよ．</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">(</span><span class="dt">string</span><span class="op">[]</span> args<span class="op">)</span> <span class="op">{</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    EmoneyCard ec1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">EmoneyCard</span><span class="op">(</span><span class="st">&quot;Card1&quot;</span><span class="op">);</span> </span>
