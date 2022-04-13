@@ -32,14 +32,16 @@ function addModalImageViewPane() {
 
     const closeButton = document.createElement("span");
     closeButton.setAttribute("class", "close-button");
-    closeButton.appendChild( document.createTextNode("×") );
+    closeButton.appendChild( document.createTextNode("") );
     closeButton.onclick = function () {
         div.style.display = "none";
     };
 
-    div.onclick = function () {
-        div.style.display = "none"; 
-    };
+    div.addEventListener('click', function(event) {
+        if ( !img.contains( event.target ) ) {
+            div.style.display = "none"; 
+        }        
+    });
     
     div.appendChild( closeButton ); 
     div.appendChild( img ); 
@@ -57,9 +59,28 @@ function addModalImageViewPane() {
     });
 }
 
+function addTouchEventHadnlingToDD() {
+    const dds = document.querySelectorAll('.dd');
+
+    dds.forEach( elem => {
+        elem.addEventListener('touchstart', function(event) {
+            if ( elem.classList.contains('touched') ) {
+                elem.classList.remove('touched');
+            }
+            else {
+                dds.forEach( elem => {
+                    elem.classList.remove('touched');
+                });
+                elem.classList.add('touched');
+            }
+        });        
+    });
+}
+
 window.onload = function () {
     addClassToCurrentPageLinks();
     addModalImageViewPane();
+    addTouchEventHadnlingToDD();
 };
 
 
