@@ -40,7 +40,7 @@
                <h1>第0回 環境構築2（C#演習用）</h1>
              
             
-               <p class="last-update">最終更新: 2022-04-11 18:58:29</p> 
+               <p class="last-update">最終更新: 2022-04-13 18:49:59</p> 
             
             <div class="qnav">
               <ul>
@@ -80,12 +80,19 @@
 <p>すると拡張機能の管理ウィンドウが表示されるので，右上の検索窓から”Eto.Forms”を検索する．すると，”Eto.Forms Visual Studio Addin”がリストされるので，
 「ダウンロード」する．</p>
 <p><img src="images/ss_eto/win4.png" alt="image" /></p></li>
-<li><p>すると，「変更内容がスケージュールされます。すべての Microsoft Visual Studio ウィンドウを閉じると変更が開始されます。」と
+<li><p>すると，「変更内容がスケジュールされます。すべての Microsoft Visual Studio ウィンドウを閉じると変更が開始されます。」と
 表示されるので，一旦Visual Studioを終了させる．</p></li>
 <li><p>その後，以下のウィンドウが表示されるので，「Modify」を選択する．</p>
 <p><img src="images/ss_eto/win5.png" alt="image" /></p></li>
 <li><p>Visual Studioを再度立ち上げる．正しくインストールできていると，「新しいプロジェクト」作成時のテンプレート選択画面で「Eto.Forms Application」が選べるようになる．</p>
-<p><img src="images/ss_eto/win6.png" alt="image" /></p></li>
+<p><img src="images/ss_eto/win6.png" alt="image" /></p>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>Visual Studio 2019 を既にインストールしてあった場合に，そのバージョンが古いままだとこのステップでエラーが出るようである．
+その場合はメニューの「ヘルプ」から「更新プログラムの確認」を確認して更新を実施する．</p>
+</div></li>
 <li><p>動作確認ついでに「続行」からプロジェクトを作成してみよう．例のごとくプロジェクト名とソリューション名は適当でよい（<code>HelloEto</code>とする）．</p>
 <p><img src="images/ss_eto/win7.png" alt="image" /></p>
 <p>プロジェクト名とソリューション名を入力後，以下のウィンドウが表示されるがこれは何も変更しなくてよい．</p>
@@ -93,7 +100,14 @@
 <li><p>作成すると，<code>HelloEto</code> の他に <code>HelloEto.Mac</code>，<code>HelloEto.Gtk</code>，<code>HelloEto.Wpf</code>というプロジェクトが作成されていることがわかる．
 演習では<code>HelloEto</code>（に相当するフォルダ）以下の<code>MainForm.cs</code>を編集することになる．
 ここでは，<code>HelloEto.Wpf</code>をビルド・実行する．（<code>HelloEto.Mac</code>はビルドできるがWindowsで実行できない．<code>HelloEto.Gtk</code>もビルドできるが実行にGTKのインストールが必要）．</p>
-<p><img src="images/ss_eto/win9.png" alt="image" /></p></li>
+<p><img src="images/ss_eto/win9.png" alt="image" /></p>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>ここから先のステップは，Visual Studio 2022でも実行可能である（作成したソリューションを開けばよい）．
+ただし，以下のMac版と同様にターゲットフレームワークの問題が生じる場合がある．</p>
+</div></li>
 <li><p>▶ボタンの左の枠から「HelloEto.Wpf」を選ぶ．選択後，右のソリューションエクプローラーで同プロジェクトが太字になる．</p>
 <p><img src="images/ss_eto/win_wpf1.png" alt="image" /></p></li>
 <li><p>▶ボタンを押すと，以下のウィンドウが表示される．</p>
@@ -113,7 +127,22 @@
 <li><p>すると，「次のパッケージがインストールされます」と出てくるので，「install」をクリックしインストールする．</p></li>
 <li><p>Visual Studio を再起動する．</p></li>
 <li><p>正しくインストールできていると，「新しいプロジェクト」作成時のテンプレート選択画面で「Multiplatform」（あるいは「マルチプラットフォーム」）以下から「Eto Application」が選べるようになる．</p></li>
-<li><p>動作確認ついでに「続行」からプロジェクトを作成してみよう．例のごとくプロジェクト名とソリューション名は適当でよい（<code>HelloEto</code>とする）．</p></li>
+<li><p>動作確認ついでに「続行」からプロジェクトを作成してみよう．例のごとくプロジェクト名とソリューション名は適当でよい（<code>HelloEto</code>とする）．
+<strong>ターゲットフレームワークは”.NET 6.0”を選択する．</strong></p>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>“Eto Application”テンプレートを選んだ際に，ターゲットフレームワークの選択画面…というより，
+Windowsの実行例にあったようなEto.Forms特有の項目の選択画面が出てこないことがあるようである．
+その場合の対処法はいくつかの選択肢がある．</p>
+<ul>
+<li>手動でターゲットフレームワークを .NET 6.0 にする．具体的には，実行したいプロジェクトをダブルクリックして出てくるウィンドウにて，
+「ビルド」&gt;「全般」の「Target framework」を「.NET 6.0」にする．</li>
+<li>.NET 5.0 Runtimeあるいは.NET 5.0 SDKをインストールする．これらは，<a href="https://dotnet.microsoft.com/ja-jp/download/dotnet/5.0">https://dotnet.microsoft.com/ja-jp/download/dotnet/5.0</a>
+から入手できる．ただし， <a href="https://devblogs.microsoft.com/dotnet/dotnet-5-end-of-support-update/">.NET 5.0のサポートは2022/05/08に終了予定であり，それ以降はセキュリティアップデートも提供されなくなる</a>．</li>
+</ul>
+</div></li>
 <li><p>作成すると，<code>HelloEto</code> の他に <code>HelloEto.Mac</code>，<code>HelloEto.Gtk</code>，<code>HelloEto.Wpf</code>というプロジェクトが作成されていることがわかる．
 演習では<code>HelloEto</code>（に相当するフォルダ）以下の<code>MainForm.cs</code>を編集することになる．
 このうち，<code>HelloEto.Wpf</code>はMac版のVisual Studioではビルドできない．ここでは，動作確認のために<code>HelloEto.Mac</code>を（GTKをインストールするのであれば<code>HelloEto.Gtk</code>も）実行してみよう．</p>
@@ -244,7 +273,7 @@ Eto Panel, Dialog or Form  etofile   [C#],F#,VB  Cross Platform/Eto</code></pre>
 <li><p>作成したディレクトリに移動する．</p>
 <pre class><code>cd HelloEto </code></pre></li>
 <li><p>以下を実行する．</p>
-<pre class><code>dotnet new etoapp </code></pre>
+<pre class><code>dotnet new etoapp -f net6.0 </code></pre>
 <p>その後<code>ls</code>してみると以下のようなディレクトリが生成されたのがわかる（Windowsだと<code>ls</code>は<code>dir</code>の別名なので表示は異なる）．</p>
 <pre class><code>$ ls 
 HelloEto/     HelloEto.Gtk/ HelloEto.Mac/ HelloEto.Wpf/</code></pre></li>
@@ -252,7 +281,7 @@ HelloEto/     HelloEto.Gtk/ HelloEto.Mac/ HelloEto.Wpf/</code></pre></li>
 </ol>
 <blockquote>
 <ol>
-<li>buildおよび実行してみる．
+<li><p>buildおよび実行してみる．</p>
 <ul>
 <li><p>Windowsの場合，まず以下を実行しプロジェクトHelloEto.Wpfをビルドする．</p>
 <pre class><code>dotnet build HelloEto.Wpf </code></pre>
@@ -291,7 +320,35 @@ HelloEto/     HelloEto.Gtk/ HelloEto.Mac/ HelloEto.Wpf/</code></pre></li>
 <pre class><code>dotnet build HelloEto.Gtk</code></pre>
 <p>つぎに，以下を実行しビルドしたプログラムを実行する．</p>
 <pre class><code>dotnet run --project HelloEto.Gtk</code></pre></li>
+</ul>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>Visual Studio 2019 で作成したプロジェクトを実行するときなど，ターゲットフレームワークが .NET 5.0 になっている
+にもかかわらず，.NET 5 のランタイムがインストールされていない場合はいかのいずれかを実行する．</p>
+<ul>
+<li><p>ターゲットフレームワークを .NET 6.0 に変更する．具体的には各プロジェクトファイル（拡張子：.csproj）の</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">TargetFramework</span>&gt;net5.0&lt;/<span class="kw">TargetFramework</span>&gt;</span></code></pre></div>
+<p>となっている部分を</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">TargetFramework</span>&gt;net6.0&lt;/<span class="kw">TargetFramework</span>&gt;</span></code></pre></div>
+<p>に書き換える．</p></li>
+<li><p><code>roll-forward</code>を設定する．</p>
+<ul>
+<li>各プロジェクトファイルの<code>&lt;PropertyGroup&gt;…&lt;/PropertyGroup&gt;</code>内に<code>&lt;RollForward&gt;Major&lt;/RollForward&gt;</code> を追加する．</li>
+<li>あるいは実行時に引数として<code>--roll-forward Major</code>を渡す．
+<ul>
+<li><p><code>PROJECT.Gtk</code>や<code>PROJECT.Wpf</code>を実行する場合は
+<code>dotnet run --project PROJECT.Gtk --roll-forward Major</code>や<code>dotnet run --project PROJECT.Wpf --roll-forward Major</code>などとする．</p></li>
+<li><p><code>PROJECT.Mac</code>の場合は</p>
+<pre class><code>open bin/Debug/net5.0/PROJECT.Mac.app --args --roll-forward Major</code></pre>
+<p>などとするか，あるいは .app 内の実行ファイルに<code>--roll-forward Major</code>を引数として渡す．</p></li>
 </ul></li>
+</ul></li>
+<li><p>.NET 5のランタイムをインストールする．<a href="https://dotnet.microsoft.com/ja-jp/download/dotnet/5.0">https://dotnet.microsoft.com/ja-jp/download/dotnet/5.0</a>から入手可能．
+ただし， <strong>.NET 5.0のサポートは2022/05/08に終了予定．</strong></p></li>
+</ul>
+</div></li>
 </ol>
 </blockquote>
 <h2 id="gtkのインストール">GTKのインストール</h2>
