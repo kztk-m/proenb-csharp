@@ -77,7 +77,7 @@
 <p><img src="images/ss_eto/win1.png" alt="image" /></p></li>
 <li><p>メニューの「拡張機能」以下の「拡張機能の管理」を開く．</p>
 <p><img src="images/ss_eto/win2.png" alt="image" /></p>
-<p>すると拡張機能の管理ウィンドウが表示されるので，右上の検索窓から”Eto.Forms”を検索する．すると，”Eto.Forms Visual Studio Addin”がリストされるので，
+<p>すると拡張機能の管理ウィンドウが表示されるので，右上の検索窓から"Eto.Forms"を検索する．すると，"Eto.Forms Visual Studio Addin"がリストされるので，
 「ダウンロード」する．</p>
 <p><img src="images/ss_eto/win4.png" alt="image" /></p></li>
 <li><p>すると，「変更内容がスケジュールされます。すべての Microsoft Visual Studio ウィンドウを閉じると変更が開始されます。」と
@@ -115,25 +115,25 @@
 <li><p>いつものようなウィンドウタイトルや閉じるボタンが表示されていないように見えるかもしれないが，
 ウィンドウを拡大したら隠れていただけであったことがわかる．黒いパネルはVisual Studio由来であり，実際にコマンドラインからビルド・実行すると表示されない．</p>
 <p><img src="images/ss_eto/win_wpf3.png" alt="image" /></p></li>
-<li><p>“Click Me!”と書かれた部分をクリックするとダイアログが表示される．</p></li>
+<li><p>"Click Me!"と書かれた部分をクリックするとダイアログが表示される．</p></li>
 <li><p>ウィンドウ右上の閉じるボタンか，Ctrl + Q を押すか，メニューからQuitを選択してプログラムを終了する．</p></li>
 </ol>
 <h3 id="mac編">Mac編</h3>
 <ol type="1">
 <li><p><a href="https://github.com/picoe/Eto/releases">Eto.Formsのリリースページ</a> から，<code>Eto.Addin.VisualStudio.Mac-X.X.X.mpack</code> の最新版を入手する．
 令和4年3月23日(水)時点での最新版は <code>Eto.Addin.VisualStudio.Mac-2.6.1.mpack</code>．</p></li>
-<li><p>メニューの「Visual Studio」以下の「Extensions…」（または「拡張機能…」）を開く．</p></li>
-<li><p>ウィンドウが出てくるので，「ファイルからインストール…」を選び，先程のダウンロードした.mackファイルを選択する．</p></li>
+<li><p>メニューの「Visual Studio」以下の「Extensions...」（または「拡張機能...」）を開く．</p></li>
+<li><p>ウィンドウが出てくるので，「ファイルからインストール...」を選び，先程のダウンロードした.mackファイルを選択する．</p></li>
 <li><p>すると，「次のパッケージがインストールされます」と出てくるので，「install」をクリックしインストールする．</p></li>
 <li><p>Visual Studio を再起動する．</p></li>
 <li><p>正しくインストールできていると，「新しいプロジェクト」作成時のテンプレート選択画面で「Multiplatform」（あるいは「マルチプラットフォーム」）以下から「Eto Application」が選べるようになる．</p></li>
 <li><p>動作確認ついでに「続行」からプロジェクトを作成してみよう．例のごとくプロジェクト名とソリューション名は適当でよい（<code>HelloEto</code>とする）．
-<strong>ターゲットフレームワークは”.NET 6.0”を選択する．</strong></p>
+<strong>ターゲットフレームワークは".NET 6.0"を選択する．</strong></p>
 <div class="note">
 <div class="title">
 <p>Note</p>
 </div>
-<p>“Eto Application”テンプレートを選んだ際に，ターゲットフレームワークの選択画面…というより，
+<p>"Eto Application"テンプレートを選んだ際に，ターゲットフレームワークの選択画面…というより，
 Windowsの実行例にあったようなEto.Forms特有の項目の選択画面が出てこないことがあるようである．
 その場合の対処法はいくつかの選択肢がある．</p>
 <ul>
@@ -200,7 +200,7 @@ Visual Studio 2022 for Macはまだ正式リリース前なのでスクリーン
 この点は <code>dotnet</code> を用いる場合でも同様である．</p>
 </div></li>
 <li><p>左の「ソリューション」の <code>HelloEto.Mac</code> の部分をダブルクリックすると，プロジェクトオプション編集用ウィンドウが表示される．
-「実行」&gt;「構成」&gt;「Default」の項目から，「開始アクション」の「外部プログラムの開始」に以下を入力する（.appの中身なので，「…」ボタンからは選択できない）．</p>
+「実行」&gt;「構成」&gt;「Default」の項目から，「開始アクション」の「外部プログラムの開始」に以下を入力する（.appの中身なので，「...」ボタンからは選択できない）．</p>
 <pre class><code>bin/Debug/net5.0/HelloEto.Mac.app/Contents/MacOS/HelloEto.Mac</code></pre>
 <p><img src="images/ss_eto/mac_mac2.png" alt="image" /></p>
 <p>（スクリーンショットはVisual Studio 2019 for Macのもの．Visual Studio 2022 for Mac Previewだとこのパネルのデザインが多少異なる．）
@@ -241,7 +241,7 @@ Visual Studio 2019 for Mac上でも実行に成功するようになった．</p
 <li><p>しばらく待つと，「実行形式ファイル」アイコンのアプケーションが起動していることが確認できるので，アイコンをクリックするなりしてフォーカスをそのアプリケーションに写す．</p></li>
 <li><p>以下のようなウィンドウが表示される．</p>
 <p><img src="images/ss_eto/mac_gtk3.png" alt="image" /></p></li>
-<li><p>“Click Me!”と書かれたボタンをクリックするとダイアログが表示される．</p></li>
+<li><p>"Click Me!"と書かれたボタンをクリックするとダイアログが表示される．</p></li>
 <li><p>ウィンドウ左上の閉じるボタンか，Ctrl + Q を押すか，メニューからQuitを選択してプログラムを終了する．</p></li>
 </ol></li>
 </ul></li>

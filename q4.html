@@ -40,7 +40,7 @@
                <h1>第4回 課題</h1>
              
             
-               <p class="last-update">最終更新: 2022-04-06 22:45:46</p> 
+               <p class="last-update">最終更新: 2022-04-18 19:28:30</p> 
             
             <div class="qnav">
               <ul>
@@ -108,7 +108,7 @@ githubやbitbucket等は使える人は使えばよいと思いますが，priva
 エクスプローラーにて当該フォルダを右クリックして <em>「送る」</em> から <em>「圧縮（zip形式）フォルダー」</em> を選択する．
 すると，「<span class="metaname">提出物ベース名</span>.zip」というzipファイルが作成される．</li>
 <li>Macの場合．当該フォルダの場所はデフォルトだと，<code>~/Projects/</code>以下にある．
-Finder.appで当該フォルダをCtrl + クリック（あるいは右クリック）し， <em>「”〜”を圧縮」</em> を選ぶ．
+Finder.appで当該フォルダをCtrl + クリック（あるいは右クリック）し， <em>「"〜"を圧縮」</em> を選ぶ．
 すると，「<span class="metaname">提出物ベース名</span>.zip」というzipファイルが作成される．</li>
 </ul></li>
 </ol>
@@ -173,33 +173,38 @@ Candy,5</code></pre>
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="co">// という形式であるようなテキストファイルになっているときに，</span></span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 各行に含まれているアイテム名と個数の対応をディクショナリ Item に追加する．</span></span>
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="co">// アイテム名は&quot;,&quot;を含まないことを仮定してよい．</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 個数は int で表現可能な数に比べて十分に小さいとする．</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="co">//</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 基本課題 (1)ではアイテム名は重複しないことを仮定してよい．</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        <span class="co">// また，上記で指定された形式以外のファイルが与えられた場合の挙動は</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 考えなくてよい．</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="co">//</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        <span class="co">// また，今回の課題ではファイルが見付からなかったり，filepathが適切な形式でなかったりすることは考えなくてよい．</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">PrintAll</span><span class="op">()</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>        <span class="kw">foreach</span> <span class="op">(</span><span class="dt">var</span> k <span class="kw">in</span> Items<span class="op">.</span><span class="fu">Keys</span><span class="op">)</span></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>k <span class="op">+</span> <span class="st">&quot; × &quot;</span> <span class="op">+</span> Items<span class="op">[</span>k<span class="op">]);</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Program</span>
-<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span></span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>        Inventory i <span class="op">=</span> <span class="kw">new</span> <span class="fu">Inventory</span><span class="op">();</span></span>
-<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>        i<span class="op">.</span><span class="fu">AddItemsFromFile</span><span class="op">(</span><span class="st">&quot;./items.txt&quot;</span><span class="op">);</span></span>
-<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>        i<span class="op">.</span><span class="fu">PrintAll</span><span class="op">();</span></span>
-<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="co">// また，前後の余計な空白や&quot;#&quot;も含まないことを仮定してもよい．</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 個数は int で表現可能な数に比べて十分に小さいとする．</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        <span class="co">//</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 基本課題 (1)ではアイテム名は重複しないことを仮定してよい．</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        <span class="co">// また，上記で指定された形式以外のファイルが与えられた場合の挙動は</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 考えなくてよい．</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        <span class="co">//</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        <span class="co">// また，今回の課題ではファイルが見付からなかったり，filepathが適切な形式でなかったりすることは考えなくてよい．</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 必要に応じて 上の AddItemsFromFile(string) から呼ぶためのメソッドを追加してもよい．</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 変更しない</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">PrintAll</span><span class="op">()</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>        <span class="kw">foreach</span> <span class="op">(</span><span class="dt">var</span> k <span class="kw">in</span> Items<span class="op">.</span><span class="fu">Keys</span><span class="op">)</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>k <span class="op">+</span> <span class="st">&quot; × &quot;</span> <span class="op">+</span> Items<span class="op">[</span>k<span class="op">]);</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="co">// 変更しない</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Program</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span></span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>        Inventory i <span class="op">=</span> <span class="kw">new</span> <span class="fu">Inventory</span><span class="op">();</span></span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a>        i<span class="op">.</span><span class="fu">AddItemsFromFile</span><span class="op">(</span><span class="st">&quot;./items.txt&quot;</span><span class="op">);</span></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a>        i<span class="op">.</span><span class="fu">PrintAll</span><span class="op">();</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>./items.txtの中身の例:</p>
 <pre><code>Chocolate,2
 Chips,14
@@ -208,51 +213,62 @@ Candy,5</code></pre>
 <pre><code>Chocolate × 2
 Chips × 14
 Candy × 5</code></pre>
-<p><strong>./items.txtも提出物に含めること．</strong></p>
+<p><strong>./items.txtも提出物に含めること．</strong> ただし，items.txt は .csproj ファイルと同じディレクトリに置くものとし，その状態でプログラムから相対パス<code>./items.txt</code>で当該ファイルにアクセスできるようにするために，以下のいずれかを実施せよ．</p>
+<blockquote>
+<ul>
+<li><p><code>dotnet run</code> で実行している場合は特になにもする必要はない．</p></li>
+<li><p>.csproj の <code>&lt;PropertyGroup&gt;...&lt;/PropertyGroup&gt;</code> 内に以下の行を追加する．</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">StartWorkingDirectory</span>&gt;.&lt;/<span class="kw">StartWorkingDirectory</span>&gt;</span></code></pre></div></li>
+<li><p>Windows版のVisual Studioを使用している場合は，プロジェクト名を右クリックして出てくるコンテキストメニューから「プロパティ」を
+選択し，「デバッグ」の「作業ディレクトリ」を当該 .csproj ファイルを直上のディレクトリに設定する．</p></li>
+<li><p>Mac版のVisual Studioを使用している場合は，プロジェクト名をダブルクリックして出てくるウィンドウの「実行」&gt;「構成」&gt; 「Default」の
+「Working directory」（作業ディレクトリ）を当該 .csproj ファイルを直上のディレクトリに設定する．</p></li>
+</ul>
+</blockquote>
 <div class="hint">
 <div class="title">
 <p>Hint</p>
 </div>
 <p>個数の部分を処理するには，<code>Int32.Parse(string)</code>を使うとよい．</p>
 <p>この関数の使い方は以下のプログラムを参考にせよ．</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span> </span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">// 参考：https://docs.microsoft.com/en-us/dotnet/api/system.int32.parse?view=net-6.0#system-int32-parse(system-string)</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Int32Example </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">TryParseInt</span><span class="op">(</span><span class="dt">string</span> s<span class="op">)</span> </span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span>           </span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">try</span> </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>            <span class="dt">int</span> n <span class="op">=</span> Int32<span class="op">.</span><span class="fu">Parse</span><span class="op">(</span>s<span class="op">);</span> </span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>s <span class="op">+</span> <span class="st">&quot; ==&gt; &quot;</span> <span class="op">+</span> n<span class="op">);</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">catch</span><span class="op">(</span>FormatException e<span class="op">)</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>s <span class="op">+</span> <span class="st">&quot;: ill-formed&quot;</span><span class="op">);</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="kw">catch</span><span class="op">(</span>OverflowException e<span class="op">)</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>s <span class="op">+</span> <span class="st">&quot;: overflow&quot;</span><span class="op">);</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        <span class="kw">catch</span><span class="op">(</span>ArgumentNullException e<span class="op">)</span> </span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;the input is null&quot;</span><span class="op">);</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span> </span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="st">&quot;1234&quot;</span><span class="op">);</span></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="st">&quot;-1234&quot;</span><span class="op">);</span></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="st">&quot;0xbeef&quot;</span><span class="op">);</span></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="st">&quot;+34&quot;</span><span class="op">);</span></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="st">&quot;3e10&quot;</span><span class="op">);</span></span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="st">&quot;011&quot;</span><span class="op">);</span> </span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="st">&quot;1,000&quot;</span><span class="op">);</span></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="dt">string</span><span class="op">.</span><span class="fu">Join</span><span class="op">(</span><span class="st">&quot;&quot;</span><span class="op">,</span> <span class="kw">new</span> <span class="dt">string</span><span class="op">[]</span> <span class="op">{</span> <span class="st">&quot;1&quot;</span><span class="op">,</span> <span class="st">&quot;000&quot;</span><span class="op">,</span> <span class="st">&quot;000&quot;</span><span class="op">,</span> <span class="st">&quot;000&quot;</span><span class="op">,</span> <span class="st">&quot;000&quot;</span> <span class="op">}));</span></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">// 参考：https://docs.microsoft.com/en-us/dotnet/api/system.int32.parse?view=net-6.0#system-int32-parse(system-string)</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Int32Example </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">TryParseInt</span><span class="op">(</span><span class="dt">string</span> s<span class="op">)</span> </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span>           </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">try</span> </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>            <span class="dt">int</span> n <span class="op">=</span> Int32<span class="op">.</span><span class="fu">Parse</span><span class="op">(</span>s<span class="op">);</span> </span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>s <span class="op">+</span> <span class="st">&quot; ==&gt; &quot;</span> <span class="op">+</span> n<span class="op">);</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">catch</span><span class="op">(</span>FormatException e<span class="op">)</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>s <span class="op">+</span> <span class="st">&quot;: ill-formed&quot;</span><span class="op">);</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        <span class="kw">catch</span><span class="op">(</span>OverflowException e<span class="op">)</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>s <span class="op">+</span> <span class="st">&quot;: overflow&quot;</span><span class="op">);</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        <span class="kw">catch</span><span class="op">(</span>ArgumentNullException e<span class="op">)</span> </span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;the input is null&quot;</span><span class="op">);</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span> </span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="st">&quot;1234&quot;</span><span class="op">);</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="st">&quot;-1234&quot;</span><span class="op">);</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="st">&quot;0xbeef&quot;</span><span class="op">);</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="st">&quot;+34&quot;</span><span class="op">);</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="st">&quot;3e10&quot;</span><span class="op">);</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="st">&quot;011&quot;</span><span class="op">);</span> </span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="st">&quot;1,000&quot;</span><span class="op">);</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="dt">string</span><span class="op">.</span><span class="fu">Join</span><span class="op">(</span><span class="st">&quot;&quot;</span><span class="op">,</span> <span class="kw">new</span> <span class="dt">string</span><span class="op">[]</span> <span class="op">{</span> <span class="st">&quot;1&quot;</span><span class="op">,</span> <span class="st">&quot;000&quot;</span><span class="op">,</span> <span class="st">&quot;000&quot;</span><span class="op">,</span> <span class="st">&quot;000&quot;</span><span class="op">,</span> <span class="st">&quot;000&quot;</span> <span class="op">}));</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>上のコードの出力:</p>
 <pre><code>1234 ==&gt; 1234
 -1234 ==&gt; -1234
@@ -281,7 +297,7 @@ Candy × 5</code></pre>
 </div>
 <p>ディクショナリにキーが含まれているかどうかを確認するには<code>ContainsKey(TKey)</code>メソッドを用いることができる．
 たとえば式</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dict<span class="op">.</span><span class="fu">ContainsKey</span><span class="op">(</span> k <span class="op">)</span> </span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dict<span class="op">.</span><span class="fu">ContainsKey</span><span class="op">(</span> k <span class="op">)</span> </span></code></pre></div>
 <p>の評価結果は<code>k</code>が<code>dict</code>に含まれていれば<code>true</code>，そうでなければ<code>false</code>である．</p>
 </div>
 <h2 id="発展課題">発展課題</h2>
@@ -293,7 +309,7 @@ Candy × 5</code></pre>
 </div>
 <p>以下の基本課題で作成した<code>AddItemsFromFile(string)</code>を拡張し，
 入力したテキストファイルにコメントや余計な空白，空行が入っていても正常に読みこめるようにせよ．
-ただし，”#”で始まる行をコメントとする（”#”が行頭でない場合はコメントでないのに注意）
+ただし，"#"で始まる行をコメントとする（"#"が行頭でない場合はコメントでないのに注意）
 また，ある行において指定されたフォーマットで解釈することに失敗した場合には，<code>Items</code>は
 その行以前までの行を読み取った結果で更新されるようにせよ．</p>
 <p>./items.txtの中身の例:</p>

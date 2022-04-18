@@ -40,7 +40,7 @@
                <h1>第5回 課題</h1>
              
             
-               <p class="last-update">最終更新: 2022-04-11 18:49:28</p> 
+               <p class="last-update">最終更新: 2022-04-18 19:05:59</p> 
             
             <div class="qnav">
               <ul>
@@ -120,12 +120,14 @@ githubやbitbucket等は使える人は使えばよいと思いますが，priva
 <p>そこで，たとえば下記のようにして，一番外側のフォルダをzip形式で圧縮し，
 「<span class="metaname">提出物ベース名</span>.zip」というzipファイルを作成する．</p>
 <ul>
-<li>Windowsの場合．まず，当該フォルダはデフォルトだと <code>%HOMEPATH%\source\repos</code> 以下にある．
-Visual Studioの起動後の画面で <em>「ローカルフォルダを開く」</em> を選んだのでも場所がわかる．
+<li>Windowsの場合．まず，当該フォルダはデフォルトだと，ユーザフォルダの<code>source\repos</code>以下にある．
+なお，ユーザフォルダはデフォルトだと <code>C:\Users\<span class="metaname">ユーザ名</span></code> であり，
+エクスプローラーのアドレスバーに<code>%HOMEPATH</code>を入力すれば移動できる．
+また，Visual Studioの起動後の画面で <em>「ローカルフォルダを開く」</em> を選んだのでも場所がわかる．
 エクスプローラーにて当該フォルダを右クリックして <em>「送る」</em> から <em>「圧縮（zip形式）フォルダー」</em> を選択する．
 すると，「<span class="metaname">提出物ベース名</span>.zip」というzipファイルが作成される．</li>
 <li>Macの場合．当該フォルダの場所はデフォルトだと，<code>~/Projects/</code>以下にある．
-Finder.appで当該フォルダをCtrl + クリック（あるいは右クリック）し， <em>「”〜”を圧縮」</em> を選ぶ．
+Finder.appで当該フォルダをCtrl + クリック（あるいは右クリック）し， <em>「"〜"を圧縮」</em> を選ぶ．
 すると，「<span class="metaname">提出物ベース名</span>.zip」というzipファイルが作成される．</li>
 </ul></li>
 </ol>
@@ -203,9 +205,9 @@ zip -r <span class="metaname">提出物ベース名</span>.zip  <span class="met
 Ready</code></pre>
 <p>ただし，以下を満たすこと．</p>
 <ul>
-<li>“File:”，”Ready”の部分は<code>Label</code>を用いて実現</li>
-<li>“<a href="File:%22の右のテキストボックスは">File:"の右のテキストボックスは</a><code>TextBox</code>を用いて実現</li>
-<li>“(Load)”の部分は<code>Button</code>を用いて実現</li>
+<li>"File:"，"Ready"の部分は<code>Label</code>を用いて実現</li>
+<li>"File:" の右のテキストボックスは<code>TextBox</code>を用いて実現</li>
+<li>"(Load)"の部分は<code>Button</code>を用いて実現</li>
 <li>中央のテキストエリアは<code>TextArea</code>を用いて実現</li>
 <li>ウィンドウのサイズは十分に大きい（たとえば400x300程）</li>
 <li>TextBoxの部分にはプレースホルダーテキストを設定してもよいし，しなくてもよい
@@ -214,19 +216,23 @@ Ready</code></pre>
 </ul></li>
 </ul>
 <h3 id="その2">その2</h3>
-<p>便宜上，上記で”Ready”と書かれている部分を「ステータス行」と呼ぶことにする．</p>
+<p>便宜上，上記で"Ready"と書かれている部分を「ステータス行」と呼ぶことにする．</p>
 <p>上記のアプリケーションに以下の機能を実装せよ．</p>
 <ul>
-<li>“Load”ボタンが押されたら，テキストボックスに入力されたテキストファイルを開き，
+<li>"Load"ボタンが押されたら，テキストボックスに入力されたテキストファイルを開き，
 その内容を中央のテキストボックスに表示する．
 <ul>
-<li>ただし，もしファイルが見付からなければ，中央のテキストボックスには何もせず，
-ステータス行にその旨を表示（たとえば”Error: File not found”など）</li>
+<li>もしテキストボックスが空だったば，ステータス行にその旨を表示（たとえば，"Error: empty path"など）．</li>
+<li>もしファイルが見付からなければ，中央のテキストボックスには何もせず，
+ステータス行にその旨を表示（たとえば"Error: File not found"など）</li>
 <li><code>PathTooLongException</code>，<code>DirectoryNotFoundException</code>，<code>NotSupportedException</code>のいずれかが発生したら，
-ステータス行に”Invalid path”などと表示．</li>
-<li><code>UnauthorizedAccessException</code>か<code>SecurityException</code>が発生したら，ステータス行にその旨を表示（たとえば，”Permission denied”など）</li>
+ステータス行に"Invalid path"などと表示．</li>
+<li><code>UnauthorizedAccessException</code>か<code>System.Security.SecurityException</code>が発生したら，ステータス行にその旨を表示（たとえば，"Permission denied"など）
+<ul>
+<li>入力されたパスがファイルでなくディレクトリを指している場合も<code>UnauthorizedAccessException</code>が発生する</li>
+</ul></li>
 <li><code>IOException</code>が発生した場合の処理は規定しない</li>
-<li>読み込みに成功したら，ステータス行に”Load ok”と表示する．</li>
+<li>読み込みに成功したら，ステータス行に"Load ok"と表示する．</li>
 </ul></li>
 </ul>
 <div class="hint">
@@ -237,8 +243,18 @@ Ready</code></pre>
 当該オブジェクトの<code>Text</code>を用いる．</p>
 <p>例外処理については <a href="./w4.html">前回</a> 参照．</p>
 </div>
+<div class="hint">
+<div class="title">
+<p>Hint</p>
+</div>
+<p><code>File.ReadAllText(string)</code> に渡すパスは相対パスでも可能であるが，この相対パスは作業ディレクトリ基準となる．
+陽に設定等を行わない限り基本的にプログラムを起動した場所（たとえば，<code>dotnet run</code>を実行した場所）が，作業ディレクトリとなる．
+ただし，Visual Studioの三角ボタンから実行するときはその実行ファイルがある場所，そしてMacにて<code>open</code>で<code>.app</code>バンドルを開く
+ときは<code>/</code>が作業ディレクトリとなるようであった．
+この演習では絶対パス（Windowsだと<code>C:\</code>など，Macだと<code>/</code>から始まるもの）を使うのがよいだろう．</p>
+</div>
 <h2 id="発展課題">発展課題</h2>
-<p>上記アプリケーションを拡張し，”Save”ボタンを追加せよ．コントロールの配置は以下のようにせよ．</p>
+<p>上記アプリケーションを拡張し，"Save"ボタンを追加せよ．コントロールの配置は以下のようにせよ．</p>
 <pre><code>File: [                ]  (Load) (Save)
 +-------------------------------------+
 |                                     |
@@ -248,17 +264,18 @@ Ready</code></pre>
 |                                     |
 +-------------------------------------+
 Ready</code></pre>
-<p>“Save”ボタンが押されたときには，その時点でのテキストエリアの内容を，
+<p>"Save"ボタンが押されたときには，その時点でのテキストエリアの内容を，
 その時点でのテキストボックスに入力されたファイルに保存する機能を実装せよ．</p>
 <p>ただし，</p>
 <ul>
+<li>もしテキストボックス内が空であれば，ステータス行にその旨を表示する．</li>
 <li>もしファイルが見付からなければそのファイルを作成するようにし，
 ファイルが見付かったならばそのファイルを上書きするようにする．</li>
 <li><code>PathTooLongException</code>，<code>DirectoryNotFoundException</code>，<code>NotSupportedException</code>のいずれかが発生したら，
-ステータス行に”Invalid path”などと表示．</li>
-<li><code>UnauthorizedAccessException</code>か<code>SecurityException</code>が発生したら，ステータス行にその旨を表示（たとえば，”Permission denied”など）</li>
+ステータス行に"Invalid path"などと表示．</li>
+<li><code>UnauthorizedAccessException</code>か<code>SecurityException</code>が発生したら，ステータス行にその旨を表示（たとえば，"Permission denied"など）</li>
 <li><code>IOException</code>が発生した場合の処理は規定しない</li>
-<li>書き込みに成功したら，ステータス行に”Save ok”と表示する</li>
+<li>書き込みに成功したら，ステータス行に"Save ok"と表示する</li>
 </ul>
         </main>
 

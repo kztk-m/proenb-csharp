@@ -445,7 +445,7 @@ Eto.Formsの提供する代表的なレイアウトに以下のようなもの�
 <tbody>
 <tr class="odd">
 <td><code>TableRow(TableCell c1, ..., TableCell cn)</code></td>
-<td>セル <code>c1</code>, … , <code>cn</code> を含んだ行を作るコンストラクタ</td>
+<td>セル <code>c1</code>, ... , <code>cn</code> を含んだ行を作るコンストラクタ</td>
 </tr>
 <tr class="even">
 <td><code>ScaleHeight</code></td>
@@ -542,7 +542,7 @@ Label</code></pre>
 その当該のクラスからしか発生させる（イベントハンドラを呼び出す）ことができない（なので，派生クラスからイベントを発生させたい場合は，
 基底クラスのほうでイベント発生をラップする protected ないし public なメソッドを用意する必要がある）．
 ただし，イベントはそのクラスの外でも購読（イベントハンドラを登録する）ことができる．
-上記の<code>+=</code>は<code>button.Click</code>というイベントを購読する（あるいは”button.Click”というイベントに対するイベントハンドラを登録する）ための構文である．
+上記の<code>+=</code>は<code>button.Click</code>というイベントを購読する（あるいは"button.Click"というイベントに対するイベントハンドラを登録する）ための構文である．
 また，イベントの購読解除も行うことができ，対応する構文は<code>-=</code>である．</p>
 <p>さて，上記の<code>YOUR_METHOD</code>の部分はstatic メソッドでもそうでない通常のメソッド（インスタンスメソッド）でもよいが，
 今回の目的でもっとも簡潔なのは以下に紹介する <strong>ラムダ式</strong> を使う方法である．</p>
