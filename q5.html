@@ -40,7 +40,7 @@
                <h1>第5回 課題</h1>
              
             
-               <p class="last-update">最終更新: 2022-04-18 19:05:59</p> 
+               <p class="last-update">最終更新: 2022-04-19 15:01:15</p> 
             
             <div class="qnav">
               <ul>
@@ -219,22 +219,22 @@ Ready</code></pre>
 <p>便宜上，上記で"Ready"と書かれている部分を「ステータス行」と呼ぶことにする．</p>
 <p>上記のアプリケーションに以下の機能を実装せよ．</p>
 <ul>
-<li>"Load"ボタンが押されたら，テキストボックスに入力されたテキストファイルを開き，
+<li>"Load"ボタンが押されたら，テキストボックスに入力されたファイルが <em>もし存在していれば</em> 開き，
 その内容を中央のテキストボックスに表示する．
 <ul>
-<li>もしテキストボックスが空だったば，ステータス行にその旨を表示（たとえば，"Error: empty path"など）．</li>
-<li>もしファイルが見付からなければ，中央のテキストボックスには何もせず，
-ステータス行にその旨を表示（たとえば"Error: File not found"など）</li>
-<li><code>PathTooLongException</code>，<code>DirectoryNotFoundException</code>，<code>NotSupportedException</code>のいずれかが発生したら，
-ステータス行に"Invalid path"などと表示．</li>
-<li><code>UnauthorizedAccessException</code>か<code>System.Security.SecurityException</code>が発生したら，ステータス行にその旨を表示（たとえば，"Permission denied"など）
-<ul>
-<li>入力されたパスがファイルでなくディレクトリを指している場合も<code>UnauthorizedAccessException</code>が発生する</li>
-</ul></li>
-<li><code>IOException</code>が発生した場合の処理は規定しない</li>
 <li>読み込みに成功したら，ステータス行に"Load ok"と表示する．</li>
+<li>ファイルが存在していなければ，その旨をステータス行に表示する．</li>
+<li>本課題では，ファイルを開いたり読みこんだりしたときに例外が発生した場合の挙動については規定しない．</li>
 </ul></li>
 </ul>
+<p>ただし，相対パスを用いて「マイ ドキュメント」内（Windowsの場合）やホームディレクトリ内（Mac等の場合）のファイルを開けるようにするために，
+以下を実行して作業ディレクトリを上記に設定せよ（<code>MainForm</code>のコンストラクタ内で実行したのでよい．<code>Main</code>で実行するべきであろうが，3箇所のファイルを修正するのは大変なので）．</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 現在の（作業）ディレクトリを，プラットフォーム毎の「マイ ドキュメント」的なディレクトリに設定する</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Windowsだと「マイ ドキュメント」，Macだとホームディレクトリ．他の環境は未確認．</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">// </span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">// より安全には，Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) が空文字列かどうか</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">// を検査してから Environment.CurrentDirectory に代入したほうがよい．</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>Environment<span class="op">.</span><span class="fu">CurrentDirectory</span> <span class="op">=</span> Environment<span class="op">.</span><span class="fu">GetFolderPath</span><span class="op">(</span>Environment<span class="op">.</span><span class="fu">SpecialFolder</span><span class="op">.</span><span class="fu">MyDocuments</span><span class="op">);</span></span></code></pre></div>
 <div class="hint">
 <div class="title">
 <p>Hint</p>
@@ -247,11 +247,16 @@ Ready</code></pre>
 <div class="title">
 <p>Hint</p>
 </div>
-<p><code>File.ReadAllText(string)</code> に渡すパスは相対パスでも可能であるが，この相対パスは作業ディレクトリ基準となる．
-陽に設定等を行わない限り基本的にプログラムを起動した場所（たとえば，<code>dotnet run</code>を実行した場所）が，作業ディレクトリとなる．
-ただし，Visual Studioの三角ボタンから実行するときはその実行ファイルがある場所，そしてMacにて<code>open</code>で<code>.app</code>バンドルを開く
-ときは<code>/</code>が作業ディレクトリとなるようであった．
-この演習では絶対パス（Windowsだと<code>C:\</code>など，Macだと<code>/</code>から始まるもの）を使うのがよいだろう．</p>
+<p>ファイルが存在するかどうかを確認するには <code>File</code> クラスの static メソッド <code>Exists(string)</code> を利用する．
+より具体的には，<code>File.Exists(path)</code> は <code>path</code> が有効なパスで，指す先にファイルが存在しているときに，<code>true</code>を返し，
+そうでないときには<code>false</code>を返す．（指す先に存在しているのがディレクトリであるときも<code>false</code>となることに注意する．）</p>
+</div>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>なお，<code>File.Exists(path)</code> が <code>true</code> を返した場合にも，ファイルの読み取りが行えない場合はある．たとえば，
+当該ファイルの read パーミッション がない場合には<code>UnauthorizedAccessException</code>が発生する．</p>
 </div>
 <h2 id="発展課題">発展課題</h2>
 <p>上記アプリケーションを拡張し，"Save"ボタンを追加せよ．コントロールの配置は以下のようにせよ．</p>
@@ -265,18 +270,24 @@ Ready</code></pre>
 +-------------------------------------+
 Ready</code></pre>
 <p>"Save"ボタンが押されたときには，その時点でのテキストエリアの内容を，
-その時点でのテキストボックスに入力されたファイルに保存する機能を実装せよ．</p>
-<p>ただし，</p>
+その時点でのテキストボックスに入力されたファイルに保存する機能を実装せよ．
+ただし，</p>
 <ul>
-<li>もしテキストボックス内が空であれば，ステータス行にその旨を表示する．</li>
 <li>もしファイルが見付からなければそのファイルを作成するようにし，
 ファイルが見付かったならばそのファイルを上書きするようにする．</li>
-<li><code>PathTooLongException</code>，<code>DirectoryNotFoundException</code>，<code>NotSupportedException</code>のいずれかが発生したら，
-ステータス行に"Invalid path"などと表示．</li>
-<li><code>UnauthorizedAccessException</code>か<code>SecurityException</code>が発生したら，ステータス行にその旨を表示（たとえば，"Permission denied"など）</li>
-<li><code>IOException</code>が発生した場合の処理は規定しない</li>
+<li>パスが有効でない場合はステータス行に"Invalid path"などと表示．</li>
+<li>アクセス権の関係で書き込みが失敗した場合には，ステータス行にその旨を表示（たとえば，"Permission denied"など）</li>
 <li>書き込みに成功したら，ステータス行に"Save ok"と表示する</li>
 </ul>
+<div class="hint">
+<div class="title">
+<p>Hint</p>
+</div>
+<p><code>File.WriteAllText</code>を実行し，適当な例外処理をしたので十分．どんな例外が発生しうるかは，
+<a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file.writealltext?view=net-6.0#system-io-file-writealltext(system-string-system-string)">当該メソッドのリファレンス</a>を参照．</p>
+<p>もっと親切なエラーメッセージをステータス行に表示したい場合は
+<code>File.Exists</code> や <code>Directory.Exists</code> や，<code>File.GetAttributes</code> などを利用するとよいかもしれない（参考：<a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file?view=net-6.0">.NET API リファレンスのFlieクラスの説明</a>）</p>
+</div>
         </main>
 
         <footer>
