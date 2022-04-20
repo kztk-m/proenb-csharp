@@ -40,7 +40,7 @@
                <h1>第0回 環境構築2（C#演習用）</h1>
              
             
-               <p class="last-update">最終更新: 2022-04-14 14:17:19</p> 
+               <p class="last-update">最終更新: 2022-04-20 17:45:42</p> 
             
             <div class="qnav">
               <ul>
@@ -170,7 +170,7 @@ Visual Studio 2022 for Macはまだ正式リリース前なのでスクリーン
 <div class="title">
 <p>Note</p>
 </div>
-<p>少なくとも私（松田）の環境においてVisual Studio 2019 for Macのバージョン 8.10.21 (build 4)ではそもそもビルドに失敗する．
+<p><em>Visual Studio 2019 for Mac</em> のバージョン 8.10.21 (build 4)では，少なくとも私（松田）の環境においてそもそもビルドに失敗する．
 この問題の一番簡単なワークアラウンドは，Visual Studio 2022 for Mac PreviewやVSCode等を使うことだが，
 <a href="https://github.com/picoe/Eto/issues/2180#issuecomment-1088189064">プロジェクトファイルを修正することでもVisual Studio 2019 for Macでもプロジェクトをビルドできるようになる（Thanks, Curtis Wensley氏）．</a></p>
 <p>具体的には <code>プロジェクト名.Mac</code> 以下にある <code>プロジェクト名.Mac.csproj</code> を以下に述べる通りに編集する（Visual Studio上では，プロジェクトを
@@ -200,8 +200,8 @@ Visual Studio 2022 for Macはまだ正式リリース前なのでスクリーン
 この点は <code>dotnet</code> を用いる場合でも同様である．</p>
 </div></li>
 <li><p>左の「ソリューション」の <code>HelloEto.Mac</code> の部分をダブルクリックすると，プロジェクトオプション編集用ウィンドウが表示される．
-「実行」&gt;「構成」&gt;「Default」の項目から，「開始アクション」の「外部プログラムの開始」に以下を入力する（.appの中身なので，「...」ボタンからは選択できない）．</p>
-<pre class><code>bin/Debug/net5.0/HelloEto.Mac.app/Contents/MacOS/HelloEto.Mac</code></pre>
+「実行」&gt;「構成」&gt;「Default」の項目から，「開始アクション」の「外部プログラムの開始」に以下を入力する（.appの中身なので，「...」ボタンからは選択できない）．"HelloEto"の部分は自分で設定したプロジェクト名とする．</p>
+<pre class><code>bin/Debug/net6.0/HelloEto.Mac.app/Contents/MacOS/HelloEto.Mac</code></pre>
 <p><img src="images/ss_eto/mac_mac2.png" alt="image" /></p>
 <p>（スクリーンショットはVisual Studio 2019 for Macのもの．Visual Studio 2022 for Mac Previewだとこのパネルのデザインが多少異なる．）
 この変更は一回行うのみでよい．</p>
@@ -351,6 +351,29 @@ HelloEto/     HelloEto.Gtk/ HelloEto.Mac/ HelloEto.Wpf/</code></pre></li>
 </div></li>
 </ol>
 </blockquote>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>なお，"Eto.Forms"のVisual Studioの拡張機能によってできることは<code>dotnet new etoapp</code>相当である．
+なので，なんらかの理由で拡張機能が正常に動かない場合にも，コマンドラインでしなければならないのは，
+<code>dotnet new etoapp</code>（と必要に応じてソリューションの作成と，それへのプロジェクトの追加）のみである．</p>
+<p>たとえば，<code>HelloEto</code>の場合を例にとると，Visual Studioで<code>HelloEto/HelloEto.csproj</code>というプロジェクトを開き，
+そこに<code>HelloEto.Wpf/HelloEto.Wpf.csproj</code>等のプロジェクトを追加すればよい（メニューからそういう項目が選べる）．</p>
+<p>また，それではまだ面倒くさいという人はソリューションを作成すればよい．今，上記手順で作成したディレクトリに移動したとする．
+（<code>ls</code>すると以下のように表示されるところ）．</p>
+<pre class><code>$ ls 
+HelloEto/     HelloEto.Gtk/ HelloEto.Mac/ HelloEto.Wpf/</code></pre>
+<p>すると，その場所で</p>
+<pre class><code>dotnet new sln </code></pre>
+<p>とすると，ソリューションファイル（<code>HelloEto.sln</code>という名前になるはず）が作成される．その後
+以下の各行を実行すれば（正確には自分のプラットフォームに関係ないプロジェクトについてはソリューションに追加しなくてよい），
+作成したソリューションファイルをVisual Studioで開くことにより，これらのプロジェクトをまとめて開くことができる．</p>
+<pre class><code>dotnet sln add HelloEto
+dotnet sln add HelloEto.Gtk
+dotnet sln add HelloEto.Mac
+dotnet sln add HelloEto.Wpf</code></pre>
+</div>
 <h2 id="gtkのインストール">GTKのインストール</h2>
 <p>オプショナル．Macだと<code>dotnet run</code>で実行できないのが面倒だし，遅かれ早かれ<code>brew</code>は入れることになると思うので，インストールするのがよいかもしれない．</p>
 <p>Windows環境については情報収集中．</p>
