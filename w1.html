@@ -40,7 +40,7 @@
                <h1>第1回 C#にさわってみよう</h1>
              
             
-               <p class="last-update">最終更新: 2022-04-20 18:03:18</p> 
+               <p class="last-update">最終更新: 2022-04-21 12:41:35</p> 
             
             <div class="qnav">
               <ul>
@@ -361,7 +361,7 @@ c.GetCount() = 5</code></pre>
 </pre>
 <div class="admonition example">
 <p>例</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="dt">int</span> counter<span class="op">;</span> </span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="dt">int</span> count<span class="op">;</span> </span></code></pre></div>
 </div>
 <h4 id="修飾子">修飾子</h4>
 <p>上で出てきた<code>private</code>や<code>public</code>はアクセス修飾子と呼ばれ，たとえば以下のようなものがある（全部ではない）．</p>
@@ -572,9 +572,9 @@ c.GetCount() = 5</code></pre>
 <p>オブジェクトを生成する．</p>
 <div class="admonition example">
 <p>例</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">new</span> <span class="fu">Counter</span><span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="kw">new</span> <span class="fu">Counter</span><span class="op">(</span><span class="dv">0</span><span class="op">)</span></span></code></pre></div>
 <p>式なので，他の式の中でも（型が合えば）使うことができる．</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">new</span> <span class="fu">Counter</span><span class="op">().</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="kw">new</span> <span class="fu">Counter</span><span class="op">(</span><span class="dv">0</span><span class="op">).</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">()</span></span></code></pre></div>
 </div>
 <h3 id="インクリメントとデクリメント-">インクリメント（<code>++</code>）とデクリメント（<code>-</code>）</h3>
 <ul>
