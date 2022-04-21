@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-        <title>第5回 課題 - 東北大学プログラミング演習B (C#)</title>
+        <title>第6回 課題 - 東北大学プログラミング演習B (C#)</title>
         <link rel="stylesheet" href="./css/cs.css">
         <script type="text/javascript" src="./js/preprocess.js"></script>
     </head>
@@ -37,14 +37,14 @@
             </nav>
 
             
-               <h1>第5回 課題</h1>
+               <h1>第6回 課題</h1>
              
             
                <p class="last-update">最終更新: 2022-04-21 18:01:55</p> 
             
             <div class="qnav">
               <ul>
-                <li><a href="w5.html">講義資料</a></li><li><a href="q5.html">課題</a></li>
+                <li><a href="w6.html">講義資料</a></li><li><a href="q6.html">課題</a></li>
               </ul>
             </div>   
         </header>
@@ -185,84 +185,51 @@ zip -r <span class="metaname">提出物ベース名</span>.zip  <span class="met
 <p>できあがった「<span class="metaname">提出物ベース名</span>.zip」をClassroom内の当該回の「課題」より提出する．
 たとえば，Z0TB9999さんの第5回課題の提出であれば，提出するファイルの名前は<code>Z0TB9999_Q5.zip</code>になる．</p>          
             <h2 id="基本課題">基本課題</h2>
-<h3 id="その1">その1</h3>
-<p>ラベルを</p>
-<pre><code>Label</code></pre>
-<p>ボタンを</p>
-<pre><code>(Button)</code></pre>
-<p>テキストボックスを</p>
-<pre><code>[          ]</code></pre>
-<p>テキストエリアを</p>
-<pre><code>+-------------+
-|             |
-|             |
-+-------------+</code></pre>
-<p>というアスキーアートで書くことにする．</p>
-<p>このとき，Eto.Formを用いて以下のようにコントロールが配置されているウィンドウを作成しなさい．
-<strong>ただし，テンプレートから生成されたコードのうち，MainForm.cs のみ変更すること．</strong></p>
-<pre><code>File: [                       ]  (Load) 
-+-------------------------------------+
-|                                     |
-|                                     |
-|                                     |
-|                                     |
-|                                     |
-+-------------------------------------+
-Ready</code></pre>
-<p>ただし，以下を満たすこと．</p>
+<p>以下の要件を見たすお絵描きプログラムを作成せよ．</p>
 <ul>
-<li>"File:"，"Ready"の部分は<code>Label</code>を用いて実現</li>
-<li>"File:" の右のテキストボックスは<code>TextBox</code>を用いて実現</li>
-<li>"(Load)"の部分は<code>Button</code>を用いて実現</li>
-<li>中央のテキストエリアは<code>TextArea</code>を用いて実現</li>
-<li>ウィンドウのサイズは十分に大きい（たとえば400x300程）</li>
-<li>TextBoxの部分にはプレースホルダーテキストを設定してもよいし，しなくてもよい
+<li>少なくとも以下のコントロールが配置されている
 <ul>
-<li><code>PlaceholderText</code>プロパティ（<code>string</code>型）を用いると設定できる．</li>
+<li><code>ColorPicker</code></li>
+<li><code>NumericStepper</code></li>
+<li>「クリア」と書かれたボタン</li>
+<li>お絵描き用のコントロール（ウィンドウの主要な面積を占める）</li>
 </ul></li>
-</ul>
-<h3 id="その2">その2</h3>
-<p>便宜上，上記で"Ready"と書かれている部分を「ステータス行」と呼ぶことにする．</p>
-<p>上記のアプリケーションに以下の機能を実装せよ．</p>
+<li>マウスの主ボタン（右利き用マウスだと通常は左ボタン）を押してマウスを動かすと，線が動きに沿って描かれる．このとき，線の色は
+<code>ColorPicker</code>で選択した色で太さが<code>NumericStepper</code>で選択した数であるとする．
 <ul>
-<li>"Load"ボタンが押されたら，テキストボックスに入力されたファイルが <em>もし存在していれば</em> 開き，
-その内容を中央のテキストボックスに表示する．
-<ul>
-<li>読み込みに成功したら，ステータス行に"Load ok"と表示する．</li>
-<li>ファイルが存在していなければ，その旨をステータス行に表示する．</li>
-<li>本課題では，ファイルを開いたり読みこんだりしたときに例外が発生した場合の挙動については規定しない．</li>
+<li>要はよくあるお絵描きツールの「鉛筆」ツールのような挙動をする．</li>
 </ul></li>
+<li>「クリア」と書かれたボタンが押されたら，書かれた絵がクリアされる．</li>
 </ul>
-<p>ただし，相対パスを用いて「マイ ドキュメント」内（Windowsの場合）やホームディレクトリ内（Mac等の場合）のファイルを開けるようにするために，
-以下を実行して作業ディレクトリを上記に設定せよ（<code>MainForm</code>のコンストラクタ内で実行したのでよい．<code>Main</code>で実行するべきであろうが，3箇所のファイルを修正するのは大変なので）．</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 現在の（作業）ディレクトリを，プラットフォーム毎の「マイ ドキュメント」的なディレクトリに設定する</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Windowsだと「マイ ドキュメント」，Macだとホームディレクトリ．他の環境は未確認．</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">// </span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">// より安全には，Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) が空文字列かどうか</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">// を検査してから Environment.CurrentDirectory に代入したほうがよい．</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>Environment<span class="op">.</span><span class="fu">CurrentDirectory</span> <span class="op">=</span> Environment<span class="op">.</span><span class="fu">GetFolderPath</span><span class="op">(</span>Environment<span class="op">.</span><span class="fu">SpecialFolder</span><span class="op">.</span><span class="fu">MyDocuments</span><span class="op">);</span></span></code></pre></div>
+<p>たとえば，以下のスクリーンショットは実装するプログラムの一例を表している．</p>
+<p><img src="./images/eto/oekaki.png" alt="image" /></p>
 <div class="hint">
 <div class="title">
 <p>Hint</p>
 </div>
-<p>テキストボックスに入力されたテキストを取得するには<code>Text</code>プロパティを用いる．テキストエリアにテキストを設定するには，
-当該オブジェクトの<code>Text</code>を用いる．</p>
-<p>例外処理については <a href="./w4.html">前回</a> 参照．</p>
+<p>お絵描き用のコントロールの<code>MouseMove</code>イベントを購読（イベントハンドラを登録）する．
+主ボタンが押されたまま移動されたかどうかは，以下のようにハンドラの第2引数の<code>Buttons</code>プロパティを用いて判定できる．</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// oekakiControl の MouseMove イベントを購読</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>oekakiControl<span class="op">.</span><span class="fu">MouseMove</span> <span class="op">+=</span> <span class="op">(</span>s<span class="op">,</span> me<span class="op">)</span> <span class="op">=&gt;</span> <span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>   <span class="kw">if</span> <span class="op">(</span> me<span class="op">.</span><span class="fu">Buttons</span><span class="op">.</span><span class="fu">HasFlag</span><span class="op">(</span> MouseButtons<span class="op">.</span><span class="fu">Primary</span> <span class="op">)</span> <span class="op">)</span> <span class="op">{</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 主ボタンが押されたままマウスが移動したときの処理</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 </div>
 <div class="hint">
 <div class="title">
 <p>Hint</p>
 </div>
-<p>ファイルが存在するかどうかを確認するには <code>File</code> クラスの static メソッド <code>Exists(string)</code> を利用する．
-より具体的には，<code>File.Exists(path)</code> は <code>path</code> が有効なパスで，指す先にファイルが存在しているときに，<code>true</code>を返し，
-そうでないときには<code>false</code>を返す．（指す先に存在しているのがディレクトリであるときも<code>false</code>となることに注意する．）</p>
-</div>
-<div class="note">
-<div class="title">
-<p>Note</p>
-</div>
-<p>なお，<code>File.Exists(path)</code> が <code>true</code> を返した場合にも，ファイルの読み取りが行えない場合はある．たとえば，
-当該ファイルの read パーミッション がない場合には<code>UnauthorizedAccessException</code>が発生する．</p>
+<p>素朴なアイデアは<code>MouseMove</code>イベントの度に現在のマウスの位置に円を描くというものだが，それだと
+マウスが一度に沢山に動いたときにとぎれとぎれの「線」が描かれてしまう．それを避けるためには，以下のようにするとよいだろう．</p>
+<ul>
+<li>マウスの以前の位置を覚えておく．</li>
+<li>マウスの主ボタンが押されたら，その位置に円を描き，「マウスの以前の位置」を更新する．</li>
+<li>マウスの主ボタンが押されたままマウスが移動されたら，「マウスの以前の位置」と「マウスの現在の位置」の
+間に線分を引く．そして，「マウスの以前の位置」を更新する．</li>
+</ul>
+<p>線分の描画には<code>Graphics.DrawLine(Pen, PointF, PointF)</code>メソッドが使用できるだろう．<code>Pen</code>の<code>LineCap</code>プロパティを
+<code>PenLineCap.Round</code>に設定するときれいに線が引けるかもしれない（<a href="http://pages.picoe.ca/docs/api/html/P_Eto_Drawing_Pen_LineCap.htm">参考</a>）．</p>
 </div>
 <h2 id="発展課題">発展課題</h2>
 <div class="caution">
@@ -271,35 +238,20 @@ Ready</code></pre>
 </div>
 <p>本課題を完了できたのならば本課題の解答のみを提出すればよく，基本課題の解答は提出する必要はない．</p>
 </div>
-<p>上記アプリケーションを拡張し，"Save"ボタンを追加せよ．コントロールの配置は以下のようにせよ．</p>
-<pre><code>File: [                ]  (Load) (Save)
-+-------------------------------------+
-|                                     |
-|                                     |
-|                                     |
-|                                     |
-|                                     |
-+-------------------------------------+
-Ready</code></pre>
-<p>"Save"ボタンが押されたときには，その時点でのテキストエリアの内容を，
-その時点でのテキストボックスに入力されたファイルに保存する機能を実装せよ．
-ただし，</p>
+<p>基本課題の条件を満している限りにおいて，お絵描きプログラムにさまざまな機能を追加せよ．
+追加する機能は自由に決めたのでよいが， <strong>どのような機能を追加したかの説明およびプログラム上の工夫点はコメントとして提出プログラムに含めること．</strong></p>
+<p>どういう機能を追加したらよいかまよっている人の参考までに，いくつかの機能追加の方向性を以下に示しておく．
+もちろん，追加する機能はこれらに限定されない．</p>
 <ul>
-<li>もしファイルが見付からなければそのファイルを作成するようにし，
-ファイルが見付かったならばそのファイルを上書きするようにする．</li>
-<li>パスが有効でない場合はステータス行に"Invalid path"などと表示．</li>
-<li>アクセス権の関係で書き込みが失敗した場合には，ステータス行にその旨を表示（たとえば，"Permission denied"など）</li>
-<li>書き込みに成功したら，ステータス行に"Save ok"と表示する</li>
+<li>お絵描きした画像を保存する機能</li>
+<li>「消しゴム」機能</li>
+<li>アンドゥ，リドゥ機能</li>
+<li>Shiftを押しながらクリックすると，以前に最後にマウスを離した場所との間に直線を引く</li>
+<li>適当なコントロールやダイアログ等を追加し，文字列を入力できるようにする</li>
+<li>「ぼかし」などのフィルタ処理</li>
+<li>拡大・縮小・回転，あるいは一般の線形変換</li>
+<li>レイヤ機能</li>
 </ul>
-<div class="hint">
-<div class="title">
-<p>Hint</p>
-</div>
-<p><code>File.WriteAllText</code>を実行し，適当な例外処理をしたので十分．どんな例外が発生しうるかは，
-<a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file.writealltext?view=net-6.0#system-io-file-writealltext(system-string-system-string)">当該メソッドのリファレンス</a>を参照．</p>
-<p>もっと親切なエラーメッセージをステータス行に表示したい場合は
-<code>File.Exists</code> や <code>Directory.Exists</code> や，<code>File.GetAttributes</code> などを利用するとよいかもしれない（参考：<a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file?view=net-6.0">.NET API リファレンスのFlieクラスの説明</a>）</p>
-</div>
         </main>
 
         <footer>
