@@ -40,7 +40,7 @@
                <h1>第1回 C#にさわってみよう</h1>
              
             
-               <p class="last-update">最終更新: 2022-04-21 12:41:35</p> 
+               <p class="last-update">最終更新: 2022-04-21 14:23:18</p> 
             
             <div class="qnav">
               <ul>
@@ -364,12 +364,12 @@ c.GetCount() = 5</code></pre>
 <div class="sourceCode" id="cb15"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="dt">int</span> count<span class="op">;</span> </span></code></pre></div>
 </div>
 <h4 id="修飾子">修飾子</h4>
-<p>上で出てきた<code>private</code>や<code>public</code>はアクセス修飾子と呼ばれ，たとえば以下のようなものがある（全部ではない）．</p>
+<p>上で出てきた<code>private</code>や<code>public</code>は <strong>アクセス修飾子</strong> と呼ばれ，たとえば以下のようなものがある（全部ではない）．</p>
 <ul>
 <li><code>private</code>: それを含むクラスの中からしかアクセスできない．メソッドやフィールドなどの修飾子を省略した場合はprivateになる．</li>
 <li><code>public</code>: どこからでもアクセスできる．</li>
 <li><code>protected</code>: 自身と派生クラス（次回）のみからアクセスできる．</li>
-<li><code>internal</code>: 同一コンパイル単位のかからアクセスできる．（ネストされていない）クラスの修飾子を省略した場合はinternalになる．</li>
+<li><code>internal</code>: 同一コンパイル単位内からのみアクセスできる．（ネストされていない）クラスの修飾子を省略した場合はinternalになる．</li>
 </ul>
 <p>ネストされていないクラスは<code>public</code>か<code>internal</code>にしかできない．</p>
 <p>前述の<code>static</code>も修飾子の一つである．</p>
