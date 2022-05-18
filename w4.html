@@ -40,7 +40,7 @@
                <h1>第4回 ファイル入出力と例外処理</h1>
              
             
-               <p class="last-update">最終更新: 2022-04-12 13:38:58</p> 
+               <p class="last-update">最終更新: 2022-05-18 14:15:19</p> 
             
             <div class="qnav">
               <ul>
@@ -82,14 +82,14 @@
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>       <span class="co">// ディクショナリの作成</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>       Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> dict <span class="op">=</span> <span class="kw">new</span> Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;();</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>       <span class="co">// Dictionary に要素を追加するには Add メソッドを用いる．</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 辞書に要素を追加するには Add メソッドを用いる．</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>       dict<span class="op">.</span><span class="fu">Add</span><span class="op">(</span> <span class="st">&quot;Chocolate&quot;</span><span class="op">,</span> <span class="dv">2</span> <span class="op">);</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>       dict<span class="op">.</span><span class="fu">Add</span><span class="op">(</span> <span class="st">&quot;Chips&quot;</span><span class="op">,</span>     <span class="dv">4</span> <span class="op">);</span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>       dict<span class="op">.</span><span class="fu">Add</span><span class="op">(</span> <span class="st">&quot;Candy&quot;</span><span class="op">,</span>     <span class="dv">5</span> <span class="op">);</span></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 要素には配列のようにアクセスできる</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>       <span class="co">// バリューにはキーが添字である配列のようにアクセスできる</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>       dict<span class="op">[</span><span class="st">&quot;Chips&quot;</span><span class="op">]</span> <span class="op">=</span> <span class="dv">7</span><span class="op">;</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;dict[</span><span class="sc">\&quot;</span><span class="st">Chips</span><span class="sc">\&quot;</span><span class="st">] = &quot;</span> <span class="op">+</span> dict<span class="op">[</span><span class="st">&quot;Chips&quot;</span><span class="op">]</span> <span class="op">);</span> <span class="co">// 7</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;dict[</span><span class="sc">\&quot;</span><span class="st">Chips</span><span class="sc">\&quot;</span><span class="st">] = &quot;</span> <span class="op">+</span> dict<span class="op">[</span><span class="st">&quot;Chips&quot;</span><span class="op">]</span> <span class="op">);</span> <span class="co">// dict[&quot;Chips&quot;] = 7</span></span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>       <span class="co">// ContainsKey メソッドにより，キーを含んでいるか否かを検査できる．</span></span>
@@ -125,7 +125,7 @@
 <span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 新しいキーは添字アクセスでも追加できる</span></span>
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>       dict<span class="op">[</span><span class="st">&quot;Banana&quot;</span><span class="op">]</span> <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>       <span class="co">// キーを指定することで，そのキーと関連づけられているバリューの組を配列から取り除ける．</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>       <span class="co">// キーを指定することで，そのキーと関連づけられているバリューの組を辞書から取り除ける．</span></span>
 <span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>       dict<span class="op">.</span><span class="fu">Remove</span><span class="op">(</span><span class="st">&quot;Candy&quot;</span><span class="op">);</span></span>
 <span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
@@ -372,7 +372,7 @@ Hello, again.</code></pre>
 <pre><code>System.ArgumentException: Scoreは0から100までの範囲内の整数でなければならない
    at Student.set_Score(Int32 value) in /Users/kztk/prog/cs/Materials/Week4/ExceptionExample3/Program.cs:line 16
    at ExceptionExample3.Main() in /Users/kztk/prog/cs/Materials/Week4/ExceptionExample3/Program.cs:line 29</code></pre>
-<p>一般的には例外とは，<code>System.Exception</code>を継承しているクラスのオブジェクトである．そのため，<code>System.Exception</code>かその派生クラス（上記 <code>ArgumentException</code> や <code>KeyNotFoundException</code> など）を継承することでユーザ適宜の例外を作成することもできる．</p>
+<p>一般的には例外とは，<code>System.Exception</code>を継承しているクラスのオブジェクトである．そのため，<code>System.Exception</code>かその派生クラス（上記 <code>ArgumentException</code> や <code>KeyNotFoundException</code> など）を継承することでユーザ定義の例外を作成することもできる．</p>
 <p>また，一つの<code>try</code>はいくつもの<code>catch</code>ブロックを持つことができる．</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">try</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -610,8 +610,10 @@ Hello, again.</code></pre>
 <td>static メソッド．与えられたパスのファイルを開いて，与えられた文字列で上書きして閉じる．パスにファイルが存在してなければ作成する．</td>
 </tr>
 <tr class="even">
-<td><code>File.ReadAllLines(string,string[])</code></td>
-<td>static メソッド．与えられたパスのファイルを開いて，与えられた文字列の配列で上書きして閉じる．パスにファイルが存在してなければ作成する．</td>
+<td><code>File.WriteAllLines(string,string[])</code></td>
+<td><blockquote>
+<p>static メソッド．与えられたパスのファイルを開いて，与えられた文字列の配列で上書きして閉じる．パスにファイルが存在してなければ作成する．</p>
+</blockquote></td>
 </tr>
 <tr class="odd">
 <td><code>File.CreateText(string)</code></td>
@@ -780,7 +782,7 @@ class StringPitfall
 
      Console.WriteLine(&quot;😱&quot;.Length);              // 2 
      Console.WriteLine(&quot;0x{0:X}&quot;, (int) &quot;😱&quot;[0]); // 0xD83D 
-     Console.WriteLine(&quot;0x{0:X}&quot;, (int) &quot;😱&quot;[0]); // 0xDE31
+     Console.WriteLine(&quot;0x{0:X}&quot;, (int) &quot;😱&quot;[1]); // 0xDE31
   }
 }</code></pre>
 <p>これは，charがunicodeのコードポイントを表すのに十分でないためである．charは0〜65535の範囲しか表すことができない一方，
