@@ -40,7 +40,7 @@
                <h1>第5回 課題</h1>
              
             
-               <p class="last-update">最終更新: 2022-04-21 18:01:55</p> 
+               <p class="last-update">最終更新: 2022-05-25 11:10:47</p> 
             
             <div class="qnav">
               <ul>
@@ -287,8 +287,7 @@ Ready</code></pre>
 <ul>
 <li>もしファイルが見付からなければそのファイルを作成するようにし，
 ファイルが見付かったならばそのファイルを上書きするようにする．</li>
-<li>パスが有効でない場合はステータス行に"Invalid path"などと表示．</li>
-<li>アクセス権の関係で書き込みが失敗した場合には，ステータス行にその旨を表示（たとえば，"Permission denied"など）</li>
+<li>何らかの理由で与えられたパスのファイルを作成したり開いたりできない場合はステータス行にその旨を表示</li>
 <li>書き込みに成功したら，ステータス行に"Save ok"と表示する</li>
 </ul>
 <div class="hint">
@@ -299,6 +298,7 @@ Ready</code></pre>
 <a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file.writealltext?view=net-6.0#system-io-file-writealltext(system-string-system-string)">当該メソッドのリファレンス</a>を参照．</p>
 <p>もっと親切なエラーメッセージをステータス行に表示したい場合は
 <code>File.Exists</code> や <code>Directory.Exists</code> や，<code>File.GetAttributes</code> などを利用するとよいかもしれない（参考：<a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file?view=net-6.0">.NET API リファレンスのFlieクラスの説明</a>）</p>
+<p><em>注意（2022-05-25追記）</em>：どうやらWindows環境（.net 5.0.408，6.0.201で確認）では，<code>ArgumentException</code>や<code>PathTooLongException</code>が上記リファレンスの記述通りには発生しない模様．また，<code>FileInfo</code>のコンストラクタも記述通りの例外を投げない模様．たとえば，<code>fi = new FileInfo("./test???.txt")</code>は例外を投げず，<code>fi.CreateText()</code>などとしたときに<code>IOException</code>が発生する．</p>
 </div>
         </main>
 
