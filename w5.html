@@ -40,7 +40,7 @@
                <h1>第5回 GUIプログラミング</h1>
              
             
-               <p class="last-update">最終更新: 2022-05-25 14:27:03</p> 
+               <p class="last-update">最終更新: 2022-05-26 15:31:02</p> 
             
             <div class="qnav">
               <ul>
@@ -54,7 +54,7 @@
 <ul>
 <li><a href="#formクラス"><code>Form</code>クラス</a></li>
 <li><a href="#コントロールgui部品">コントロール（GUI部品）</a></li>
-<li><a href="#コンテナコントロールを保持もの">コンテナ（コントロールを保持もの）</a></li>
+<li><a href="#コンテナコントロールを保持するもの">コンテナ（コントロールを保持するもの）</a></li>
 <li><a href="#レイアウト">レイアウト</a>
 <ul>
 <li><a href="#stacklayoutの例"><code>StackLayout</code>の例</a></li>
@@ -235,7 +235,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="コンテナコントロールを保持もの">コンテナ（コントロールを保持もの）</h2>
+<h2 id="コンテナコントロールを保持するもの">コンテナ（コントロールを保持するもの）</h2>
 <p>コントロールを複数個（1個のみのときもある）保持するコントロールは <strong>コンテナ</strong> と呼ばれる．</p>
 <p>スクロールを可能にする<code>Scrollable</code>，タブでコントロールを切り替えられる<code>TabControl</code>，
 二つのコントロールを区切り線で分ける<code>Splitter</code>や次項で説明するレイアウトがある．
@@ -458,7 +458,7 @@ Eto.Formsの提供する代表的なレイアウトに以下のようなもの�
 <p>上記のプログラムを少し改変してみて挙動の変化を確認してみよう．たとえば，以下等をしてみるとよい．</p>
 <ul>
 <li>「以下をアンコメントしたらどうなる？」に従ってみる</li>
-<li><code>TableLayout.AutoSized</code>を使わないでみる．あるいは<code>TextAre</code>を追加する際に<code>AutoSized</code>を使ってみる</li>
+<li><code>TableLayout.AutoSized</code>を使わないでみる．あるいは<code>TextArea</code>を追加する際に<code>AutoSized</code>を使ってみる</li>
 <li><code>Padding</code>や<code>Spacing</code>を変えてみる</li>
 <li>同じコントロールを複数追加してみる</li>
 <li><code>StackLayout</code>のときのように，オブジェクト初期化子をできるだけ活用する形にプログラムを変更してみる</li>
@@ -528,7 +528,7 @@ Label</code></pre>
 <p>上記の実行例（Macの場合）</p>
 <p><img src="./images/eto/button_layout_only.png" alt="image" /></p>
 <h3 id="イベントハンドラの登録">イベントハンドラの登録</h3>
-<p>ボタン<code>button</code>を押したときに，なにかをさせたい場合はイベントハンドラに関数を登録すればよい．これは，<code>button</code>の<code>Click</code>フィールドに以下のようにメソッドを登録すればよい．</p>
+<p>ボタン<code>button</code>を押したときに，なにかをさせたい場合は以下のように<code>button.Click</code>イベントにハンドラを登録すればよい．</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// クリックされたときに YOUR_METHOD(イベント発生させたオブジェクト，EventArgs型のオブジェクト) が呼び出される</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>button<span class="op">.</span><span class="fu">Click</span> <span class="op">+=</span> YOUR_METHOD<span class="op">;</span> </span></code></pre></div>
 <p>C#ではクラスやオブジェクトはイベント（のハンドラを格納するもの）を持つことができる．実際に<code>Click</code>は</p>

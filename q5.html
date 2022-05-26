@@ -40,7 +40,7 @@
                <h1>第5回 課題</h1>
              
             
-               <p class="last-update">最終更新: 2022-05-25 11:10:47</p> 
+               <p class="last-update">最終更新: 2022-05-26 15:41:34</p> 
             
             <div class="qnav">
               <ul>
@@ -225,7 +225,7 @@ Ready</code></pre>
 <p>便宜上，上記で"Ready"と書かれている部分を「ステータス行」と呼ぶことにする．</p>
 <p>上記のアプリケーションに以下の機能を実装せよ．</p>
 <ul>
-<li>"Load"ボタンが押されたら，テキストボックスに入力されたファイルが <em>もし存在していれば</em> 開き，
+<li>"Load"ボタンが押されたら，テキストボックスに入力されたパスにあるファイルが <em>もし存在していれば</em> 開き，
 その内容を中央のテキストボックスに表示する．
 <ul>
 <li>読み込みに成功したら，ステータス行に"Load ok"と表示する．</li>
@@ -233,10 +233,9 @@ Ready</code></pre>
 <li>本課題では，ファイルを開いたり読みこんだりしたときに例外が発生した場合の挙動については規定しない．</li>
 </ul></li>
 </ul>
-<p>ただし，相対パスを用いて「マイ ドキュメント」内（Windowsの場合）やホームディレクトリ内（Mac等の場合）のファイルを開けるようにするために，
-以下を実行して作業ディレクトリを上記に設定せよ（<code>MainForm</code>のコンストラクタ内で実行したのでよい．<code>Main</code>で実行するべきであろうが，3箇所のファイルを修正するのは大変なので）．</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 現在の（作業）ディレクトリを，プラットフォーム毎の「マイ ドキュメント」的なディレクトリに設定する</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Windowsだと「マイ ドキュメント」，Macだとホームディレクトリ．他の環境は未確認．</span></span>
+<p>ただし，相対パスを用いて「ドキュメント」内（Windowsの場合．Windows 8以前は「マイ ドキュメント」）やホームディレクトリ内（Mac等の場合）のファイルを開けるようにするために，以下を<code>MainForm</code>のコンストラクタに含めるなどせよ（フォームの関心毎ではないので<code>Main</code>等で実行すべきだが，3箇所のファイルを修正するのは大変なので）．</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 現在の（作業）ディレクトリを，プラットフォーム毎の「ドキュメント」的なディレクトリに設定する</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Windowsだと「ドキュメント」，Macだとホームディレクトリ．他の環境は未確認．</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">// </span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">// より安全には，Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) が空文字列かどうか</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">// を検査してから Environment.CurrentDirectory に代入したほうがよい．</span></span>
@@ -282,7 +281,7 @@ Ready</code></pre>
 +-------------------------------------+
 Ready</code></pre>
 <p>"Save"ボタンが押されたときには，その時点でのテキストエリアの内容を，
-その時点でのテキストボックスに入力されたファイルに保存する機能を実装せよ．
+その時点でのテキストボックスに入力されたパスにファイルに保存する機能を実装せよ．
 ただし，</p>
 <ul>
 <li>もしファイルが見付からなければそのファイルを作成するようにし，
