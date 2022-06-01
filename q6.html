@@ -40,7 +40,7 @@
                <h1>第6回 課題</h1>
              
             
-               <p class="last-update">最終更新: 2022-04-21 18:01:55</p> 
+               <p class="last-update">最終更新: 2022-06-01 14:33:14</p> 
             
             <div class="qnav">
               <ul>
@@ -207,8 +207,7 @@ zip -r <span class="metaname">提出物ベース名</span>.zip  <span class="met
 <div class="title">
 <p>Hint</p>
 </div>
-<p>お絵描き用のコントロールの<code>MouseMove</code>イベントを購読（イベントハンドラを登録）する．
-主ボタンが押されたまま移動されたかどうかは，以下のようにハンドラの第2引数の<code>Buttons</code>プロパティを用いて判定できる．</p>
+<p>お絵描き用のコントロールの<code>MouseMove</code>イベントを購読（イベントハンドラを登録）する．主ボタンが押されたまま移動されたかどうかは，以下のようにハンドラの第2引数の<code>Buttons</code>プロパティを用いて判定できる．</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// oekakiControl の MouseMove イベントを購読</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>oekakiControl<span class="op">.</span><span class="fu">MouseMove</span> <span class="op">+=</span> <span class="op">(</span>s<span class="op">,</span> me<span class="op">)</span> <span class="op">=&gt;</span> <span class="op">{</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>   <span class="kw">if</span> <span class="op">(</span> me<span class="op">.</span><span class="fu">Buttons</span><span class="op">.</span><span class="fu">HasFlag</span><span class="op">(</span> MouseButtons<span class="op">.</span><span class="fu">Primary</span> <span class="op">)</span> <span class="op">)</span> <span class="op">{</span></span>
@@ -220,16 +219,13 @@ zip -r <span class="metaname">提出物ベース名</span>.zip  <span class="met
 <div class="title">
 <p>Hint</p>
 </div>
-<p>素朴なアイデアは<code>MouseMove</code>イベントの度に現在のマウスの位置に円を描くというものだが，それだと
-マウスが一度に沢山に動いたときにとぎれとぎれの「線」が描かれてしまう．それを避けるためには，以下のようにするとよいだろう．</p>
+<p>素朴なアイデアは<code>MouseMove</code>イベントの度に現在のマウスの位置に円を描くというものだが，それだとマウスが一度に沢山に動いたときにとぎれとぎれの「線」が描かれてしまう．それを避けるためには，以下のようにするとよいだろう．</p>
 <ul>
 <li>マウスの以前の位置を覚えておく．</li>
 <li>マウスの主ボタンが押されたら，その位置に円を描き，「マウスの以前の位置」を更新する．</li>
-<li>マウスの主ボタンが押されたままマウスが移動されたら，「マウスの以前の位置」と「マウスの現在の位置」の
-間に線分を引く．そして，「マウスの以前の位置」を更新する．</li>
+<li>マウスの主ボタンが押されたままマウスが移動されたら，「マウスの以前の位置」と「マウスの現在の位置」の間に線分を引く．そして，「マウスの以前の位置」を更新する．</li>
 </ul>
-<p>線分の描画には<code>Graphics.DrawLine(Pen, PointF, PointF)</code>メソッドが使用できるだろう．<code>Pen</code>の<code>LineCap</code>プロパティを
-<code>PenLineCap.Round</code>に設定するときれいに線が引けるかもしれない（<a href="http://pages.picoe.ca/docs/api/html/P_Eto_Drawing_Pen_LineCap.htm">参考</a>）．</p>
+<p>線分の描画には<code>Graphics.DrawLine(Pen, PointF, PointF)</code>メソッドが使用できるだろう．<code>Pen</code>の<code>LineCap</code>プロパティを<code>PenLineCap.Round</code>に設定するときれいに線が引けるかもしれない（<a href="http://pages.picoe.ca/docs/api/html/P_Eto_Drawing_Pen_LineCap.htm">参考</a>）．</p>
 </div>
 <h2 id="発展課題">発展課題</h2>
 <div class="caution">
@@ -238,10 +234,8 @@ zip -r <span class="metaname">提出物ベース名</span>.zip  <span class="met
 </div>
 <p>本課題を完了できたのならば本課題の解答のみを提出すればよく，基本課題の解答は提出する必要はない．</p>
 </div>
-<p>基本課題の条件を満している限りにおいて，お絵描きプログラムにさまざまな機能を追加せよ．
-追加する機能は自由に決めたのでよいが， <strong>どのような機能を追加したかの説明およびプログラム上の工夫点はコメントとして提出プログラムに含めること．</strong></p>
-<p>どういう機能を追加したらよいかまよっている人の参考までに，いくつかの機能追加の方向性を以下に示しておく．
-もちろん，追加する機能はこれらに限定されない．</p>
+<p>基本課題の条件を満している限りにおいて，お絵描きプログラムにさまざまな機能を追加せよ．追加する機能は自由に決めたのでよいが， <strong>どのような機能を追加したかの説明およびプログラム上の工夫点はコメントとして提出プログラムに含めること．</strong></p>
+<p>どういう機能を追加したらよいかまよっている人の参考までに，いくつかの機能追加の方向性を以下に示しておく．もちろん，追加する機能はこれらに限定されない．</p>
 <ul>
 <li>お絵描きした画像を保存する機能</li>
 <li>「消しゴム」機能</li>

@@ -40,7 +40,7 @@
                <h1>第6回 C#でお絵描き</h1>
              
             
-               <p class="last-update">最終更新: 2022-04-21 18:01:55</p> 
+               <p class="last-update">最終更新: 2022-06-01 14:30:11</p> 
             
             <div class="qnav">
               <ul>
@@ -62,8 +62,7 @@
 </ul>
 </div>
 <h2 id="drawableコントロール"><code>Drawable</code>コントロール</h2>
-<p>Eto.Forms の <code>Drawable</code> コントロールを利用することで，直線，矩形，楕円，文字列等いろんなものを
-コントロールに自由に描画できる．</p>
+<p>Eto.Forms の <code>Drawable</code> コントロールを利用することで，直線，矩形，楕円，文字列等いろんなものをコントロールに自由に描画できる．</p>
 <p>そのためには，以下のように<code>Drawable</code>の<code>Paint</code>イベントを購読（ハンドラを登録）するとよい．</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// MainForm.cs </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
@@ -109,7 +108,7 @@
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>                <span class="co">// 矩形のアウトラインを描く</span></span>
 <span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>                g<span class="op">.</span><span class="fu">DrawRectangle</span><span class="op">(</span>Colors<span class="op">.</span><span class="fu">Red</span><span class="op">,</span> <span class="kw">new</span> <span class="fu">RectangleF</span><span class="op">(</span><span class="kw">new</span> <span class="fu">PointF</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">100</span><span class="op">),</span> <span class="kw">new</span> <span class="fu">SizeF</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">50</span><span class="op">)));</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>                <span class="co">// Colors.Red と書くかわりに Color.FromRgb(0xFF0000) で陽にRGBAを指定できる</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>                <span class="co">// Colors.Red と書くかわりに Color.FromRgb(0xFF0000) で陽にRGBを指定できる</span></span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>                g<span class="op">.</span><span class="fu">FillRectangle</span><span class="op">(</span>Color<span class="op">.</span><span class="fu">FromRgb</span><span class="op">(</span><span class="bn">0xFF0000</span><span class="op">),</span> <span class="kw">new</span> <span class="fu">RectangleF</span><span class="op">(</span><span class="kw">new</span> <span class="fu">PointF</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">150</span><span class="op">),</span> <span class="kw">new</span> <span class="fu">SizeF</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">50</span><span class="op">)));</span></span>
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>                <span class="co">// 楕円のアウトラインを描く．Colors.Lime は Color.FromRgb(0x00FF00) と同じ色</span></span>
@@ -135,10 +134,10 @@
 <span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>            <span class="co">// Mac環境のワークアラウンド．</span></span>
 <span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>            <span class="co">// Drawableの最初のPaint時にSizeが値が正しくない https://github.com/picoe/Eto/issues/2104 </span></span>
 <span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>            <span class="co">//</span></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>            <span class="co">// Gtkでも，Sizeがワンテンポ遅れて変化したりする（https://github.com/picoe/Eto/issues/1752）ので，</span></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>            <span class="co">// 現状ではSizeに依存するコードはかかないほうがよいかもしれない</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>            <span class="co">// Eto.Forms 2.6.1においては，GtkでもSizeがワンテンポ遅れて変化したりする（https://github.com/picoe/Eto/issues/1752）ので</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>            <span class="co">// 現状ではSizeに依存するコードはかかないほうがよいかもしれない．</span></span>
 <span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>            <span class="co">//</span></span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>            <span class="co">// Invalidate()はコントロールに再描画を促す</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>            <span class="co">// Invalidate()はコントロールに再描画を促す．</span></span>
 <span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>            drawable<span class="op">.</span><span class="fu">SizeChanged</span> <span class="op">+=</span> <span class="op">(</span>s<span class="op">,</span> e<span class="op">)</span> <span class="op">=&gt;</span> drawable<span class="op">.</span><span class="fu">Invalidate</span><span class="op">();</span></span>
 <span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>            Content <span class="op">=</span> drawable<span class="op">;</span></span>
@@ -246,21 +245,18 @@
 </table>
 <p>なお，上記はあくまで一部である．より詳細は <a href="http://pages.picoe.ca/docs/api/html/T_Eto_Drawing_Graphics.htm">Eto.FormsのドキュメンテーションのGraphicsのページ</a> を見るとよい．</p>
 <h2 id="フォント">フォント</h2>
-<p><code>Font(FontFamily,float)</code>コンストラクタを使うことで，システムにインストールされたフォントから<code>Font</code>オブジェクトを作成できる．
-<code>FontFamily</code>はフォント名をとるコンストラクタ<code>FontFamily(string)</code>を用いてもよいが，システムによってインストールされているフォントは違うので，<code>Fonts.AvailableFontFamilies</code>を使うのがよいかもしれない．たとえば，<code>Fonts.AvailableFontFamilies</code>は以下のように<code>List&lt;FontFamily&gt;</code>に変換することができる．</p>
+<p><code>Font(FontFamily,float)</code>コンストラクタを使うことで，システムにインストールされたフォントから<code>Font</code>オブジェクトを作成できる．</p>
+<p><code>FontFamily</code>インスタンスの作成にはフォント名をとるコンストラクタ<code>FontFamily(string)</code>を用いてもよいが，システムによってインストールされているフォントは違うので<code>Fonts.AvailableFontFamilies</code>を使うのがよいかもしれない．たとえば，<code>Fonts.AvailableFontFamilies</code>は以下のように<code>List&lt;FontFamily&gt;</code>に変換することができる．</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// システムにインストールされているフォントを取得し，List&lt;FontFamily&gt;に変換する</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>List<span class="op">&lt;</span>FontFamily<span class="op">&gt;</span> fontfamilies <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span>T<span class="op">&gt;(</span> Font<span class="op">.</span><span class="fu">AvailableFontFamilies</span> <span class="op">);</span> </span></code></pre></div>
-<p>折角なので，いままで紹介していないコントロールを使って，フォントファミリとサイズを指定して，文字列を描画するプログラムを作ってみよう．
-具体的には <code>DropDown</code> と <code>NumericStepper</code> を使用する．</p>
-<p>以下のようにすることで，<code>Fonts.AvailableFontFamilies</code> が中身となるようなドロップダウンを作成できる．</p>
+<p>折角なので，いままで紹介していないコントロールを使って，フォントファミリとサイズを指定して，文字列を描画するプログラムを作ってみよう．具体的には <code>DropDown</code> と <code>NumericStepper</code> を使用する．</p>
+<p>以下のようにすることで，<code>Fonts.AvailableFontFamilies</code>が中身となるようなドロップダウンを作成できる．</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>DropDown fontfamilyChooser <span class="op">=</span> <span class="kw">new</span> <span class="fu">DropDown</span><span class="op">();</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">// ドロップダウンの「中身」を Fonts.AvailableFontFamilies にセットする</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>fontfamilyChooser<span class="op">.</span><span class="fu">DataStore</span> <span class="op">=</span> Fonts<span class="op">.</span><span class="fu">AvailableFontFamilies</span><span class="op">;</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">// ドロップダウンの要素をどのようにして表示するための文字列にするかを規定する（詳細は説明しない）</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>fontfamilyChooser<span class="op">.</span><span class="fu">ItemTextBinding</span> <span class="op">=</span> Binding<span class="op">.</span><span class="fu">Delegate</span><span class="op">((</span><span class="dt">object</span> o<span class="op">)</span> <span class="op">=&gt;</span> o<span class="op">.</span><span class="fu">ToString</span><span class="op">());</span>   </span></code></pre></div>
-<p>また，フォントのサイズの選択には，<code>NumericStepper</code> を使う．
-これは，数値を選択するためのコントロールであり，数字の横に上三角形と下三角形が表示されている．きっとよく見るようなものであると思われる．
-注意事項としては選択される数字等は<code>double</code>型であるという点である．</p>
+<p>フォントのサイズの選択には<code>NumericStepper</code>を使うことにする．これは，数値を選択するためのコントロールであり，数字の横に上三角形と下三角形が表示されている．きっとよく見るようなものであると思われる．注意事項としては選択される数等は<code>double</code>型であるという点である．</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>NumericStepper sizeSelector <span class="op">=</span> <span class="kw">new</span> NumericStepper</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    MinValue <span class="op">=</span> <span class="dv">5</span><span class="op">,</span>   <span class="co">// 最小値</span></span>
@@ -282,11 +278,11 @@
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">if</span> <span class="op">(</span>ff <span class="op">!=</span> <span class="kw">null</span><span class="op">)</span></span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">// sizerSelector.Value は double なので int に丸める．</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        pe<span class="op">.</span><span class="fu">Graphics</span><span class="op">.</span><span class="fu">DrawText</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Font</span><span class="op">(</span>ff<span class="op">,</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span>sizeSelector<span class="op">.</span><span class="fu">Value</span><span class="op">),</span> Colors<span class="op">.</span><span class="fu">Black</span><span class="op">,</span> <span class="kw">new</span> <span class="fu">PointF</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">),</span> textToDraw<span class="op">.</span><span class="fu">Text</span><span class="op">);</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
-<p>最後に<code>fontfamilyChooser</code>，<code>sizeSelector</code>，<code>textToDraw</code> の内容に変更があったときに，<code>d</code> を再描画するようにする．
-そうでなければ，リサイズ等の他に更新すべき理由がない限り描画領域は更新されない．</p>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 注：Fontコンストラクタの第2引数はfloatなので，floatにキャストしたのでも十分ではある．</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        pe<span class="op">.</span><span class="fu">Graphics</span><span class="op">.</span><span class="fu">DrawText</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Font</span><span class="op">(</span>ff<span class="op">,</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span>sizeSelector<span class="op">.</span><span class="fu">Value</span><span class="op">),</span> Colors<span class="op">.</span><span class="fu">Black</span><span class="op">,</span> <span class="kw">new</span> <span class="fu">PointF</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">),</span> textToDraw<span class="op">.</span><span class="fu">Text</span><span class="op">);</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<p>最後に<code>fontfamilyChooser</code>，<code>sizeSelector</code>，<code>textToDraw</code>の内容に変更があったときに，<code>d</code>を再描画するようにする．そうでなければ，リサイズ等の他に更新すべき理由がない限り描画領域は更新されない．</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Invalidate() はコントロールに再描画を促す</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">// これらをコメントアウトしてみるとどのような挙動になるだろうか？</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>fontfamilyChooser<span class="op">.</span><span class="fu">SelectedIndexChanged</span> <span class="op">+=</span> <span class="op">(</span>s<span class="op">,</span> e<span class="op">)</span> <span class="op">=&gt;</span> d<span class="op">.</span><span class="fu">Invalidate</span><span class="op">();</span></span>
@@ -400,8 +396,7 @@
 </tr>
 </tbody>
 </table>
-<p>これらに渡すハンドラの第2引数は<code>MouseEventArgs</code>になる．たとえば以下のプロパティを通じて，
-イベント発生時のマウスの状態を取得できる．</p>
+<p>これらに渡すハンドラの第2引数は<code>MouseEventArgs</code>になる．たとえば以下のプロパティを通じて，イベント発生時のマウスの状態を取得できる．</p>
 <table>
 <tbody>
 <tr class="odd">
@@ -433,8 +428,7 @@
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 右クリックのときの処理</span></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>では，マウスイベントのハンドリングの例として，マウスのクリック位置に円を描くプログラムを作ってみよう．
-<code>Drawable</code>もコントロールなので，その<code>MouseDown</code>イベントを購読すればよい．たとえば，以下のように．</p>
+<p>では，マウスイベントのハンドリングの例として，マウスのクリック位置に円を描くプログラムを作ってみよう．<code>Drawable</code>もコントロールなので，その<code>MouseDown</code>イベントを購読すればよい．たとえば，以下のように．</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// MainForm.cs</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> Eto<span class="op">.</span><span class="fu">Forms</span><span class="op">;</span></span>
@@ -496,8 +490,7 @@
 <span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>        g<span class="op">.</span><span class="fu">FillEllipse</span><span class="op">(</span>Color<span class="op">,</span> <span class="kw">new</span> <span class="fu">RectangleF</span><span class="op">(</span>Center <span class="op">-</span> <span class="fl">0.5F</span> <span class="op">*</span> circleSize<span class="op">,</span> Center <span class="op">+</span> <span class="fl">0.5F</span> <span class="op">*</span> circleSize<span class="op">));</span></span>
 <span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><code>PointF</code>型の<code>circled</code>の代わりに，<code>ColoredCircle</code>型の変数を用意し，<code>Drawable</code>の<code>Paint</code>イベントのハンドラは，
-その変数がnullでなければ，指しているインスタンスの<code>Draw</code>を呼ぶようにする．</p>
+<p><code>PointF</code>型の<code>clicked</code>の代わりに，<code>ColoredCircle</code>型の変数を用意し，<code>Drawable</code>の<code>Paint</code>イベントのハンドラは，その変数がnullでなければ，指しているインスタンスの<code>Draw</code>を呼ぶようにする．</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ColoredCircle cc <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>Drawable d <span class="op">=</span> <span class="kw">new</span> <span class="fu">Drawable</span><span class="op">();</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>d<span class="op">.</span><span class="fu">Paint</span> <span class="op">+=</span> <span class="op">(</span>s<span class="op">,</span> pe<span class="op">)</span> <span class="op">=&gt;</span></span>
@@ -576,15 +569,13 @@
 <span id="cb15-61"><a href="#cb15-61" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>上のコードのMacでの実行例たとえば以下となる．</p>
 <h3 id="複数個の円を描く">複数個の円を描く</h3>
-<p>さて，円が一個だけでは寂しいのでもっとたくさん描画できるようしたい．そこで，クリックするたびに円を描くようにしたい．
-この実現方法は2通りある．</p>
+<p>さて，円が一個だけでは寂しいのでもっとたくさん描画できるようしたい．そこで，クリックするたびに円を描くようにしたい．この実現方法は2通りある．</p>
 <ul>
 <li><code>ColoredCircle</code>のリストを覚えておき，<code>Paint</code>イベントのハンドラはそれらすべてを描画する．</li>
 <li>画像を保持しておきクリックをしたら<code>ColoredCircle</code>をそこに描く．<code>Paint</code>イベントのハンドラは画像を表示する．</li>
 </ul>
 <h4 id="円のリストを覚える方法">円のリストを覚える方法</h4>
-<p>前者の拡張はとても直截である．一つの<code>ColoredCircle</code>でなく，<code>ColoredCircle</code>のリストを保持するようにすればよい．
-上のコードに対する変更はわずか5箇所（うち一つはnamespaceの名前）だ．</p>
+<p>前者の拡張はとても直截である．一つの<code>ColoredCircle</code>でなく，<code>ColoredCircle</code>のリストを保持するようにすればよい．上のコードに対する変更はわずか5箇所（うち一つはnamespaceの名前）だ．</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">// MainForm.cs</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">.</span><span class="fu">Collections</span><span class="op">.</span><span class="fu">Generic</span><span class="op">;</span> <span class="co">// 追加</span></span>
@@ -649,9 +640,7 @@
 <p>上のコードのMacにおける実行例は以下となる．</p>
 <p><img src="./images/eto/mouse_demo3.png" alt="image" /></p>
 <h4 id="画像を保持する方法">画像を保持する方法</h4>
-<p>ビットマップイメージ（<code>Bitmap</code>）を保持し，マウスクリック時にはイメージのほうに円を描き，
-<code>Drawable</code>の<code>Paint</code>ではその画像を単に表示するという方法もある．その場合は，少しプログラムが
-複雑になるので，<code>Drawable</code>に関連するイベント処理を，派生クラスのコンストラクタにまとめてしまうのがよいだろう．</p>
+<p>ビットマップイメージ（<code>Bitmap</code>）を保持し，マウスクリック時にはイメージのほうに円を描き，<code>Drawable</code>の<code>Paint</code>ではその画像を単に表示するという方法もある．その場合は，少しプログラムが複雑になるので，<code>Drawable</code>に関連するイベント処理を，派生クラスのコンストラクタにまとめてしまうのがよいだろう．</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">// MainForm.cs</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> Eto<span class="op">.</span><span class="fu">Forms</span><span class="op">;</span></span>
@@ -715,7 +704,7 @@
 <span id="cb17-61"><a href="#cb17-61" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
 <span id="cb17-62"><a href="#cb17-62" aria-hidden="true" tabindex="-1"></a>        <span class="kw">public</span> <span class="fu">MainForm</span><span class="op">()</span></span>
 <span id="cb17-63"><a href="#cb17-63" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb17-64"><a href="#cb17-64" aria-hidden="true" tabindex="-1"></a>            Title <span class="op">=</span> <span class="st">&quot;Mouse Demo 3&quot;</span><span class="op">;</span></span>
+<span id="cb17-64"><a href="#cb17-64" aria-hidden="true" tabindex="-1"></a>            Title <span class="op">=</span> <span class="st">&quot;Mouse Demo 4&quot;</span><span class="op">;</span></span>
 <span id="cb17-65"><a href="#cb17-65" aria-hidden="true" tabindex="-1"></a>            MinimumSize <span class="op">=</span> <span class="kw">new</span> <span class="fu">Size</span><span class="op">(</span><span class="dv">200</span><span class="op">,</span> <span class="dv">200</span><span class="op">);</span></span>
 <span id="cb17-66"><a href="#cb17-66" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-67"><a href="#cb17-67" aria-hidden="true" tabindex="-1"></a>            ColorPicker colorPicker <span class="op">=</span> <span class="kw">new</span> ColorPicker <span class="op">{</span> Value <span class="op">=</span> Colors<span class="op">.</span><span class="fu">Red</span> <span class="op">};</span></span>
