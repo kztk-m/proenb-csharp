@@ -40,7 +40,7 @@
                <h1>第3回 課題</h1>
              
             
-               <p class="last-update">最終更新: 2022-05-11 14:22:16</p> 
+               <p class="last-update">最終更新: 2023-03-16 14:23:09</p> 
             
             <div class="qnav">
               <ul>
@@ -238,15 +238,15 @@ zip -r <span class="metaname">提出物ベース名</span>.zip  <span class="met
 </tr>
 <tr class="odd">
 <td><code>void Remove(Item i)</code></td>
-<td>商品<code>i</code>をカートから一つ取り除く．</td>
+<td>商品<code>i</code>をカートから一つ取り除く．カートに商品<code>i</code>が入っていなければ何も起こらない．</td>
 </tr>
 <tr class="even">
 <td><code>void Report()</code></td>
-<td>カート内の全商品，合計金額，購入した場合の予算の残りを標準出力に出力する．ただし，<code>for</code>文や<code>while</code>文（資料で紹介していないが<code>do</code>文も）を使ってはならない（<code>foreach</code>文を使う？）</td>
+<td>カート内の全商品，合計金額，購入した場合の予算の残りを標準出力に出力する．ただし，<code>for</code>文や<code>while</code>文（資料で紹介していないが<code>do</code>文も）を使ってはならない（<code>foreach</code>文を使う？）．</td>
 </tr>
 <tr class="odd">
 <td><code>int Budget</code></td>
-<td>予算を確認するためのread-onlyなプロパティ</td>
+<td>予算を確認するためのread-onlyな <em>プロパティ</em>．</td>
 </tr>
 </tbody>
 </table>
@@ -263,38 +263,51 @@ zip -r <span class="metaname">提出物ベース名</span>.zip  <span class="met
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>      <span class="co">// 予算300のカート</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>      Cart sc <span class="op">=</span> <span class="kw">new</span> <span class="fu">Cart</span><span class="op">(</span><span class="dv">300</span><span class="op">);</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>chocolate<span class="op">);</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>chip<span class="op">);</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>popCorn<span class="op">);</span> <span class="co">// 予算オーバ追加できず</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Remove</span><span class="op">(</span>chip<span class="op">);</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>candy<span class="op">);</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>      Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>popCorn<span class="op">);</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>      Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>      <span class="co">// 名前と値段の同じ商品は等価として扱われる</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Remove</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Item</span><span class="op">(</span><span class="st">&quot;チョコレート&quot;</span><span class="op">,</span> <span class="dv">120</span><span class="op">));</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>      Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>candy<span class="op">);</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>candy<span class="op">);</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>candy<span class="op">);</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>popCorn<span class="op">);</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>      Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>chocolate<span class="op">);</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>chip<span class="op">);</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>popCorn<span class="op">);</span> <span class="co">// 予算オーバ追加できず</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Remove</span><span class="op">(</span>chip<span class="op">);</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>candy<span class="op">);</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>      Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>popCorn<span class="op">);</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>      Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>      <span class="co">// 名前と値段の同じ商品は等価として扱われる</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Remove</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Item</span><span class="op">(</span><span class="st">&quot;チョコレート&quot;</span><span class="op">,</span> <span class="dv">120</span><span class="op">));</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>      Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>      <span class="co">// カートに入ってないものを除いても何も起こらない</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Remove</span><span class="op">(</span>chocolate<span class="op">);</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>      Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>candy<span class="op">);</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>candy<span class="op">);</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>candy<span class="op">);</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>      <span class="kw">if</span> <span class="op">(</span> sc<span class="op">.</span><span class="fu">Budget</span> <span class="op">&gt;=</span> popCorn<span class="op">.</span><span class="fu">Price</span> <span class="op">)</span> <span class="co">// 予算の残額が充分にあるなら popCorn を追加</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>      <span class="op">{</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>         sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>popCorn<span class="op">);</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>      Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>      <span class="co">// 以下をアンコメントするとエラーになる（ようにする）</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>      <span class="co">// sc.Budget += 1000 </span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>たとえば以下のような出力が得られる．</p>
 <pre><code>チョコレート: 120
 チップ: 100
@@ -311,6 +324,11 @@ zip -r <span class="metaname">提出物ベース名</span>.zip  <span class="met
 ポップコーン: 110
 合計: 250
 残額: 50
+
+キャンディ: 20
+ポップコーン: 110
+合計: 130
+残額: 170
 
 キャンディ: 20
 ポップコーン: 110

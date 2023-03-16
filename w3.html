@@ -40,7 +40,7 @@
                <h1>第3回 コレクション・ジェネリクス</h1>
              
             
-               <p class="last-update">最終更新: 2022-05-12 14:49:35</p> 
+               <p class="last-update">最終更新: 2023-03-16 15:20:02</p> 
             
             <div class="qnav">
               <ul>
@@ -424,8 +424,8 @@ C#において，その型の値が実体そのものでなく実体への参照
 <td>リストの末尾に要素を追加する．</td>
 </tr>
 <tr class="odd">
-<td><code>void Remove(T)</code></td>
-<td>与えられた要素と同じ要素のうちもっとも最初に出現するものを取り除く．</td>
+<td><code>bool Remove(T)</code></td>
+<td>与えられた要素と同じ要素のうちもっとも最初に出現するものを取り除く．返り値は削除に成功した場合は<code>true</code>，そうでなければ（典型的には与えられた要素がリストに存在しない場合）<code>false</code>．</td>
 </tr>
 <tr class="even">
 <td><code>void RemovAt(int)</code></td>

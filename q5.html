@@ -40,7 +40,7 @@
                <h1>第5回 課題</h1>
              
             
-               <p class="last-update">最終更新: 2022-05-26 15:41:34</p> 
+               <p class="last-update">最終更新: 2023-03-16 18:13:36</p> 
             
             <div class="qnav">
               <ul>
@@ -240,6 +240,11 @@ Ready</code></pre>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">// より安全には，Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) が空文字列かどうか</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">// を検査してから Environment.CurrentDirectory に代入したほうがよい．</span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>Environment<span class="op">.</span><span class="fu">CurrentDirectory</span> <span class="op">=</span> Environment<span class="op">.</span><span class="fu">GetFolderPath</span><span class="op">(</span>Environment<span class="op">.</span><span class="fu">SpecialFolder</span><span class="op">.</span><span class="fu">MyDocuments</span><span class="op">);</span></span></code></pre></div>
+<p>上記の設定により，「ドキュメント」フォルダやホームディレクトリ直下のファイルにファイル名のみでアクセスできるようになる（より正確には相対パスの基準が「ドキュメント」フォルダやホームディレクトリになる）．より具体的には：</p>
+<ul>
+<li>Windows 10/11であれば，「ドキュメント」（エクスプローラーの左サイドバーの「クイックアクセス」か「PC」以下から見付かるはず）フォルダ直下に<code>test.txt</code>を適当な内容で用意し，作成するアプリケーションのテキストボックスに<code>test.txt</code>を入力して"Load"ボタンを押せばその内容が表示されるようになる．</li>
+<li>Macであれば，ホームディレクトリ（Finderの左サイドバーの「よく使う項目」の自分のユーザ名を選択することで開かれるディレクトリ．ターミナルだと<code>cd</code>で移動できる箇所）直下に<code>test.txt</code>を適当な内容で用意し，作成するアプリケーションのテキストボックスに<code>test.txt</code>を入力して"Load"ボタンを押せばその内容が表示されるようになる．</li>
+</ul>
 <div class="hint">
 <div class="title">
 <p>Hint</p>
