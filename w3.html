@@ -68,7 +68,7 @@
 </div>
 <h2 id="配列">配列</h2>
 <p>いくつかのデータをひとまとめ（コレクション）にして取り扱いたいことはよくある．
-<strong>配列</strong> は同じ型のデータを固定個まとめて扱うことを可能にする．</p>
+<strong>配列</strong>は同じ型のデータを固定個まとめて扱うことを可能にする．</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ArrayExample</span>
@@ -210,18 +210,12 @@
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>これは a や b が配列そのものではなく配列への参照であり，aもbも同じ配列を指しているためである．こうした，
-C#において，その型の値が実体そのものでなく実体への参照であるような型を参照型（reference type）といい，配列型やクラス型，そして文字列型は参照型である．
-一方で，<code>int</code>や<code>bool</code>等はその型の値は実体（整数や真偽値）そのものである（ように振る舞う）．そのような型を値型（value type）という．</p>
-<p>複合的な型やユーザ定義型が参照型かというとそんなことはなく，組型（tuple type）や構造体型（structure type）は値型となる（いずれも本演習では未登場）．
-本演習ではこの区別には深入りしないが，興味のある人は <a href>https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/types/</a> や，
-そこから辿れる文章等を調べてみるとよい．</p>
+C#において，その型の値が実体そのものでなく実体への参照であるような型を参照型（reference type）といい，配列型やクラス型，そして文字列型は参照型である．一方で，<code>int</code>や<code>bool</code>等はその型の値は実体（整数や真偽値）そのものである（ように振る舞う）．そのような型を値型（value type）という．</p>
+<p>複合的な型やユーザ定義型が参照型かというとそんなことはなく，組型（tuple type）や構造体型（structure type）は値型となる（いずれも本演習では未登場）．本演習ではこの区別には深入りしないが，興味のある人は<a href>https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/types/</a>や，そこから辿れる文章等を調べてみるとよい．</p>
 </div>
 <h2 id="プロパティproperty">プロパティ（property）</h2>
-<p>上で <code>nums.Length</code> や <code>nums.Rank</code> は一見フィールドに見える．が，実際には
-これらは <strong>プロパティ</strong> と呼ばれるものである．</p>
-<p>インスタンス <code>o</code>のプロパティ <code>P</code> はフィールドのように<code>o.P</code>で読み出したり<code>o.P = e</code>で書き込んだりできる．
-しかし，フィールドと異なるのはプロパティは読み出し専用（read-only）は書き込み専用（write-only）にでき，
-またメソッドのように読み出しや書き込みの際に処理を実行できる．</p>
+<p>上で <code>nums.Length</code> や <code>nums.Rank</code> は一見フィールドに見える．が，実際にはこれらは<strong>プロパティ</strong>と呼ばれるものである．</p>
+<p>インスタンス <code>o</code>のプロパティ <code>P</code> はフィールドのように<code>o.P</code>で読み出したり<code>o.P = e</code>で書き込んだりできる．しかし，フィールドと異なるのはプロパティは読み出し専用（read-only）は書き込み専用（write-only）にでき，またメソッドのように読み出しや書き込みの際に処理を実行できる．</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Student</span>
@@ -341,11 +335,9 @@ C#において，その型の値が実体そのものでなく実体への参照
 <p>実際に <code>Length</code> や <code>Rank</code> は配列オブジェクトの読み出し専用のプロパティである．</p>
 <p><code>set</code>のみを定義することで書き込み専用のプロパティを作成することもできる．また，<code>get</code>や<code>set</code>の前に<code>private</code>
 等のアクセス指定子を指定することで，読み出しや書き込みを行える範囲をコントロールすることも可能である．</p>
-<p><a href="./w2.html">前回</a>，<a href="w1.html">前々回</a>でいくつかのクラスは<code>T GetXXX()</code>や<code>void SetXXX(T x)</code>といったメソッドを
-持っていたが，こういったメソッドはプロパティとして実装することができる．</p>
+<p><a href="./w2.html">前回</a>，<a href="w1.html">前々回</a>でいくつかのクラスは<code>T GetXXX()</code>や<code>void SetXXX(T x)</code>といったメソッドを持っていたが，こういったメソッドはプロパティとして実装することができる．</p>
 <h2 id="list-t"><code>List &lt;T&gt;</code></h2>
-<p>配列は基本的ながら強力なデータ構造の一つではあるが，サイズが生成後に変更できないのは不便であることが多い．
-生成後のサイズを増減させたい場合は <code>System.Collections.Generic.List&lt;T&gt;</code> を用いるとよい．</p>
+<p>配列は基本的ながら強力なデータ構造の一つではあるが，サイズが生成後に変更できないのは不便であることが多い．生成後のサイズを増減させたい場合は <code>System.Collections.Generic.List&lt;T&gt;</code> を用いるとよい．</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">// System.Collections.Generic.List&lt;T&gt; を単に List&lt;T&gt; と書けるようにする．</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">.</span><span class="fu">Collections</span><span class="op">.</span><span class="fu">Generic</span><span class="op">;</span></span>
@@ -443,23 +435,18 @@ C#において，その型の値が実体そのものでなく実体への参照
 </div>
 <p><code>List&lt;T&gt;</code>における配列のようなインデックスアクセスは，
 <code>public T this[int index]</code>
-という <strong>インデクサー</strong> と呼ばれるプロパティのようなものとして定義されている（より正確には<code>[</code>と<code>]</code>の間に引数を取る以外はプロパティと同じ）．</p>
+という<strong>インデクサー</strong>と呼ばれるプロパティのようなものとして定義されている（より正確には<code>[</code>と<code>]</code>の間に引数を取る以外はプロパティと同じ）．</p>
 <p>ユーザ定義のクラスでもインデクサーを含むことができる．また，インデクサーもオーバロード可能である．</p>
 </div>
 <div class="note">
 <div class="title">
 <p>Note</p>
 </div>
-<p><code>List&lt;T&gt;</code> は最後尾でない場所に対する要素の削除や追加が重い（末尾への要素の追加はO(1)時間で済む場合とO(Count)時間かかる場合がある）．その代わり，
-インデックスアクセスがO(1)時間で可能である．</p>
-<p>他の「T型の要素の列」を扱うためのクラスに <code>LinkedList&lt;T&gt;</code> がある．
-こちらは着目している要素の前後への挿入や，その要素の削除がO(1)で可能でる．その代わりにインデックスアクセスが
-できず，着目している要素へのアクセスは先頭あるいは末尾から辿っていく必要がありO(Count)時間かかる．
-目的によって使いわけよう．</p>
+<p><code>List&lt;T&gt;</code> は最後尾でない場所に対する要素の削除や追加が重い（末尾への要素の追加はO(1)時間で済む場合とO(Count)時間かかる場合がある）．その代わり，インデックスアクセスがO(1)時間で可能である．</p>
+<p>他の「T型の要素の列」を扱うためのクラスに <code>LinkedList&lt;T&gt;</code> がある．こちらは着目している要素の前後への挿入や，その要素の削除がO(1)で可能でる．その代わりにインデックスアクセスができず，着目している要素へのアクセスは先頭あるいは末尾から辿っていく必要がありO(Count)時間かかる．目的によって使いわけよう．</p>
 </div>
 <h2 id="ジェネリクスgenerics">ジェネリクス（generics）</h2>
-<p><code>List&lt;T&gt;</code>のような型パラメータ（<code>T</code>）を取るようなクラスは <strong>ジェネリッククラス</strong> と呼ばれる．
-ジェネリクスは「ジェネリック…」の総称である．</p>
+<p><code>List&lt;T&gt;</code>のような型パラメータ（<code>T</code>）を取るようなクラスは<strong>ジェネリッククラス</strong>と呼ばれる．ジェネリクスは「ジェネリック…」の総称である．</p>
 <p>ユーザ自身もジェネリッククラスを作成することが可能である．</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -492,8 +479,7 @@ C#において，その型の値が実体そのものでなく実体への参照
 <span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>ジェネリクスもポリモーフィズムを実現する重要な言語機能の一つである．</p>
 <h2 id="練習問題">練習問題</h2>
-<p>プレイリストを管理するためのクラス <code>PlayList</code> を作成しなさい．
-このクラスは曲名のリストを管理し，以下のpublicなコンストラクタ・メソッドを持つ．</p>
+<p>プレイリストを管理するためのクラス <code>PlayList</code> を作成しなさい．このクラスは曲名のリストを管理し，以下のpublicなコンストラクタ・メソッドを持つ．</p>
 <table>
 <tbody>
 <tr class="odd">
@@ -529,25 +515,20 @@ C#において，その型の値が実体そのものでなく実体への参照
 <pre style="line-height:1.3">
 <span class="kw">foreach</span> (<span class="metaname">型あるいはvar</span> <span class="metaname">変数</span> in <span class="metaname">コレクションオブジェクト</span>) <span class="metaname">繰り返される文（ループ本体）</span> 
 </pre>
-<p>正確には，<code>foreach</code>を使用するには<code>in</code>の右に書くオブジェクトが，<code>System.Collections.Generics.IEnumerable&lt;T&gt;</code> インタフェース （か，その非ジェネリック版の<code>System.Collections.IEnumerable</code>）を
-実装している型である必要がある．</p>
+<p>正確には，<code>foreach</code>を使用するには<code>in</code>の右に書くオブジェクトが，<code>System.Collections.Generics.IEnumerable&lt;T&gt;</code> インタフェース （か，その非ジェネリック版の<code>System.Collections.IEnumerable</code>）を実装している型である必要がある．</p>
 <h2 id="インタフェース">インタフェース</h2>
-<p><strong>インタフェース</strong> は，大雑把にはオブジェクトが持っているべきインスタンスメソッドやフィールド等を規定するものである．
-クラスが，これらのインタフェースの規定するメソッドやフィールドを実装しているとき，そのクラスが当該インタフェースを <strong>実装している</strong> と言う．
-ユーザはクラスがどのインタフェースを実装しているかを陽に与えなければならない．クラスはたかだか一つのクラスを継承できるが，インタフェースは複数実装可能である．</p>
+<p><strong>インタフェース</strong>は，大雑把にはオブジェクトが持っているべきインスタンスメソッドやフィールド等を規定するものである．クラスが，これらのインタフェースの規定するメソッドやフィールドを実装しているとき，そのクラスが当該インタフェースを<strong>実装している</strong>と言う．ユーザはクラスがどのインタフェースを実装しているかを陽に与えなければならない．クラスはたかだか一つのクラスを継承できるが，インタフェースは複数実装可能である．</p>
 <p>実装の際は単に基底クラスと同様に<code>:</code>の右にインタフェース名を書けばよい．</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> A <span class="op">:</span> BaseClass<span class="op">,</span> Interface1<span class="op">,</span> Interface2 </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>   <span class="co">// ...</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>インタフェースも継承と同じく再利用性と高める．たとえば<code>foreach</code>文はよい例であり，<code>IEnumerable&lt;T&gt;</code>（か，その非ジェネリック版の<code>IEnumerable</code>）を実装している型ならばどんな型に対しても<code>foreach</code>文を利用可能である．</p>
-<p><code>List&lt;T&gt;</code>の<code>Remove(T)</code>メソッドもインタフェースを利用している．与えられた引数が<code>IEquatable&lt;T&gt;</code>を実装しているクラスのインスタンスであれば，
-そのインタフェースで規定されているメソッド<code>Equals(T)</code>を使って要素の等価性を判定する．
-そうでなければ，仮想メソッドである<code>Object.Equals</code> メソッドが用いられる（<a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.remove?view=net-6.0#system-collections-generic-list-1-remove(-0)">参考</a>）．</p>
+<p><code>List&lt;T&gt;</code>の<code>Remove(T)</code>メソッドもインタフェースを利用している．与えられた引数が<code>IEquatable&lt;T&gt;</code>を実装しているクラスのインスタンスであれば，そのインタフェースで規定されているメソッド<code>Equals(T)</code>を使って要素の等価性を判定する．そうでなければ，仮想メソッドである<code>Object.Equals</code> メソッドが用いられる（<a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.remove?view=net-6.0#system-collections-generic-list-1-remove(-0)">参考</a>）．</p>
 <p>本演習ではインタフェースにはこれ以上はあまり立ち入らない．</p>
 <h2 id="コレクション初期化子">コレクション初期化子</h2>
 <p><code>List&lt;T&gt;</code>など，<code>Add</code>メソッドを持ち，なおかつ<code>IEnumerable</code>を実装しているクラス（<code>IEnumerable&lt;T&gt;</code>でもよい）に対しては，
-<strong>コレクション初期化子</strong> を利用することができる．</p>
+<strong>コレクション初期化子</strong>を利用することができる．</p>
 <p>たとえば，</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// コレクション初期化子を伴う場合は，引数なしコンストラクタの()は省略化</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>List<span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;</span> ns <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;</span> <span class="op">{</span> <span class="st">&quot;apple&quot;</span><span class="op">,</span> <span class="st">&quot;orange&quot;</span><span class="op">,</span> <span class="st">&quot;banana&quot;</span> <span class="op">};</span></span></code></pre></div>
@@ -572,16 +553,12 @@ C#において，その型の値が実体そのものでなく実体への参照
 </div>
 <h2 id="名前空間">名前空間</h2>
 <p>（読みとばしてもよい．）</p>
-<p>さて，先程 <code>using System.Collections.Generic;</code>という<code>using System;</code>以外の<code>using</code>が出てきたので， <strong>名前空間</strong> について説明しておく．</p>
-<p>C#において，クラス名などの名前はいずれかの名前空間に属している．たとえば，<code>Console</code>は<code>System</code>という名前空間に属している．
-また，上記の<code>MyPair</code>や<code>ArrayExample</code>等は「空」の名前空間（グローバル名前空間）に属している．
-名前空間は名前空間を含むことができる．たとえば，<code>System</code>は<code>Collections</code>という名前空間を含んでいて，その<code>Collections</code>は
+<p>さて，先程 <code>using System.Collections.Generic;</code>という<code>using System;</code>以外の<code>using</code>が出てきたので，<strong>名前空間</strong>について説明しておく．</p>
+<p>C#において，クラス名などの名前はいずれかの名前空間に属している．たとえば，<code>Console</code>は<code>System</code>という名前空間に属している．また，上記の<code>MyPair</code>や<code>ArrayExample</code>等は「空」の名前空間（グローバル名前空間）に属している．名前空間は名前空間を含むことができる．たとえば，<code>System</code>は<code>Collections</code>という名前空間を含んでいて，その<code>Collections</code>は
 <code>Generic</code>という名前空間を含んでいる．上記の<code>List&lt;T&gt;</code>はその<code>Generic</code>に含まれている．</p>
 <p>名前空間にある名前にアクセスするには</p>
 <pre><span class="metaname">名前空間</span>.<span class="metaname">名前</span></pre>
-<p>のように"."を用いる．たとえば，<code>System.Console</code>などのようにする．名前空間がネストされている場合は，その分だけ"."で名前空間をつなげて書く．
-たとえば，<code>System.Collections.Generic.List&lt;T&gt;</code> など．<code>System.Console</code>などの名前空間が明示された名前を <strong>完全修飾名</strong> と呼ぶ．
-なお，上記の<code>MyPair</code>や<code>ArrayExample</code>はグローバル名前空間に属するのでそれ自身が完全修飾名となる．</p>
+<p>のように"."を用いる．たとえば，<code>System.Console</code>などのようにする．名前空間がネストされている場合は，その分だけ"."で名前空間をつなげて書く．たとえば，<code>System.Collections.Generic.List&lt;T&gt;</code> など．<code>System.Console</code>などの名前空間が明示された名前を<strong>完全修飾名</strong>と呼ぶ．なお，上記の<code>MyPair</code>や<code>ArrayExample</code>はグローバル名前空間に属するのでそれ自身が完全修飾名となる．</p>
 <p>なので，usingを用いなくても<code>Console</code>や<code>List&lt;T&gt;</code>を用いたプログラムを書くことができる．</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> NameSpaceExample</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -596,7 +573,7 @@ C#において，その型の値が実体そのものでなく実体への参照
 <span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>いちいち完全修飾名を書くのは煩わしいので，指定の名前空間に属する名前を修飾なしに使える（「名前を <strong>インポート</strong> する」と言う）ようにするのが<code>using</code>ディレクティブである．
+<p>いちいち完全修飾名を書くのは煩わしいので，指定の名前空間に属する名前を修飾なしに使える（「名前を<strong>インポート</strong>する」と言う）ようにするのが<code>using</code>ディレクティブである．
 <code>using</code>を使うことにより，上記のプログラムは以下のように書ける．</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">.</span><span class="fu">Collections</span><span class="op">.</span><span class="fu">Generic</span><span class="op">;</span></span>

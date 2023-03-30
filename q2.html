@@ -60,29 +60,25 @@
             <h2 id="課題の進め方">課題の進め方</h2>
 <p>大雑把には，以下の名前のプロジェクト/ソリューションを作って，zipにまとめて提出する．</p>
 <pre><span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span></pre>
-<p>上記の「<span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span>」を以下では， <em>提出物ベース名</em> と呼ぶことにする．
-たとえば，Z0TB9999さんの第3回課題の提出であれば，提出物ベース名は<code>Z0TB9999_Q3</code>である．</p>
+<p>上記の「<span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span>」を以下では，<em>提出物ベース名</em>と呼ぶことにする．たとえば，Z0TB9999さんの第3回課題の提出であれば，提出物ベース名は<code>Z0TB9999_Q3</code>である．</p>
 <p><strong>公開の場所に解答を置かないようお願いします．</strong>
 githubやbitbucket等は使える人は使えばよいと思いますが，private レポジトリにするようにお願いします．</p>
 <h3 id="プロジェクトソリューションの作成">プロジェクト/ソリューションの作成</h3>
 <h4 id="visual-studioの場合">Visual Studioの場合</h4>
-<p>「新しいプロジェクトの作成」（Windows）や「新規」/「New」（Mac）から，C#の「コンソール アプリケーション」テンプレートを
-選び，プロジェクト名とソリューション名を <span class="metaname">提出物ベース名</span> とする．
-たとえば，Z0TB9999さんの第3回課題の提出であれば，プロジェクト名とソリューション名はともに<code>Z0TB9999_Q3</code>とする．
-プロジェクト名とソリューション名以外の選択項目は（あれば）デフォルトのままとする．</p>
+<p>「新しいプロジェクトの作成」（Windows）や「新規」/「New」（Mac）から，C#の「コンソール アプリケーション」テンプレートを選び，プロジェクト名とソリューション名を <span class="metaname">提出物ベース名</span> とする．たとえば，Z0TB9999さんの第3回課題の提出であれば，プロジェクト名とソリューション名はともに<code>Z0TB9999_Q3</code>とする．プロジェクト名とソリューション名以外の選択項目は（あれば）デフォルトのままとする．</p>
 <h4 id="コマンドラインの場合">コマンドラインの場合</h4>
 <p>適当な場所で</p>
 <pre>dotnet new console -o <span class="metaname">提出物ベース名</span></pre>
 <p>を実行する．たとえば，Z0TB9999さんの第3回課題の提出であれば，<code>dotnet new console -o Z0TB9999_Q3</code>とする．この場合はソリューションは作成されないがそれで問題はない．</p>
 <h3 id="課題の実施">課題の実施</h3>
-<p>.cs ファイルを問題文の指示の通りに作成する（<code>Program.cs</code>を編集すればよい）．作成した.csファイルには先頭部分に <strong>学籍番号と名前をコメントとして含める</strong> こと．なので，たとえば学籍番号Z0TB9999の東北 大学さんの提出ファイルは</p>
+<p>.cs ファイルを問題文の指示の通りに作成する（<code>Program.cs</code>を編集すればよい）．作成した.csファイルには先頭部分に<strong>学籍番号と名前をコメントとして含める</strong>こと．なので，たとえば学籍番号Z0TB9999の東北 大学さんの提出ファイルは</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Z0TB9999</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 東北 大学</span></span></code></pre></div>
 <p>という行から始まる．</p>
 <h3 id="提出するzipの準備">提出するzipの準備</h3>
 <h4 id="visual-studioでプロジェクトソリューションを作成した場合">Visual Studioでプロジェクト/ソリューションを作成した場合</h4>
 <ol type="1">
-<li><p>まず，Visual Studio でソリューション「<span class="metaname">提出物ベース名</span>.sln 」を開いた後，ソリューション エクスプローラーから，同名のプロジェクトを右クリックして出てくるコンテキストメニューから <em>「〜をクリーン」</em> を（選択できれば）選択する．あるいは，以下の手順を実行する前に<code>obj</code>フォルダと<code>bin</code>フォルダを消したのでもよい．</p></li>
+<li><p>まず，Visual Studio でソリューション「<span class="metaname">提出物ベース名</span>.sln 」を開いた後，ソリューション エクスプローラーから，同名のプロジェクトを右クリックして出てくるコンテキストメニューから<em>「〜をクリーン」</em>を（選択できれば）選択する．あるいは，以下の手順を実行する前に<code>obj</code>フォルダと<code>bin</code>フォルダを消したのでもよい．</p></li>
 <li><p>当該ソリューションが含まれているフォルダは以下の構造をしている．</p>
 <div class="directorylist">
 <ul>
@@ -101,23 +97,16 @@ githubやbitbucket等は使える人は使えばよいと思いますが，priva
 </ul></li>
 </ul>
 </div>
-<p>そこで，たとえば下記のようにして，一番外側のフォルダをzip形式で圧縮し，
-「<span class="metaname">提出物ベース名</span>.zip」というzipファイルを作成する．</p>
+<p>そこで，たとえば下記のようにして，一番外側のフォルダをzip形式で圧縮し，「<span class="metaname">提出物ベース名</span>.zip」というzipファイルを作成する．</p>
 <ul>
-<li>Windowsの場合．まず，当該フォルダはデフォルトだと，ユーザフォルダの<code>source\repos</code>以下にある．
-なお，ユーザフォルダはデフォルトだと <code>C:\Users\<span class="metaname">ユーザ名</span></code> であり，
-エクスプローラーのアドレスバーに<code>%HOMEPATH</code>を入力すれば移動できる．
-また，Visual Studioの起動後の画面で <em>「ローカルフォルダを開く」</em> を選んだのでも場所がわかる．
-エクスプローラーにて当該フォルダを右クリックして <em>「送る」</em> から <em>「圧縮（zip形式）フォルダー」</em> を選択する．
-すると，「<span class="metaname">提出物ベース名</span>.zip」というzipファイルが作成される．</li>
+<li>Windowsの場合．まず，当該フォルダはデフォルトだと，ユーザフォルダの<code>source\repos</code>以下にある．なお，ユーザフォルダはデフォルトだと <code>C:\Users\<span class="metaname">ユーザ名</span></code> であり，エクスプローラーのアドレスバーに<code>%HOMEPATH</code>を入力すれば移動できる．また，Visual Studioの起動後の画面で<em>「ローカルフォルダを開く」</em>を選んだのでも場所がわかる．エクスプローラーにて当該フォルダを右クリックして<em>「送る」</em>から<em>「圧縮（zip形式）フォルダー」</em>を選択する．すると，「<span class="metaname">提出物ベース名</span>.zip」というzipファイルが作成される．</li>
 <li>Macの場合．当該フォルダの場所はデフォルトだと，<code>~/Projects/</code>以下にある．
-Finder.appで当該フォルダをCtrl + クリック（あるいは右クリック）し， <em>「"〜"を圧縮」</em> を選ぶ．
-すると，「<span class="metaname">提出物ベース名</span>.zip」というzipファイルが作成される．</li>
+Finder.appで当該フォルダをCtrl + クリック（あるいは右クリック）し，<em>「"〜"を圧縮」</em>を選ぶ．すると，「<span class="metaname">提出物ベース名</span>.zip」というzipファイルが作成される．</li>
 </ul></li>
 </ol>
 <h4 id="コマンドラインでプロジェクトを作成した場合">コマンドラインでプロジェクトを作成した場合</h4>
 <ol type="1">
-<li><p><a href="#プロジェクトソリューションの作成">プロジェクト/ソリューションの作成</a> で作成したディレクトリの親ディレクトリ（すなわち<code>dotnet new</code>を実行した場所）に移動する．</p></li>
+<li><p><a href="#プロジェクトソリューションの作成">プロジェクト/ソリューションの作成</a>で作成したディレクトリの親ディレクトリ（すなわち<code>dotnet new</code>を実行した場所）に移動する．</p></li>
 <li><p>作成したディレクトリは以下のような構造になっている．</p>
 <div class="directorylist">
 <ul>
@@ -136,15 +125,13 @@ Finder.appで当該フォルダをCtrl + クリック（あるいは右クリッ
 <pre style="line-height: 1.3">
 dotnet clean <span class="metaname">提出物ベース名</span>
 </pre></li>
-<li><p>「<span class="metaname">提出物ベース名</span>.zip」 を作成する．エクスプローラーやFinder.app経由で作成してもよいし，
-コマンドラインから以下を実行してもよい．</p>
+<li><p>「<span class="metaname">提出物ベース名</span>.zip」 を作成する．エクスプローラーやFinder.app経由で作成してもよいし，コマンドラインから以下を実行してもよい．</p>
 <pre>
 zip -r <span class="metaname">提出物ベース名</span>.zip  <span class="metaname">提出物ベース名</span>/
 </pre></li>
 </ol>
 <h3 id="提出">提出</h3>
-<p>できあがった「<span class="metaname">提出物ベース名</span>.zip」をClassroom内の当該回の「課題」より提出する．
-たとえば，Z0TB9999さんの第3回課題の提出であれば，提出するファイルの名前は<code>Z0TB9999_Q3.zip</code>になる．</p>          
+<p>できあがった「<span class="metaname">提出物ベース名</span>.zip」をClassroom内の当該回の「課題」より提出する．たとえば，Z0TB9999さんの第3回課題の提出であれば，提出するファイルの名前は<code>Z0TB9999_Q3.zip</code>になる．</p>          
             <h2 id="基本課題">基本課題</h2>
 <p>「電卓」を表す以下の<code>Calc</code>クラスについて考える．</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
@@ -184,7 +171,7 @@ zip -r <span class="metaname">提出物ベース名</span>.zip  <span class="met
 <span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Value: &quot;</span> <span class="op">+</span> val<span class="op">);</span></span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>この<code>Calc</code>クラスを継承し，以下のメソッドを備えた関数電卓クラス <code>FunCalc</code> を作成せよ．ただし，<code>Calc</code>クラスを <strong>変更してはならない．</strong></p>
+<p>この<code>Calc</code>クラスを継承し，以下のメソッドを備えた関数電卓クラス <code>FunCalc</code> を作成せよ．ただし，<code>Calc</code>クラスを<strong>変更してはならない．</strong></p>
 <table>
 <thead>
 <tr class="header">
@@ -223,7 +210,7 @@ zip -r <span class="metaname">提出物ベース名</span>.zip  <span class="met
 </tr>
 </tbody>
 </table>
-<p>これらのメソッドを実装するために <code>FunCalc</code>は適当なフィールド（ひとつとは限らない）を持つ必要がある．そうしたフィールドは <em>publicにはしない</em> ようにすること．また，度をラジアンに直す等の共通の処理はprivateなメソッドにまとめるとよい．</p>
+<p>これらのメソッドを実装するために <code>FunCalc</code>は適当なフィールド（ひとつとは限らない）を持つ必要がある．そうしたフィールドは<em>publicにはしない</em>ようにすること．また，度をラジアンに直す等の共通の処理はprivateなメソッドにまとめるとよい．</p>
 <p>提出するプログラムは以下のクラス <code>Program</code> を持つこと．</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Program</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -288,9 +275,7 @@ Value: 1</code></pre>
 <p>Hint</p>
 </div>
 <p>sinやcos，logや累乗を計算するのには<code>Math</code>クラスのstaticメソッド<code>Sin(double)</code>，<code>Cos(double)</code>，<code>Log(double,double)</code>，<code>Pow(double,double)</code>が利用できる．
-πについても<code>Math.PI</code>が利用可能である．
-詳細は， <a href="https://docs.microsoft.com/en-us/dotnet/api/system.math?view=net-6.0">.NET API リファレンスの関連ページ</a> を参照のこと．
-特に，<code>Log</code>や<code>Pow</code>がどっちの引数が何を表しているかをちゃんと確認するとよい．</p>
+πについても<code>Math.PI</code>が利用可能である．詳細は，<a href="https://docs.microsoft.com/en-us/dotnet/api/system.math?view=net-6.0">.NET API リファレンスの関連ページ</a>を参照のこと．特に，<code>Log</code>や<code>Pow</code>がどっちの引数が何を表しているかをちゃんと確認するとよい．</p>
 <p>また言うまでもないかもだが，180° = πラジアン である．</p>
 </div>
 <h2 id="発展課題">発展課題</h2>
@@ -300,8 +285,7 @@ Value: 1</code></pre>
 </div>
 <p>本課題を完了できたのならば本課題の解答のみを提出すればよく，基本課題の解答は提出する必要はない．</p>
 </div>
-<p>基本課題で作成した <code>FunCalc</code>の一部の関数を変更し，不正な値が与えらえたときにエラーとして扱い，
-計算等はせずに <code>Error!</code> と表示するようにせよ． ただし，<code>Calc</code>クラスを <strong>変更してはならない．</strong></p>
+<p>基本課題で作成した <code>FunCalc</code>の一部の関数を変更し，不正な値が与えらえたときにエラーとして扱い，計算等はせずに <code>Error!</code> と表示するようにせよ． ただし，<code>Calc</code>クラスを<strong>変更してはならない．</strong></p>
 <p>具体的には以下のメソッドの動作を変更すれば十分である．</p>
 <table>
 <thead>

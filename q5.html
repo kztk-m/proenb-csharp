@@ -60,30 +60,26 @@
             <h2 id="課題の進め方">課題の進め方</h2>
 <p>大雑把には，以下の名前のプロジェクト/ソリューションを作って，zipにまとめて提出する．</p>
 <pre><span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span></pre>
-<p>上記の「<span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span>」を以下では， <em>提出物ベース名</em> と呼ぶことにする．
-たとえば，Z0TB9999さんの第5回課題の提出であれば，提出物ベース名は<code>Z0TB9999_Q5</code>である．</p>
+<p>上記の「<span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span>」を以下では，<em>提出物ベース名</em>と呼ぶことにする．たとえば，Z0TB9999さんの第5回課題の提出であれば，提出物ベース名は<code>Z0TB9999_Q5</code>である．</p>
 <p><strong>公開の場所に解答を置かないようお願いします．</strong>
 githubやbitbucket等は使える人は使えばよいと思いますが，private レポジトリにするようにお願いします．</p>
 <h3 id="プロジェクトソリューションの作成">プロジェクト/ソリューションの作成</h3>
 <h4 id="visual-studioの場合">Visual Studioの場合</h4>
-<p>「新しいプロジェクトの作成」（Windows）や「新規」/「New」（Mac）から，C#の「Eto.Forms Application」あるいは「Eto Application」テンプレートを
-選び，プロジェクト名とソリューション名を <span class="metaname">提出物ベース名</span> とする．
-たとえば，Z0TB9999さんの第5回課題の提出であれば，プロジェクト名とソリューション名はともに<code>Z0TB9999_Q5</code>とする．
-プロジェクト名とソリューション名以外の選択項目は（あれば）デフォルトのままとする．</p>
+<p>「新しいプロジェクトの作成」（Windows）や「新規」/「New」（Mac）から，C#の「Eto.Forms Application」あるいは「Eto Application」テンプレートを選び，プロジェクト名とソリューション名を <span class="metaname">提出物ベース名</span> とする．たとえば，Z0TB9999さんの第5回課題の提出であれば，プロジェクト名とソリューション名はともに<code>Z0TB9999_Q5</code>とする．プロジェクト名とソリューション名以外の選択項目は（あれば）デフォルトのままとする．</p>
 <h4 id="コマンドラインの場合">コマンドラインの場合</h4>
 <p>適当な場所に「<span class="metaname">提出物ベース名</span>」という名のディレクトリを作成した後に，そこに移動し</p>
 <pre class><code>dotnet new etoapp</code></pre>
 <p>でプロジェクト（共通のもの，GTK用，Mac用，Wpf用）を作成する．自分の環境に不要なものも消さない（採点の際に困るので）．</p>
 <h3 id="課題の実施">課題の実施</h3>
-<p>.cs ファイルを問題文の指示の通りに作成する（<code>MainForm.cs</code>を変更すればよい）．<code>….Gtk</code>，<code>….Mac</code>，<code>….Wpf</code>の中に含まれているファイルは <strong>変更しない．</strong>
-<strong>作成した</strong> .csファイルには先頭部分に <strong>学籍番号と名前をコメントとして含める</strong> こと．なので，たとえば学籍番号Z0TB9999の東北 大学さんの提出ファイルは</p>
+<p>.cs ファイルを問題文の指示の通りに作成する（<code>MainForm.cs</code>を変更すればよい）．<code>….Gtk</code>，<code>….Mac</code>，<code>….Wpf</code>の中に含まれているファイルは<strong>変更しない．</strong>
+<strong>作成した</strong> .csファイルには先頭部分に<strong>学籍番号と名前をコメントとして含める</strong>こと．なので，たとえば学籍番号Z0TB9999の東北 大学さんの提出ファイルは</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Z0TB9999</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 東北 大学</span></span></code></pre></div>
 <p>という行から始まる．</p>
 <h3 id="提出するzipの準備">提出するzipの準備</h3>
 <h4 id="visual-studioでプロジェクトソリューションを作成した場合">Visual Studioでプロジェクト/ソリューションを作成した場合</h4>
 <ol type="1">
-<li><p>まず，Visual Studio でソリューション「<span class="metaname">提出物ベース名</span>.sln 」を開いた後，ソリューション エクスプローラーから，4つのプロジェクト名（「<span class="metaname">提出物ベース名</span>」，「<span class="metaname">提出物ベース名</span>.Gtk」 ，「<span class="metaname">提出物ベース名</span>.Mac」 ，「<span class="metaname">提出物ベース名</span>.Wpf」 ）について，それぞれプロジェクト名を右クリックして出てくるコンテキストメニューから <em>「〜をクリーン」</em> を（選択できれば）選択する．あるいは，以下の手順を実行する前に<code>obj</code>フォルダと<code>bin</code>フォルダを消したのでもよい．</p>
+<li><p>まず，Visual Studio でソリューション「<span class="metaname">提出物ベース名</span>.sln 」を開いた後，ソリューション エクスプローラーから，4つのプロジェクト名（「<span class="metaname">提出物ベース名</span>」，「<span class="metaname">提出物ベース名</span>.Gtk」 ，「<span class="metaname">提出物ベース名</span>.Mac」 ，「<span class="metaname">提出物ベース名</span>.Wpf」 ）について，それぞれプロジェクト名を右クリックして出てくるコンテキストメニューから<em>「〜をクリーン」</em>を（選択できれば）選択する．あるいは，以下の手順を実行する前に<code>obj</code>フォルダと<code>bin</code>フォルダを消したのでもよい．</p>
 <ul>
 <li>Macだと「<span class="metaname">提出物ベース名</span>.Wpf」については「〜をクリーン」が選択できないが，それでよい．</li>
 </ul></li>
@@ -120,23 +116,16 @@ githubやbitbucket等は使える人は使えばよいと思いますが，priva
 </ul></li>
 </ul>
 </div>
-<p>そこで，たとえば下記のようにして，一番外側のフォルダをzip形式で圧縮し，
-「<span class="metaname">提出物ベース名</span>.zip」というzipファイルを作成する．</p>
+<p>そこで，たとえば下記のようにして，一番外側のフォルダをzip形式で圧縮し，「<span class="metaname">提出物ベース名</span>.zip」というzipファイルを作成する．</p>
 <ul>
-<li>Windowsの場合．まず，当該フォルダはデフォルトだと，ユーザフォルダの<code>source\repos</code>以下にある．
-なお，ユーザフォルダはデフォルトだと <code>C:\Users\<span class="metaname">ユーザ名</span></code> であり，
-エクスプローラーのアドレスバーに<code>%HOMEPATH</code>を入力すれば移動できる．
-また，Visual Studioの起動後の画面で <em>「ローカルフォルダを開く」</em> を選んだのでも場所がわかる．
-エクスプローラーにて当該フォルダを右クリックして <em>「送る」</em> から <em>「圧縮（zip形式）フォルダー」</em> を選択する．
-すると，「<span class="metaname">提出物ベース名</span>.zip」というzipファイルが作成される．</li>
+<li>Windowsの場合．まず，当該フォルダはデフォルトだと，ユーザフォルダの<code>source\repos</code>以下にある．なお，ユーザフォルダはデフォルトだと <code>C:\Users\<span class="metaname">ユーザ名</span></code> であり，エクスプローラーのアドレスバーに<code>%HOMEPATH</code>を入力すれば移動できる．また，Visual Studioの起動後の画面で<em>「ローカルフォルダを開く」</em>を選んだのでも場所がわかる．エクスプローラーにて当該フォルダを右クリックして<em>「送る」</em>から<em>「圧縮（zip形式）フォルダー」</em>を選択する．すると，「<span class="metaname">提出物ベース名</span>.zip」というzipファイルが作成される．</li>
 <li>Macの場合．当該フォルダの場所はデフォルトだと，<code>~/Projects/</code>以下にある．
-Finder.appで当該フォルダをCtrl + クリック（あるいは右クリック）し， <em>「"〜"を圧縮」</em> を選ぶ．
-すると，「<span class="metaname">提出物ベース名</span>.zip」というzipファイルが作成される．</li>
+Finder.appで当該フォルダをCtrl + クリック（あるいは右クリック）し，<em>「"〜"を圧縮」</em>を選ぶ．すると，「<span class="metaname">提出物ベース名</span>.zip」というzipファイルが作成される．</li>
 </ul></li>
 </ol>
 <h4 id="コマンドラインでプロジェクトを作成した場合">コマンドラインでプロジェクトを作成した場合</h4>
 <ol type="1">
-<li><p><a href="#プロジェクトソリューションの作成">プロジェクト/ソリューションの作成</a> で作成したディレクトリの親ディレクトリに移動する．</p></li>
+<li><p><a href="#プロジェクトソリューションの作成">プロジェクト/ソリューションの作成</a>で作成したディレクトリの親ディレクトリに移動する．</p></li>
 <li><p>作成したディレクトリは以下のような構造になっている．</p>
 <div class="directorylist">
 <ul>
@@ -175,15 +164,13 @@ Finder.appで当該フォルダをCtrl + クリック（あるいは右クリッ
 <span class="with-prompt">dotnet clean <span class="metaname">提出物ベース名.Wpf</span></span>
 <span class="with-prompt">cd ..</span>      
 </pre></li>
-<li><p>「<span class="metaname">提出物ベース名</span>.zip」 を作成する．エクスプローラーやFinder.app経由で作成してもよいし，
-コマンドラインから以下を実行してもよい．</p>
+<li><p>「<span class="metaname">提出物ベース名</span>.zip」 を作成する．エクスプローラーやFinder.app経由で作成してもよいし，コマンドラインから以下を実行してもよい．</p>
 <pre>
 zip -r <span class="metaname">提出物ベース名</span>.zip  <span class="metaname">提出物ベース名</span>/
 </pre></li>
 </ol>
 <h3 id="提出">提出</h3>
-<p>できあがった「<span class="metaname">提出物ベース名</span>.zip」をClassroom内の当該回の「課題」より提出する．
-たとえば，Z0TB9999さんの第5回課題の提出であれば，提出するファイルの名前は<code>Z0TB9999_Q5.zip</code>になる．</p>          
+<p>できあがった「<span class="metaname">提出物ベース名</span>.zip」をClassroom内の当該回の「課題」より提出する．たとえば，Z0TB9999さんの第5回課題の提出であれば，提出するファイルの名前は<code>Z0TB9999_Q5.zip</code>になる．</p>          
             <h2 id="基本課題">基本課題</h2>
 <h3 id="その1">その1</h3>
 <p>ラベルを</p>
@@ -225,8 +212,7 @@ Ready</code></pre>
 <p>便宜上，上記で"Ready"と書かれている部分を「ステータス行」と呼ぶことにする．</p>
 <p>上記のアプリケーションに以下の機能を実装せよ．</p>
 <ul>
-<li>"Load"ボタンが押されたら，テキストボックスに入力されたパスにあるファイルが <em>もし存在していれば</em> 開き，
-その内容を中央のテキストボックスに表示する．
+<li>"Load"ボタンが押されたら，テキストボックスに入力されたパスにあるファイルが<em>もし存在していれば</em>開き，その内容を中央のテキストボックスに表示する．
 <ul>
 <li>読み込みに成功したら，ステータス行に"Load ok"と表示する．</li>
 <li>ファイルが存在していなければ，その旨をステータス行に表示する．</li>
@@ -249,24 +235,20 @@ Ready</code></pre>
 <div class="title">
 <p>Hint</p>
 </div>
-<p>テキストボックスに入力されたテキストを取得するには<code>Text</code>プロパティを用いる．テキストエリアにテキストを設定するには，
-当該オブジェクトの<code>Text</code>を用いる．</p>
-<p>例外処理については <a href="./w4.html">前回</a> 参照．</p>
+<p>テキストボックスに入力されたテキストを取得するには<code>Text</code>プロパティを用いる．テキストエリアにテキストを設定するには，当該オブジェクトの<code>Text</code>を用いる．</p>
+<p>例外処理については<a href="./w4.html">前回</a>参照．</p>
 </div>
 <div class="hint">
 <div class="title">
 <p>Hint</p>
 </div>
-<p>ファイルが存在するかどうかを確認するには <code>File</code> クラスの static メソッド <code>Exists(string)</code> を利用する．
-より具体的には，<code>File.Exists(path)</code> は <code>path</code> が有効なパスで，指す先にファイルが存在しているときに，<code>true</code>を返し，
-そうでないときには<code>false</code>を返す．（指す先に存在しているのがディレクトリであるときも<code>false</code>となることに注意する．）</p>
+<p>ファイルが存在するかどうかを確認するには <code>File</code> クラスの static メソッド <code>Exists(string)</code> を利用する．より具体的には，<code>File.Exists(path)</code> は <code>path</code> が有効なパスで，指す先にファイルが存在しているときに，<code>true</code>を返し，そうでないときには<code>false</code>を返す．（指す先に存在しているのがディレクトリであるときも<code>false</code>となることに注意する．）</p>
 </div>
 <div class="note">
 <div class="title">
 <p>Note</p>
 </div>
-<p>なお，<code>File.Exists(path)</code> が <code>true</code> を返した場合にも，ファイルの読み取りが行えない場合はある．たとえば，
-当該ファイルの read パーミッション がない場合には<code>UnauthorizedAccessException</code>が発生する．</p>
+<p>なお，<code>File.Exists(path)</code> が <code>true</code> を返した場合にも，ファイルの読み取りが行えない場合はある．たとえば，当該ファイルの read パーミッション がない場合には<code>UnauthorizedAccessException</code>が発生する．</p>
 </div>
 <h2 id="発展課題">発展課題</h2>
 <div class="caution">
@@ -285,12 +267,9 @@ Ready</code></pre>
 |                                     |
 +-------------------------------------+
 Ready</code></pre>
-<p>"Save"ボタンが押されたときには，その時点でのテキストエリアの内容を，
-その時点でのテキストボックスに入力されたパスにファイルに保存する機能を実装せよ．
-ただし，</p>
+<p>"Save"ボタンが押されたときには，その時点でのテキストエリアの内容を，その時点でのテキストボックスに入力されたパスにファイルに保存する機能を実装せよ．ただし，</p>
 <ul>
-<li>もしファイルが見付からなければそのファイルを作成するようにし，
-ファイルが見付かったならばそのファイルを上書きするようにする．</li>
+<li>もしファイルが見付からなければそのファイルを作成するようにし，ファイルが見付かったならばそのファイルを上書きするようにする．</li>
 <li>何らかの理由で与えられたパスのファイルを作成したり開いたりできない場合はステータス行にその旨を表示</li>
 <li>書き込みに成功したら，ステータス行に"Save ok"と表示する</li>
 </ul>

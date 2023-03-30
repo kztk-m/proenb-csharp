@@ -64,37 +64,24 @@
 </ul>
 </div>
 <h2 id="オブジェクト指向言語の利点">オブジェクト指向言語の利点</h2>
-<p><a href="./w1.html">前回</a>，オブジェクトというのは大雑把には「データと，それに関連する関数」をまとめたものであり，
-「オブジェクトの作成やオブジェクトに対するメソッドを呼び出しを基本としてプログラムを構成する」のが
-（C#などにおける）オブジェクト指向プログラミングであると述べた．
-そして，実際に例や課題を通してオブジェクト指向プログラミングを体験してもらった．</p>
-<p>では，そのようなアプローチにどのような利点があるだろうか．ひとつは <strong>カプセル化</strong> である．
-アクセス指定子を適切に設定することにより，関数やデータをプログラムの他のパートから隠蔽することができる．
-また，クラスを利用することによって，「データ」と「それに関連する関数」という明らかに関連の深いものを，
-自然に局所にまとめることが可能となる．
-これにより，クラスを開発する側はプログラムの他の部分を気にすることなく内部実装を変更することができるようになるし，
-クラスやそのクラスのオブジェクトを使う側は内部の詳細を気にすることなしにそのクラスやそのオブジェクトを利用することができる．
-こうした，部品毎に分けてプログラムを開発できることは <strong>モジュラリティ</strong> と呼ばれ，実用的なプログラミング言語が兼ね備えているべき能力の一つである．</p>
+<p><a href="./w1.html">前回</a>，オブジェクトというのは大雑把には「データと，それに関連する関数」をまとめたものであり，「オブジェクトの作成やオブジェクトに対するメソッドを呼び出しを基本としてプログラムを構成する」のが（C#などにおける）オブジェクト指向プログラミングであると述べた．そして，実際に例や課題を通してオブジェクト指向プログラミングを体験してもらった．</p>
+<p>では，そのようなアプローチにどのような利点があるだろうか．ひとつは<strong>カプセル化</strong>である．アクセス指定子を適切に設定することにより，関数やデータをプログラムの他のパートから隠蔽することができる．また，クラスを利用することによって，「データ」と「それに関連する関数」という明らかに関連の深いものを，自然に局所にまとめることが可能となる．これにより，クラスを開発する側はプログラムの他の部分を気にすることなく内部実装を変更することができるようになるし，クラスやそのクラスのオブジェクトを使う側は内部の詳細を気にすることなしにそのクラスやそのオブジェクトを利用することができる．こうした，部品毎に分けてプログラムを開発できることは<strong>モジュラリティ</strong>と呼ばれ，実用的なプログラミング言語が兼ね備えているべき能力の一つである．</p>
 <div class="note">
 <div class="title">
 <p>Note</p>
 </div>
-<p>クラスやオブジェクトが（オブジェクト指向）言語のモジュラリティを支える全てではない．
-一方で，クラスではうまくまとめきれない感心事をまとめるためにアスペクト指向言語などの言語が提案されている．
-また，後半学ぶF#のような（典型的な）関数プログラミング言語では得意とする抽象化が異なる（「visitorパターン」や「expression problem」について調べてみよ）．</p>
+<p>クラスやオブジェクトが（オブジェクト指向）言語のモジュラリティを支える全てではない．一方で，クラスではうまくまとめきれない感心事をまとめるためにアスペクト指向言語などの言語が提案されている．また，後半学ぶF#のような（典型的な）関数プログラミング言語では得意とする抽象化が異なる（「visitorパターン」や「expression problem」について調べてみよ）．</p>
 </div>
-<p>また <strong>継承</strong> によるコードの再利用性や，その継承を利用した <strong>ポリモーフィズム</strong> （「多態性」や「多相性」など． <em>同じコードで異なる型のデータを扱えること</em> ）も
+<p>また<strong>継承</strong>によるコードの再利用性や，その継承を利用した<strong>ポリモーフィズム</strong>（「多態性」や「多相性」など．<em>同じコードで異なる型のデータを扱えること</em>）も
 C#のようなクラスべースのオブジェクト指向言語の利点である．</p>
 <p>今回の演習では，それを詳しくみることにする．</p>
 <h2 id="継承inheritance">継承（inheritance）</h2>
-<p>継承は，元となるクラス<code>B</code>（基底クラス，親クラスなど）からアクセスレベルがprivateでない（protected，internalや publicなど）なフィールドやメソッド等をすべて受け継いだクラス<code>D</code>（派生クラス，子クラスなど）を作成する手法である．
-その際において以下が可能となる．</p>
+<p>継承は，元となるクラス<code>B</code>（基底クラス，親クラスなど）からアクセスレベルがprivateでない（protected，internalや publicなど）なフィールドやメソッド等をすべて受け継いだクラス<code>D</code>（派生クラス，子クラスなど）を作成する手法である．その際において以下が可能となる．</p>
 <ul>
-<li><code>D</code>のインスタンスは<code>B</code>のインスタンスして扱うことができる (<code>D</code>は<code>B</code>の <strong>部分型 (subtype)</strong>)</li>
-<li>クラス<code>B</code>の <strong>仮想メソッド（virtual method）</strong> を クラス<code>D</code>は <strong>オーバライド（override）</strong> することができる．
+<li><code>D</code>のインスタンスは<code>B</code>のインスタンスして扱うことができる (<code>D</code>は<code>B</code>の<strong>部分型 (subtype)</strong>)</li>
+<li>クラス<code>B</code>の<strong>仮想メソッド（virtual method）</strong>を クラス<code>D</code>は<strong>オーバライド（override）</strong>することができる．
 <ul>
-<li><p><code>D</code>が<code>B</code>の仮想メソッド<code>f()</code>をオーバライドしているしている場合，以下で呼び出されるメソッドは
-元々の<code>B</code>のものではなく<code>D</code>がオーバライドしたものとなる．</p>
+<li><p><code>D</code>が<code>B</code>の仮想メソッド<code>f()</code>をオーバライドしているしている場合，以下で呼び出されるメソッドは元々の<code>B</code>のものではなく<code>D</code>がオーバライドしたものとなる．</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>B b <span class="op">=</span> <span class="kw">new</span> <span class="fu">D</span><span class="op">();</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>b<span class="op">.</span><span class="fu">f</span><span class="op">();</span>          </span></code></pre></div></li>
 </ul></li>
@@ -161,8 +148,7 @@ C#では継承は，クラス定義の際にクラス名の横に<code>: 基底�
 Mailed! 
 Phone: 090-0000-0000
 EMail: nobody@example.com </code></pre>
-<p>前述したように，<code>MobilePhone</code>のインスタンスは<code>Phone</code>のインスタンスでもある．
-そのため，以下のようなコードも記述できる．</p>
+<p>前述したように，<code>MobilePhone</code>のインスタンスは<code>Phone</code>のインスタンスでもある．そのため，以下のようなコードも記述できる．</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Phone p <span class="op">=</span> <span class="kw">new</span> <span class="fu">MobilePhone</span><span class="op">(</span><span class="st">&quot;090-0000-0000&quot;</span><span class="op">,</span> <span class="st">&quot;nobody@example.com&quot;</span><span class="op">);</span> </span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>p<span class="op">.</span><span class="fu">Call</span><span class="op">();</span> </span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">// p.Mail(); はエラーになる．MailはPhoneのメソッドではないので</span></span>
@@ -251,8 +237,7 @@ EMail: nobody@example.com</code></pre>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>c<span class="op">);</span> <span class="co">// 2.3 </span></span></code></pre></div>
 <p>以上のコードが<code>a</code>と<code>b</code>と<code>c</code>の型が違うにもかかわらず動作するのは，<code>Console.WriteLine(object)</code>が中で<code>ToString()</code>を呼んでいるためである．</p>
 <h2 id="オーバロードoverload">オーバロード（overload）</h2>
-<p>C#ではクラスは引数の型や数の異なる複数の同名のメソッドやコンストラクタを持つ (<strong>オーバロード</strong>) ことができる．
-たとえば，<a href="./w1.html">前回</a>の<code>Counter</code>クラスに以下のコンストラクタやメソッドを追加することができる．</p>
+<p>C#ではクラスは引数の型や数の異なる複数の同名のメソッドやコンストラクタを持つ (<strong>オーバロード</strong>) ことができる．たとえば，<a href="./w1.html">前回</a>の<code>Counter</code>クラスに以下のコンストラクタやメソッドを追加することができる．</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="fu">Counter</span><span class="op">()</span> <span class="op">:</span> <span class="kw">this</span><span class="op">(</span><span class="dv">0</span><span class="op">)</span> <span class="op">{</span> <span class="op">}</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="fu">Counter</span><span class="op">(</span> Counter c <span class="op">)</span> <span class="op">:</span> <span class="kw">this</span><span class="op">(</span>c<span class="op">.</span><span class="fu">GetValue</span><span class="op">())</span> <span class="op">{</span> <span class="op">}</span> </span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -263,27 +248,22 @@ EMail: nobody@example.com</code></pre>
 <p>オーバロードも（広義の）ポリモーフィズムを実現する言語機能の一つである．</p>
 <div class="admonition example">
 <p>例</p>
-<p>たとえば，+演算子は多数オーバロードされていて，たとえばそれにより通常の加算だけでなく，
-文字列同士の連接や<code>ToString()</code>を経由した文字列の連接が行える．</p>
+<p>たとえば，+演算子は多数オーバロードされていて，たとえばそれにより通常の加算だけでなく，文字列同士の連接や<code>ToString()</code>を経由した文字列の連接が行える．</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello&quot;</span> <span class="op">+</span> <span class="st">&quot; &quot;</span> <span class="op">+</span> <span class="st">&quot;World!&quot;</span><span class="op">);</span> <span class="co">// Hello World!</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> </span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;i = &quot;</span> <span class="op">+</span> i<span class="op">);</span>               <span class="co">// i = 0 </span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> d <span class="op">=</span> <span class="fl">2.3</span><span class="op">;</span> </span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>d <span class="op">+</span> <span class="st">&quot;.&quot;</span><span class="op">);</span>                  <span class="co">// 2.3.</span></span></code></pre></div>
-<p>最初の<code>WriteLine</code>では，引数として<code>string</code>2つを受けとる+演算子（2つとも）が使用されている．
-二個目の例では，第一引数として<code>string</code>，第二引数として<code>object</code>を受けとる+演算子が，
-最後の例では，第一引数として<code>object</code>，第二引数として<code>string</code>を受けとる+演算子が使用されている．</p>
+<p>最初の<code>WriteLine</code>では，引数として<code>string</code>2つを受けとる+演算子（2つとも）が使用されている．二個目の例では，第一引数として<code>string</code>，第二引数として<code>object</code>を受けとる+演算子が，最後の例では，第一引数として<code>object</code>，第二引数として<code>string</code>を受けとる+演算子が使用されている．</p>
 </div>
 <div class="note">
 <div class="title">
 <p>Note</p>
 </div>
-<p>継承によるポリモーフィズムは部分型ポリモーフィズム（subtype polyrmorphism）と呼ばれるものの一種であるが，
-オーバロードによるポリモーフィズムはアドホックポリモーフィズム（ad-hoc polymorphism）と呼ばれるものの一種である．</p>
+<p>継承によるポリモーフィズムは部分型ポリモーフィズム（subtype polyrmorphism）と呼ばれるものの一種であるが，オーバロードによるポリモーフィズムはアドホックポリモーフィズム（ad-hoc polymorphism）と呼ばれるものの一種である．</p>
 </div>
 <h2 id="キャスト">キャスト</h2>
-<p>C#では，数値型をより広い型や浮動小数点数型に変換したり，
-派生クラスのインスタンスを基底クラスのインスタンスに変換したりするのに陽な操作は不要である．</p>
+<p>C#では，数値型をより広い型や浮動小数点数型に変換したり，派生クラスのインスタンスを基底クラスのインスタンスに変換したりするのに陽な操作は不要である．</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dt">byte</span> b <span class="op">=</span> <span class="bn">0xbe</span><span class="op">;</span> </span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> i <span class="op">=</span> b<span class="op">;</span> </span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> d <span class="op">=</span> i<span class="op">;</span> </span>
@@ -293,9 +273,7 @@ EMail: nobody@example.com</code></pre>
 <pre style="line-height:1.3">
 (<span class="metaname">型</span>) <span class="metaname">式</span>
 </pre>
-<p>デフォルトだと，整数型をより小さい整数型にキャストするときには上位ビットが切り詰められ，
-同じサイズの整数型にキャストするときは同じビット表現がキャスト先の型として解釈されることになる．
-また，<code>(byte) 0x1ff</code>などのように，定数がキャストされるときにキャスト先の型の収まらない場合はコンパイルエラーとなる．</p>
+<p>デフォルトだと，整数型をより小さい整数型にキャストするときには上位ビットが切り詰められ，同じサイズの整数型にキャストするときは同じビット表現がキャスト先の型として解釈されることになる．また，<code>(byte) 0x1ff</code>などのように，定数がキャストされるときにキャスト先の型の収まらない場合はコンパイルエラーとなる．</p>
 <div class="admonition example">
 <p>例</p>
 <pre class><code>int  i = 0x1ff;           
@@ -303,7 +281,7 @@ byte b = 0xff;
 Console.WriteLine((byte)  i); // 255
 Console.WriteLine((sbyte) b); // -1</code></pre>
 </div>
-<p>また，クラスについてはキャスト元がキャスト先の型を持ちえない場合は <strong>例外</strong>（後の回で詳しく紹介する．捕捉しなければ実行時エラーとなる）が発生する．</p>
+<p>また，クラスについてはキャスト元がキャスト先の型を持ちえない場合は<strong>例外</strong>（後の回で詳しく紹介する．捕捉しなければ実行時エラーとなる）が発生する．</p>
 <div class="admonition example">
 <p>例</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="dt">object</span> o <span class="op">=</span> <span class="kw">new</span> <span class="fu">Object</span><span class="op">();</span></span>
@@ -348,14 +326,12 @@ Console.WriteLine((sbyte) b); // -1</code></pre>
 </tr>
 </tbody>
 </table>
-<p>また，<code>MobilePhone</code>の例にならい，適切な<code>Main</code>メソッドを<code>Program</code>クラスに実装し動作確認せよ．
-特に，<code>SmartPhone</code>のインスタンスが，<code>MobilePhone</code>のインスタンスとしても<code>Phone</code>のインスタンスとしても使えることがわかるようにせよ．</p>
+<p>また，<code>MobilePhone</code>の例にならい，適切な<code>Main</code>メソッドを<code>Program</code>クラスに実装し動作確認せよ．特に，<code>SmartPhone</code>のインスタンスが，<code>MobilePhone</code>のインスタンスとしても<code>Phone</code>のインスタンスとしても使えることがわかるようにせよ．</p>
 <div class="hint">
 <div class="title">
 <p>Hint</p>
 </div>
-<p>上記の仕様は他にフィールドをもってはいけないとは書いていない．
-上記を達成するためにはどんなフィールドが必要になるかを考えてみよう．</p>
+<p>上記の仕様は他にフィールドをもってはいけないとは書いていない．上記を達成するためにはどんなフィールドが必要になるかを考えてみよう．</p>
 </div>
 
         </main>

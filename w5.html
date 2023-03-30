@@ -115,8 +115,7 @@
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>本演習では後者はの部分は変更せずに，前者の<code>MainForm.cs</code>を拡張することで進めていく．
-すなわち，作成する<code>Form</code>に様々なGUI部品（コントロールと呼ばれる）を追加することになる．</p>
+<p>本演習では後者はの部分は変更せずに，前者の<code>MainForm.cs</code>を拡張することで進めていく．すなわち，作成する<code>Form</code>に様々なGUI部品（コントロールと呼ばれる）を追加することになる．</p>
 <p>その際は以下のプロパティを適切に設定することが有用であろう．</p>
 <table>
 <tbody>
@@ -158,8 +157,7 @@
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>以下のようなウィンドウが表示されたことだろう（以下はMacにおける例）</p>
 <p><img src="images/eto/hello_world.png" alt="image" /></p>
-<p>ところで，Macにおいては左上の「閉じる」ボタンを押してもアプリケーションが終了しないことに気付いたかもしれない．
-これはいささか不便である．幸いなことに空のMenuBarをMenuに代入すると Mac 環境ではいろいろなアイテムを Eto.Forms が追加してくれる．</p>
+<p>ところで，Macにおいては左上の「閉じる」ボタンを押してもアプリケーションが終了しないことに気付いたかもしれない．これはいささか不便である．幸いなことに空のMenuBarをMenuに代入すると Mac 環境ではいろいろなアイテムを Eto.Forms が追加してくれる．</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="fu">MainForm</span><span class="op">()</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    Title <span class="op">=</span> <span class="st">&quot;Hello World&quot;</span><span class="op">;</span> </span>
@@ -172,12 +170,11 @@
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    Menu <span class="op">=</span> <span class="kw">new</span> <span class="fu">MenuBar</span><span class="op">();</span> </span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>これで，Command + Q等の標準的な操作でアプリケーションを終了することができるようになる（WpfやGtkだと「閉じる」ボタンで，終了する）．</p>
-<p><em>オブジェクト初期化子があれば，引数なしのコンストラクタの括弧は省略できる．</em>
-たとえば，上の<code>Content =</code>の行は</p>
+<p><em>オブジェクト初期化子があれば，引数なしのコンストラクタの括弧は省略できる．</em>たとえば，上の<code>Content =</code>の行は</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Content <span class="op">=</span> <span class="kw">new</span> Label <span class="op">{</span> Text <span class="op">=</span> <span class="st">&quot;Hello, World!&quot;</span> <span class="op">};</span> </span></code></pre></div>
 <p>とも書ける．</p>
 <h2 id="コントロールgui部品">コントロール（GUI部品）</h2>
-<p>さて，上記にあった <code>Label</code> は単に与えられたテキストを表示するという <strong>コントロール</strong> （GUI部品）である．たとえば，よく使うコントロールは <code>Label</code>を含め以下のようなものであろう．</p>
+<p>さて，上記にあった <code>Label</code> は単に与えられたテキストを表示するという<strong>コントロール</strong>（GUI部品）である．たとえば，よく使うコントロールは <code>Label</code>を含め以下のようなものであろう．</p>
 <table>
 <thead>
 <tr class="header">
@@ -236,12 +233,10 @@
 </tbody>
 </table>
 <h2 id="コンテナコントロールを保持するもの">コンテナ（コントロールを保持するもの）</h2>
-<p>コントロールを複数個（1個のみのときもある）保持するコントロールは <strong>コンテナ</strong> と呼ばれる．</p>
-<p>スクロールを可能にする<code>Scrollable</code>，タブでコントロールを切り替えられる<code>TabControl</code>，
-二つのコントロールを区切り線で分ける<code>Splitter</code>や次項で説明するレイアウトがある．
-また，<code>Form</code>もコントロールを一個保持するようなコンテナの一つである．</p>
+<p>コントロールを複数個（1個のみのときもある）保持するコントロールは<strong>コンテナ</strong>と呼ばれる．</p>
+<p>スクロールを可能にする<code>Scrollable</code>，タブでコントロールを切り替えられる<code>TabControl</code>，二つのコントロールを区切り線で分ける<code>Splitter</code>や次項で説明するレイアウトがある．また，<code>Form</code>もコントロールを一個保持するようなコンテナの一つである．</p>
 <h2 id="レイアウト">レイアウト</h2>
-<p><strong>レイアウト</strong> はコンテナの一種であり，コントロールを適切な位置に並べてくれる．
+<p><strong>レイアウト</strong>はコンテナの一種であり，コントロールを適切な位置に並べてくれる．
 Eto.Formsの提供する代表的なレイアウトに以下のようなものがある．</p>
 <table>
 <tbody>
@@ -330,8 +325,7 @@ Eto.Formsの提供する代表的なレイアウトに以下のようなもの�
 </tr>
 </tbody>
 </table>
-<p>正確には<code>Items</code>は<code>StackLayoutItem</code>を保持するコレクションである．C#では暗黙の型変換をユーザが定義することができ，各コントロールの基底クラスである<code>Control</code>から<code>StackLayoutItem</code>への型変換が定義されているため，コントロールを直接<code>Items</code>へ<code>Add</code>メソッドを使って追加することができる．
-また，<code>StackLayoutItem</code>のコンストラクタ<code>StackLayoutItem(Control, bool)</code>を使うことにより，そのコントロールが<code>Orientation</code>に沿って伸長するかどうかを指定できる．</p>
+<p>正確には<code>Items</code>は<code>StackLayoutItem</code>を保持するコレクションである．C#では暗黙の型変換をユーザが定義することができ，各コントロールの基底クラスである<code>Control</code>から<code>StackLayoutItem</code>への型変換が定義されているため，コントロールを直接<code>Items</code>へ<code>Add</code>メソッドを使って追加することができる．また，<code>StackLayoutItem</code>のコンストラクタ<code>StackLayoutItem(Control, bool)</code>を使うことにより，そのコントロールが<code>Orientation</code>に沿って伸長するかどうかを指定できる．</p>
 <div class="note">
 <div class="title">
 <p>Note</p>
@@ -535,12 +529,8 @@ Label</code></pre>
 <div class="sourceCode" id="cb13"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// EventHandlerについては https://docs.microsoft.com/dotnet/api/system.eventhandler-1 参照</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">event</span> EventHandler<span class="op">&lt;</span>EventArgs<span class="op">&gt;</span> Click<span class="op">;</span> </span></code></pre></div>
 <p>という<code>Button</code>の（インスタンス）メンバとして宣言されている．</p>
-<p>イベントはフィールドやプロパティとは異なり，その当該のクラスからしか発生させる（イベントハンドラを呼び出す）ことができない（なので，派生クラスからイベントを発生させたい場合は，基底クラスのほうでイベント発生をラップする protected ないし public なメソッドを用意する必要がある）．
-ただし，イベントはそのクラスの外でも購読（イベントハンドラを登録する）ことができる．
-上記の<code>+=</code>は<code>button.Click</code>というイベントを購読する（あるいは"button.Click"というイベントに対するイベントハンドラを登録する）ための構文である．
-また，イベントの購読解除も行うことができ，対応する構文は<code>-=</code>である．</p>
-<p>さて，上記の<code>YOUR_METHOD</code>の部分はstatic メソッドでもそうでない通常のメソッド（インスタンスメソッド）でもよいが，
-今回の目的でもっとも簡潔なのは以下に紹介する <strong>ラムダ式</strong> を使う方法である．</p>
+<p>イベントはフィールドやプロパティとは異なり，その当該のクラスからしか発生させる（イベントハンドラを呼び出す）ことができない（なので，派生クラスからイベントを発生させたい場合は，基底クラスのほうでイベント発生をラップする protected ないし public なメソッドを用意する必要がある）．ただし，イベントはそのクラスの外でも購読（イベントハンドラを登録する）ことができる．上記の<code>+=</code>は<code>button.Click</code>というイベントを購読する（あるいは"button.Click"というイベントに対するイベントハンドラを登録する）ための構文である．また，イベントの購読解除も行うことができ，対応する構文は<code>-=</code>である．</p>
+<p>さて，上記の<code>YOUR_METHOD</code>の部分はstatic メソッドでもそうでない通常のメソッド（インスタンスメソッド）でもよいが，今回の目的でもっとも簡潔なのは以下に紹介する<strong>ラムダ式</strong>を使う方法である．</p>
 <h3 id="匿名関数ラムダ式">匿名関数（ラムダ式）</h3>
 <p>匿名関数を作成するため式（ラムダ式）の基本的な構文は以下である．</p>
 <pre style="line-height:1.3">

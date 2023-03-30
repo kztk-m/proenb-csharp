@@ -243,7 +243,7 @@
 </tr>
 </tbody>
 </table>
-<p>なお，上記はあくまで一部である．より詳細は <a href="http://pages.picoe.ca/docs/api/html/T_Eto_Drawing_Graphics.htm">Eto.FormsのドキュメンテーションのGraphicsのページ</a> を見るとよい．</p>
+<p>なお，上記はあくまで一部である．より詳細は<a href="http://pages.picoe.ca/docs/api/html/T_Eto_Drawing_Graphics.htm">Eto.FormsのドキュメンテーションのGraphicsのページ</a>を見るとよい．</p>
 <h2 id="フォント">フォント</h2>
 <p><code>Font(FontFamily,float)</code>コンストラクタを使うことで，システムにインストールされたフォントから<code>Font</code>オブジェクトを作成できる．</p>
 <p><code>FontFamily</code>インスタンスの作成にはフォント名をとるコンストラクタ<code>FontFamily(string)</code>を用いてもよいが，システムによってインストールされているフォントは違うので<code>Fonts.AvailableFontFamilies</code>を使うのがよいかもしれない．たとえば，<code>Fonts.AvailableFontFamilies</code>は以下のように<code>List&lt;FontFamily&gt;</code>に変換することができる．</p>
@@ -466,10 +466,8 @@
 <p>たとえばMacにおける，上（を含むプログラム）の実行例は以下となる．</p>
 <p><img src="./images/eto/mouse_demo.png" alt="image" /></p>
 <h3 id="円の色を選択できるように">円の色を選択できるように</h3>
-<p>作成したプログラムを少し拡張して，色を選べるようにしてみよう．この目的には<code>ColorPicker</code>というコントロールが利用可能である．
-このコントロールはクリックすると専用のダイアログ（プラットフォーム毎に異なる）を表示し，ユーザに色を選ぶことを可能にする．</p>
-<p>より具体的には，<code>ColorPicker</code>により <em>次にクリックしたとき</em> に表示される円の色を指定できるようする．
-そのためには，中心の座標のみならず，塗るべき色も覚えておけばよい．そのために，以下のクラスを準備する．</p>
+<p>作成したプログラムを少し拡張して，色を選べるようにしてみよう．この目的には<code>ColorPicker</code>というコントロールが利用可能である．このコントロールはクリックすると専用のダイアログ（プラットフォーム毎に異なる）を表示し，ユーザに色を選ぶことを可能にする．</p>
+<p>より具体的には，<code>ColorPicker</code>により<em>次にクリックしたとき</em>に表示される円の色を指定できるようする．そのためには，中心の座標のみならず，塗るべき色も覚えておけばよい．そのために，以下のクラスを準備する．</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 色と中心点の組</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ColoredCircle</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>

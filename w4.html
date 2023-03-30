@@ -70,7 +70,7 @@
 </ul>
 </div>
 <h2 id="前回の続きディクショナリ">前回の続き：ディクショナリ</h2>
-<p><strong>ディクショナリ（連想配列などとも言われる）</strong> は大雑把には添字に一般のデータを許した配列のようなコレクションである．
+<p><strong>ディクショナリ（連想配列などとも言われる）</strong>は大雑把には添字に一般のデータを許した配列のようなコレクションである．
 .NETにおいても，<code>System.Collections.Generic.Dictionary&lt;TKey,TValue&gt;</code>として提供されている．</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">.</span><span class="fu">Collections</span><span class="op">.</span><span class="fu">Generic</span><span class="op">;</span></span>
@@ -187,7 +187,7 @@ Banana -&gt; 2</code></pre>
 </tbody>
 </table>
 <h2 id="オブジェクト初期化子object-initializer">オブジェクト初期化子（object initializer）</h2>
-<p>ディクショナリは <strong>オブジェクト初期化子</strong> やコレクション初期化子（<a href="./w3.html">前回参照</a>）を用いることで下記のように初期値を指定することができる．</p>
+<p>ディクショナリは<strong>オブジェクト初期化子</strong>やコレクション初期化子（<a href="./w3.html">前回参照</a>）を用いることで下記のように初期値を指定することができる．</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">.</span><span class="fu">Collections</span><span class="op">.</span><span class="fu">Generic</span><span class="op">;</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -225,9 +225,7 @@ Banana -&gt; 2</code></pre>
 <span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
 <span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
 <span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>オブジェクト初期化子は上記の <code>new Dictionary&lt;string, int&gt;()</code>の直後の中括弧の部分である．
-一般に，C#ではオブジェクト生成直後のpublicフィールドやプロパティ，添字への代入を，
-オブジェクト初期化子を使うことで生成とまとめて行うことができる．</p>
+<p>オブジェクト初期化子は上記の <code>new Dictionary&lt;string, int&gt;()</code>の直後の中括弧の部分である．一般に，C#ではオブジェクト生成直後のpublicフィールドやプロパティ，添字への代入を，オブジェクト初期化子を使うことで生成とまとめて行うことができる．</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Point <span class="op">{</span></span>
@@ -272,12 +270,8 @@ Banana -&gt; 2</code></pre>
 <pre><code>Unhandled exception. System.Collections.Generic.KeyNotFoundException: The given key 'somekey' was not present in the dictionary.
    at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
    at ExceptionExample.Main() in /Users/kztk/prog/cs/Materials/Week4/ExceptionExample/Program.cs:line 12</code></pre>
-<p>もちろん，このようなエラーは<code>ContainsKey(TKey)</code> メソッド等を使って逐一検査すれば防ぐことができる．
-しかしながら，そうした逐一の検査は <em>煩雑でありなおかつコードの見通しを悪く</em> する．
-また，問題が起きてしまった場合の処理も共通であることもしばしばである．
-たとえば，対話的アプリケーションだとエラーを報告しユーザの入力を再度促すことになるだろうし，
-対話的でないアプリケーションだとユーザフレンドリーなエラーメッセージを吐いて終了することになるだろう．</p>
-<p>そのような問題を解決するのが <strong>例外処理</strong> である．例外は上記の存在しないキーへのアクセスなど様々な原因で投げられる．
+<p>もちろん，このようなエラーは<code>ContainsKey(TKey)</code> メソッド等を使って逐一検査すれば防ぐことができる．しかしながら，そうした逐一の検査は<em>煩雑でありなおかつコードの見通しを悪く</em>する．また，問題が起きてしまった場合の処理も共通であることもしばしばである．たとえば，対話的アプリケーションだとエラーを報告しユーザの入力を再度促すことになるだろうし，対話的でないアプリケーションだとユーザフレンドリーなエラーメッセージを吐いて終了することになるだろう．</p>
+<p>そのような問題を解決するのが<strong>例外処理</strong>である．例外は上記の存在しないキーへのアクセスなど様々な原因で投げられる．
 <code>try</code>-<code>catch</code>文を用いると例外を捕捉することができる．</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">.</span><span class="fu">Collections</span><span class="op">.</span><span class="fu">Generic</span><span class="op">;</span></span>
@@ -487,31 +481,9 @@ Hello, again.</code></pre>
 <span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>MyText.txt の中身</p>
-<pre><code>りんご
-オレンジ
-バナナ
-みかん</code></pre>
+<pre><code>りんごオレンジバナナみかん</code></pre>
 <p>出力結果</p>
-<pre><code>一気に全部読む（結果を文字列に）
-りんご
-オレンジ
-バナナ
-みかん
-一気に全部読む（結果を文字列の配列に）
-りんご
-オレンジ
-バナナ
-みかん
-一行ごと処理
-りんご
-オレンジ
-バナナ
-みかん
-一行ごと処理（usingを使用）
-りんご
-オレンジ
-バナナ
-みかん</code></pre>
+<pre><code>一気に全部読む（結果を文字列に）りんごオレンジバナナみかん一気に全部読む（結果を文字列の配列に）りんごオレンジバナナみかん一行ごと処理りんごオレンジバナナみかん一行ごと処理（usingを使用）りんごオレンジバナナみかん</code></pre>
 <h3 id="上で使用したメソッドなど">上で使用したメソッドなど</h3>
 <table>
 <tbody>
@@ -541,17 +513,11 @@ Hello, again.</code></pre>
 <div class="title">
 <p>Note</p>
 </div>
-<p>上記の「パス」は絶対パスでも相対パスでもよい．相対パスは現在の作業ディレクトリ基準．
-設定 or 取得するには<code>Environment.CurrentDirectory</code>プロパティを用いる．</p>
+<p>上記の「パス」は絶対パスでも相対パスでもよい．相対パスは現在の作業ディレクトリ基準．設定 or 取得するには<code>Environment.CurrentDirectory</code>プロパティを用いる．</p>
 </div>
 <h4 id="using文">using文</h4>
-<p>C#はGC付きの言語であり，参照されないオブジェクトはいずれ解放される．
-しかしながら，プログラミングにおいてはメモリ以外にもさまざまなリソースを使用する必要がある場合がある．
-ファイナライザを利用しGC時にオブジェクトが保有しているリソースを解放することはできるものの，
-リソースは有限であるものの使用後すぐに解放することが望ましい．
-開いたファイル——に関連付けられたファイル記述子——はそのようなリソースの一つである．</p>
-<p>リソースを確保（たとえばファイルを開く）した後の処理中に例外が発生する可能性があり，その場合にもリソースは解放（たとえばファイルを閉じる）されなければならない．
-その目的に<code>try</code>-<code>finally</code>を利用することもできるが，簡潔なのは <strong>using文</strong> （usingディレクティブとは違う）を使う方法である．</p>
+<p>C#はGC付きの言語であり，参照されないオブジェクトはいずれ解放される．しかしながら，プログラミングにおいてはメモリ以外にもさまざまなリソースを使用する必要がある場合がある．ファイナライザを利用しGC時にオブジェクトが保有しているリソースを解放することはできるものの，リソースは有限であるものの使用後すぐに解放することが望ましい．開いたファイル——に関連付けられたファイル記述子——はそのようなリソースの一つである．</p>
+<p>リソースを確保（たとえばファイルを開く）した後の処理中に例外が発生する可能性があり，その場合にもリソースは解放（たとえばファイルを閉じる）されなければならない．その目的に<code>try</code>-<code>finally</code>を利用することもできるが，簡潔なのは<strong>using文</strong>（usingディレクティブとは違う）を使う方法である．</p>
 <p>基本的な構文は大雑把には以下の通りである．</p>
 <pre style="line-height:1.3">
 <span class="kw">using</span> (<span class="metaname">型</span> <span class="metaname">変数</span> = <span class="metaname">リソースを確保する式</span> )
@@ -562,7 +528,7 @@ Hello, again.</code></pre>
 <div class="title">
 <p>Note</p>
 </div>
-<p>そのため，導入された変数の型は <strong>インタフェース</strong> <code>System.IDisposable</code> を実装してなければならない．</p>
+<p>そのため，導入された変数の型は<strong>インタフェース</strong> <code>System.IDisposable</code> を実装してなければならない．</p>
 </div>
 <h4 id="ファイルへの出力">ファイルへの出力</h4>
 <p><code>System.IO.File</code>のstaticメソッド <code>WriteAllText</code> や <code>WriteAllLines</code> を利用したり，
@@ -596,12 +562,8 @@ Hello, again.</code></pre>
 <span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>上記プログラムを実行すると，実行したディレクトリにMyText1.txt，MyText2.txt および MyText3.txt というファイルが作成される．
-いずれも以下のような内容だが，MyText1.txt は最終行に終端の改行がない．</p>
-<pre><code>りんご
-オレンジ
-バナナ
-みかん</code></pre>
+<p>上記プログラムを実行すると，実行したディレクトリにMyText1.txt，MyText2.txt および MyText3.txt というファイルが作成される．いずれも以下のような内容だが，MyText1.txt は最終行に終端の改行がない．</p>
+<pre><code>りんごオレンジバナナみかん</code></pre>
 <h3 id="上で使用したメソッドなど-1">上で使用したメソッドなど</h3>
 <table>
 <tbody>
@@ -772,8 +734,7 @@ cdef
 <div class="title">
 <p>Note</p>
 </div>
-<p><code>Substring</code>や<code>IndexOf</code>で指定するindexや長さは<code>string</code>を<code>char</code>の配列として見たときのものである．
-このことは以下のように絵文字等の扱いで直観に反することがある．</p>
+<p><code>Substring</code>や<code>IndexOf</code>で指定するindexや長さは<code>string</code>を<code>char</code>の配列として見たときのものである．このことは以下のように絵文字等の扱いで直観に反することがある．</p>
 <pre class><code>using System;
 
 class StringPitfall
@@ -786,8 +747,7 @@ class StringPitfall
   }
 }</code></pre>
 <p>これは，charがunicodeのコードポイントを表すのに十分でないためである．charは0〜65535の範囲しか表すことができない一方，
-unicodeのコードポイントの最大値は 0x10FFFF = 1114111 となる．
-実際に絵文字等のcharの範囲で表わせないコードポイントはcharのペアとして表わされる（<a href="https://datatracker.ietf.org/doc/html/rfc2781#section-2">参考： UTF-16, an encoding of ISO 10646</a>）．</p>
+unicodeのコードポイントの最大値は 0x10FFFF = 1114111 となる．実際に絵文字等のcharの範囲で表わせないコードポイントはcharのペアとして表わされる（<a href="https://datatracker.ietf.org/doc/html/rfc2781#section-2">参考： UTF-16, an encoding of ISO 10646</a>）．</p>
 <p>また，コードポイント自体も「文字」とは対応しない場合がある．たとえば，「🇯🇵」という一文字は二つのコードポイント（U+1F1EF U+1F1F5）で表現される．</p>
 </div>
 
