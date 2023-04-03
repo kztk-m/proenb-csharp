@@ -40,7 +40,7 @@
                <h1>第0回 環境構築1（C#/F#共通）</h1>
              
             
-               <p class="last-update">最終更新: 2023-03-29 17:37:51</p> 
+               <p class="last-update">最終更新: 2023-04-03 11:14:22</p> 
             
             <div class="qnav">
               <ul>
@@ -78,32 +78,28 @@ C#演習の第5週・第6週目の課題を進めるには<a href="./setup_gui.h
 </div>
 <h2 id="visual-studioのインストール">Visual Studioのインストール</h2>
 <h3 id="windows編">Windows編</h3>
-<p>WindowsではVisual Studio Community 2019 （<em>最新版ではない</em>）を用いる．</p>
-<div class="note">
-<div class="title">
-<p>Note</p>
-</div>
-<p>最新版はVisual Studio Community 2022だが，C#演習の第5週・第6週目の課題で使用するライブラリを使用するためのVisual Studio拡張がVisual Studio 2019向けであるためである．プロジェクトやソリューションの作成をコマンドラインで実行した後で，Visual Studioを使うことも可能であるので，Visual Studio Community 2022でも演習を進めること自体は可能である．あるいは，ディスク容量とインストール時間さえ気にしなければ，Visual Studio Community 2022をまずはインストールし，C#演習の第5週・第6週目の課題を進めるときだけ Visual Studio Community 2019を用いることも可能である．</p>
-</div>
 <p><strong>インストール中はネットワーク接続が必要なことに注意する．</strong></p>
 <ol>
-<li><p><a href="https://docs.microsoft.com/ja-jp/visualstudio/releases/2019/release-notes">Visual Studio 2019のリリースノート</a>より，
-"Download Community 2019 <span class="underline">↓</span>"と書かれた青いボタンを押し，Visual Studio Community 2019をダウンロードする．</p>
-<p>すると <code>vs_community__英数字の列.exe</code> というファイルがダウンロードされる．</p></li>
-<li><p>ダウンロードしたファイルを実行する．ライセンス条項には目を通しておこう．</p>
+<li><a href="https://visualstudio.microsoft.com/ja/">Visual Studio 2022のページ</a>において「Visual Studioのダウンロード」にマウスポインタを合わせるといくつかの項目が表示される．その中の「Community 2022」を選択し，Visual Studio Community 2022をダウンロードする．</li>
+</ol>
+<blockquote>
+<p>すると <code>VisualStudioSetup.exe</code> というファイルがダウンロードされる．</p>
+</blockquote>
+<ol>
+<li><p>ダウンロードしたファイルを実行する．「続行」を押す前にライセンス条項には目を通しておこう．</p>
 <ol>
 <li>途中でインストールする項目が聞かれるので，「ワークロード」タブにある<em>「.NETデスクトップ開発」</em>をチェックし，その「インストール詳細」から
-<em>「F# デスクトップ言語のサポート」</em>にもチェックを入れる．6 GB強のディスク容量が必要となる．</li>
+<em>「F# デスクトップ言語のサポート」</em>にもチェックを入れる．7.8 GB弱のディスク容量が必要となる．</li>
 </ol>
-<p><img src="images/ss_dl_win4.png" alt="image" /></p></li>
-<li><p>「インストール」ボタンを押してインストールを完了させる．1.5 GBほどのダウンロードが生じるので高速なネット回線が利用可能なところで行おう．</p></li>
-<li><p>起動時にいろいろ聞かれるが適当に答えたのでよい（サインインのアカウントも好きなものでよいし，設定しなくてもよい）．インストールが終了すると自動的にVisual Studio 2019が起動され，以下の画面が表示される．インストーラのウィンドウのほうは閉じてOK．</p>
-<p><img src="images/ss_dl_win7.png" alt="image" /></p></li>
+<p><img src="images/ss_vs2022_win_installer.png" alt="image" /></p></li>
+<li><p>「インストール」ボタンを押してインストールを完了させる．2.2 GBほどのダウンロードが生じるので高速なネット回線が利用可能なところで行おう．</p></li>
+<li><p>起動時にいろいろ聞かれるが適当に答えたのでよい（サインインのアカウントも好きなものでよいし，設定しなくてもよい）．インストールが終了すると自動的にVisual Studio Community 2022が起動され，以下の画面が表示される．インストーラのウィンドウのほうは閉じてOK．</p>
+<p><img src="images/ss_vs2022_win_startup.png" alt="image" /></p></li>
 <li><p>動作確認もしておこう．</p>
 <ol type="i">
 <li><p>上記で「新しいプロジェクトの作成」を選ぶ．</p></li>
 <li><p>テンプレート選択画面で，C#の「コンソール アプリケーション」を選ぶ．</p>
-<p><img src="images/ss_chk_win2.png" alt="image" /></p></li>
+<p><img src="images/ss_vs2022_win_template_selection.png" alt="image" /></p></li>
 <li><p>プロジェクト名とソリューション名を聞かれるので適当に入力する．たとえば，どちらも <code>HelloWorldCS</code> にしたのでよい（<code>CS</code>はC#の気持ち）．</p>
 <div class="note">
 <div class="title">
@@ -111,13 +107,13 @@ C#演習の第5週・第6週目の課題を進めるには<a href="./setup_gui.h
 </div>
 <p>プロジェクトは一つの実行形式やライブラリを作成するためのコード等を全てまとめたものであり，ソリューションは関連するプロジェクトをまとめたもの（参考：<a href="https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2022">What are solutions and projects in Visual Studio?</a>）．あえて英語版にリンクしたのは，日本語版だと"a project contains all files that are compiled into an executable, library, or website"の"a"や"an"がうまく訳出されていないように感じたため．</p>
 </div>
-<p><img src="images/ss_chk_win3.png" alt="image" /></p></li>
+<p><img src="images/ss_vs2022_win_creating_project.png" alt="image" /></p></li>
 <li><p>フレームワークを選んで「作成」する．ここではデフォルトのままでよい．</p>
-<p><img src="images/ss_chk_win4.png" alt="image" /></p></li>
+<p><img src="images/ss_vs2022_win_fw_selection.png" alt="image" /></p></li>
 <li><p>エディタで <code>Program.cs</code> が開かれた状態になる．</p>
-<p><img src="images/ss_chk_win5.png" alt="image" /></p></li>
+<p><img src="images/ss_vs2022_win_editor.png" alt="image" /></p></li>
 <li><p>コードを実行するには上のツールバーの真ん中あたりにある「▶ HelloWorldCS」と書かれたボタンを押す．すると，ビルドが行われ実行形式が作成された後にその実行形式が実行される．ビルド時の出力等が表示された後に，「Microsoft Visual Studio デバッグコンソール」に <code>Hello, World!</code> と表示されればOK．</p>
-<p><img src="images/ss_chk_win6.png" alt="image" /></p></li>
+<p><img src="images/ss_vs2022_win_output.png" alt="image" /></p></li>
 <li><p>F#でも同様であることを確認しておこう（新しいプロジェクトを作成する際のテンプレートを選ぶ場面で，「すべての言語」を「F#」に変更し，「コンソール アプリケーション」を選べばよい）．</p>
 <div class="note">
 <div class="title">
@@ -203,19 +199,19 @@ C#演習の第5週・第6週目の課題を進めるには<a href="./setup_gui.h
 <li><p><a href="https://dotnet.microsoft.com/ja-jp/download">.NET SDKのダウンロードページ</a>より，software development kit (SDK)をダウンロードする．</p>
 <ul>
 <li>Windowsの人はWindows版のSDKをダウンロードする．</li>
-<li>Mac版についてはいわゆるintel MacとM1 Macではダウンロードするものが違うので注意．前者はx64版を後者はArm64版をダウンロードしよう．</li>
+<li>Mac版についてはいわゆるintel MacとM1 Macではダウンロードすべきものが違うので注意．前者はx64版を後者はArm64版をダウンロードしよう．</li>
 </ul></li>
 <li><p>ダウンロードしたインストーラを実行し，指示に従ってインストールを完了する．</p>
 <ul>
-<li>Windows版なら<code>dotnet-sdk-6.0.201-win-x64.exe</code>みたいな名前</li>
-<li>Macのx64版なら<code>dotnet-sdk-6.0.201-osx-x64.pkg</code> みたいな名前</li>
+<li>Windows版なら<code>dotnet-sdk-6.0.407-win-x64.exe</code>みたいな名前</li>
+<li>Macのx64版なら<code>dotnet-sdk-6.0.407-osx-x64.pkg</code> みたいな名前</li>
 </ul></li>
 <li><p>ターミナル（WindowsだとPowerShellか「コマンド プロンプト」，MacだとTerminal.appやiTerm.app）を開き，以下を実行する．</p>
 <pre class><code>dotnet --list-sdks</code></pre>
 <p>以下は私の環境における出力だが，このようにダウンロードしたSDK（6.0.XXX）が表示されたらばOK．</p>
-<pre class><code>3.1.417 [/usr/local/share/dotnet/sdk]
-5.0.406 [/usr/local/share/dotnet/sdk]
-6.0.201 [/usr/local/share/dotnet/sdk]</code></pre></li>
+<pre class><code>6.0.400 [/usr/local/share/dotnet/sdk]
+6.0.407 [/usr/local/share/dotnet/sdk]
+7.0.202 [/usr/local/share/dotnet/sdk]</code></pre></li>
 <li><p>動作確認もしておこう．</p>
 <ol type="i">
 <li><p>適当なディレクトリに移動して以下を実行する．</p>

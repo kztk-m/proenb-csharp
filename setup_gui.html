@@ -40,7 +40,7 @@
                <h1>第0回 環境構築2（C#演習用）</h1>
              
             
-               <p class="last-update">最終更新: 2023-03-30 13:48:49</p> 
+               <p class="last-update">最終更新: 2023-04-03 16:47:53</p> 
             
             <div class="qnav">
               <ul>
@@ -70,19 +70,18 @@
 <p>（本ページに掲載されているスクリーンショットは，マイクロソフトの許諾を得て使用しています．）</p>
 <h2 id="visual-studioの設定">Visual Studioの設定</h2>
 <h3 id="windows編">Windows編</h3>
-<p>Visual Studio 2019を用いる．Eto.Formsの拡張機能は令和4年3月24日(木)時点ではまだVisual Studio 2022に対応していない．</p>
 <ol type="1">
 <li><p>Visual Studioを起動し，メニューバーが表示されている状態にする（たとえば，スタート画面から「コードなしで続行」する）．</p>
-<p><img src="images/ss_eto/win1.png" alt="image" /></p></li>
+<p><img src="images/ss_eto/vs2022_win_start_without_initial_code.png" alt="image" /></p></li>
 <li><p>メニューの「拡張機能」以下の「拡張機能の管理」を開く．</p>
-<p><img src="images/ss_eto/win2.png" alt="image" /></p>
-<p>すると拡張機能の管理ウィンドウが表示されるので，右上の検索窓から"Eto.Forms"を検索する．すると，"Eto.Forms Visual Studio Addin"がリストされるので，「ダウンロード」する．</p>
-<p><img src="images/ss_eto/win4.png" alt="image" /></p></li>
+<p><img src="images/ss_eto/vs2022_win_menu_extension.png" alt="image" /></p>
+<p>すると拡張機能の管理ウィンドウが表示されるので，右上の検索窓から"Eto.Forms"を検索する．すると，"Eto.Forms. Templates and Previewer"がリストされるので，「ダウンロード」する．</p>
+<p><img src="images/ss_eto/vs2022_win_search_eto_in_extension.png" alt="image" /></p></li>
 <li><p>すると，「変更内容がスケジュールされます。すべての Microsoft Visual Studio ウィンドウを閉じると変更が開始されます。」と表示されるので，一旦Visual Studioを終了させる．</p></li>
 <li><p>その後，以下のウィンドウが表示されるので，「Modify」を選択する．</p>
-<p><img src="images/ss_eto/win5.png" alt="image" /></p></li>
+<p><img src="images/ss_eto/vs2022_win_VSIX_installer.png" alt="image" /></p></li>
 <li><p>Visual Studioを再度立ち上げる．正しくインストールできていると，「新しいプロジェクト」作成時のテンプレート選択画面で「Eto.Forms Application」が選べるようになる．</p>
-<p><img src="images/ss_eto/win6.png" alt="image" /></p>
+<p><img src="images/ss_eto/vs2022_win_template_selection_eto.png" alt="image" /></p>
 <div class="note">
 <div class="title">
 <p>Note</p>
@@ -90,23 +89,18 @@
 <p>Visual Studio 2019 を既にインストールしてあった場合に，そのバージョンが古いままだとこのステップでエラーが出るようである．その場合はメニューの「ヘルプ」から「更新プログラムの確認」を確認して更新を実施する．</p>
 </div></li>
 <li><p>動作確認ついでに「続行」からプロジェクトを作成してみよう．例のごとくプロジェクト名とソリューション名は適当でよい（<code>HelloEto</code>とする）．</p>
-<p><img src="images/ss_eto/win7.png" alt="image" /></p>
-<p>プロジェクト名とソリューション名を入力後，以下のウィンドウが表示されるがこれは何も変更しなくてよい．</p>
-<p><img src="images/ss_eto/win8.png" alt="image" /></p></li>
+<p><img src="images/ss_eto/vs2022_win_creating_etoapp_project.png" alt="image" /></p>
+<p>プロジェクト名とソリューション名を入力後，以下のウィンドウが表示される．ここでは，"Project"で"Separate per platform"を選択した場合の動作を説明する（"Combined"を選んでも支障はない）．</p>
+<p><img src="images/ss_eto/vs2022_win_etoapp_properties.png" alt="image" /></p></li>
 <li><p>作成すると，<code>HelloEto</code> の他に <code>HelloEto.Mac</code>，<code>HelloEto.Gtk</code>，<code>HelloEto.Wpf</code>というプロジェクトが作成されていることがわかる．演習では<code>HelloEto</code>（に相当するフォルダ）以下の<code>MainForm.cs</code>を編集することになる．ここでは，<code>HelloEto.Wpf</code>をビルド・実行する．（<code>HelloEto.Mac</code>はビルドできるがWindowsで実行できない．<code>HelloEto.Gtk</code>もビルドできるが実行にGTKのインストールが必要）．</p>
-<p><img src="images/ss_eto/win9.png" alt="image" /></p>
-<div class="note">
-<div class="title">
-<p>Note</p>
-</div>
-<p>ここから先のステップは，Visual Studio 2022でも実行可能である（作成したソリューションを開けばよい）．ただし，以下のMac版と同様にターゲットフレームワークの問題が生じる場合がある．</p>
-</div></li>
-<li><p>▶ボタンの左の枠から「HelloEto.Wpf」を選ぶ．選択後，右のソリューションエクプローラーで同プロジェクトが太字になる．</p>
-<p><img src="images/ss_eto/win_wpf1.png" alt="image" /></p></li>
+<p><img src="images/ss_eto/vs2022_win_etoapp_structure.png" alt="image" /></p></li>
+<li><p>▶ボタンの左の枠から「HelloEto.Wpf」を選ぶ．</p>
+<p><img src="images/ss_eto/vs2022_win_selecting_wpf_project.png" alt="image" /></p>
+<p>選択後，右のソリューションエクプローラーで同プロジェクトが太字になる．</p></li>
 <li><p>▶ボタンを押すと，以下のウィンドウが表示される．</p>
-<p><img src="images/ss_eto/win_wpf2.png" alt="image" /></p></li>
-<li><p>いつものようなウィンドウタイトルや閉じるボタンが表示されていないように見えるかもしれないが，ウィンドウを拡大したら隠れていただけであったことがわかる．黒いパネルはVisual Studio由来であり，実際にコマンドラインからビルド・実行すると表示されない．</p>
-<p><img src="images/ss_eto/win_wpf3.png" alt="image" /></p></li>
+<p><img src="images/ss_eto/vs2022_win_etoapp_window.png" alt="image" /></p></li>
+<li><p>いつものようなウィンドウタイトルや閉じるボタンが表示されていないように見えるかもしれないが，ウィンドウを拡大したらこれは隠れていただけであったことがわかる．黒いパネルはVisual Studio由来であり，実際にコマンドラインからビルド・実行すると表示されない．</p>
+<p><img src="images/ss_eto/vs2022_win_etoapp_window_expanded.png" alt="image" /></p></li>
 <li><p>"Click Me!"と書かれた部分をクリックするとダイアログが表示される．</p></li>
 <li><p>ウィンドウ右上の閉じるボタンか，Ctrl + Q を押すか，メニューからQuitを選択してプログラムを終了する．</p></li>
 </ol>
@@ -179,12 +173,12 @@
 <li><p>以下を行う（設定自体はこれで終わり）．</p>
 <pre class><code>dotnet new -i &quot;Eto.Forms.Templates::*&quot;</code></pre></li>
 <li><p>確認のために以下を実行してみる．</p>
-<pre class><code>dotnet new -l eto</code></pre>
+<pre class><code>dotnet new list eto</code></pre>
 <div class="note">
 <div class="title">
 <p>Note</p>
 </div>
-<p><code>dotnet</code>のバージョンによっては，<code>dotnet new eto -l</code>のように書かなけれならないかもしれない．</p>
+<p><code>dotnet</code>のバージョンによっては，<code>dotnet new -l eto</code>や<code>dotnet new eto -l</code>のように書かなけれならないかもしれない．</p>
 </div>
 <p>たとえば，以下のように表示されるはず．</p>
 <pre class><code>これらのテンプレートは、入力: 'eto' と一致しました
@@ -200,10 +194,14 @@ Eto Panel, Dialog or Form  etofile   [C#],F#,VB  Cross Platform/Eto</code></pre>
 <li><p>作成したディレクトリに移動する．</p>
 <pre class><code>cd HelloEto </code></pre></li>
 <li><p>以下を実行する．</p>
-<pre class><code>dotnet new etoapp -f net6.0 </code></pre>
+<pre class><code>dotnet new etoapp </code></pre>
 <p>その後<code>ls</code>してみると以下のようなディレクトリが生成されたのがわかる（Windowsだと<code>ls</code>は<code>dir</code>の別名なので表示は異なる）．</p>
 <pre class><code>$ ls 
-HelloEto/     HelloEto.Gtk/ HelloEto.Mac/ HelloEto.Wpf/</code></pre></li>
+HelloEto/     HelloEto.Gtk/ HelloEto.Mac/ HelloEto.Wpf/</code></pre>
+<ul>
+<li>ソリューションも作成したい場合は<code>dotnet new etoapp -sln</code>とする．</li>
+<li>プラットフォーム毎にプロジェクトを作成したくない場合は代わりに<code>dotnet new etoapp -c</code>とする．</li>
+</ul></li>
 </ol></li>
 </ol>
 <blockquote>
@@ -228,13 +226,20 @@ HelloEto/     HelloEto.Gtk/ HelloEto.Mac/ HelloEto.Wpf/</code></pre></li>
 </div></li>
 <li><p>Macの場合，まず以下を実行しプロジェクトHelloEto.Macをビルドする．</p>
 <pre class><code>dotnet build HelloEto.Mac</code></pre>
-<p>その後，<code>HelloEto.Mac</code>に移動して，以下のコマンドでビルドしたプログラムを実行する．</p>
-<pre class><code>dotnet run </code></pre>
+<p>その後，以下のコマンドでビルドしたプログラムを実行する．</p>
+<pre class><code>(cd HelloEto.Mac &amp;&amp; dotnet run)</code></pre>
 <div class="caution">
 <div class="title">
 <p>Caution</p>
 </div>
-<p><code>dotnet run --project HelloEto.Mac</code> では実行に失敗する．</p>
+<p><code>dotnet run --project HelloEto.Mac</code> では実行に失敗する．どうやら作業ディレクトリが<code>HelloEto.Mac</code>であることが重要である模様．</p>
+</div>
+<div class="caution">
+<div class="title">
+<p>Caution</p>
+</div>
+<p>括弧は大事．以下のコマンドでは実行後に現在のディレクトリが<code>HelloEto.Mac</code>に変わってしまう．</p>
+<pre class><code>cd HelloEto.Mac &amp;&amp; dotnet run</code></pre>
 </div>
 <div class="note">
 <div class="title">
@@ -243,6 +248,12 @@ HelloEto/     HelloEto.Gtk/ HelloEto.Mac/ HelloEto.Wpf/</code></pre></li>
 <p>以下のコマンドでもプログラムを実行可能．</p>
 <pre class><code>open HelloEto.Mac/bin/Debug/net6.0/HelloEto.Mac.app</code></pre>
 <p><code>.net6.0</code>の部分はターゲットフレームワークによって変わる．</p>
+</div>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p><code>dotnet new etoapp -c</code>でプラットフォーム共通のプロジェクトを作成した場合は，<code>dotnet build</code>でビルドでき<code>dotnet run</code>で作成したプログラムを実行できる．コマンドラインから直接ビルド・実行を行う場合はこちらのほうが楽かもしれない．</p>
 </div>
 <div class="note">
 <div class="title">
