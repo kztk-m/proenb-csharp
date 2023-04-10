@@ -40,7 +40,7 @@
                <h1>第4回 課題</h1>
              
             
-               <p class="last-update">最終更新: 2022-05-18 14:17:14</p> 
+               <p class="last-update">最終更新: 2023-04-10 18:16:37</p> 
             
             <div class="qnav">
               <ul>
@@ -213,16 +213,24 @@ Candy,5</code></pre>
 <pre><code>Chocolate × 2
 Chips × 14
 Candy × 5</code></pre>
-<p><strong>./items.txtも提出物に含めること．</strong>ただし，items.txt は .csproj ファイルと同じディレクトリに置くものとし，その状態でプログラムから相対パス<code>./items.txt</code>で当該ファイルにアクセスできるようにするために，以下のいずれかを実施せよ．</p>
+<p><strong>./items.txtも提出物に含めること．</strong></p>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>.csprojファイルと同じフォルダにある<code>items.txt</code>を相対パス<code>./items.txt</code>でアクセスできるようにするためには以下のいずれかの設定が必要になる．</p>
 <blockquote>
 <ul>
 <li><p><code>dotnet run</code> で実行している場合は特になにもする必要はない．</p></li>
-<li><p>.csproj の <code>&lt;PropertyGroup&gt;...&lt;/PropertyGroup&gt;</code> 内に以下の行を追加する．</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">StartWorkingDirectory</span>&gt;.&lt;/<span class="kw">StartWorkingDirectory</span>&gt;</span></code></pre></div></li>
+<li><p>.csprojの<code>&lt;PropertyGroup&gt;...&lt;/PropertyGroup&gt;</code>内に以下の行を追加する．</p>
+<blockquote>
+<div class="sourceCode" id="cb6"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">RunWorkingDirectory</span>&gt;$(MSBuildProjectDirectory)&lt;/<span class="kw">RunWorkingDirectory</span>&gt;</span></code></pre></div>
+</blockquote></li>
 <li><p>Windows版のVisual Studioを使用している場合は，プロジェクト名を右クリックして出てくるコンテキストメニューから「プロパティ」を選択し，「デバッグ」の「作業ディレクトリ」を当該 .csproj ファイルの直上のディレクトリに設定する．</p></li>
-<li><p>Mac版のVisual Studioを使用している場合は，プロジェクト名をダブルクリックして出てくるウィンドウの「実行」&gt;「構成」&gt; 「Default」の 「Working directory」（作業ディレクトリ）を当該 .csproj ファイルの直上のディレクトリに設定する．</p></li>
+<li><p>Mac版のVisual Studioを使用している場合は，プロジェクト名をダブルクリックして出てくるウィンドウの「実行」&gt;「構成」&gt; 「Default」の 「作業ディレクトリ」を当該 .csproj ファイルの直上のディレクトリに設定する．</p></li>
 </ul>
 </blockquote>
+</div>
 <div class="hint">
 <div class="title">
 <p>Hint</p>
