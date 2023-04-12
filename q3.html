@@ -50,13 +50,14 @@
         </header>
 
         <main role="main" class="with-right-nav">
-          <div class="toc">
+          <nav class="toc">
             <ul>
               <li><a href="#課題の進め方">課題の進め方</a> </li>
               <li><a href="#基本課題">基本課題</a></li>
               <li><a href="#発展課題">発展課題</a> </li>
             </ul>
-          </div>
+          </nav>
+          <section class="mainbody">
             <h2 id="課題の進め方">課題の進め方</h2>
 <p>基本的には適当なプロジェクト/ソリューションを作って課題を進めた上で，<code>Program.cs</code>のみ（特に他に指示がなければ）を提出する．</p>
 <p><strong>公開の場所に解答を置かないようお願いします．</strong>githubやbitbucket等は使える人は使えばよいと思いますが，<strong>privateレポジトリにする</strong>ようにお願いします．</p>
@@ -322,6 +323,7 @@
 <p><code>List&lt;Item&gt;</code>を使って，既に表示した商品かどうかを管理し，既に表示した商品ならば何もせず，そうでなければカートの中その商品の数を数えるとよいう方法で実装できる．与えられた要素がリストに含まれているかの検査を <code>foreach</code> で書くのは難しくないが，<code>List&lt;T&gt;.Contains(T)</code> メソッドを使うことができる（<a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.contains?view=net-6.0#system-collections-generic-list-1-contains(-0)">当該メソッドの詳細</a>）．</p>
 <p>ただ，今回分では紹介しなかったが連想配列を表すクラス<code>Dictionary&lt;Item, int&gt;</code>を使うのがより自然だろう．このクラスがどのようなコンストラクタかメソッドを知るには<a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-6.0">.NET API リファレンスの当該クラスのページ</a>を見るとよい．次回の演習でも少し紹介する．</p>
 </div>
+          </section>
         </main>
 
         <footer>

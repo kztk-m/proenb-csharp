@@ -50,7 +50,7 @@
         </header>
 
         <main role="main" class="with-right-nav">
-            <div class="toc">
+            <nav class="toc">
 <ul>
 <li><a href="#前回の続きディクショナリ">前回の続き：ディクショナリ</a>
 <ul>
@@ -68,8 +68,8 @@
 <li><a href="#上で使用したstringのメソッドなど">上で使用した<code>string</code>のメソッドなど</a></li>
 </ul></li>
 </ul>
-</div>
-<h2 id="前回の続きディクショナリ">前回の続き：ディクショナリ</h2>
+</nav>
+<section class="mainbody"><h2 id="前回の続きディクショナリ">前回の続き：ディクショナリ</h2>
 <p><strong>ディクショナリ（連想配列などとも言われる）</strong>は大雑把には添字に一般のデータを許した配列のようなコレクションである．
 .NETにおいても，<code>System.Collections.Generic.Dictionary&lt;TKey,TValue&gt;</code>として提供されている．</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
@@ -749,7 +749,7 @@ class StringPitfall
 <p>これは，charがunicodeのコードポイントを表すのに十分でないためである．charは0〜65535の範囲しか表すことができない一方，
 unicodeのコードポイントの最大値は 0x10FFFF = 1114111 となる．実際に絵文字等のcharの範囲で表わせないコードポイントはcharのペアとして表わされる（<a href="https://datatracker.ietf.org/doc/html/rfc2781#section-2">参考： UTF-16, an encoding of ISO 10646</a>）．</p>
 <p>また，コードポイント自体も「文字」とは対応しない場合がある．たとえば，「🇯🇵」という一文字は二つのコードポイント（U+1F1EF U+1F1F5）で表現される．</p>
-</div>
+</div></section>
 
         </main>
 
