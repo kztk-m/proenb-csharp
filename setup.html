@@ -40,7 +40,7 @@
                <h1>第0回 環境構築1（C#/F#共通）</h1>
              
             
-               <p class="last-update">最終更新: 2023-04-10 16:01:13</p> 
+               <p class="last-update">最終更新: 2023-04-12 16:52:49</p> 
             
             <div class="qnav">
               <ul>
@@ -174,7 +174,17 @@ C#演習の第5週・第6週目の課題を進めるには<a href="./setup_gui.h
 <ul>
 <li>元のマウスオーバすると「枠」がポップアップする設定に戻すには📌を再び押すか，ドロップダウンメニューから「自動的に隠す」（「ドッキング解除」ではない）を選択する．</li>
 </ul></li>
-</ul></li>
+</ul>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>2023/04/12 Xcode コマンドラインツールが原因でビルドに失敗することがある模様．以下を試みるとよいかもしれない．</p>
+<ul>
+<li>Xcode コマンドラインツールのライセンスに同意する（ビルドメッセージにその旨が表示されているかも）</li>
+<li>Xcode コマンドラインツールを更新する（もし「システム設定」の「ソフトウェアアップデート」に表示されているなら）</li>
+</ul>
+</div></li>
 <li><p>上記の動作確認はC#/F#の両方について行おう．</p></li>
 </ol>
 <div class="note">
@@ -186,6 +196,12 @@ C#演習の第5週・第6週目の課題を進めるには<a href="./setup_gui.h
 <p>を実行する．あるいは，以下の「<a href="#net-sdkのインストール-windowsmac-ほぼ共通">.NET SDKのインストール （Windows/Mac ほぼ共通）</a>」の手順1～4を読みSDKをインストールするとよい．（それでも直らなければ，教員・TAに質問をしてください．）</p>
 </div></li>
 </ol>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>Visual Studio for Mac をアンインストールする場合には，アプリケーションフォルダから当該アイコンをゴミ箱に入れるだけでは不十分である．完全にアンインストールするには<a href="https://learn.microsoft.com/en-us/visualstudio/mac/uninstall?view=vsmac-2022">公式のアンインストール手順</a>に従ってアンインストールする必要がある．</p>
+</div>
 <h2 id="net-sdkのインストール-windowsmac-ほぼ共通">.NET SDKのインストール （Windows/Mac ほぼ共通）</h2>
 <p>Visual Studioに含まれているので，上記を行っている場合は以下を行う必要はない．</p>
 <ol type="1">
