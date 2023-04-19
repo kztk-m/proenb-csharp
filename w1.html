@@ -40,7 +40,7 @@
                <h1>第1回 C#にさわってみよう</h1>
              
             
-               <p class="last-update">最終更新: 2023-04-19 13:57:18</p> 
+               <p class="last-update">最終更新: 2023-04-19 16:52:59</p> 
             
             <div class="qnav">
               <ul>
@@ -83,7 +83,7 @@
 </ul>
 </nav>
 <section class="mainbody"><h2 id="cプログラムの基本的な構造">C#プログラムの基本的な構造</h2>
-<p>さて，<code>dotnet new console -o HelloWorld -f net6.0 --langVersion 8.0</code>で作成されるテンプレートに含まれている，以下のHello Worldプログラムについて考えてみよう．</p>
+<p>さて，<code>dotnet new console -o HelloWorld -f net6.0 --langVersion 8.0</code>で作成されるテンプレートに含まれている，<code>Program.cs</code>の中身について見てみよう．</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Program.cs </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -164,9 +164,10 @@
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>       Counter c <span class="op">=</span> <span class="kw">new</span> <span class="fu">Counter</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span> </span>
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>       <span class="co">// c.count.ToString()はオブジェクトcのフィールドcountに対し，ToString()メソッドを呼ぶの意</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>c<span class="op">.</span><span class="fu">count</span><span class="op">.</span><span class="fu">ToString</span><span class="op">());</span> <span class="co">// エラー</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>       <span class="co">// Console.WriteLine(s)は文字列sを標準出力に改行付きで出力する</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>c<span class="op">.</span><span class="fu">count</span><span class="op">.</span><span class="fu">ToString</span><span class="op">());</span> <span class="co">// エラー</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <div class="note">
 <div class="title">
 <p>Note</p>
@@ -200,22 +201,23 @@
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>     <span class="op">{</span></span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>         count <span class="op">=</span> c0<span class="op">;</span> </span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>     <span class="op">}</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>     <span class="co">// メソッド</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>     <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Inc</span><span class="op">()</span> </span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>     <span class="op">{</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>         count<span class="op">++;</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>     <span class="op">}</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>     <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Reset</span><span class="op">()</span> </span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>     <span class="op">{</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>         count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> </span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>     <span class="op">}</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>     <span class="kw">public</span> <span class="dt">int</span> <span class="fu">GetCount</span><span class="op">()</span> </span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>     <span class="op">{</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>         <span class="kw">return</span> count<span class="op">;</span> </span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>     <span class="op">}</span>        </span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a> <span class="op">}</span></span></code></pre></div>
-<p>上の実装が示すように，<code>Inc()</code>はカウントを1増加させ，<code>Reset()</code>はカウントを0にリセットし，<code>GetCount()</code>は現在のカウントを返す．
-public修飾子が示すように，これらはpublicメソッドとして実装されてるため，<code>Counter</code>クラスの外側でも用いることができる．</p>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>     <span class="co">// メソッド</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>     <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Inc</span><span class="op">()</span> </span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>     <span class="op">{</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>         count<span class="op">++;</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>     <span class="op">}</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>     <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Reset</span><span class="op">()</span> </span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>     <span class="op">{</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>         count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> </span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>     <span class="op">}</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>     <span class="kw">public</span> <span class="dt">int</span> <span class="fu">GetCount</span><span class="op">()</span> </span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>     <span class="op">{</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>         <span class="kw">return</span> count<span class="op">;</span> </span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>     <span class="op">}</span>        </span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a> <span class="op">}</span></span></code></pre></div>
+<p>上の実装が示すように，<code>Inc()</code>はカウントを1増加させ，<code>Reset()</code>はカウントを0にリセットし，<code>GetCount()</code>は現在のカウントを返す．</p>
+<p>public修飾子が示すように，これらはpublicメソッドとして実装されてるため，<code>Counter</code>クラスの外側でも用いることができる．</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Counter </span>
@@ -243,21 +245,27 @@ public修飾子が示すように，これらはpublicメソッドとして実�
 <span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">(</span><span class="dt">string</span><span class="op">[]</span> args<span class="op">)</span> </span>
 <span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
 <span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>       Counter c <span class="op">=</span> <span class="kw">new</span> <span class="fu">Counter</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span> </span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;c.GetCount() = &quot;</span> <span class="op">+</span> c<span class="op">.</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">());</span> </span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>       c<span class="op">.</span><span class="fu">Inc</span><span class="op">();</span> </span>
-<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>       c<span class="op">.</span><span class="fu">Inc</span><span class="op">();</span> </span>
-<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;c.GetCount() = &quot;</span> <span class="op">+</span> c<span class="op">.</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">());</span> </span>
-<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>       c<span class="op">.</span><span class="fu">Reset</span><span class="op">();</span></span>
-<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;c.GetCount() = &quot;</span> <span class="op">+</span> c<span class="op">.</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">());</span>  </span>
-<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>       c<span class="op">.</span><span class="fu">Inc</span><span class="op">();</span></span>
-<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;c.GetCount() = &quot;</span> <span class="op">+</span> c<span class="op">.</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">());</span> </span>
-<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>       <span class="co">// ここで，&quot;c.GetCount() = &quot; + c.GetCount().ToString() は</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 文字列&quot;c.GetCount() = &quot;と文字列c.GetCount().ToString()を連接した文字列</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>       <span class="co">// を表す．</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>       <span class="co">// C#では+演算子は文字列の連接にも用いられる．</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>       <span class="co">// たとえば，&quot;Hello&quot; + &quot;World&quot;の結果は&quot;HelloWorld&quot;である．</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;c.GetCount() = &quot;</span> <span class="op">+</span> c<span class="op">.</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">());</span> </span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>       c<span class="op">.</span><span class="fu">Inc</span><span class="op">();</span> </span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>       c<span class="op">.</span><span class="fu">Inc</span><span class="op">();</span> </span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;c.GetCount() = &quot;</span> <span class="op">+</span> c<span class="op">.</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">());</span> </span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>       c<span class="op">.</span><span class="fu">Reset</span><span class="op">();</span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;c.GetCount() = &quot;</span> <span class="op">+</span> c<span class="op">.</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">());</span>  </span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>       c<span class="op">.</span><span class="fu">Inc</span><span class="op">();</span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;c.GetCount() = &quot;</span> <span class="op">+</span> c<span class="op">.</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">());</span> </span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>このプログラムをビルド・実行すると以下の出力が得られる．</p>
 <pre><code>c.GetCount() = 0
 c.GetCount() = 2
 c.GetCount() = 0
 c.GetCount() = 1</code></pre>
+<p>メソッド<code>Inc()</code>等が，<code>obj.Inc()</code>の形で呼び出されていることを確認しよう．また，（インスタンス）メソッド<code>Inc()</code>の定義において（インスタンス）フィールド<code>count</code>が参照されていることにも注意する．大雑把には，この<code>count</code>は，メソッド<code>Inc()</code>が属するインスタンスの同名のフィールドを差している．</p>
 <div class="note">
 <div class="title">
 <p>Note</p>
@@ -266,7 +274,7 @@ c.GetCount() = 1</code></pre>
 </div>
 <h4 id="staticメソッドの追加">staticメソッドの追加</h4>
 <p>さらに<code>Counter</code>を便利なものにするために，<code>"12"</code>や<code>"-34"</code>といった文字列を構文解析してカウンターを作成することを考えてみよう．</p>
-<p>このような処理はコンストラクタとしても実装可能であるが，カウンターオブジェクトの生成という関心事からいささか複雑すぎるので避けたい．一方で，このような処理を<code>Counter</code>クラスの（インスタンス）メソッドとして実装することはできない．これは，<em>インタンスメソッドはインタンスを操作する</em>ものであるが，行いたい処理の時点では<em>インスタンスはまだ生成されていない</em>ためである．実際に，構文上においても，インスタンス<code>o</code>に対するインスタンスメソッド<code>Method</code>の呼出しは<code>o.Method(arg1, arg2)</code>となっていて，インスタンスが与えられなければインスタンスメソッドを呼び出すことができない．</p>
+<p>このような処理はコンストラクタとしても実装可能であるが，カウンターオブジェクトの生成という関心事からいささか複雑すぎるので避けたい．一方で，このような処理を<code>Counter</code>クラスの（インスタンス）メソッドとして実装することはできない．これは，<em>インタンスメソッドはインタンスに属する</em>ものであるが，行いたい処理の時点では<em>インスタンスはまだ生成されていない</em>ためである．実際に，構文上においても，インスタンス<code>o</code>に対するインスタンスメソッド<code>Method</code>の呼出しは<code>o.Method(arg1, arg2)</code>となっていて，インスタンスが与えられなければインスタンスメソッドを呼び出すことができない．</p>
 <p><strong>static メソッド</strong>を用いればこの問題を解決することができる．static メソッドはざっくりと説明するならば，
 <em>インスタンスではなくクラスに属するメソッド</em>（この言い方は少し正確でない．C#だと構造体型がありそちらもstaticメソッドを持てるので）である．そのため，インスタンスが与えられなくても呼び出すことが可能である．具体的には以下の形のメソッドを追加する．</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">static</span> Counter <span class="fu">Parse</span><span class="op">(</span><span class="dt">string</span> s<span class="op">)</span> </span>
@@ -444,7 +452,7 @@ c.GetCount() = 5</code></pre>
 </pre>
 <div class="admonition example">
 <p>例</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">int</span> <span class="fu">GetValue</span><span class="op">()</span> </span>
+<div class="sourceCode" id="cb26"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="dt">int</span> <span class="fu">GetCount</span><span class="op">()</span> </span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span> </span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> count<span class="op">;</span> </span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
@@ -543,7 +551,7 @@ c.GetCount() = 5</code></pre>
 <div class="sourceCode" id="cb37"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello World!&quot;</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb38"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>c<span class="op">.</span><span class="fu">Inc</span><span class="op">()</span> </span></code></pre></div>
 <p>別の式の一部としても使うことができる．</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>c<span class="op">.</span><span class="fu">GetValue</span><span class="op">().</span><span class="fu">ToString</span><span class="op">()</span> </span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>c<span class="op">.</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">()</span> </span></code></pre></div>
 </div>
 <h3 id="オブジェクト生成式new">オブジェクト生成式（<code>new</code>）</h3>
 <p>オブジェクトを生成する．</p>
