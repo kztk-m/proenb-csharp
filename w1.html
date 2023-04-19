@@ -40,7 +40,7 @@
                <h1>第1回 C#にさわってみよう</h1>
              
             
-               <p class="last-update">最終更新: 2022-04-21 18:01:36</p> 
+               <p class="last-update">最終更新: 2023-04-19 13:57:18</p> 
             
             <div class="qnav">
               <ul>
@@ -83,7 +83,7 @@
 </ul>
 </nav>
 <section class="mainbody"><h2 id="cプログラムの基本的な構造">C#プログラムの基本的な構造</h2>
-<p>さて，<code>dotnet new console -o HelloWorld -f net5.0</code>で作成されるテンプレートに含まれている，以下のHello Worldプログラムについて考えてみよう．</p>
+<p>さて，<code>dotnet new console -o HelloWorld -f net6.0 --langVersion 8.0</code>で作成されるテンプレートに含まれている，以下のHello Worldプログラムについて考えてみよう．</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Program.cs </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -187,7 +187,7 @@
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>c<span class="op">.</span><span class="fu">count</span><span class="op">.</span><span class="fu">ToString</span><span class="op">());</span> </span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>が，これは<em>あまりよくないコード</em>である．なぜならば，<code>Counter</code>はカウンターを実装するということが感心事であるのにそれ以外の処理を行っているためである．さらには，<code>Counter</code>は直接カウンターへのアクセスを防ぐために<code>count</code>をprivateフィールドにしたので，そのアクセス制限を台無しにしている．</p>
+<p>が，これは<em>あまりよくないコード</em>である．なぜならば，<code>Counter</code>はカウンターを実装するということが関心事であるのにそれ以外の処理を行っているためである．さらには，<code>Counter</code>は直接カウンターへのアクセスを防ぐために<code>count</code>をprivateフィールドにしたので，そのアクセス制限を台無しにしている．</p>
 </div>
 <h4 id="メソッドの追加">メソッドの追加</h4>
 <p>では，<code>Counter</code>クラスに<strong>（インスタンス）メソッド</strong>を追加してもっと面白くしてみよう．（インスタンス）メソッド<code>Method</code>はオブジェクト<code>o</code>に対し，<code>o.Method(arg1, arg2)</code>のよう形で呼出すことができる関数のようなものである．具体的にはカウンタをインクリメントするメソッド<code>Inc()</code>，リセットするメソッド<code>Reset()</code>，取得するメソッド<code>GetCount()</code>を定義してみよう．</p>
