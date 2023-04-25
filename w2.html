@@ -40,7 +40,7 @@
                <h1>第2回 継承</h1>
              
             
-               <p class="last-update">最終更新: 2022-04-28 15:28:22</p> 
+               <p class="last-update">最終更新: 2023-04-25 23:30:20</p> 
             
             <div class="qnav">
               <ul>
@@ -161,7 +161,7 @@ EMail: nobody@example.com </code></pre>
 <div class="sourceCode" id="cb8"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Phone p <span class="op">=</span> <span class="op">...</span> </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>p<span class="op">.</span><span class="fu">Call</span><span class="op">();</span> </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>p<span class="op">.</span><span class="fu">Info</span><span class="op">();</span> </span></code></pre></div>
-<p>というコードは<code>p</code>に代入されるものがPhoneのインスタンスであろうがMobilePhoneのインスタンスであろうが動作する．このように同じコードで異なるデータを扱えることをポリモーフィズムと言う．</p>
+<p>というコードは<code>p</code>に代入されるものがPhoneのインスタンスであろうがMobilePhoneのインスタンスであろうが動作する．このように同じコードで異なる型のデータを扱えることをポリモーフィズムと言う．</p>
 <p>もう一つは<code>Info()</code>は仮想メソッドであるので<code>p.Info()</code>の挙動は実際に<code>p</code>に代入されるインスタンスにより変わりうる．現時点では<code>Phone</code>の派生クラスは<code>MobilePhone</code>しかないが，別の派生クラスを定義したり<code>MobilePhone</code>をさらに派生したりすることも可能である．</p>
 <p>実際に以下のコードを実行することで動作を確認してみよう．</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
@@ -260,7 +260,7 @@ EMail: nobody@example.com</code></pre>
 <div class="title">
 <p>Note</p>
 </div>
-<p>継承によるポリモーフィズムは部分型ポリモーフィズム（subtype polyrmorphism）と呼ばれるものの一種であるが，オーバロードによるポリモーフィズムはアドホックポリモーフィズム（ad-hoc polymorphism）と呼ばれるものの一種である．</p>
+<p>継承によるポリモーフィズムは部分型ポリモーフィズム（subtype polymorphism）と呼ばれるものの一種であるが，オーバロードによるポリモーフィズムはアドホックポリモーフィズム（ad-hoc polymorphism）と呼ばれるものの一種である．</p>
 </div>
 <h2 id="キャスト">キャスト</h2>
 <p>C#では，数値型をより広い型や浮動小数点数型に変換したり，派生クラスのインスタンスを基底クラスのインスタンスに変換したりするのに陽な操作は不要である．</p>

@@ -40,7 +40,7 @@
                <h1>第1回 C#にさわってみよう</h1>
              
             
-               <p class="last-update">最終更新: 2023-04-19 16:52:59</p> 
+               <p class="last-update">最終更新: 2023-04-25 23:38:56</p> 
             
             <div class="qnav">
               <ul>
@@ -289,7 +289,7 @@ c.GetCount() = 1</code></pre>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>   <span class="dt">int</span> i <span class="op">=</span> Int32<span class="op">.</span><span class="fu">Parse</span><span class="op">(</span>s<span class="op">);</span> </span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>   <span class="kw">return</span> <span class="kw">new</span> <span class="fu">Counter</span><span class="op">(</span>i<span class="op">);</span> </span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p><code>Int32.Parse</code>も static メソッドの一つである．また，<code>Console.WriteLine</code>も実はstaticメソッドであった．このようにstaticメソッド<code>Method</code>はクラス<code>C</code>に対し，<code>C.Method(arg1, arg2)</code>のようにすることで呼び出すことができる．実際に以下のプログラムをビルド・実行してみよう．</p>
+<p><code>Int32.Parse</code>もstaticメソッドの一つである．また，<code>Console.WriteLine</code>も実はstaticメソッドであった．このようにstaticメソッド<code>Method</code>はクラス<code>C</code>に対し，<code>C.Method(arg1, arg2)</code>のようにすることで呼び出すことができる．実際に以下のプログラムをビルド・実行してみよう．</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span> </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Counter </span>
@@ -351,15 +351,14 @@ c.GetCount() = 5</code></pre>
 <div class="sourceCode" id="cb15"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="dt">int</span> count<span class="op">;</span> </span></code></pre></div>
 </div>
 <h4 id="修飾子">修飾子</h4>
-<p>上で出てきた<code>private</code>や<code>public</code>は<strong>アクセス修飾子</strong>と呼ばれ，たとえば以下のようなものがある（全部ではない）．</p>
+<p>上で出てきた<code>static</code>，<code>public</code>等は*<em>修飾子</em>*と呼ばれるものである．</p>
+<p>中でも<code>private</code>や<code>public</code>は<strong>アクセス修飾子</strong>と呼ばれ，メソッドやフィールドにアクセスする範囲を限定する．アクセス修飾子にはたとえば以下のようなものがある（全部ではない）．</p>
 <ul>
 <li><code>private</code>: それを含むクラスの中からしかアクセスできない．メソッドやフィールドなどの修飾子を省略した場合はprivateになる．</li>
 <li><code>public</code>: どこからでもアクセスできる．</li>
 <li><code>protected</code>: 自身と派生クラス（次回）のみからアクセスできる．</li>
 <li><code>internal</code>: 同一コンパイル単位内からのみアクセスできる．（ネストされていない）クラスの修飾子を省略した場合はinternalになる．</li>
 </ul>
-<p>ネストされていないクラスは<code>public</code>か<code>internal</code>にしかできない．</p>
-<p>前述の<code>static</code>も修飾子の一つである．</p>
 <h4 id="型">型</h4>
 <p>型には<code>Counter</code>等のクラスや，<code>int</code>等の数値型，<code>bool</code>（真偽値型）や<code>string</code>（文字列型）などがある．数値型にはたとえば，以下のようなものがある（全部ではない）．</p>
 <ul>
@@ -432,7 +431,7 @@ c.GetCount() = 5</code></pre>
 <div class="admonition example">
 <p>例</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>Counter c <span class="op">=</span> <span class="kw">new</span> <span class="fu">Counter</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span> </span></code></pre></div>
-<p>式の型が明らかな場合には型の代わりに<code>var</code>と書くことができる．たとえば上記は</p>
+<p>式の型が明らかな場合には「型」の部分に型を書く代わりに<code>var</code>と書くことができる．たとえば上記は</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> c <span class="op">=</span> <span class="kw">new</span> <span class="fu">Counter</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span></span></code></pre></div>
 <p>とも書ける．また，複数の宣言をまとめて行うことができる．</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x<span class="op">,</span> y <span class="op">=</span> <span class="dv">2</span><span class="op">,</span> z<span class="op">;</span> </span></code></pre></div>
@@ -563,10 +562,10 @@ c.GetCount() = 5</code></pre>
 </div>
 <h3 id="インクリメントとデクリメント-">インクリメント（<code>++</code>）とデクリメント（<code>-</code>）</h3>
 <ul>
-<li><code>++x</code>は <code>x</code>に1を足して，足した後の値を返す．</li>
-<li><code>--x</code>は <code>x</code>から1を引いて，引いた後の値を返す．</li>
-<li><code>x++</code>は <code>x</code>に1を足して，足す前の値を返す．</li>
-<li><code>x--</code>は <code>x</code>から1を引いて，引く前の値を返す．</li>
+<li><code>++x</code>は <code>x</code>を1増やす．増やした後の値がこの式の評価結果となる．</li>
+<li><code>--x</code>は <code>x</code>を1減らす．減らした後の値がこの式の評価結果となる．</li>
+<li><code>x++</code>は <code>x</code>を1増やす．増やす前の値がこの式の評価結果となる．</li>
+<li><code>x--</code>は <code>x</code>を1減らす．減らす前の値がこの式の評価結果となる．</li>
 </ul>
 <div class="admonition example">
 <p>例</p>
@@ -628,7 +627,7 @@ c.GetCount() = 5</code></pre>
 </div>
 <h3 id="代入演算">代入演算</h3>
 <ul>
-<li><code>x = e</code>は<code>x</code>に<code>e</code>を評価結果を代入する．また，それが，<code>x = e</code>の評価結果となる．</li>
+<li><code>x = e</code>は<code>x</code>に<code>e</code>の評価結果を代入する．また，それが，<code>x = e</code>の評価結果となる．</li>
 <li><code>x += e</code>は基本的には<code>x = x + e</code>に同じ</li>
 <li><code>x -= e</code>は基本的には<code>x = x - e</code>に同じ</li>
 <li><code>x *= e</code>は基本的には<code>x = x * e</code>に同じ</li>
