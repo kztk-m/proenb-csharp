@@ -40,7 +40,7 @@
                <h1>第2回 継承</h1>
              
             
-               <p class="last-update">最終更新: 2023-04-26 11:51:48</p> 
+               <p class="last-update">最終更新: 2023-04-27 14:05:59</p> 
             
             <div class="qnav">
               <ul>
@@ -128,9 +128,9 @@ C#では継承は，クラス定義の際にクラス名の横に<code>: 基底�
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">protected</span> <span class="dt">string</span> email<span class="op">;</span> </span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// &quot;: base(n)&quot; の部分は基底クラスのコンストラクタを呼ぶ．</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ここでは Phone(n) 省略は &quot;: base()&quot; と同じ意味である．</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// &quot;: base(n)&quot;の省略は &quot;: base()&quot; と同じ意味である．</span></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// そのため，もしここで当該部分を省略するとエラーになる．</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">// （Phone()は定義されていないため．）</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">// （Phone()というコンストラクタは定義されていないため．）</span></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">MobilePhone</span><span class="op">(</span><span class="dt">string</span> n<span class="op">,</span> <span class="dt">string</span> e<span class="op">)</span> <span class="op">:</span> <span class="kw">base</span><span class="op">(</span>n<span class="op">)</span> </span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>       email <span class="op">=</span> e<span class="op">;</span> </span>
