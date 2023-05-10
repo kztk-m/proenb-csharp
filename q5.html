@@ -40,7 +40,7 @@
                <h1>第5回 課題</h1>
              
             
-               <p class="last-update">最終更新: 2023-04-10 16:28:19</p> 
+               <p class="last-update">最終更新: 2023-05-10 12:58:19</p> 
             
             <div class="qnav">
               <ul>
@@ -63,121 +63,46 @@
 <div class="title">
 <p>Caution</p>
 </div>
-<p>下記の「課題の進め方」は2022年度版．2023年度は準備中だが<code>MainForm.cs</code>（および関連リソース）をGoogle Classroomから提出してもらう予定．</p>
+<p>下記の「課題の進め方」はまだ修正中の版です．</p>
 </div>
-<p>大雑把には，以下の名前のプロジェクト/ソリューションを作って，zipにまとめて提出する．</p>
-<pre><span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span></pre>
-<p>上記の「<span class="metaname">学籍番号</span>_Q<span class="metaname">出題回</span>」を以下では，<em>提出物ベース名</em>と呼ぶことにする．たとえば，Z0TB9999さんの第5回課題の提出であれば，提出物ベース名は<code>Z0TB9999_Q5</code>である．</p>
-<p><strong>公開の場所に解答を置かないようお願いします．</strong>
-githubやbitbucket等は使える人は使えばよいと思いますが，private レポジトリにするようにお願いします．</p>
+<p>基本的には適当なプロジェクト/ソリューションを作って課題を進めた上で，<code>MainForm.cs</code>を提出する．</p>
+<p>採点はコマンドラインから<code>dotnet new etoapp</code>を実行した上で<code>MainForm.cs</code>を提出されたもの上書きすることで行う予定である．第6回課題において<code>MainForm.cs</code>以外に提出に含めたいものがある場合（たとえば画像ファイル等）は事前にメールで相談する．</p>
+<p><strong>公開の場所に解答を置かないようお願いします．</strong>githubやbitbucket等は使える人は使えばよいと思いますが，<strong>privateレポジトリにする</strong>ようにお願いします．</p>
 <h3 id="プロジェクトソリューションの作成">プロジェクト/ソリューションの作成</h3>
-<h4 id="visual-studioの場合">Visual Studioの場合</h4>
-<p>「新しいプロジェクトの作成」（Windows）や「新規」/「New」（Mac）から，C#の「Eto.Forms Application」あるいは「Eto Application」テンプレートを選び，プロジェクト名とソリューション名を <span class="metaname">提出物ベース名</span> とする．たとえば，Z0TB9999さんの第5回課題の提出であれば，プロジェクト名とソリューション名はともに<code>Z0TB9999_Q5</code>とする．プロジェクト名とソリューション名以外の選択項目は（あれば）デフォルトのままとする．</p>
-<h4 id="コマンドラインの場合">コマンドラインの場合</h4>
-<p>適当な場所に「<span class="metaname">提出物ベース名</span>」という名のディレクトリを作成した後に，そこに移動し</p>
-<pre class><code>dotnet new etoapp</code></pre>
-<p>でプロジェクト（共通のもの，GTK用，Mac用，Wpf用）を作成する．自分の環境に不要なものも消さない（採点の際に困るので）．</p>
-<h3 id="課題の実施">課題の実施</h3>
-<p>.cs ファイルを問題文の指示の通りに作成する（<code>MainForm.cs</code>を変更すればよい）．<code>….Gtk</code>，<code>….Mac</code>，<code>….Wpf</code>の中に含まれているファイルは<strong>変更しない．</strong>
-<strong>作成した</strong> .csファイルには先頭部分に<strong>学籍番号と名前をコメントとして含める</strong>こと．なので，たとえば学籍番号Z0TB9999の東北 大学さんの提出ファイルは</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Z0TB9999</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 東北 大学</span></span></code></pre></div>
-<p>という行から始まる．</p>
-<h3 id="提出するzipの準備">提出するzipの準備</h3>
-<h4 id="visual-studioでプロジェクトソリューションを作成した場合">Visual Studioでプロジェクト/ソリューションを作成した場合</h4>
-<ol type="1">
-<li><p>まず，Visual Studio でソリューション「<span class="metaname">提出物ベース名</span>.sln 」を開いた後，ソリューション エクスプローラーから，4つのプロジェクト名（「<span class="metaname">提出物ベース名</span>」，「<span class="metaname">提出物ベース名</span>.Gtk」 ，「<span class="metaname">提出物ベース名</span>.Mac」 ，「<span class="metaname">提出物ベース名</span>.Wpf」 ）について，それぞれプロジェクト名を右クリックして出てくるコンテキストメニューから<em>「〜をクリーン」</em>を（選択できれば）選択する．あるいは，以下の手順を実行する前に<code>obj</code>フォルダと<code>bin</code>フォルダを消したのでもよい．</p>
-<ul>
-<li>Macだと「<span class="metaname">提出物ベース名</span>.Wpf」については「〜をクリーン」が選択できないが，それでよい．</li>
-</ul></li>
-<li><p>当該ソリューションが含まれているフォルダは以下の構造をしている．</p>
-<div class="directorylist">
-<ul>
-<li><span class="metaname">提出物ベース名</span>/
-<ul>
-<li><span class="metaname">提出物ベース名</span>.sln</li>
-<li><span class="metaname">提出物ベース名</span>/
-<ul>
-<li><span class="metaname">提出物ベース名</span>/
-<ul>
-<li><span class="metaname">提出物ベース名</span>.csproj</li>
-<li>MainForm.cs</li>
-<li>obj/
-<ul>
-<li>…</li>
-</ul></li>
-</ul></li>
-<li><span class="metaname">提出物ベース名</span>.Gtk
-<ul>
-<li>…</li>
-</ul></li>
-<li><span class="metaname">提出物ベース名</span>.Mac
-<ul>
-<li>…</li>
-</ul></li>
-<li><span class="metaname">提出物ベース名</span>.Wpf
-<ul>
-<li>…</li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+<div class="note">
+<div class="title">
+<p>Note</p>
 </div>
-<p>そこで，たとえば下記のようにして，一番外側のフォルダをzip形式で圧縮し，「<span class="metaname">提出物ベース名</span>.zip」というzipファイルを作成する．</p>
-<ul>
-<li>Windowsの場合．まず，当該フォルダはデフォルトだと，ユーザフォルダの<code>source\repos</code>以下にある．なお，ユーザフォルダはデフォルトだと <code>C:\Users\<span class="metaname">ユーザ名</span></code> であり，エクスプローラーのアドレスバーに<code>%HOMEPATH</code>を入力すれば移動できる．また，Visual Studioの起動後の画面で<em>「ローカルフォルダを開く」</em>を選んだのでも場所がわかる．エクスプローラーにて当該フォルダを右クリックして<em>「送る」</em>から<em>「圧縮（zip形式）フォルダー」</em>を選択する．すると，「<span class="metaname">提出物ベース名</span>.zip」というzipファイルが作成される．</li>
-<li>Macの場合．当該フォルダの場所はデフォルトだと，<code>~/Projects/</code>以下にある．
-Finder.appで当該フォルダをCtrl + クリック（あるいは右クリック）し，<em>「"〜"を圧縮」</em>を選ぶ．すると，「<span class="metaname">提出物ベース名</span>.zip」というzipファイルが作成される．</li>
-</ul></li>
-</ol>
-<h4 id="コマンドラインでプロジェクトを作成した場合">コマンドラインでプロジェクトを作成した場合</h4>
-<ol type="1">
-<li><p><a href="#プロジェクトソリューションの作成">プロジェクト/ソリューションの作成</a>で作成したディレクトリの親ディレクトリに移動する．</p></li>
-<li><p>作成したディレクトリは以下のような構造になっている．</p>
-<div class="directorylist">
-<ul>
-<li><span class="metaname">提出物ベース名</span>/
-<ul>
-<li><span class="metaname">提出物ベース名</span>/
-<ul>
-<li><span class="metaname">提出物ベース名</span>.csproj</li>
-<li>MainForm.cs</li>
-<li>obj/
-<ul>
-<li>…</li>
-</ul></li>
-</ul></li>
-<li><span class="metaname">提出物ベース名</span>.Gtk
-<ul>
-<li>…</li>
-</ul></li>
-<li><span class="metaname">提出物ベース名</span>.Mac
-<ul>
-<li>…</li>
-</ul></li>
-<li><span class="metaname">提出物ベース名</span>.Wpf
-<ul>
-<li>…</li>
-</ul></li>
-</ul></li>
-</ul>
-</div></li>
-<li><p>以下のそれぞれの行を順に実行する（<code>$</code>はプロンプトを表す）．</p>
-<pre style="line-height: 1.3">
-<span class="with-prompt">cd <span class="metaname">提出物ベース名</span></span>
-<span class="with-prompt">dotnet clean <span class="metaname">提出物ベース名</span></span>
-<span class="with-prompt">dotnet clean <span class="metaname">提出物ベース名.Gtk</span></span>
-<span class="with-prompt">dotnet clean <span class="metaname">提出物ベース名.Mac</span></span>
-<span class="with-prompt">dotnet clean <span class="metaname">提出物ベース名.Wpf</span></span>
-<span class="with-prompt">cd ..</span>      
-</pre></li>
-<li><p>「<span class="metaname">提出物ベース名</span>.zip」 を作成する．エクスプローラーやFinder.app経由で作成してもよいし，コマンドラインから以下を実行してもよい．</p>
-<pre>
-zip -r <span class="metaname">提出物ベース名</span>.zip  <span class="metaname">提出物ベース名</span>/
-</pre></li>
-</ol>
+<p>再掲：プロジェクトは一つの実行形式やライブラリを作成するためのコード等を全てまとめたものであり，ソリューションは関連するプロジェクトをまとめたもの（参考：<a href="https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2022">What are solutions and projects in Visual Studio?</a>）．</p>
+</div>
+<h4 id="visual-studioの場合">Visual Studioの場合</h4>
+<p>「新しいプロジェクトの作成」（Windows）や「新規」（Mac）から，C#の「Eto.Forms Application」あるいは「Eto Application」テンプレートを選び，プロジェクト名とソリューション名を適当（たとえば課題5の解答なので<code>Q5</code>とするなど）に設定する．</p>
+<h4 id="コマンドラインの場合">コマンドラインの場合</h4>
+<p>適当な場所（たとえばで課題5の解答なので<code>Q5</code>というフォルダを作成し，そこに移動した上で）で</p>
+<pre>dotnet new etoapp
+<p>を実行する．</p>
+<h3 id="課題の実施">課題の実施</h3>
+<p><code>MainForm.cs</code> を問題文の指示の通りに編集する（<strong>提出・採点手続きの簡略化のため提出する.csファイルは一つのみ</strong>）．作成した.csファイルには先頭部分に<strong>学籍番号と名前をコメントとして含める</strong>こと．また，自身のプログラムの動作確認を行ったプラットフォームの情報も含めるものとする．なので，たとえば学籍番号Z0TB9999の東北 大学さんの提出ファイルは，もし当人が動作確認をWindows 11で行ったのであれば，</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Z0TB9999</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 東北 大学</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">// 動作確認：Windows 11 </span></span></code></pre></div>
+<p>という行から始まる．</p>
 <h3 id="提出">提出</h3>
-<p>できあがった「<span class="metaname">提出物ベース名</span>.zip」をClassroom内の当該回の「課題」より提出する．たとえば，Z0TB9999さんの第5回課題の提出であれば，提出するファイルの名前は<code>Z0TB9999_Q5.zip</code>になる．</p>          
+<p>できあがった <code>MainForm.cs</code>をClassroom内の当該回の「課題」より提出する． Visual Studioを使用した場合は，<code>MainForm.cs</code> は「作成したプロジェクト名」のフォルダ以下に含まれているが，当該フォルダは下記の場所にある．</p>
+<ul>
+<li>Windowsの場合．まず，当該フォルダはデフォルトだと，ユーザフォルダの<code>source\repos</code>以下にある．なお，ユーザフォルダはデフォルトだと <code>C:\Users\<span class="metaname">ユーザ名</span></code> であり，エクスプローラーのアドレスバーに<code>%HOMEPATH%</code>を入力すれば移動できるはず．また，Visual Studioの起動後の画面で<em>「ローカルフォルダを開く」</em>を選んだのでも場所がわかる（ダイアログが開くのでアドレスをコピーする）．</li>
+<li>Macの場合．当該フォルダの場所はデフォルトだと，<code>~/Projects/</code>以下にある．</li>
+</ul>
+<p>また問題文に指示がある場合はそのファイル（例：課題6で提出物に含めたいリソースがある場合）も提出する．提出前には以下を確認しよう．</p>
+<ul>
+<li>提出プログラムコードのファイル名は<code>MainForm.cs</code>になっているか</li>
+<li>提出するファイルに<em>学籍番号と名前</em>がコメントとして含まれているか</li>
+<li>文献やWebサイトを参考にした場合は<em>文献の情報やURLおよびアクセス日</em>に加えて<em>元文献のどの部分を参考にしたのか</em>が<em>コードの当該箇所</em>付近のコメントとして記述されているか</li>
+<li>友人と相談した・された場合はその<em>友人の名前</em>および<em>大雑把な相談の内容</em>がコメントとして書かれているか
+<ul>
+<li>ただし，友人の解答を見ない，そして友人に解答を見せないようお願いします</li>
+</ul></li>
+</ul>          
             <h2 id="基本課題">基本課題</h2>
 <h3 id="その1">その1</h3>
 <p>ラベルを</p>

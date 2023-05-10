@@ -40,7 +40,7 @@
                <h1>第3回 コレクション・ジェネリクス</h1>
              
             
-               <p class="last-update">最終更新: 2023-03-16 15:20:02</p> 
+               <p class="last-update">最終更新: 2023-05-10 11:06:25</p> 
             
             <div class="qnav">
               <ul>
@@ -209,9 +209,8 @@
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>       <span class="co">// b[2] = 3</span></span>
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>これは a や b が配列そのものではなく配列への参照であり，aもbも同じ配列を指しているためである．こうした，
-C#において，その型の値が実体そのものでなく実体への参照であるような型を参照型（reference type）といい，配列型やクラス型，そして文字列型は参照型である．一方で，<code>int</code>や<code>bool</code>等はその型の値は実体（整数や真偽値）そのものである（ように振る舞う）．そのような型を値型（value type）という．</p>
-<p>複合的な型やユーザ定義型が参照型かというとそんなことはなく，組型（tuple type）や構造体型（structure type）は値型となる（いずれも本演習では未登場）．本演習ではこの区別には深入りしないが，興味のある人は<a href>https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/types/</a>や，そこから辿れる文章等を調べてみるとよい．</p>
+<p>これは<code>a</code>や<code>b</code>の値が配列そのものではなく配列への参照であり，それぞれ同じ配列への参照であるためである．C#においては，こうした，その型の値が実体そのものでなく実体への参照であるような型を参照型（reference type）といい，たとえば配列型やクラス型，そして文字列型は参照型である．一方で，<code>int</code>や<code>bool</code>等はその型の値は実体（整数や真偽値）そのものである（ように振る舞う）．そのような型を値型（value type）という．</p>
+<p>複合的な型やユーザ定義型が必ずしも参照型ということはなく，組型（tuple type）や構造体型（structure type）は値型となる（いずれも本演習では未登場）．本演習ではこの区別には深入りしないが，興味のある人は<a href>https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/types/</a>や，そこから辿れる文章等を調べてみるとよい．</p>
 </div>
 <h2 id="プロパティproperty">プロパティ（property）</h2>
 <p>上で <code>nums.Length</code> や <code>nums.Rank</code> は一見フィールドに見える．が，実際にはこれらは<strong>プロパティ</strong>と呼ばれるものである．</p>
@@ -420,7 +419,7 @@ C#において，その型の値が実体そのものでなく実体への参照
 <td>与えられた要素と同じ要素のうちもっとも最初に出現するものを取り除く．返り値は削除に成功した場合は<code>true</code>，そうでなければ（典型的には与えられた要素がリストに存在しない場合）<code>false</code>．</td>
 </tr>
 <tr class="even">
-<td><code>void RemovAt(int)</code></td>
+<td><code>void RemoveAt(int)</code></td>
 <td>与えられたインデックスの要素を取り除く．</td>
 </tr>
 <tr class="odd">
@@ -442,8 +441,8 @@ C#において，その型の値が実体そのものでなく実体への参照
 <div class="title">
 <p>Note</p>
 </div>
-<p><code>List&lt;T&gt;</code> は最後尾でない場所に対する要素の削除や追加が重い（末尾への要素の追加はO(1)時間で済む場合とO(Count)時間かかる場合がある）．その代わり，インデックスアクセスがO(1)時間で可能である．</p>
-<p>他の「T型の要素の列」を扱うためのクラスに <code>LinkedList&lt;T&gt;</code> がある．こちらは着目している要素の前後への挿入や，その要素の削除がO(1)で可能でる．その代わりにインデックスアクセスができず，着目している要素へのアクセスは先頭あるいは末尾から辿っていく必要がありO(Count)時間かかる．目的によって使いわけよう．</p>
+<p><code>List&lt;T&gt;</code> は最後尾でない場所に対する要素の削除や追加が重い（末尾への要素の追加はO(1)時間で済む場合とO(Count)時間かかる場合があるが，ならしO(1)）．その代わり，インデックスアクセスがO(1)時間で可能である．</p>
+<p>他の「T型の要素の列」を扱うためのクラスに <code>LinkedList&lt;T&gt;</code> がある．こちらは着目している要素の前後への挿入や，その要素の削除がO(1)で可能である．その代わりにインデックスアクセスができず，着目している要素へのアクセスは先頭あるいは末尾から辿っていく必要がありO(Count)時間かかる．目的によって使いわけよう．</p>
 </div>
 <h2 id="ジェネリクスgenerics">ジェネリクス（generics）</h2>
 <p><code>List&lt;T&gt;</code>のような型パラメータ（<code>T</code>）を取るようなクラスは<strong>ジェネリッククラス</strong>と呼ばれる．ジェネリクスは「ジェネリック…」の総称である．</p>
@@ -554,7 +553,7 @@ C#において，その型の値が実体そのものでなく実体への参照
 <h2 id="名前空間">名前空間</h2>
 <p>（読みとばしてもよい．）</p>
 <p>さて，先程 <code>using System.Collections.Generic;</code>という<code>using System;</code>以外の<code>using</code>が出てきたので，<strong>名前空間</strong>について説明しておく．</p>
-<p>C#において，クラス名などの名前はいずれかの名前空間に属している．たとえば，<code>Console</code>は<code>System</code>という名前空間に属している．また，上記の<code>MyPair</code>や<code>ArrayExample</code>等は「空」の名前空間（グローバル名前空間）に属している．名前空間は名前空間を含むことができる．たとえば，<code>System</code>は<code>Collections</code>という名前空間を含んでいて，その<code>Collections</code>は
+<p>C#において，クラス名やメソッド名などの名前はいずれかの名前空間に属している．たとえば，<code>Console</code>は<code>System</code>という名前空間に属している．また，上記の<code>MyPair</code>や<code>ArrayExample</code>等は「空」の名前空間（グローバル名前空間）に属している．名前空間は名前空間を含むことができる．たとえば，<code>System</code>は<code>Collections</code>という名前空間を含んでいて，その<code>Collections</code>は
 <code>Generic</code>という名前空間を含んでいる．上記の<code>List&lt;T&gt;</code>はその<code>Generic</code>に含まれている．</p>
 <p>名前空間にある名前にアクセスするには</p>
 <pre><span class="metaname">名前空間</span>.<span class="metaname">名前</span></pre>
