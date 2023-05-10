@@ -40,7 +40,7 @@
                <h1>第5回 課題</h1>
              
             
-               <p class="last-update">最終更新: 2023-05-10 12:58:19</p> 
+               <p class="last-update">最終更新: 2023-05-10 14:24:14</p> 
             
             <div class="qnav">
               <ul>
@@ -66,7 +66,9 @@
 <p>下記の「課題の進め方」はまだ修正中の版です．</p>
 </div>
 <p>基本的には適当なプロジェクト/ソリューションを作って課題を進めた上で，<code>MainForm.cs</code>を提出する．</p>
-<p>採点はコマンドラインから<code>dotnet new etoapp</code>を実行した上で<code>MainForm.cs</code>を提出されたもの上書きすることで行う予定である．第6回課題において<code>MainForm.cs</code>以外に提出に含めたいものがある場合（たとえば画像ファイル等）は事前にメールで相談する．</p>
+<p>採点はコマンドラインから<code>dotnet new etoapp</code>を実行した上で<code>MainForm.cs</code>を提出されたもの上書きすることで行う予定である．
+<em>採点者は基本的に採点者自身の環境で動作確認を行うことに注意する．</em></p>
+<p>第6回課題において<code>MainForm.cs</code>以外に提出に含めたいものがある場合（たとえば画像ファイル等）は事前にメール（メールアドレスはClassroom内「受講者用案内」を参照）で相談のこと．</p>
 <p><strong>公開の場所に解答を置かないようお願いします．</strong>githubやbitbucket等は使える人は使えばよいと思いますが，<strong>privateレポジトリにする</strong>ようにお願いします．</p>
 <h3 id="プロジェクトソリューションの作成">プロジェクト/ソリューションの作成</h3>
 <div class="note">
@@ -79,13 +81,13 @@
 <p>「新しいプロジェクトの作成」（Windows）や「新規」（Mac）から，C#の「Eto.Forms Application」あるいは「Eto Application」テンプレートを選び，プロジェクト名とソリューション名を適当（たとえば課題5の解答なので<code>Q5</code>とするなど）に設定する．</p>
 <h4 id="コマンドラインの場合">コマンドラインの場合</h4>
 <p>適当な場所（たとえばで課題5の解答なので<code>Q5</code>というフォルダを作成し，そこに移動した上で）で</p>
-<pre>dotnet new etoapp
+<pre class><code>dotnet new etoapp</code></pre>
 <p>を実行する．</p>
 <h3 id="課題の実施">課題の実施</h3>
-<p><code>MainForm.cs</code> を問題文の指示の通りに編集する（<strong>提出・採点手続きの簡略化のため提出する.csファイルは一つのみ</strong>）．作成した.csファイルには先頭部分に<strong>学籍番号と名前をコメントとして含める</strong>こと．また，自身のプログラムの動作確認を行ったプラットフォームの情報も含めるものとする．なので，たとえば学籍番号Z0TB9999の東北 大学さんの提出ファイルは，もし当人が動作確認をWindows 11で行ったのであれば，</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Z0TB9999</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 東北 大学</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">// 動作確認：Windows 11 </span></span></code></pre></div>
+<p><code>MainForm.cs</code> を問題文の指示の通りに編集する（<strong>提出・採点手続きの簡略化のため提出する.csファイルは一つのみ</strong>）．作成した.csファイルには先頭部分に<strong>学籍番号と名前をコメントとして含める</strong>こと．また，自身のプログラムの動作確認を行ったプラットフォームの情報（Mac, Gtk, Wpfの別．複数可．わからないならOS名）も含めるものとする．こちらの情報はあくまで念のためであり，基本的には採点者は自身の環境で動作を確認を行う．なので，たとえば学籍番号Z0TB9999の東北 大学さんの提出ファイルは，もし当人が動作確認を <code><span class="metaname">プロジェクト名</span>.Mac</code> を用いて行ったのであれば</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Z0TB9999</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 東北 大学</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">// 動作確認：Mac </span></span></code></pre></div>
 <p>という行から始まる．</p>
 <h3 id="提出">提出</h3>
 <p>できあがった <code>MainForm.cs</code>をClassroom内の当該回の「課題」より提出する． Visual Studioを使用した場合は，<code>MainForm.cs</code> は「作成したプロジェクト名」のフォルダ以下に含まれているが，当該フォルダは下記の場所にある．</p>
