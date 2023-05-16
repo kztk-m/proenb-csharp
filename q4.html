@@ -40,7 +40,7 @@
                <h1>第4回 課題</h1>
              
             
-               <p class="last-update">最終更新: 2023-05-10 11:28:15</p> 
+               <p class="last-update">最終更新: 2023-05-16 18:28:10</p> 
             
             <div class="qnav">
               <ul>
@@ -177,7 +177,7 @@ Candy × 5</code></pre>
 </div>
 <p>.csprojファイルと同じフォルダにある<code>items.txt</code>を相対パス<code>./items.txt</code>でアクセスできるようにするためには以下のいずれかの設定が必要になる．</p>
 <ul>
-<li><p><code>dotnet run</code> で実行している場合は特になにもする必要はない．</p></li>
+<li><p><code>dotnet run</code> で実行している場合は.csprojファイルと同じフォルダで同コマンドを実行すればよい．</p></li>
 <li><p>.csprojの<code>&lt;PropertyGroup&gt;...&lt;/PropertyGroup&gt;</code>内に以下の行を追加する．</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">RunWorkingDirectory</span>&gt;$(MSBuildProjectDirectory)&lt;/<span class="kw">RunWorkingDirectory</span>&gt;</span></code></pre></div></li>
 <li><p>Windows版のVisual Studioを使用している場合は，プロジェクト名を右クリックして出てくるコンテキストメニューから「プロパティ」を選択し，「デバッグ」の「作業ディレクトリ」を当該 .csproj ファイルの直上のディレクトリに設定する．</p></li>
