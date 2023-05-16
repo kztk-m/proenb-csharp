@@ -40,7 +40,7 @@
                <h1>第4回 ファイル入出力と例外処理</h1>
              
             
-               <p class="last-update">最終更新: 2022-05-18 14:15:19</p> 
+               <p class="last-update">最終更新: 2023-05-16 11:54:38</p> 
             
             <div class="qnav">
               <ul>
@@ -270,7 +270,7 @@ Banana -&gt; 2</code></pre>
 <pre><code>Unhandled exception. System.Collections.Generic.KeyNotFoundException: The given key 'somekey' was not present in the dictionary.
    at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
    at ExceptionExample.Main() in /Users/kztk/prog/cs/Materials/Week4/ExceptionExample/Program.cs:line 12</code></pre>
-<p>もちろん，このようなエラーは<code>ContainsKey(TKey)</code> メソッド等を使って逐一検査すれば防ぐことができる．しかしながら，そうした逐一の検査は<em>煩雑でありなおかつコードの見通しを悪く</em>する．また，問題が起きてしまった場合の処理も共通であることもしばしばである．たとえば，対話的アプリケーションだとエラーを報告しユーザの入力を再度促すことになるだろうし，対話的でないアプリケーションだとユーザフレンドリーなエラーメッセージを吐いて終了することになるだろう．</p>
+<p>もちろん，このようなエラーは<code>ContainsKey(TKey)</code>メソッド等を使って逐一検査すれば防ぐことができる．しかしながら，そうした逐一の検査は<em>煩雑でありなおかつコードの見通しを悪く</em>する．また，問題が起きてしまった場合の処理も共通であることもしばしばである．たとえば，対話的アプリケーションだとエラーを報告しユーザの入力を再度促すことになるだろうし，対話的でないアプリケーションだとユーザフレンドリーなエラーメッセージを吐いて終了することになるだろう．</p>
 <p>そのような問題を解決するのが<strong>例外処理</strong>である．例外は上記の存在しないキーへのアクセスなど様々な原因で投げられる．
 <code>try</code>-<code>catch</code>文を用いると例外を捕捉することができる．</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
@@ -366,7 +366,7 @@ Hello, again.</code></pre>
 <pre><code>System.ArgumentException: Scoreは0から100までの範囲内の整数でなければならない
    at Student.set_Score(Int32 value) in /Users/kztk/prog/cs/Materials/Week4/ExceptionExample3/Program.cs:line 16
    at ExceptionExample3.Main() in /Users/kztk/prog/cs/Materials/Week4/ExceptionExample3/Program.cs:line 29</code></pre>
-<p>一般的には例外とは，<code>System.Exception</code>を継承しているクラスのオブジェクトである．そのため，<code>System.Exception</code>かその派生クラス（上記 <code>ArgumentException</code> や <code>KeyNotFoundException</code> など）を継承することでユーザ定義の例外を作成することもできる．</p>
+<p>一般的には例外とは，<code>System.Exception</code>を継承しているクラスのオブジェクトである．そのため，<code>System.Exception</code>かその派生クラス（上記<code>ArgumentException</code>や<code>KeyNotFoundException</code>など）を継承することでユーザ定義の例外を作成することもできる．</p>
 <p>また，一つの<code>try</code>はいくつもの<code>catch</code>ブロックを持つことができる．</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">try</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -407,8 +407,7 @@ Hello, again.</code></pre>
 <h2 id="ファイル入出力">ファイル入出力</h2>
 <p>ここではテキストファイルについてのみ紹介する．</p>
 <h4 id="ファイルからの入力">ファイルからの入力</h4>
-<p><code>System.IO.File</code>のstaticメソッド <code>ReadAllText</code> や <code>ReadAllLines</code> を利用したり，
-<code>OpenText</code>して得られる<code>System.IO.StreamReader</code>オブジェクトを利用したりする方法がある（他にもある）．</p>
+<p><code>System.IO.File</code>のstaticメソッド<code>ReadAllText</code>や<code>ReadAllLines</code>を利用したり，<code>OpenText</code>して得られる<code>System.IO.StreamReader</code>オブジェクトを利用したりする方法がある（他にもある）．</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">.</span><span class="fu">IO</span><span class="op">;</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -481,9 +480,31 @@ Hello, again.</code></pre>
 <span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>MyText.txt の中身</p>
-<pre><code>りんごオレンジバナナみかん</code></pre>
+<pre><code>りんご
+オレンジ
+バナナ
+みかん</code></pre>
 <p>出力結果</p>
-<pre><code>一気に全部読む（結果を文字列に）りんごオレンジバナナみかん一気に全部読む（結果を文字列の配列に）りんごオレンジバナナみかん一行ごと処理りんごオレンジバナナみかん一行ごと処理（usingを使用）りんごオレンジバナナみかん</code></pre>
+<pre><code>一気に全部読む（結果を文字列に）
+りんご
+オレンジ
+バナナ
+みかん
+一気に全部読む（結果を文字列の配列に）
+りんご
+オレンジ
+バナナ
+みかん
+一行ごと処理
+りんご
+オレンジ
+バナナ
+みかん
+一行ごと処理（usingを使用）
+りんご
+オレンジ
+バナナ
+みかん</code></pre>
 <h3 id="上で使用したメソッドなど">上で使用したメソッドなど</h3>
 <table>
 <tbody>
@@ -531,8 +552,7 @@ Hello, again.</code></pre>
 <p>そのため，導入された変数の型は<strong>インタフェース</strong> <code>System.IDisposable</code> を実装してなければならない．</p>
 </div>
 <h4 id="ファイルへの出力">ファイルへの出力</h4>
-<p><code>System.IO.File</code>のstaticメソッド <code>WriteAllText</code> や <code>WriteAllLines</code> を利用したり，
-<code>CreateText</code>して得られる<code>System.IO.StreamWriter</code>オブジェクトを利用したりする方法がある（他にもある）．</p>
+<p><code>System.IO.File</code>のstaticメソッド<code>WriteAllText</code>や<code>WriteAllLines</code>を利用したり，<code>CreateText</code>して得られる<code>System.IO.StreamWriter</code>オブジェクトを利用したりする方法がある（他にもある）．</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">.</span><span class="fu">IO</span><span class="op">;</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -563,7 +583,10 @@ Hello, again.</code></pre>
 <span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>上記プログラムを実行すると，実行したディレクトリにMyText1.txt，MyText2.txt および MyText3.txt というファイルが作成される．いずれも以下のような内容だが，MyText1.txt は最終行に終端の改行がない．</p>
-<pre><code>りんごオレンジバナナみかん</code></pre>
+<pre><code>りんご
+オレンジ
+バナナ
+みかん</code></pre>
 <h3 id="上で使用したメソッドなど-1">上で使用したメソッドなど</h3>
 <table>
 <tbody>
@@ -573,9 +596,7 @@ Hello, again.</code></pre>
 </tr>
 <tr class="even">
 <td><code>File.WriteAllLines(string,string[])</code></td>
-<td><blockquote>
-<p>static メソッド．与えられたパスのファイルを開いて，与えられた文字列の配列で上書きして閉じる．パスにファイルが存在してなければ作成する．</p>
-</blockquote></td>
+<td>static メソッド．与えられたパスのファイルを開いて，与えられた文字列の配列で上書きして閉じる．パスにファイルが存在してなければ作成する．</td>
 </tr>
 <tr class="odd">
 <td><code>File.CreateText(string)</code></td>
