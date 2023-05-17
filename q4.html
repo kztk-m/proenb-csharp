@@ -40,7 +40,7 @@
                <h1>第4回 課題</h1>
              
             
-               <p class="last-update">最終更新: 2023-05-16 18:28:10</p> 
+               <p class="last-update">最終更新: 2023-05-17 15:34:08</p> 
             
             <div class="qnav">
               <ul>
@@ -128,7 +128,7 @@ Candy,5</code></pre>
 <span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="co">//    アイテム名,個数</span></span>
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="co">//</span></span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        <span class="co">// という形式であるようなテキストファイルになっているときに，</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 各行に含まれているアイテム名と個数の対応をディクショナリ Item に追加する．</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 各行に含まれているアイテム名と個数の対応をディクショナリ Items に追加する．</span></span>
 <span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="co">// アイテム名は&quot;,&quot;を含まないことを仮定してよい．</span></span>
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        <span class="co">// また，前後の余計な空白や&quot;#&quot;も含まないことを仮定してもよい．</span></span>
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 個数は int で表現可能な数に比べて十分に小さいとする．</span></span>
@@ -239,7 +239,7 @@ Candy × 5</code></pre>
 1000000000000: overflow</code></pre>
 </div>
 <h3 id="その2">その2</h3>
-<p>基本課題で作成した<code>AddItemsFromFile(string)</code>を拡張し，入力したテキストファイルに同じアイテム名が複数含まれていた場合にそれらの個数を合計するようにせよ．</p>
+<p>基本課題その1で作成した<code>AddItemsFromFile(string)</code>を拡張し，入力テキストファイルに同じアイテム名が複数含まれていた場合にそれらの個数を合計するようにせよ．</p>
 <p>items.txtの中身の例:</p>
 <pre><code>Chocolate,2
 Chips,14
@@ -264,7 +264,7 @@ Candy × 5</code></pre>
 </div>
 <p>本課題を完了できたのならば本課題の解答のみを提出すればよく，基本課題の解答は提出する必要はない．</p>
 </div>
-<p>以下の基本課題で作成した<code>AddItemsFromFile(string)</code>を拡張し，入力したテキストファイルにコメントや余計な空白，空行が入っていても正常に読みこめるようにせよ．ただし，"#"で始まる行をコメントとする（"#"が行頭でない場合はコメントでないのに注意）また，ある行において指定されたフォーマットで解釈することに失敗した場合には，<code>Items</code>はその行以前までの行を読み取った結果で更新されるようにせよ．</p>
+<p>以下の基本課題で作成した<code>AddItemsFromFile(string)</code>を拡張し，入力テキストファイルにコメントや余計な空白，空行が入っていても正常に読みこめるようにせよ．ただし，"#"で始まる行をコメントとする（"#"が行頭でない場合はコメントでないのに注意）また，ある行において指定されたフォーマットで解釈することに失敗した場合には，<code>Items</code>はその行以前までの行を読み取った結果で更新されるようにせよ．</p>
 <p>items.txtの中身の例:</p>
 <pre><code>#コメント行
 Chocolate,  2

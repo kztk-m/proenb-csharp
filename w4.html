@@ -40,7 +40,7 @@
                <h1>第4回 ファイル入出力と例外処理</h1>
              
             
-               <p class="last-update">最終更新: 2023-05-16 18:33:08</p> 
+               <p class="last-update">最終更新: 2023-05-17 15:25:35</p> 
             
             <div class="qnav">
               <ul>
@@ -401,7 +401,7 @@ Hello, again.</code></pre>
 <span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>   <span class="co">// Exceptionが起きたときの処理</span></span>
 <span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>このとき，より特定（より派生側の）の例外に対する catch をより先頭に書く．そうでければ最初のcatchで例外が捕捉されてしまうので，後段のcatchが使われなくなる．</p>
+<p>このとき，より特定（より派生側の）の例外に対する<code>catch</code>をより先頭に書く．そうでない場合はC#ではコンパイルエラーとなる．もし，そのような場合が許されたならば，最初の<code>catch</code>で例外が捕捉されてしまうので，後段のcatchが使われなくなる．</p>
 <h2 id="ファイル入出力">ファイル入出力</h2>
 <p>ここではテキストファイルについてのみ紹介する．</p>
 <div class="caution">
