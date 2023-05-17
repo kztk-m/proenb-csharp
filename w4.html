@@ -40,7 +40,7 @@
                <h1>第4回 ファイル入出力と例外処理</h1>
              
             
-               <p class="last-update">最終更新: 2023-05-17 15:25:35</p> 
+               <p class="last-update">最終更新: 2023-05-17 16:51:03</p> 
             
             <div class="qnav">
               <ul>
@@ -408,7 +408,7 @@ Hello, again.</code></pre>
 <div class="title">
 <p>Caution</p>
 </div>
-<p>以下の<code>./MyText.txt</code>等は作業フォルダからの相対パスである．作業フォルダは，特に何も設定しなければ</p>
+<p>以下の<code>./MyText.txt</code>等は<strong>作業フォルダ（作業ディレクトリ）</strong>からの相対パスである．作業フォルダは，特に何も設定しなければ</p>
 <ul>
 <li>コマンドラインの場合は<code>dotnet run</code>を実行したフォルダ</li>
 <li>Visual Studioを利用する場合は実行ファイルがあるフォルダ</li>
@@ -416,7 +416,7 @@ Hello, again.</code></pre>
 <p>となる．</p>
 <p>後者はさすがに不便だと思うので，必要に応じて.csprojの<code>&lt;PropertyGroup&gt;...&lt;/PropertyGroup&gt;</code>内に以下の行を追加することで作業フォルダを.csprojファイルのあるフォルダとし，<code>"./MyText.txt"</code>等は.csprojファイルと同じフォルダに置くとよい．</p>
 <blockquote>
-<div class="sourceCode" id="cb12"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">RunWorkingDirectory</span>&gt;$(MSBuildProjectDirectory)&lt;/<span class="kw">RunWorkingDirectory</span>&gt;</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">StartWorkingDirectory</span>&gt;$(MSBuildProjectDirectory)&lt;/<span class="kw">StartWorkingDirectory</span>&gt;</span></code></pre></div>
 </blockquote>
 <p>Visual Studioで.csprojファイルを編集するには「ソリューションエクスプローラー」/「ソリューション」で当該プロジェクト名を右クリックし「プロジェクト ファイルの編集」を選ぶ．</p>
 </div>
