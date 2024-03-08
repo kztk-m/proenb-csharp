@@ -52,15 +52,15 @@
         <main role="main" class="with-right-nav">
             <nav class="toc">
 <ul>
-<li><a href="#オブジェクト指向言語の利点">オブジェクト指向言語の利点</a></li>
-<li><a href="#継承inheritance">継承（inheritance）</a>
+<li><a href="#オブジェクト指向言語の利点" id="toc-オブジェクト指向言語の利点">オブジェクト指向言語の利点</a></li>
+<li><a href="#継承inheritance" id="toc-継承inheritance">継承（inheritance）</a>
 <ul>
-<li><a href="#例電話機">例：電話機</a></li>
+<li><a href="#例電話機" id="toc-例電話機">例：電話機</a></li>
 </ul></li>
-<li><a href="#object型"><code>object</code>型</a></li>
-<li><a href="#オーバロードoverload">オーバロード（overload）</a></li>
-<li><a href="#キャスト">キャスト</a></li>
-<li><a href="#練習問題">練習問題</a></li>
+<li><a href="#object型" id="toc-object型"><code>object</code>型</a></li>
+<li><a href="#オーバロードoverload" id="toc-オーバロードoverload">オーバロード（overload）</a></li>
+<li><a href="#キャスト" id="toc-キャスト">キャスト</a></li>
+<li><a href="#練習問題" id="toc-練習問題">練習問題</a></li>
 </ul>
 </nav>
 <section class="mainbody"><h2 id="オブジェクト指向言語の利点">オブジェクト指向言語の利点</h2>
@@ -289,7 +289,7 @@ EMail: nobody@example.com</code></pre>
 <p>デフォルトだと，整数型をより小さい整数型にキャストするときには上位ビットが切り詰められ，同じサイズの整数型にキャストするときは同じビット表現がキャスト先の型として解釈されることになる．また，<code>(byte) 0x1ff</code>などのように，定数がキャストされるときにキャスト先の型の収まらない場合はコンパイルエラーとなる．</p>
 <div class="admonition example">
 <p>例</p>
-<pre class><code>int  i = 0x1ff;           
+<pre><code>int  i = 0x1ff;           
 byte b = 0xff;
 Console.WriteLine((byte)  i); // 255
 Console.WriteLine((sbyte) b); // -1</code></pre>

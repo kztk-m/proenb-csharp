@@ -52,12 +52,12 @@
         <main role="main" class="with-right-nav">
             <nav class="toc">
 <ul>
-<li><a href="#drawableコントロール"><code>Drawable</code>コントロール</a></li>
-<li><a href="#フォント">フォント</a></li>
-<li><a href="#マウスイベントの処理クリックした位置に円を描く">マウスイベントの処理：クリックした位置に円を描く</a>
+<li><a href="#drawableコントロール" id="toc-drawableコントロール"><code>Drawable</code>コントロール</a></li>
+<li><a href="#フォント" id="toc-フォント">フォント</a></li>
+<li><a href="#マウスイベントの処理クリックした位置に円を描く" id="toc-マウスイベントの処理クリックした位置に円を描く">マウスイベントの処理：クリックした位置に円を描く</a>
 <ul>
-<li><a href="#円の色を選択できるように">円の色を選択できるように</a></li>
-<li><a href="#複数個の円を描く">複数個の円を描く</a></li>
+<li><a href="#円の色を選択できるように" id="toc-円の色を選択できるように">円の色を選択できるように</a></li>
+<li><a href="#複数個の円を描く" id="toc-複数個の円を描く">複数個の円を描く</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -114,7 +114,7 @@
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>                g<span class="op">.</span><span class="fu">FillRectangle</span><span class="op">(</span>Color<span class="op">.</span><span class="fu">FromRgb</span><span class="op">(</span><span class="bn">0xFF0000</span><span class="op">),</span> <span class="kw">new</span> <span class="fu">RectangleF</span><span class="op">(</span><span class="kw">new</span> <span class="fu">PointF</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">150</span><span class="op">),</span> <span class="kw">new</span> <span class="fu">SizeF</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">50</span><span class="op">)));</span></span>
 <span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>                <span class="co">// 楕円のアウトラインを描く．Colors.Lime は Color.FromRgb(0x00FF00) と同じ色</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>                g<span class="op">.</span><span class="fu">DrawEllipse</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Pen</span><span class="op">(</span>Colors<span class="op">.</span><span class="fu">Lime</span><span class="op">,</span> 2F<span class="op">),</span> <span class="kw">new</span> <span class="fu">RectangleF</span><span class="op">(</span><span class="kw">new</span> <span class="fu">PointF</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">200</span><span class="op">),</span> <span class="kw">new</span> <span class="fu">SizeF</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">50</span><span class="op">)));</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>                g<span class="op">.</span><span class="fu">DrawEllipse</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Pen</span><span class="op">(</span>Colors<span class="op">.</span><span class="fu">Lime</span><span class="op">,</span> <span class="dv">2</span>F<span class="op">),</span> <span class="kw">new</span> <span class="fu">RectangleF</span><span class="op">(</span><span class="kw">new</span> <span class="fu">PointF</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">200</span><span class="op">),</span> <span class="kw">new</span> <span class="fu">SizeF</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">50</span><span class="op">)));</span></span>
 <span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>                <span class="co">// 内部が塗られた楕円を描く．Colors.Green は暗めの緑</span></span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>                g<span class="op">.</span><span class="fu">FillEllipse</span><span class="op">(</span>Colors<span class="op">.</span><span class="fu">Green</span><span class="op">,</span> <span class="kw">new</span> <span class="fu">RectangleF</span><span class="op">(</span><span class="kw">new</span> <span class="fu">PointF</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">250</span><span class="op">),</span> <span class="kw">new</span> <span class="fu">SizeF</span><span class="op">(</span><span class="dv">300</span><span class="op">,</span> <span class="dv">50</span><span class="op">)));</span></span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
@@ -127,9 +127,9 @@
 <span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>                <span class="co">// ディスプレイ（Retinaとか）によってはアンチエイリアスもかからない．</span></span>
 <span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>                <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">5</span><span class="op">;</span> i<span class="op">++)</span></span>
 <span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>                <span class="op">{</span></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>                    PointF start <span class="op">=</span> <span class="kw">new</span> <span class="fu">PointF</span><span class="op">(</span>25F <span class="op">+</span> <span class="fl">0.5F</span> <span class="op">*</span> i<span class="op">,</span> <span class="dv">300</span> <span class="op">+</span> <span class="dv">20</span> <span class="op">*</span> i<span class="op">);</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>                    PointF start <span class="op">=</span> <span class="kw">new</span> <span class="fu">PointF</span><span class="op">(</span><span class="dv">25</span>F <span class="op">+</span> <span class="fl">0.5F</span> <span class="op">*</span> i<span class="op">,</span> <span class="dv">300</span> <span class="op">+</span> <span class="dv">20</span> <span class="op">*</span> i<span class="op">);</span></span>
 <span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>                    PointF end <span class="op">=</span> start <span class="op">+</span> <span class="kw">new</span> <span class="fu">PointF</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">20</span><span class="op">);</span></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>                    g<span class="op">.</span><span class="fu">DrawLine</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Pen</span><span class="op">(</span>Colors<span class="op">.</span><span class="fu">Black</span><span class="op">,</span> 1F<span class="op">),</span> start<span class="op">,</span> end<span class="op">);</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>                    g<span class="op">.</span><span class="fu">DrawLine</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Pen</span><span class="op">(</span>Colors<span class="op">.</span><span class="fu">Black</span><span class="op">,</span> <span class="dv">1</span>F<span class="op">),</span> start<span class="op">,</span> end<span class="op">);</span></span>
 <span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>                <span class="op">}</span></span>
 <span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>            <span class="op">};</span></span>
 <span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
