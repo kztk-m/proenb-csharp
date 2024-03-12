@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="ja">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
         <title>第0回 環境構築1（C#/F#共通） - 東北大学プログラミング演習B (C#)</title>
-        <link rel="stylesheet" href="./css/cs.css">
-        <script type="text/javascript" src="./js/preprocess.js"></script>
+        <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="./css/cs.css">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz@20" rel="stylesheet">
+<script type="text/javascript" src="./js/preprocess.js"></script>
     </head>
     <body>
         <header>
@@ -40,7 +41,7 @@
                <h1>第0回 環境構築1（C#/F#共通）</h1>
              
             
-               <p class="last-update">最終更新: 2024-03-08 16:05:06</p> 
+               <p class="last-update">最終更新: 2024-03-12 17:23:09</p> 
             
             <div class="qnav">
               <ul>
@@ -65,6 +66,8 @@ Visual Studio Code + C# Dev Kit or Ionide for F#
 を用いた環境構築法を紹介することとする．Visual Studio を使いたい人は<a href="./setup_2023.html">昨年度の環境構築法</a>を参照されたし．</p>
 </div>
 <p>まずは，<a href="#net-sdkのインストール">.NET SDKのインストール</a>を行い，その後<a href="#visual-studio-code-vscode-のインストール設定">Visual Studio Code (VSCode) のインストール・設定</a>を行う．自分の好きなエディタ（viやEmacs等）を使用したい人は後者はしなくてもよい．</p>
+<p>なお，このページで紹介している方法ではF#演習のための環境構築にもなっている．
+C#演習の第5週・第6週目の課題を進めるには<a href="./setup_gui.html">さらなる準備（別ページ）</a>が必要である（こちらはC#演習分のみ）．</p>
 <p>（本ページに掲載されているスクリーンショットは，マイクロソフトの許諾を得て使用しています．）</p>
 <h2 id="net-sdkのインストール">.NET SDKのインストール</h2>
 <p>Visual Studioに含まれているので，上記を行っている場合は以下を行う必要はない．</p>
@@ -125,8 +128,9 @@ Visual Studio Code + C# Dev Kit or Ionide for F#
 <p>Note</p>
 </div>
 <p>一番左のアイコンが並んでいるやつはアクティビティバーといってサイドバーではない．サイドバーはその隣のやつである．</p>
-</div></li>
-<li><p><a href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit">C# Dev Kit</a>をインストールする．上と同様にリンク先のウェブページからインストールするか，左下の歯車アイコンをクリックし「拡張機能」/"Extensions"を選択し，拡張機能サイドバーより検索してインストールする（"C#"で検索すれば見つかるはず）．</p>
+</div>
+<p>しばらくするとインストールが完了し，VSCodeの再起動が求められるので指示に従う．</p></li>
+<li><p><a href="https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit">C# Dev Kit</a>をインストールする．上と同様にリンク先のウェブページからインストールするか，左下の歯車アイコンをクリックし「拡張機能」を選択し，拡張機能サイドバーより検索してインストールする（"C#"で検索すれば見つかるはず）．</p>
 <ul>
 <li>なお，ライセンスはVisual Studioと同様である．本演習の範囲（学術目的の使用は無償なので）では気にすることはないが，商用のソフトウェアを作成する場合は有償ライセンスが必要となる場合がある．詳しくは<a href="https://code.visualstudio.com/docs/csharp/cs-dev-kit-faq#_who-can-use-c-dev-kit">公式FAQ</a>を参照．</li>
 </ul></li>
@@ -135,9 +139,15 @@ Visual Studio Code + C# Dev Kit or Ionide for F#
 <div class="title">
 <p>Note</p>
 </div>
-<p>これを入れると C#プロジェクトを開いた場合もIonideのサイドバーに勝手切り替わるので，C#演習の間は無効化推奨．</p>
+<p>これを入れると C#プロジェクトを開いた場合もIonideのサイドバーに勝手切り替わるので，<strong>C#演習の間は無効化推奨</strong>．無効にするには，左の歯車アイコンをクリックし「拡張機能」を選択し，その後サイドバーで当該拡張機能を選択し，開いた画面で「無効にする」ボタンを押す．（有効にする際も同様）</p>
 </div></li>
 <li><p>動作を確認してみよう．</p>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>いずれの方法でも，フォルダを開くタイミングで「このフォルダー内のファイルの作成者を信頼しますか？」なるダイアログで出てくるかもしれない．その場合は，今回については自分が用意したファイルであるはずなので「はい，…」を選択する．</p>
+</div>
 <h3 id="c編1プロジェクトの作成にコマンドライン使用本演習ではオススメ">C#編1（プロジェクトの作成にコマンドライン使用；本演習ではオススメ）</h3>
 <ol type="i">
 <li><p>ターミナルでプロジェクトを作成し，それを開く．</p>
@@ -148,8 +158,8 @@ Visual Studio Code + C# Dev Kit or Ionide for F#
 <p>ここでいうプロジェクトとは一つの実行形式やライブラリを作成するためのコード等を全てまとめたものである（参考：<a href="https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2022">What are solutions and projects in Visual Studio?</a>）．プロジェクトの設定は<code>.csproj</code>ファイルに記述されている．</p>
 </div>
 <ul>
-<li><p>方法1：ターミナル上で上に書いたように<code>dotnet new console -o HelloWorldCS</code>で適当なプロジェクト（ここでは<code>HelloWorldCS</code>）を作成し，その後<code>code HelloWorldCS</code>でVSCodeを開く．少し待つとC# Dev Kitがプロジェクトを認識する（「EXPLORER」サイドバーに「SOLUTION EXPLORER」が増える）．</p></li>
-<li><p>方法2：VSCodeで作成したいプロジェクトと同名のフォルダ（<code>HelloWorldCS</code>とする）を開く．メニューの"View"→"Terminal"よりターミナルを起動・表示する．</p>
+<li><p>方法1：ターミナル上で上に書いたように<code>dotnet new console -o HelloWorldCS</code>で適当なプロジェクト（ここでは<code>HelloWorldCS</code>）を作成し，その後<code>code HelloWorldCS</code>でVSCodeを開く．少し待つとC# Dev Kitがプロジェクトを認識する（「エクスプローラー」サイドバーに「ソリューション エクスプローラー」が増える）．</p></li>
+<li><p>方法2：VSCodeで作成したいプロジェクトと同名のフォルダ（<code>HelloWorldCS</code>とする）を開く（<strong>Windowsでは「ファイルを開く」ではなく「フォルダーを開く」から開く</strong>）．メニューの「表示」→「ターミナル」よりターミナルを起動・表示する．</p>
 <p><img src="images/vscode/vscode_terminal.png" alt="image" /></p>
 <p>ターミナルで</p>
 <pre><code>dotnet new console -o .</code></pre>
@@ -157,7 +167,7 @@ Visual Studio Code + C# Dev Kit or Ionide for F#
 <p><img src="images/vscode/vscode_dotnet_new.png" alt="image" /></p></li>
 </ul>
 <blockquote>
-<p>「EXPLORER」サイドバーより<code>.cs</code>ファイルを選択して少し待つと，C# Dev Kitによりプロジェクトが認識される（同サイドバーに「SOLUTION EXPLORER」が増える）．</p>
+<p>「エクスプローラ」サイドバーより<code>.cs</code>ファイルを選択して少し待つと，C# Dev Kitによりプロジェクトが認識される（同サイドバーに「SOLUTION EXPLORER」が増える）．</p>
 </blockquote>
 <p>いずれの場合もC# Dev Kitがプロジェクトを認識した時点で，開いたフォルダ直下に<code>フォルダ名.sln</code>なるファイルが作成されるはず．</p>
 <div class="note">
@@ -166,41 +176,51 @@ Visual Studio Code + C# Dev Kit or Ionide for F#
 </div>
 <p><code>.sln</code>はソリューションファイルと呼ばれる．ソリューションは関連する複数のプロジェクトをまとめたもの（参考：<a href="https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2022">What are solutions and projects in Visual Studio?</a>）</p>
 </div></li>
-<li><p><code>Program.cs</code>を左のエクスプローラーから選択して開き，<em>右上</em>（左にあるものではない）の「再生ボタンの右下に虫がついたアイコン」をクリックする．</p>
+<li><p>ターミナルから<code>dotnet run</code>を実行してもよいが，ここでは別の方法を紹介する．
+<code>Program.cs</code>を左のエクスプローラーから選択して開き，<em>右上</em>（左にあるものではない）の「再生ボタンの右下に虫がついたアイコン」をクリックする．このボタンは<code>.cs</code>ファイルに関連するプロジェクトをデバッグ実行する（右側の ﹀ から通常の実行に切り替えられる）．</p>
 <p><img src="images/vscode/vscode_run_button.png" alt="image" /></p></li>
 <li><p>しばらくすると，デバッグコンソールにデバッグメッセージとともに，プログラムの出力</p>
 <pre><code>Hello, World!</code></pre>
-<p>が表示される．</p>
-<p><img src="images/vscode/vscode_debug_console.png" alt="image" /></p></li>
-</ol>
-<h3 id="c編2プロジェクト作成にc-dev-kitの機能を利用">C#編2（プロジェクト作成にC# Dev Kitの機能を利用）</h3>
-<ol type="i">
-<li><dl>
-<dt>VSCodeを起動し，「EXPLORER」サイドバー下部"Create .Net Project"をクリックする．</dt>
-<dd>
-<p>あるいは「開く」から適当なフォルダを開き，コマンドパレット（WindowsはControl + Shift + P，MacはCommand + Shift + P）を起動し，<code>.NET: New Project...</code>を選択する．非常に多くのコマンドがリストされるが，当該コマンドは途中までタイプすると出てくるはず．</p>
+<p>が表示される．最初の実行では「実行とデバッグ」にサイドバーが切り替わるかもしれないが，アクティビティーバーの最上部のエクスプローラーを選択すると戻すことができる．</p>
+<p><img src="images/vscode/vscode_debug_console.png" alt="image" /></p>
 <div class="note">
 <div class="title">
 <p>Note</p>
 </div>
-<p>現在，この方法ではEto.Formsプロジェクトを直接作成はできない．</p>
+<p>「実行とデバッグ」サイドバーの「実行とデバッグ」からでも実行可能である．初回は「デバッガーの選択」や「起動構成の選択」等について聞かれるので，それぞれ「C#」およびさっき作成したプロジェクト名を回答する．ショートカットキー<code>F5</code>（デバッグの開始）および<code>Ctrl + F5</code>（デバッグなしで実行）も活用するとよい．</p>
+<p>また，ターミナルから<code>dotnet run</code>を実行するのでもよい．</p>
+</div></li>
+</ol>
+<h3 id="c編2プロジェクト作成にc-dev-kitの機能を利用">C#編2（プロジェクト作成にC# Dev Kitの機能を利用）</h3>
+<div class="caution">
+<div class="title">
+<p>Caution</p>
 </div>
-</dd>
-</dl></li>
-<li>"Console App"を選択する．</li>
-<li>その後プロジェクト名を聞かれるので適当に選択する．デフォルトのままでもよい．次に，どのフォルダの下に作成するかを聞かれるので適当に選択する．フォルダを開いてからコマンドパレットからプロジェクト作成を行った場合は，デフォルトではそのフォルダの直下になっている．
+<p>2024年3月12日現在，この方法ではEto.Formsプロジェクトを直接作成はできない．また，C# Dev Kitの機能を使うためのF#プロジェクトも作成できない．</p>
+</div>
+<ol type="i">
+<li>次のいずれかを行う．
 <ul>
-<li>注意：Ionideを入れているとこのあたりでサイドバーが切り替わってしまう．その場合は左端上のアイコンからエクスプローラに戻す．</li>
+<li><p>VSCodeを起動し，どのフォルダも開いていない状態にて「エクスプローラー」サイドバー下部「.NET プロジェクトを作成」をクリックする．</p></li>
+<li><p>あるいは「開く」から適当なフォルダを開き，コマンドパレット（WindowsはControl + Shift + P，MacはCommand + Shift + P）を起動し，</p>
+<pre><code>.NET: 新しいプロジェクト...
+.NET: New Project...</code></pre>
+<p>を選択する．非常に多くのコマンドがリストされるが，当該コマンドは<code>.NET: N</code>のあたりまでタイプすると出てくるはず．</p></li>
+</ul></li>
+<li>「コンソール アプリ」を選択する．</li>
+<li>選択後の手順はステップは最初のステップにおける選択およびWindows/Macで少し異なる
+<ul>
+<li>Windowsで「.NET プロジェクトを作成」からプロジェクトを作成しようとした場合：「プロジェクトの場所」というファイル選択ダイアログが出てくるので，プロジェクトを置くフォルダを選択する．次にプロジェクト名を聞かれるので適当に選択する．デフォルトのままでもよい．</li>
+<li>プロジェクトをコマンドパレットから作成しようとした場合，あるいはMac：その後プロジェクト名を聞かれるので適当に選択する．デフォルトのままでもよい．次に，どのフォルダの下に作成するかを聞かれるので適当に選択する．フォルダを開いてからコマンドパレットからプロジェクト作成を行った場合は，デフォルトではそのフォルダの直下になっている．</li>
 </ul></li>
 <li>ターミナル（VSCodeのものでもよい）から<code>dotnet run</code>で実行してもよいし，「C#編1」に書いたように右上の「再生ボタンの右下に虫がついたアイコン」で実行してもよい．</li>
 </ol>
 <h3 id="f編">F#編</h3>
 <ol type="i">
-<li><p>ターミナル上で上に書いたように<code>dotnet new console -lang "F#" -o HelloWorldFS</code>で適当なプロジェクト（ここでは<code>HelloWorldFS</code>）を作成する．</p></li>
-<li><p><code>code HelloWorldCS</code>でVSCodeを開く．</p></li>
+<li><p>ターミナルでプロジェクトを作成し，それを開く．<a href>C#編1（プロジェクトの作成にコマンドライン使用；本演習ではオススメ）</a>とほぼ同様の方法で <code>dotnet new console</code> コマンドに <code>-lang "F#"</code> というオプションを渡すだけなので，詳細は割愛．</p></li>
 <li><p>少し待つとサイドバーがIonideのものに切り替わる．</p>
 <p><img src="images/vscode/vscode_ionide.png" alt="image" /></p></li>
-<li><p>サイドバー上部の実行ボタンから実行する．あるいはターミナルから<code>dotnet run</code>で実行する．</p></li>
+<li><p>ターミナルから<code>dotnet run</code>で実行する．サイドバー上部の実行ボタンからも実行できる…はずだが，Windows環境だとサイドバー上部の実行ボタンから実行すると，ターミナルが一瞬で閉じてしまう模様．</p></li>
 </ol></li>
 </ol></section>
 

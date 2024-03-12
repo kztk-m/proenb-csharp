@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="ja">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
         <title>第0回 環境構築2（C#演習用） - 東北大学プログラミング演習B (C#)</title>
-        <link rel="stylesheet" href="./css/cs.css">
-        <script type="text/javascript" src="./js/preprocess.js"></script>
+        <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="./css/cs.css">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz@20" rel="stylesheet">
+<script type="text/javascript" src="./js/preprocess.js"></script>
     </head>
     <body>
         <header>
@@ -40,7 +41,7 @@
                <h1>第0回 環境構築2（C#演習用）</h1>
              
             
-               <p class="last-update">最終更新: 2024-03-08 14:43:27</p> 
+               <p class="last-update">最終更新: 2024-03-12 18:22:51</p> 
             
             <div class="qnav">
               <ul>
@@ -54,6 +55,10 @@
 <ul>
 <li><a href="#コマンドライン環境の設定" id="toc-コマンドライン環境の設定">コマンドライン環境の設定</a></li>
 <li><a href="#動作確認" id="toc-動作確認">動作確認</a></li>
+<li><a href="#gtkのインストール" id="toc-gtkのインストール">GTKのインストール</a>
+<ul>
+<li><a href="#mac" id="toc-mac">Mac</a></li>
+</ul></li>
 </ul>
 </nav>
 <section class="mainbody"><div class="caution">
@@ -65,21 +70,17 @@ Visual Studio Code + C# Dev Kit or Ionide for F#
 を用いた環境構築法を紹介することとする．Visual Studio を使いたい人は<a href="./setup_gui_2023.html">昨年度の環境構築法</a>を参照されたし．</p>
 </div>
 <p>C#演習第5・6回課題ではクロスプラットフォームGUIフレームワーク<a href="https://github.com/picoe/Eto">Eto.Forms</a>を用いるので，その環境をセットアップする．具体的な手順は「<a href="#コマンドライン環境の設定">コマンドライン環境の設定</a>」を行った後，VSCode上で<a href="#動作確認">動作確認</a>を行う．</p>
-<p>また，GTK用アプリケーションを作成したい人は<a href>GTKのインストール</a>を参照する（現状Mac環境のみ記載．Windows環境は情報収集中）．</p>
-<p>（本ページに掲載されているスクリーンショットは，マイクロソフトの許諾を得て使用しています．）</p>
+<p>また，GTK用アプリケーションを作成したい人は<a href="#gtkのインストール">GTKのインストール</a>を参照する（現状Mac環境のみ記載．Windows環境は情報収集中）．</p>
 <h2 id="コマンドライン環境の設定">コマンドライン環境の設定</h2>
-<p>WindowsだとPowerShell，Macだと適当な仮想端末アプリケーション（"Terminal"や"iTerm2"など）を使って以下を実行する．</p>
+<p>ターミナル（WindowsだとPowerShell，Macだと"Terminal"や"iTerm2"など．VSCode内のターミナルでもよい）上で以下を実行する．</p>
 <ol type="1">
 <li><p>以下のコマンドを実行する（設定自体はこれで終わり）．</p>
-<pre><code>dotnet new install &quot;Eto.Forms.Templates::2.7.5&quot;</code></pre>
+<pre><code>dotnet new install &quot;Eto.Forms.Templates::*&quot;</code></pre>
 <div class="note">
 <div class="title">
 <p>Note</p>
 </div>
-<p>2024/03/08時点での最新版は2.8.2であるが，生成されたテンプレートがコンパイルできないという不具合がある．
-<a href="https://github.com/picoe/Eto/issues/2619">報告済み</a>で開発ブランチでは既に<a href="https://github.com/picoe/Eto/commit/eec8a8bc099a457d87cb39251eb2180977c86bcd">修正されている</a>が，2024/03/08時点では当該修正を含む2.8.3はまだ正式リリースされていない．</p>
-<p>リリース後は以下を実施したのでよい．</p>
-<pre><code>dotnet new install &quot;Eto.Forms.Templates::*&quot;</code></pre>
+<p>2.8.0〜2.8.2には<a href="https://github.com/picoe/Eto/issues/2619">テンプレートがコンパイルできない</a>という不具合があるので，以前にテンプレートをインストールした人は上記によりテンプレートを更新する．</p>
 </div></li>
 <li><p>確認のために以下を実行してみる．</p>
 <pre><code>dotnet new list eto</code></pre>
@@ -102,19 +103,20 @@ Eto Panel, Dialog or Form  etofile   [C#],F#,VB  Cross Platform/Eto</code></pre>
 <li><p>Eto.Formsプロジェクトを作成し，VSCodeで開く．以下は「VSCodeでフォルダを開いた後に，VSCode内のターミナルからプロジェクト/ソリューションを作成する」流れを紹介しているが，<a href="./setup.html">環境構築1</a>で紹介した通り「ターミナルで予めプロジェクト/ソリューションを作成し，その後VSCodeでソリューションを開く」を行ってもよい．</p>
 <ol type="i">
 <li><p>適当なフォルダ（<code>HelloEto</code>とする）を作成し，VSCodeでそのフォルダを開く．</p></li>
-<li><p>VSCode上のターミナル（メニューバーより「表示」→「ターミナル」あるいはJapanese Language Packを入れていないなら"View"→"Terminal"）を開き，以下のコマンドを実行する．</p>
+<li><p>VSCode上のターミナル（メニューバーより「表示」→「ターミナル」あるいはJapanese Language Packを入れていないなら"View"→"Terminal"）を開き，以下のコマンドを実行する．<code>-sln</code>は不要だが，どうせC# Dev Kitが生成することになる．</p>
 <pre><code>dotnet new etoapp -sln </code></pre>
-<p>その後<code>ls</code>してみると以下のようなフォルダが生成されたのがわかる（Windowsだと<code>ls</code>は<code>dir</code>の別名なので表示は異なるがほぼ同様）．</p>
+<p>その後<code>ls -F</code>（Windowsだと<code>dir</code>）してみると以下のようなフォルダおよびファイルが生成されたのがわかる（Windowsだと表示は異なるが作成されるフォルダ・ファイルは同じ）．</p>
 <pre><code>$ ls -F 
 HelloEto/     HelloEto.Gtk/ HelloEto.Mac/ HelloEto.Wpf/ HelloEto.sln</code></pre></li>
 </ol></li>
 <li><p>ビルドおよび実行してみる．</p>
-<p>Windowsの場合は<code>HelloEto.Wpf</code>以下の<code>Program.cs</code>，Macの場合は<code>HelloEto.Mac</code>以下の<code>Program.cs</code>を開き（サイドバーからファイルを選択する）， エディタ*右上*（アクティビティーバーにあるアイコンではない）の「再生ボタンの右下に虫がついたアイコン」（デバッグ実行を表す）をクリックする．</p>
+<p>Windowsの場合は<code>HelloEto.Wpf</code>以下の<code>Program.cs</code>，Macの場合は<code>HelloEto.Mac</code>以下の<code>Program.cs</code>を開き（サイドバーからファイルを選択する）， エディタ<strong>右上</strong>（アクティビティーバーにあるアイコンではない）の「再生ボタンの右下に虫がついたアイコン」（デバッグ実行を表す）をクリックする．</p>
 <p>あるいは，VSCode上のターミナルから，Windowsの場合は</p>
 <pre><code>dotnet run --project HelloEto.Wpf </code></pre>
 <p>を，Macの場合は</p>
 <pre><code>(cd HelloEto.Mac &amp;&amp; dotnet run) </code></pre>
 <p>を実行することでプログラムを通常実行する（<code>dotnet run --project HelloEto.Mac</code>では実行に失敗する）．</p>
+<p>はたまた，「実行とデバッグ」あるいは<code>F5</code>キーで（デバッグ）実行する場合は，やはり「デバッガーの選択」や「起動構成の選択」等について聞かれる．最初の質問には「C#」と回答したのでよいが，二個目の質問にはWindowsの場合は「HelloEto.Wpf」，Macの場合は「HelloEto.Mac」と回答する．<a href="#gtkのインストール">GTKのインストール</a>を行っていれば「HelloEto.Gtk」を選んでもよい．</p>
 <p>いずれの場合はビルドは自動的に行われる．</p>
 <div class="note">
 <div class="title">
@@ -123,6 +125,13 @@ HelloEto/     HelloEto.Gtk/ HelloEto.Mac/ HelloEto.Wpf/ HelloEto.sln</code></pre
 <p>Mac環境だと<code>....Wpf</code>プロジェクトはビルドできない．Win環境だと<code>....Mac</code>はビルドできるが実行できない．</p>
 </div>
 <ul>
+<li>Windowsの場合の挙動
+<ol type="i">
+<li><p>しばらく待つと以下のようなウィンドウが表示される．</p>
+<p><img src="images/ss_eto/etoapp_wpf.png" alt="image" /></p></li>
+<li><p>「Click Me!」の部分をクリックするとダイアログが表示される．</p></li>
+<li><p>実行を停止するには，上記ウィンドウの×ボタンを押せばよい．また，VSCodeの画面上部にデバッグ実行を制御するためのUIが表示されているので，□の形の停止っぽいボタンを押してもよい．</p></li>
+</ol></li>
 <li>Macの場合の挙動
 <ol type="i">
 <li><p>しばらく待つと以下のようなウィンドウが表示される．</p>
@@ -137,13 +146,25 @@ HelloEto/     HelloEto.Gtk/ HelloEto.Mac/ HelloEto.Wpf/ HelloEto.sln</code></pre
 <li><p>デバッグ実行だと，Command + Qをを押したりメニューからQuitを選択したりしてもデバッグ実行自体は終了しない．
 VSCodeの画面上部にデバッグ実行を制御するためのUIが表示されているので，□の形の停止っぽいボタンを押す．</p>
 <p><code>dotnet run</code>等でデバッグ実行でなく通常の実行を行った場合は，Command + Q を押すか，メニューからQuitを選択してプログラムを終了することができる．</p>
-<div class="caution">
+<div class="important">
 <div class="title">
-<p>Caution</p>
+<p>Important</p>
 </div>
 <p>ウィンドウ左上の閉じるボタンはプログラムを終了させない．この挙動はMacの一般的なアプリケーションプログラムと同様である．</p>
 </div></li>
 </ol></li>
+</ul></li>
+</ol>
+<h2 id="gtkのインストール">GTKのインストール</h2>
+<p>オプショナル．</p>
+<p>Windows環境については情報収集中．</p>
+<h3 id="mac">Mac</h3>
+<p>遅かれ早かれ<code>brew</code>は入れることになると思うので，そう手間は大きくないはず．</p>
+<ol type="1">
+<li><a href="https://brew.sh/">Homebrew</a>をトップページに書いてあることに従いインストールする．</li>
+<li>ターミナルから <code>brew install gtk+3</code> を実行する
+<ul>
+<li><code>brew update</code>も必要かもしれない</li>
 </ul></li>
 </ol></section>
 

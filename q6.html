@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="ja">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
         <title>第6回 課題 (2023) - 東北大学プログラミング演習B (C#)</title>
-        <link rel="stylesheet" href="./css/cs.css">
-        <script type="text/javascript" src="./js/preprocess.js"></script>
+        <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="./css/cs.css">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz@20" rel="stylesheet">
+<script type="text/javascript" src="./js/preprocess.js"></script>
     </head>
     <body>
         <header>
@@ -40,7 +41,7 @@
                <h1>第6回 課題 (2023)</h1>
              
             
-               <p class="last-update">最終更新: 2024-02-21 17:43:57</p> 
+               <p class="last-update">最終更新: 2024-03-11 19:36:12</p> 
             
             <div class="qnav">
               <ul>
@@ -69,16 +70,16 @@
 <div class="title">
 <p>Note</p>
 </div>
-<p>再掲：プロジェクトは一つの実行形式やライブラリを作成するためのコード等を全てまとめたものであり，ソリューションは関連するプロジェクトをまとめたもの（参考：<a href="https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2022">What are solutions and projects in Visual Studio?</a>）．</p>
+<p>再掲：プロジェクトは一つの実行形式やライブラリを作成するためのコード等を全てまとめたものであり，ソリューションは関連するプロジェクトをまとめたもの（参考：<a href="https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2022%3E">What are solutions and projects in Visual Studio?</a>）．</p>
 </div>
 <h4 id="visual-studioの場合">Visual Studioの場合</h4>
 <p>「新しいプロジェクトの作成」（Windows）や「新規」（Mac）から，C#の「Eto.Forms Application」あるいは「Eto Application」テンプレートを選び，プロジェクト名とソリューション名を適当（たとえば課題5の解答なので<code>Q5</code>とするなど）に設定する．</p>
 <h4 id="コマンドラインの場合">コマンドラインの場合</h4>
 <p>適当な場所（たとえばで課題5の解答なので<code>Q5</code>というフォルダを作成し，そこに移動した上で）で</p>
-<pre><code>dotnet new etoapp</code></pre>
+<pre class="text"><code>dotnet new etoapp</code></pre>
 <p>を実行する．</p>
 <h3 id="課題の実施">課題の実施</h3>
-<p><code>MainForm.cs</code> を問題文の指示の通りに編集する（<strong>提出・採点手続きの簡略化のため提出する.csファイルは一つのみ</strong>）．作成した.csファイルには先頭部分に<strong>学籍番号と名前をコメントとして含める</strong>こと．また，自身のプログラムの動作確認を行ったプラットフォームの情報（Mac, Gtk, Wpfの別．複数可．わからないならOS名）も含めるものとする．こちらの情報はあくまで念のためであり，基本的には採点者は自身の環境で動作を確認を行う．なので，たとえば学籍番号Z0TB9999の東北 大学さんの提出ファイルは，もし当人が動作確認を <code><span class="metaname">プロジェクト名</span>.Mac</code> を用いて行ったのであれば</p>
+<p><code>MainForm.cs</code> を問題文の指示の通りに編集する（<strong>提出・採点手続きの簡略化のため提出する.csファイルは一つのみ</strong>）．作成した.csファイルには先頭部分に<strong>学籍番号と名前をコメントとして含める</strong>こと．また，自身のプログラムの動作確認を行ったプラットフォームの情報（Mac, Gtk, Wpfの別．複数可．わからないならOS名）も含めるものとする．こちらの情報はあくまで念のためであり，基本的には採点者は自身の環境で動作を確認を行う．なので，たとえば学籍番号Z0TB9999の東北 大学さんの提出ファイルは，もし当人が動作確認を<code><span class="metaname">プロジェクト名</span>.Mac</code>を用いて行ったのであれば</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Z0TB9999</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 東北 大学</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">// 動作確認：Mac </span></span></code></pre></div>
@@ -86,8 +87,8 @@
 <h3 id="提出">提出</h3>
 <p>できあがった <code>MainForm.cs</code>をClassroom内の当該回の「課題」より提出する． Visual Studioを使用した場合は，<code>MainForm.cs</code> は「作成したプロジェクト名」のフォルダ以下に含まれているが，当該フォルダは下記の場所にある．</p>
 <ul>
-<li>Windowsの場合．まず，当該フォルダはデフォルトだと，ユーザフォルダの<code>source\repos</code>以下にある．なお，ユーザフォルダはデフォルトだと <code>C:\Users\<span class="metaname">ユーザ名</span></code> であり，エクスプローラーのアドレスバーに<code>%HOMEPATH%</code>を入力すれば移動できるはず．また，Visual Studioの起動後の画面で<em>「ローカルフォルダを開く」</em>を選んだのでも場所がわかる（ダイアログが開くのでアドレスをコピーする）．</li>
-<li>Macの場合．当該フォルダの場所はデフォルトだと，<code>~/Projects/</code>以下にある．</li>
+<li><p>Windowsの場合．まず，当該フォルダはデフォルトだと，ユーザフォルダの<code>source\repos</code>以下にある．なお，ユーザフォルダはデフォルトだと <code>C:&lt;span class="metaname"&gt;ユーザ名</span></code> であり，エクスプローラーのアドレスバーに<code>%HOMEPATH%</code>を入力すれば移動できるはず．また，Visual Studioの起動後の画面で<em>「ローカルフォルダを開く」</em>を選んだのでも場所がわかる（ダイアログが開くのでアドレスをコピーする）．</p></li>
+<li><p>Macの場合．当該フォルダの場所はデフォルトだと，<code>~/Projects/</code>以下にある．</p></li>
 </ul>
 <p>また問題文に指示がある場合はそのファイル（例：課題6で提出物に含めたいリソースがある場合）も提出する．提出前には以下を確認しよう．</p>
 <ul>
@@ -117,10 +118,13 @@
 <li>「クリア」と書かれたボタンが押されたら，書かれた絵がクリアされる．</li>
 </ul>
 <p>たとえば，以下のスクリーンショットは実装するプログラムの一例を表している．</p>
-<p><img src="./images/eto/oekaki.png" alt="image" /></p>
-<div class="hint">
+<figure>
+<img src="./images/eto/oekaki.png" alt="作成を目指すプログラムのスクリーンショット" />
+<figcaption aria-hidden="true">作成を目指すプログラムのスクリーンショット</figcaption>
+</figure>
+<div class="tip">
 <div class="title">
-<p>Hint</p>
+<p>Tip</p>
 </div>
 <p>お絵描き用のコントロールの<code>MouseMove</code>イベントを購読（イベントハンドラを登録）する．主ボタンが押されたまま移動されたかどうかは，以下のようにハンドラの第2引数の<code>Buttons</code>プロパティを用いて判定できる．</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// oekakiControl の MouseMove イベントを購読</span></span>
@@ -130,9 +134,9 @@
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 </div>
-<div class="hint">
+<div class="tip">
 <div class="title">
-<p>Hint</p>
+<p>Tip</p>
 </div>
 <p>素朴なアイデアは<code>MouseMove</code>イベントの度に現在のマウスの位置に円を描くというものだが，それだとマウスが一度に沢山に動いたときにとぎれとぎれの「線」が描かれてしまう．それを避けるためには，以下のようにするとよいだろう．</p>
 <ul>
@@ -140,12 +144,12 @@
 <li>マウスの主ボタンが押されたら，その位置に円を描き，「マウスの以前の位置」を更新する．</li>
 <li>マウスの主ボタンが押されたままマウスが移動されたら，「マウスの以前の位置」と「マウスの現在の位置」の間に線分を引く．そして，「マウスの以前の位置」を更新する．</li>
 </ul>
-<p>線分の描画には<code>Graphics.DrawLine(Pen, PointF, PointF)</code>メソッドが使用できるだろう．<code>Pen</code>の<code>LineCap</code>プロパティを<code>PenLineCap.Round</code>に設定するときれいに線が引けるかもしれない（<a href="http://pages.picoe.ca/docs/api/html/P_Eto_Drawing_Pen_LineCap.htm">参考</a>）．</p>
+<p>線分の描画には<code>Graphics.DrawLine(Pen, PointF, PointF)</code>メソッドが使用できるだろう．<code>Pen</code>の<code>LineCap</code>プロパティを<code>PenLineCap.Round</code>に設定するときれいに線が引けるかもしれない（<a href="http://pages.picoe.ca/docs/api/html/P_Eto_Drawing_Pen_LineCap.htm%3E">参考</a>）．</p>
 </div>
 <h2 id="発展課題">発展課題</h2>
-<div class="caution">
+<div class="important">
 <div class="title">
-<p>Caution</p>
+<p>Important</p>
 </div>
 <p>本課題を完了できたのならば本課題の解答のみを提出すればよく，基本課題の解答は提出する必要はない．</p>
 </div>
