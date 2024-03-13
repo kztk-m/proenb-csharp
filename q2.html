@@ -41,7 +41,7 @@
                <h1>第2回 課題 (2023)</h1>
              
             
-               <p class="last-update">最終更新: 2024-03-11 19:34:49</p> 
+               <p class="last-update">最終更新: 2024-03-13 17:19:27</p> 
             
             <div class="qnav">
               <ul>
@@ -61,7 +61,8 @@
           <section class="mainbody">
             <h2 id="課題の進め方">課題の進め方</h2>
 <p>基本的には適当なプロジェクト/ソリューションを作って課題を進めた上で，<code>Program.cs</code>のみ（特に他に指示がなければ）を提出する．</p>
-<p><strong>公開の場所に解答を置かないようお願いします．</strong>githubやbitbucket等は使える人は使えばよいと思いますが，<strong>privateレポジトリにする</strong>ようにお願いします．</p>
+<p><strong>他の人（受講者・非受講者両方）に解答内容を見せない</strong>，そして<strong>他の人の解答内容を見ない</strong>ようお願いします．特に，
+<strong>公開の場所に解答を置かないようお願いします．</strong>githubやbitbucket等は使える人は使えばよいと思いますが，<strong>privateレポジトリにする</strong>ようにお願いします．</p>
 <h3 id="プロジェクトソリューションの作成">プロジェクト/ソリューションの作成</h3>
 <div class="note">
 <div class="title">
@@ -69,24 +70,16 @@
 </div>
 <p>再掲：プロジェクトは一つの実行形式やライブラリを作成するためのコード等を全てまとめたものであり，ソリューションは関連するプロジェクトをまとめたもの（参考：<a href="https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2022%3E">What are solutions and projects in Visual Studio</a>）．</p>
 </div>
-<h4 id="visual-studioの場合">Visual Studioの場合</h4>
-<p>「新しいプロジェクトの作成」（Windows）や「新規」（Mac）から，C#の「コンソール アプリケーション」テンプレートを選び，プロジェクト名とソリューション名を適当（たとえば課題3の解答なので<code>Q3</code>とするなど）に設定する．</p>
-<h4 id="コマンドラインの場合">コマンドラインの場合</h4>
-<p>適当な場所で</p>
-<pre>dotnet new console -o <span class="metaname">プロジェクト名</span></pre>
-<p>を実行する．プロジェクト名は適当でよい（たとえば課題3の解答なので<code>Q3</code>とするなど）．</p>
-<h4 id="課題の実施">課題の実施</h4>
+<p>適当な名前（たとえば課題3の解答なので<code>Q3</code>にするなど）のフォルダを適当な場所に作成し，
+VSCodeで作成したフォルダを開く．そして，VSCode内のターミナルで以下を実行する．</p>
+<pre class="text"><code>dotnet new console -o .</code></pre>
+<h3 id="課題の実施">課題の実施</h3>
 <p><code>Program.cs</code> を問題文の指示の通りに編集する（<strong>提出・採点手続きの簡略化のため提出する.csファイルは一つのみ</strong>）．作成した.csファイルには先頭部分に<strong>学籍番号と名前をコメントとして含める</strong>こと．なので，たとえば学籍番号Z0TB9999の東北 大学さんの提出ファイルは</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Z0TB9999</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 東北 大学</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Z0TB9999</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 東北 大学</span></span></code></pre></div>
 <p>という行から始まる．</p>
 <h3 id="提出">提出</h3>
-<p>できあがった <code>Program.cs</code>をClassroom内の当該回の「課題」より提出する．Visual Studioを使用した場合は，<code>Program.cs</code> は「作成したプロジェクト名」のフォルダ以下に含まれているが，当該フォルダは下記の場所にある．</p>
-<ul>
-<li><p>Windowsの場合．まず，当該フォルダはデフォルトだと，ユーザフォルダの<code>source\repos</code>以下にある．なお，ユーザフォルダはデフォルトだと<code>C:\<span class="metaname">ユーザ名</span></code>であり，エクスプローラーのアドレスバーに<code>%HOMEPATH%</code>を入力すれば移動できるはず．また，Visual Studioの起動後の画面で<em>「ローカルフォルダを開く」</em>を選んだのでも場所がわかる（ダイアログが開くのでアドレスをコピーする）．</p></li>
-<li><p>Macの場合．当該フォルダの場所はデフォルトだと，<code>~/Projects/</code>以下にある．</p></li>
-</ul>
-<p>また問題文に指示がある場合はそのファイル（例：課題4のitems.txt）も提出する．提出前には以下を確認しよう．</p>
+<p>できあがった <code>Program.cs</code>をClassroom内の当該回の「課題」より提出する．最初のステップで作成したフォルダにあるはず．また問題文に指示がある場合はそのファイル（例：課題4のitems.txt）も提出する．提出前には以下を確認しよう．</p>
 <ul>
 <li>提出プログラムコードのファイル名は<code>Program.cs</code>になっているか</li>
 <li>提出するファイルに<em>学籍番号と名前</em>がコメントとして含まれているか</li>
