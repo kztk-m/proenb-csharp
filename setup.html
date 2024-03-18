@@ -41,7 +41,7 @@
                <h1>第0回 環境構築1（C#/F#共通）</h1>
              
             
-               <p class="last-update">最終更新: 2024-03-14 17:13:01</p> 
+               <p class="last-update">最終更新: 2024-03-18 12:04:00</p> 
             
             <div class="qnav">
               <ul>
@@ -70,8 +70,8 @@
 <p>Caution</p>
 </div>
 <p><a href="https://learn.microsoft.com/en-us/visualstudio/mac/what-happened-to-vs-for-mac?view=vsmac-2022">2024年8月一杯でVisual Studio for Macの提供が廃止される</a>こととなった．それにともない，今年は
-Visual Studio Code + C# Dev Kit or Ionide for F#
-を用いた環境構築法を紹介することとする．Visual Studio を使いたい人は<a href="./setup_2023.html">昨年度の環境構築法</a>を参照されたし．</p>
+Visual Studio Code上でC# Dev KitおよびIonide for F#
+を用いた環境構築法を紹介することとする．Visual Studio を使いたい人は<a href="./setup_gui_2023.html">昨年度の環境構築法</a>を参照されたし．</p>
 </div>
 <p>まずは，<a href="#net-sdkのインストール">.NET SDKのインストール</a>を行い，その後<a href="#visual-studio-code-vscode-のインストール設定">Visual Studio Code (VSCode) のインストール・設定</a>を行う．自分の好きなエディタ（viやEmacs等）を使用したい人は後者はしなくてもよい．</p>
 <p>なお，このページで紹介している方法ではF#演習のための環境構築にもなっている．
@@ -113,7 +113,7 @@ C#演習の第5週・第6週目の課題を進めるには<a href="./setup_gui.h
 <pre><code>cd HelloWorldCS </code></pre>
 <p>中身を<code>ls</code>で確認してみよう．たとえば，Macだと以下のように表示される（Windowsだと <code>ls</code> は <code>dir</code> の別名なので，表示は多少異なる）．</p>
 <pre><code>HelloWorldCS.csproj  Program.cs           obj/</code></pre>
-<p>プログラムを書くには， <code>Program.cs</code> を変更すればよい．現時点では <code>Program.cs</code> の中身は以下の通りである．</p>
+<p>プログラムを書くには， <code>Program.cs</code> を変更すればよい．現時点では <code>Program.cs</code> の中身は以下の通りである（<code>cat Program.cs</code>を実行するなどすると見られる）．</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// See https://aka.ms/new-console-template for more information</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello, World!&quot;</span><span class="op">);</span></span></code></pre></div></li>
 <li><p>以下のコマンドを実行してビルドする．</p>
@@ -129,8 +129,8 @@ C#演習の第5週・第6週目の課題を進めるには<a href="./setup_gui.h
 <li><p><a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a>からインストーラをダウンロードする．</p></li>
 <li><p>ダウンロードしたインストーラを実行し，指示に従いインストールする．</p></li>
 <li><p>お好みで<a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-ja">Japanese Language Pack for Visual Studio Code</a>をインストールし，UIを日本語にする．</p>
-<p>リンク先のウェブページの「Install」ボタンを押すと，「VSCodeで開きますか」旨の質問が表示されるのでそうする旨の選択する．すると，VSCode内で当該拡張機能のページが表示されるので，そこの"Install"を選択する．</p>
-<p><img src="images/vscode/vscode_extension_j.png" alt="image" /></p>
+<p>リンク先のウェブページの「Install」ボタンを押すと，「VSCodeで開きますか」旨の質問が表示されるのでそうする旨の選択する．すると，VSCode内で当該拡張機能のページが表示されるので，そこの"Install"ボタンを選択する．</p>
+<p><img src="images/vscode/vscode_extension_j.png" alt="&quot;Install&quot;ボタンは当該拡張機能のページの上部にある．" /></p>
 <p>あるいは， VSCode上で拡張機能の検索画面からインストールする．左下の歯車アイコンをクリックし"Extensions"を選択する．あるいは，WindowsだとControl + Shift + X，MacだとCommand + Shift + Xを押す．するとサイドバーが"EXTENSIONS"に切り替わる．サイドバー上部の検索欄から"Japanese"で検索すると"Japanese Language Pack for Visual Studio Code"が検索結果に現れると思うのでその"install"をクリックする．</p>
 <div class="note">
 <div class="title">
@@ -176,7 +176,7 @@ C#演習の第5週・第6週目の課題を進めるには<a href="./setup_gui.h
 </dl></li>
 <li><p>方法2：VSCodeで作成したいプロジェクトと同名のフォルダ（<code>HelloWorldCS</code>とする）を開く（<strong>Windowsでは「ファイルを開く」ではなく「フォルダーを開く」から開く</strong>）．メニューの「表示」→「ターミナル」よりターミナルを起動・表示する．</p>
 <blockquote>
-<p><img src="images/vscode/vscode_terminal.png" alt="image" /></p>
+<p><img src="images/vscode/vscode_terminal.png" alt="VSCodeの内蔵ターミナルは画面下部に表示される．" /></p>
 <p>ターミナルで</p>
 <pre><code>dotnet new console -o .</code></pre>
 <p>を実行し開いたフォルダと同名のプロジェクトを作成する．</p>
@@ -192,12 +192,12 @@ C#演習の第5週・第6週目の課題を進めるには<a href="./setup_gui.h
 <p><code>.sln</code>はソリューションファイルと呼ばれる．ソリューションは関連する複数のプロジェクトをまとめたもの（参考：<a href="https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2022">What are solutions and projects in Visual Studio?</a>）</p>
 </div></li>
 <li><p>ターミナルから<code>dotnet run</code>を実行してもよいが，ここでは別の方法を紹介する．
-<code>Program.cs</code>を左のエクスプローラーから選択して開き，<em>右上</em>（左にあるものではない）の「再生ボタンの右下に虫がついたアイコン」をクリックする．このボタンは<code>.cs</code>ファイルに関連するプロジェクトをデバッグ実行する（右側の ﹀ から通常の実行に切り替えられる）．</p>
+<code>Program.cs</code>を左のエクスプローラーから選択して開き，エディタパネル<em>右上</em>（左にあるものではない）の「再生ボタンの右下に虫がついたアイコン」をクリックする．このボタンは<code>.cs</code>ファイルに関連するプロジェクトをデバッグ実行する（右側の ﹀ から通常の実行に切り替えられる）．</p>
 <p><img src="images/vscode/vscode_run_button.png" alt="image" /></p></li>
 <li><p>しばらくすると，デバッグコンソールにデバッグメッセージとともに，プログラムの出力</p>
 <pre><code>Hello, World!</code></pre>
-<p>が表示される．最初の実行では「実行とデバッグ」にサイドバーが切り替わるかもしれないが，アクティビティーバーの最上部のエクスプローラーを選択すると戻すことができる．</p>
-<p><img src="images/vscode/vscode_debug_console.png" alt="image" /></p>
+<p>が表示される．最初の実行では「実行とデバッグ」にサイドバーが切り替わるかもしれないが，アクティビティーバー（一番左にあるアイコンが並んでいるバー）の一番上のアイコン（マウスをホバーすると「エクスプローラー」と出るもの）を選択すると戻すことができる．メニューの「表示」→「エクスプローラー」を選択したのでもよい．</p>
+<p><img src="images/vscode/vscode_debug_console.png" alt="より詳しくは，画面下部のデバッグコンソールに水色のデバッグメッセージとともに青色で&quot;Hello World&quot;が表示される．" /></p>
 <div class="note">
 <div class="title">
 <p>Note</p>
