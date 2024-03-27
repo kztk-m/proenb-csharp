@@ -41,7 +41,7 @@
                <h1>第0回 環境構築1（C#/F#共通）</h1>
              
             
-               <p class="last-update">最終更新: 2024-03-18 12:04:00</p> 
+               <p class="last-update">最終更新: 2024-03-27 19:44:26</p> 
             
             <div class="qnav">
               <ul>
@@ -150,6 +150,22 @@ C#演習の第5週・第6週目の課題を進めるには<a href="./setup_gui.h
 </div>
 <p>これを入れると C#プロジェクトを開いた場合もIonideのサイドバーに勝手切り替わるので，<strong>C#演習の間は無効化推奨</strong>．無効にするには，左の歯車アイコンをクリックし「拡張機能」を選択し，その後サイドバーで当該拡張機能の右下の歯車アイコンをクリックし表示されるメニューから「無効にする」を選択する（有効にする際も最後に「有効にする」を選択する以外は同様）．</p>
 </div></li>
+<li><div id="command_code_install">
+<p>（オプショナル &amp; Macの場合）コマンドパレット （Command + Shift + Pを押すと出てくる）から，</p>
+</div>
+<pre><code>シェル コマンド: PATH 内に 'code' コマンドをインストールします
+Shell Command: Install 'code' command in PATH</code></pre>
+<p>を選択し（当該コマンドは"Shell C"ぐらいまで入力した出てくるはず），<code>code</code>コマンドをインストールする．これによりターミナルから<code>code FOLDER</code>とすることでVSCodeを起動できるようになる．</p>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p><a href="https://code.visualstudio.com/docs/setup/mac#_launching-from-the-command-line">公式ドキュメント</a>によると，</p>
+<blockquote>
+<p>Restart the terminal for the new $PATH value to take effect. You'll be able to type 'code .' in any folder to start editing files in that folder.</p>
+</blockquote>
+<p>とあるが，私の環境だと<code>Shell Command: Install 'code' command in PATH</code>をすることで，<code>/usr/local/bin</code>以下に実行形式ファイル<code>code</code>がインストールされた（そして記述に反して環境変数<code>PATH</code>は変更されなかった）ので，もともと<code>/usr/local/bin</code>がパスに通っているのならばターミナルの再起動は必要がないかもしれない．</p>
+</div></li>
 </ol>
 <h3 id="動作確認-1">動作確認</h3>
 <div class="note">
@@ -169,7 +185,7 @@ C#演習の第5週・第6週目の課題を進めるには<a href="./setup_gui.h
 </div>
 <ul>
 <li><dl>
-<dt>方法1：ターミナル上で，<a href="#check_dotnetsdk_install">上に書いた</a>ように<code>dotnet new console -o HelloWorldCS</code>で適当なプロジェクト（ここでは<code>HelloWorldCS</code>）を作成し，その後<code>code HelloWorldCS</code>でVSCodeを開く．</dt>
+<dt>方法1：ターミナル上で，<a href="#check_dotnetsdk_install">上に書いた</a>ように<code>dotnet new console -o HelloWorldCS</code>で適当なプロジェクト（ここでは<code>HelloWorldCS</code>）を作成し，その後<code>code HelloWorldCS</code>でVSCodeを開く（Macの場合は<code>code</code>コマンドの<a href="#command_code_install">インストールが必要</a>）．</dt>
 <dd>
 <p>少し待つとC# Dev Kitがプロジェクトを認識する（「エクスプローラー」サイドバーに「ソリューション エクスプローラー」が増える）．</p>
 </dd>
