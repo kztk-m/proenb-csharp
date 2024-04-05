@@ -41,7 +41,7 @@
                <h1>第3回 コレクション・ジェネリクス</h1>
              
             
-               <p class="last-update">最終更新: 2023-05-11 12:13:39</p> 
+               <p class="last-update">最終更新: 2024-04-05 15:37:16</p> 
             
             <div class="qnav">
               <ul>
@@ -76,79 +76,79 @@
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>       <span class="co">// intの配列型の nums の宣言．nums は要素5の配列．</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 一般に各要素の型が T であるような配列の型は T[]．</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>       <span class="co">// new T[n] で要素数がnであるような配列オブジェクトを生成できる．</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>       <span class="dt">int</span><span class="op">[]</span> nums <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">5</span><span class="op">];</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">// intの配列型の nums の宣言．nums は要素5の配列．</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 一般に各要素の型が T であるような配列の型は T[]．</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">// new T[n] で要素数がnであるような配列オブジェクトを生成できる．</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span><span class="op">[]</span> nums <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">5</span><span class="op">];</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 配列の各要素への代入</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>       nums<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>       nums<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>       nums<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>       nums<span class="op">[</span><span class="dv">3</span><span class="op">]</span> <span class="op">=</span> <span class="dv">4</span><span class="op">;</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>       nums<span class="op">[</span><span class="dv">4</span><span class="op">]</span> <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 配列の各要素への代入</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        nums<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        nums<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        nums<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="op">=</span> <span class="dv">3</span><span class="op">;</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        nums<span class="op">[</span><span class="dv">3</span><span class="op">]</span> <span class="op">=</span> <span class="dv">4</span><span class="op">;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        nums<span class="op">[</span><span class="dv">4</span><span class="op">]</span> <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>       <span class="co">// nums[5] = 6 は例外発生．</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="co">// nums[5] = 6 は例外発生．</span></span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 各要素を表示する．numsの要素数は nums.Length で取得可．</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>       <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> nums<span class="op">.</span><span class="fu">Length</span><span class="op">;</span> i<span class="op">++</span> <span class="op">)</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>       <span class="op">{</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>          <span class="co">// nums[i] は nums の第i要素</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>          Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;nums[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> nums<span class="op">[</span>i<span class="op">]);</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 各要素を表示する．numsの要素数は nums.Length で取得可．</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> nums<span class="op">.</span><span class="fu">Length</span><span class="op">;</span> i<span class="op">++</span> <span class="op">)</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>            <span class="co">// nums[i] は nums の第i要素</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;nums[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> nums<span class="op">[</span>i<span class="op">]);</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 中括弧を用いると配列の生成時に要素を初期化可．</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>       <span class="co">// この場合は要素数を省略できる．書く場合は中括弧の中身の要素数と一致しなければならない．</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>       <span class="dt">int</span><span class="op">[]</span> nums2 <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[]</span> <span class="op">{</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span> <span class="op">};</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 中括弧を用いると配列の生成時に要素を初期化可．</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="co">// この場合は要素数を省略できる．書く場合は中括弧の中身の要素数と一致しなければならない．</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span><span class="op">[]</span> nums2 <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[]</span> <span class="op">{</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span> <span class="op">};</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 要素について繰り返しを行いたければ foreach 文 を使用可能</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>       <span class="kw">foreach</span> <span class="op">(</span><span class="dt">int</span> n <span class="kw">in</span> nums2<span class="op">)</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>       <span class="op">{</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>          Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>n<span class="op">);</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 要素について繰り返しを行いたければ foreach 文 を使用可能</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        <span class="kw">foreach</span> <span class="op">(</span><span class="dt">int</span> n <span class="kw">in</span> nums2<span class="op">)</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>n<span class="op">);</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>       <span class="co">// *宣言時は* 中括弧があれば new int[] も不要</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>       <span class="dt">int</span><span class="op">[]</span> nums3 <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">};</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="co">// *宣言時は* 中括弧があれば new int[] も不要</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span><span class="op">[]</span> nums3 <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">};</span></span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 多次元配列（ここでは二次元）の例</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>       <span class="dt">double</span><span class="op">[,]</span> mat1 <span class="op">=</span> <span class="op">{</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">},</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span><span class="dv">5</span><span class="op">,</span><span class="dv">6</span><span class="op">}</span> <span class="op">};</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 多次元配列（ここでは二次元）の例</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>        <span class="dt">double</span><span class="op">[,]</span> mat1 <span class="op">=</span> <span class="op">{</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">},</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span><span class="dv">5</span><span class="op">,</span><span class="dv">6</span><span class="op">}</span> <span class="op">};</span></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>       <span class="co">// Length は要素数．</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;mat1.Length = &quot;</span> <span class="op">+</span> mat1<span class="op">.</span><span class="fu">Length</span> <span class="op">);</span> <span class="co">// mat1.Length = 6</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Length は要素数．</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;mat1.Length = &quot;</span> <span class="op">+</span> mat1<span class="op">.</span><span class="fu">Length</span> <span class="op">);</span> <span class="co">// mat1.Length = 6</span></span>
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 配列 a の次元数は a.Rank</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;nums.Rank = &quot;</span> <span class="op">+</span> nums<span class="op">.</span><span class="fu">Rank</span> <span class="op">);</span> <span class="co">// nums.Rank = 1</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;mat1.Rank = &quot;</span> <span class="op">+</span> mat1<span class="op">.</span><span class="fu">Rank</span> <span class="op">);</span> <span class="co">// mat1.Rank = 2</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 配列 a の次元数は a.Rank</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;nums.Rank = &quot;</span> <span class="op">+</span> nums<span class="op">.</span><span class="fu">Rank</span> <span class="op">);</span> <span class="co">// nums.Rank = 1</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;mat1.Rank = &quot;</span> <span class="op">+</span> mat1<span class="op">.</span><span class="fu">Rank</span> <span class="op">);</span> <span class="co">// mat1.Rank = 2</span></span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 第d次元の要素数は GetLength(d) で取得可</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;mat1.GetLength(0) = &quot;</span> <span class="op">+</span> mat1<span class="op">.</span><span class="fu">GetLength</span><span class="op">(</span><span class="dv">0</span><span class="op">)</span> <span class="op">);</span> <span class="co">// mat1.GetLength(0) = 2</span></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;mat1.GetLength(1) = &quot;</span> <span class="op">+</span> mat1<span class="op">.</span><span class="fu">GetLength</span><span class="op">(</span><span class="dv">1</span><span class="op">)</span> <span class="op">);</span> <span class="co">// mat1.GetLength(1) = 3</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 第d次元の要素数は GetLength(d) で取得可</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;mat1.GetLength(0) = &quot;</span> <span class="op">+</span> mat1<span class="op">.</span><span class="fu">GetLength</span><span class="op">(</span><span class="dv">0</span><span class="op">)</span> <span class="op">);</span> <span class="co">// mat1.GetLength(0) = 2</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;mat1.GetLength(1) = &quot;</span> <span class="op">+</span> mat1<span class="op">.</span><span class="fu">GetLength</span><span class="op">(</span><span class="dv">1</span><span class="op">)</span> <span class="op">);</span> <span class="co">// mat1.GetLength(1) = 3</span></span>
 <span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>       <span class="dt">double</span><span class="op">[,]</span> mat2 <span class="op">=</span> <span class="kw">new</span> <span class="dt">double</span><span class="op">[</span> mat1<span class="op">.</span><span class="fu">GetLength</span><span class="op">(</span><span class="dv">1</span><span class="op">),</span> mat1<span class="op">.</span><span class="fu">GetLength</span><span class="op">(</span><span class="dv">0</span><span class="op">)</span> <span class="op">];</span></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 転置する</span></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>       <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> mat1<span class="op">.</span><span class="fu">GetLength</span><span class="op">(</span><span class="dv">0</span><span class="op">)</span> <span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>       <span class="op">{</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>          <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> mat1<span class="op">.</span><span class="fu">GetLength</span><span class="op">(</span><span class="dv">1</span><span class="op">)</span> <span class="op">;</span> j<span class="op">++)</span></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>          <span class="op">{</span></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>              mat2<span class="op">[</span>j<span class="op">,</span>i<span class="op">]</span> <span class="op">=</span> mat1<span class="op">[</span>i<span class="op">,</span>j<span class="op">];</span></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>          <span class="op">}</span></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>        <span class="dt">double</span><span class="op">[,]</span> mat2 <span class="op">=</span> <span class="kw">new</span> <span class="dt">double</span><span class="op">[</span> mat1<span class="op">.</span><span class="fu">GetLength</span><span class="op">(</span><span class="dv">1</span><span class="op">),</span> mat1<span class="op">.</span><span class="fu">GetLength</span><span class="op">(</span><span class="dv">0</span><span class="op">)</span> <span class="op">];</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 転置する</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>        <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> mat1<span class="op">.</span><span class="fu">GetLength</span><span class="op">(</span><span class="dv">0</span><span class="op">)</span> <span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>            <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> mat1<span class="op">.</span><span class="fu">GetLength</span><span class="op">(</span><span class="dv">1</span><span class="op">)</span> <span class="op">;</span> j<span class="op">++)</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>                mat2<span class="op">[</span>j<span class="op">,</span>i<span class="op">]</span> <span class="op">=</span> mat1<span class="op">[</span>i<span class="op">,</span>j<span class="op">];</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>mat1<span class="op">.</span><span class="fu">ToString</span><span class="op">());</span> <span class="co">// 残念ながら ToString()はあまりよきにはからってくれない</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>mat1<span class="op">.</span><span class="fu">ToString</span><span class="op">());</span> <span class="co">// 残念ながら ToString()はあまりよきにはからってくれない</span></span>
 <span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>       <span class="co">// mat2を表示する．</span></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>       <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> mat2<span class="op">.</span><span class="fu">GetLength</span><span class="op">(</span><span class="dv">0</span><span class="op">)</span> <span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>       <span class="op">{</span></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>          <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> mat2<span class="op">.</span><span class="fu">GetLength</span><span class="op">(</span><span class="dv">1</span><span class="op">)</span> <span class="op">;</span> j<span class="op">++)</span></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>          <span class="op">{</span></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>              <span class="kw">if</span> <span class="op">(</span>j <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>              <span class="op">{</span></span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>                  Console<span class="op">.</span><span class="fu">Write</span><span class="op">(</span><span class="st">&quot;, &quot;</span><span class="op">);</span></span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>              <span class="op">}</span></span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>              Console<span class="op">.</span><span class="fu">Write</span><span class="op">(</span>mat2<span class="op">[</span>i<span class="op">,</span>j<span class="op">]);</span></span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>          <span class="op">}</span></span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>          Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>        <span class="co">// mat2を表示する．</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>        <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> mat2<span class="op">.</span><span class="fu">GetLength</span><span class="op">(</span><span class="dv">0</span><span class="op">)</span> <span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>            <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> mat2<span class="op">.</span><span class="fu">GetLength</span><span class="op">(</span><span class="dv">1</span><span class="op">)</span> <span class="op">;</span> j<span class="op">++)</span></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span></span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>                <span class="kw">if</span> <span class="op">(</span>j <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>                <span class="op">{</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>                    Console<span class="op">.</span><span class="fu">Write</span><span class="op">(</span><span class="st">&quot;, &quot;</span><span class="op">);</span></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>                <span class="op">}</span></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>                Console<span class="op">.</span><span class="fu">Write</span><span class="op">(</span>mat2<span class="op">[</span>i<span class="op">,</span>j<span class="op">]);</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>なお，オブジェクトの配列や配列の配列も作ることができる．</p>
@@ -158,30 +158,30 @@
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">override</span> <span class="dt">string</span> <span class="fu">ToString</span><span class="op">()</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>       <span class="kw">return</span> <span class="st">&quot;It's me, MyObject.&quot;</span><span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> <span class="st">&quot;It's me, MyObject.&quot;</span><span class="op">;</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ArrayExample2</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>       <span class="co">// MyObject の配列</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>       MyObject<span class="op">[]</span> myobjects <span class="op">=</span> <span class="op">{</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>          <span class="kw">new</span> <span class="fu">MyObject</span><span class="op">(),</span> <span class="kw">new</span> <span class="fu">MyObject</span><span class="op">(),</span> <span class="kw">new</span> <span class="fu">MyObject</span><span class="op">()</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>       <span class="op">};</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">// MyObject の配列</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        MyObject<span class="op">[]</span> myobjects <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            <span class="kw">new</span> <span class="fu">MyObject</span><span class="op">(),</span> <span class="kw">new</span> <span class="fu">MyObject</span><span class="op">(),</span> <span class="kw">new</span> <span class="fu">MyObject</span><span class="op">()</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="op">};</span></span>
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> myobjects<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">);</span> <span class="co">// It's me, MyObject.</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> myobjects<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">);</span> <span class="co">// It's me, MyObject.</span></span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>       <span class="co">// int[] の 配列（構文に注意）</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>       <span class="dt">int</span><span class="op">[][]</span> arrayOfArrays <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">3</span><span class="op">][];</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="co">// int[] の 配列（構文に注意）</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span><span class="op">[][]</span> arrayOfArrays <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[</span><span class="dv">3</span><span class="op">][];</span></span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 各要素の配列のサイズは違っていてもよい．</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>       arrayOfArrays<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[]</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">}</span> <span class="op">;</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>       arrayOfArrays<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[]</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">};</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>       arrayOfArrays<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[]</span> <span class="op">{</span><span class="dv">6</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">9</span><span class="op">};</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>       <span class="co">// arrayOfArrays[1] = {4,5} は構文エラー．new int[]の部分が省略できるのは宣言時だけ．</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 各要素の配列のサイズは違っていてもよい．</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        arrayOfArrays<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[]</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">}</span> <span class="op">;</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        arrayOfArrays<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[]</span> <span class="op">{</span><span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">};</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        arrayOfArrays<span class="op">[</span><span class="dv">2</span><span class="op">]</span> <span class="op">=</span> <span class="kw">new</span> <span class="dt">int</span><span class="op">[]</span> <span class="op">{</span><span class="dv">6</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">9</span><span class="op">};</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        <span class="co">// arrayOfArrays[1] = {4,5} は構文エラー．new int[]の部分が省略できるのは宣言時だけ．</span></span>
 <span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> arrayOfArrays<span class="op">[</span><span class="dv">1</span><span class="op">][</span><span class="dv">1</span><span class="op">]</span> <span class="op">);</span> <span class="co">// 5</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> arrayOfArrays<span class="op">[</span><span class="dv">1</span><span class="op">][</span><span class="dv">1</span><span class="op">]</span> <span class="op">);</span> <span class="co">// 5</span></span>
 <span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <div class="note">
@@ -193,53 +193,57 @@
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ArrayExample3</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>   <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>       <span class="dt">int</span><span class="op">[]</span> a <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">};</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>       <span class="dt">int</span><span class="op">[]</span> b <span class="op">=</span> a<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span><span class="op">[]</span> a <span class="op">=</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">};</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="dt">int</span><span class="op">[]</span> b <span class="op">=</span> a<span class="op">;</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>       a<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="dv">22</span><span class="op">;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        a<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="dv">22</span><span class="op">;</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>       <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> b<span class="op">.</span><span class="fu">Length</span><span class="op">;</span> i<span class="op">++)</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>       <span class="op">{</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>          Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;b[i] = &quot;</span> <span class="op">+</span> b<span class="op">[</span>i<span class="op">]);</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 出力：</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>       <span class="co">// b[0] = 1</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>       <span class="co">// b[1] = 22</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>       <span class="co">// b[2] = 3</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> b<span class="op">.</span><span class="fu">Length</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;b[i] = &quot;</span> <span class="op">+</span> b<span class="op">[</span>i<span class="op">]);</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 出力：</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="co">// b[0] = 1</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="co">// b[1] = 22</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="co">// b[2] = 3</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>これは<code>a</code>や<code>b</code>の値が配列そのものではなく配列への参照であり，それぞれ同じ配列への参照であるためである．C#においては，こうした，その型の値が実体そのものでなく実体への参照であるような型を参照型（reference type）といい，たとえば配列型やクラス型，そして文字列型は参照型である．一方で，<code>int</code>や<code>bool</code>等はその型の値は実体（整数や真偽値）そのものである（ように振る舞う）．そのような型を値型（value type）という．</p>
-<p>複合的な型やユーザ定義型が必ずしも参照型ということはなく，組型（tuple type）や構造体型（structure type）は値型となる（いずれも本演習では未登場）．本演習ではこの区別には深入りしないが，興味のある人は<a href>https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/types/</a>や，そこから辿れる文章等を調べてみるとよい．</p>
+<p>複合的な型やユーザ定義型が必ずしも参照型ということはなく，組型（tuple type）や構造体型（structure type）は値型となる（いずれも本演習では未登場）．本演習ではこの区別には深入りしないが，興味のある人は<a href="https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/types/" class="uri">https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/types/</a>や，そこから辿れる文章等を調べてみるとよい．</p>
 </div>
 <h2 id="プロパティproperty">プロパティ（property）</h2>
 <p>上で <code>nums.Length</code> や <code>nums.Rank</code> は一見フィールドに見える．が，実際にはこれらは<strong>プロパティ</strong>と呼ばれるものである．</p>
-<p>インスタンス<code>o</code>のプロパティ<code>P</code>はフィールドのように<code>o.P</code>で読み出したり<code>o.P = e</code>で書き込んだりできる．しかし，フィールドと異なるのはプロパティは読み出し専用（read-only）は書き込み専用（write-only）にでき，またメソッドのように読み出しや書き込みの際に処理を実行できる．</p>
+<p>インスタンス<code>o</code>のプロパティ<code>P</code>はフィールドのように<code>o.P</code>で読み出したり<code>o.P = e</code>で書き込んだりできる．しかし，フィールドと異なるのはプロパティは読み出しや書き込みのアクセス範囲を独立して指定することができ（特に読み出し専用や書き込み専用にできる），またメソッドのように読み出しや書き込みの際に処理を実行できる．</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Student</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> score <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> Score <span class="op">{</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>       <span class="kw">get</span> <span class="op">{</span> <span class="kw">return</span> score<span class="op">;</span>  <span class="op">}</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>       <span class="kw">set</span> <span class="op">{</span> score <span class="op">=</span> value<span class="op">;</span> <span class="op">}</span> <span class="co">// value は o.Score = e の e の値を指す変数</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// フィールドと同様の動作をするプロパティについては，getやsetの内容を省略可</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">// auto-implemented property と呼ばれる．</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">string</span> Name <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="kw">set</span><span class="op">;</span> <span class="op">}</span> <span class="op">=</span> <span class="st">&quot;&quot;</span><span class="op">;</span> <span class="co">// auto-implemented propertyには初期値を指定可</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> PropertyExample</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        Student s <span class="op">=</span> <span class="kw">new</span> <span class="fu">Student</span><span class="op">();</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        s<span class="op">.</span><span class="fu">Name</span>  <span class="op">=</span> <span class="st">&quot;Taro Tohoku&quot;</span><span class="op">;</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        s<span class="op">.</span><span class="fu">Score</span> <span class="op">=</span> <span class="dv">95</span><span class="op">;</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> s<span class="op">.</span><span class="fu">Name</span> <span class="op">+</span> <span class="st">&quot;: &quot;</span> <span class="op">+</span> s<span class="op">.</span><span class="fu">Score</span> <span class="op">);</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Scoreプロパティ</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> Score <span class="op">{</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 読み出し時に呼ばれる処理</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>        <span class="kw">get</span> <span class="op">{</span> <span class="kw">return</span> score<span class="op">;</span>  <span class="op">}</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 書き込み時に呼ばれる処理</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="kw">set</span> <span class="op">{</span> score <span class="op">=</span> value<span class="op">;</span> <span class="op">}</span> <span class="co">// value は o.Score = e の e の値を指す変数</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Nameプロパティ</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">// フィールドと同様の動作をするプロパティについては，getやsetの内容を省略可</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">// auto-implemented property と呼ばれる．</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">string</span> Name <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="kw">set</span><span class="op">;</span> <span class="op">}</span> <span class="op">=</span> <span class="st">&quot;&quot;</span><span class="op">;</span> <span class="co">// auto-implemented propertyには初期値を指定可</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> PropertyExample</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        Student s <span class="op">=</span> <span class="kw">new</span> <span class="fu">Student</span><span class="op">();</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        s<span class="op">.</span><span class="fu">Name</span>  <span class="op">=</span> <span class="st">&quot;Taro Tohoku&quot;</span><span class="op">;</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>        s<span class="op">.</span><span class="fu">Score</span> <span class="op">=</span> <span class="dv">95</span><span class="op">;</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> s<span class="op">.</span><span class="fu">Name</span> <span class="op">+</span> <span class="st">&quot;: &quot;</span> <span class="op">+</span> s<span class="op">.</span><span class="fu">Score</span> <span class="op">);</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>プロパティにすることにより，たとえば代入される値の内容を検査し適切に例外を投げることができるようになる．</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -247,18 +251,18 @@
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> score <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> Score <span class="op">{</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>       <span class="kw">get</span> <span class="op">{</span> <span class="kw">return</span> score<span class="op">;</span>  <span class="op">}</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>       <span class="kw">set</span> <span class="op">{</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>           <span class="kw">if</span> <span class="op">(</span><span class="dv">0</span> <span class="op">&lt;=</span> value <span class="op">&amp;&amp;</span> value <span class="op">&lt;=</span> <span class="dv">100</span><span class="op">)</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>           <span class="op">{</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>               score <span class="op">=</span> value<span class="op">;</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>           <span class="op">}</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>           <span class="kw">else</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>           <span class="op">{</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>               <span class="co">// 例外（次回説明）を投げる．</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>               <span class="kw">throw</span> <span class="kw">new</span> <span class="fu">ArgumentException</span><span class="op">(</span><span class="st">&quot;Scoreは0から100までの範囲内の整数でなければならない&quot;</span><span class="op">);</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>           <span class="op">}</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">get</span> <span class="op">{</span> <span class="kw">return</span> score<span class="op">;</span>  <span class="op">}</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">set</span> <span class="op">{</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>            <span class="kw">if</span> <span class="op">(</span><span class="dv">0</span> <span class="op">&lt;=</span> value <span class="op">&amp;&amp;</span> value <span class="op">&lt;=</span> <span class="dv">100</span><span class="op">)</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                score <span class="op">=</span> value<span class="op">;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>            <span class="kw">else</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>                <span class="co">// 例外（次回説明）を投げる．</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>                <span class="kw">throw</span> <span class="kw">new</span> <span class="fu">ArgumentException</span><span class="op">(</span><span class="st">&quot;Scoreは0から100までの範囲内の整数でなければならない&quot;</span><span class="op">);</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">string</span> Name <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="kw">set</span><span class="op">;</span> <span class="op">}</span> <span class="op">=</span> <span class="st">&quot;&quot;</span><span class="op">;</span></span>
@@ -280,46 +284,46 @@
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> score <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> Score <span class="op">{</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>       <span class="kw">get</span> <span class="op">{</span> <span class="kw">return</span> score<span class="op">;</span>  <span class="op">}</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>       <span class="kw">set</span> <span class="op">{</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>           <span class="kw">if</span> <span class="op">(</span><span class="dv">0</span> <span class="op">&lt;=</span> value <span class="op">&amp;&amp;</span> value <span class="op">&lt;=</span> <span class="dv">100</span><span class="op">)</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>           <span class="op">{</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>               score <span class="op">=</span> value<span class="op">;</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>           <span class="op">}</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>           <span class="kw">else</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>           <span class="op">{</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>               <span class="co">// 例外（次回説明）を投げる．</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>               <span class="kw">throw</span> <span class="kw">new</span> <span class="fu">ArgumentException</span><span class="op">(</span><span class="st">&quot;Scoreは0から100までの範囲内の整数でなければならない&quot;</span><span class="op">);</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>           <span class="op">}</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">get</span> <span class="op">{</span> <span class="kw">return</span> score<span class="op">;</span>  <span class="op">}</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">set</span> <span class="op">{</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>            <span class="kw">if</span> <span class="op">(</span><span class="dv">0</span> <span class="op">&lt;=</span> value <span class="op">&amp;&amp;</span> value <span class="op">&lt;=</span> <span class="dv">100</span><span class="op">)</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>                score <span class="op">=</span> value<span class="op">;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>            <span class="kw">else</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>                <span class="co">// 例外（次回説明）を投げる．</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>                <span class="kw">throw</span> <span class="kw">new</span> <span class="fu">ArgumentException</span><span class="op">(</span><span class="st">&quot;Scoreは0から100までの範囲内の整数でなければならない&quot;</span><span class="op">);</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">string</span> Name <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="kw">set</span><span class="op">;</span> <span class="op">}</span> <span class="op">=</span> <span class="st">&quot;&quot;</span><span class="op">;</span></span>
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">string</span> ScoreRank</span>
 <span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>       <span class="co">// getのみ定義する．</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>       <span class="kw">get</span> <span class="op">{</span></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>           <span class="kw">if</span> <span class="op">(</span>Score <span class="op">&gt;=</span> <span class="dv">90</span><span class="op">)</span></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>           <span class="op">{</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>               <span class="kw">return</span> <span class="st">&quot;AA&quot;</span><span class="op">;</span></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>           <span class="op">}</span></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>           <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span>Score <span class="op">&gt;=</span> <span class="dv">80</span><span class="op">)</span></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>           <span class="op">{</span></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>               <span class="kw">return</span> <span class="st">&quot;A&quot;</span><span class="op">;</span></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>           <span class="op">}</span></span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>           <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span>Score <span class="op">&gt;=</span> <span class="dv">70</span><span class="op">)</span></span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>           <span class="op">{</span></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>               <span class="kw">return</span> <span class="st">&quot;B&quot;</span><span class="op">;</span></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>           <span class="op">}</span></span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>           <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span>Score <span class="op">&gt;=</span> <span class="dv">60</span><span class="op">)</span></span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>           <span class="op">{</span></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>               <span class="kw">return</span> <span class="st">&quot;C&quot;</span><span class="op">;</span></span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>           <span class="op">}</span></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>           <span class="kw">else</span></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>           <span class="op">{</span></span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>               <span class="kw">return</span> <span class="st">&quot;D&quot;</span><span class="op">;</span></span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>           <span class="op">}</span></span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        <span class="co">// getのみ定義する．</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        <span class="kw">get</span> <span class="op">{</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>            <span class="kw">if</span> <span class="op">(</span>Score <span class="op">&gt;=</span> <span class="dv">90</span><span class="op">)</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>                <span class="kw">return</span> <span class="st">&quot;AA&quot;</span><span class="op">;</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>            <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span>Score <span class="op">&gt;=</span> <span class="dv">80</span><span class="op">)</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>                <span class="kw">return</span> <span class="st">&quot;A&quot;</span><span class="op">;</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>            <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span>Score <span class="op">&gt;=</span> <span class="dv">70</span><span class="op">)</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>                <span class="kw">return</span> <span class="st">&quot;B&quot;</span><span class="op">;</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>            <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span>Score <span class="op">&gt;=</span> <span class="dv">60</span><span class="op">)</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>                <span class="kw">return</span> <span class="st">&quot;C&quot;</span><span class="op">;</span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>            <span class="kw">else</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>                <span class="kw">return</span> <span class="st">&quot;D&quot;</span><span class="op">;</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> PropertyExample2</span>
@@ -335,7 +339,30 @@
 <p>実際に <code>Length</code> や <code>Rank</code> は配列オブジェクトの読み出し専用のプロパティである．</p>
 <p><code>set</code>のみを定義することで書き込み専用のプロパティを作成することもできる．また，<code>get</code>や<code>set</code>の前に<code>private</code>
 等のアクセス指定子を指定することで，読み出しや書き込みを行える範囲をコントロールすることも可能である．</p>
-<p><a href="./w2.html">前回</a>，<a href="w1.html">前々回</a>でいくつかのクラスは<code>T GetXXX()</code>や<code>void SetXXX(T x)</code>といったメソッドを持っていたが，こういったメソッドはプロパティとして実装することができる．</p>
+<p>「読み出し専用」なプロパティにはいくつかのバリエーションがある．場合によって使い分けよう．</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">宣言の形</th>
+<th style="text-align: left;">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>public int X { get; }</code></td>
+<td style="text-align: left;"><code>X</code>は当該クラスのコンストラクタ内でのみ変更可能</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>public int X { get; init; }</code></td>
+<td style="text-align: left;"><code>X</code>は当該クラスのコンストラクタ内と<a href="./w4.html">オブジェクト初期化子</a>でのみ変更可能</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>public int X { get; private set; }</code></td>
+<td style="text-align: left;"><code>X</code>は当該クラス内でのみ変更可能（オブジェクト初期化子では変更不可）</td>
+</tr>
+</tbody>
+</table>
+<p><a href="./w2.html%3E">前回</a>，<a href="./w1.html">前々回</a>でいくつかのクラスは<code>T GetXXX()</code>や<code>void SetXXX(T x)</code>といったメソッドを持っていたが，こういったメソッドはプロパティとして実装することができる．</p>
 <h2 id="list-t"><code>List &lt;T&gt;</code></h2>
 <p>配列は基本的ながら強力なデータ構造の一つではあるが，サイズが生成後に変更できないのは不便であることが多い．生成後のサイズを増減させたい場合は <code>System.Collections.Generic.List&lt;T&gt;</code> を用いるとよい．</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
@@ -346,86 +373,92 @@
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span></span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 要素がstring型であるようなListを作成．</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>       <span class="co">// なお，List&lt;T&gt;のTは型パラメータの名前．</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>       List<span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;</span> ns <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;();</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 要素がstring型であるようなListを作成．</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">// なお，List&lt;T&gt;のTは型パラメータの名前．</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        List<span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;</span> ns <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;();</span></span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>       ns<span class="op">.</span><span class="fu">Add</span><span class="op">(</span><span class="st">&quot;apple&quot;</span><span class="op">);</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>       ns<span class="op">.</span><span class="fu">Add</span><span class="op">(</span><span class="st">&quot;orange&quot;</span><span class="op">);</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>       ns<span class="op">.</span><span class="fu">Add</span><span class="op">(</span><span class="st">&quot;banana&quot;</span><span class="op">);</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        ns<span class="op">.</span><span class="fu">Add</span><span class="op">(</span><span class="st">&quot;apple&quot;</span><span class="op">);</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>        ns<span class="op">.</span><span class="fu">Add</span><span class="op">(</span><span class="st">&quot;orange&quot;</span><span class="op">);</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        ns<span class="op">.</span><span class="fu">Add</span><span class="op">(</span><span class="st">&quot;banana&quot;</span><span class="op">);</span></span>
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 要素を先頭から走査するにはforeach文を利用可能</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>       <span class="kw">foreach</span> <span class="op">(</span><span class="dt">string</span> n <span class="kw">in</span> ns<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>          Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>n<span class="op">);</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 要素を先頭から走査するにはforeach文を利用可能</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        <span class="kw">foreach</span> <span class="op">(</span><span class="dt">string</span> n <span class="kw">in</span> ns<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>n<span class="op">);</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>       ns<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="st">&quot;mikan&quot;</span><span class="op">;</span> <span class="co">// 配列のようにインデックスアクセス可能．</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        ns<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="st">&quot;mikan&quot;</span><span class="op">;</span> <span class="co">// 配列のようにインデックスアクセス可能．</span></span>
 <span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>       <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> ns<span class="op">.</span><span class="fu">Count</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>          Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ns[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ns<span class="op">[</span>i<span class="op">]</span> <span class="op">);</span></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> ns<span class="op">.</span><span class="fu">Count</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ns[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ns<span class="op">[</span>i<span class="op">]</span> <span class="op">);</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 指定された要素を取り除くことができる</span></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>       <span class="co">// ただし，O(Count - 要素のインデックス)時間かかる</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>       ns<span class="op">.</span><span class="fu">Remove</span><span class="op">(</span><span class="st">&quot;mikan&quot;</span><span class="op">);</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 指定された要素を取り除くことができる</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ただし，O(Count - 要素のインデックス)時間かかる</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>        ns<span class="op">.</span><span class="fu">Remove</span><span class="op">(</span><span class="st">&quot;mikan&quot;</span><span class="op">);</span></span>
 <span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;After ns.Remove(</span><span class="sc">\&quot;</span><span class="st">mikan</span><span class="sc">\&quot;</span><span class="st">)&quot;</span><span class="op">);</span></span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>       <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> ns<span class="op">.</span><span class="fu">Count</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>          Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ns[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ns<span class="op">[</span>i<span class="op">]</span> <span class="op">);</span></span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;After ns.Remove(</span><span class="sc">\&quot;</span><span class="st">mikan</span><span class="sc">\&quot;</span><span class="st">)&quot;</span><span class="op">);</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>        <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> ns<span class="op">.</span><span class="fu">Count</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ns[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ns<span class="op">[</span>i<span class="op">]</span> <span class="op">);</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 指定されたインデックスの要素を取り除ける</span></span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>       <span class="co">// ただし，O(Count - 要素のインデックス)時間かかる</span></span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>       ns<span class="op">.</span><span class="fu">RemoveAt</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;After ns.RemoveAt(1)&quot;</span><span class="op">);</span></span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>       <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> ns<span class="op">.</span><span class="fu">Count</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>          Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ns[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ns<span class="op">[</span>i<span class="op">]</span> <span class="op">);</span></span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 指定されたインデックスの要素を取り除ける</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ただし，O(Count - 要素のインデックス)時間かかる</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>        ns<span class="op">.</span><span class="fu">RemoveAt</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;After ns.RemoveAt(1)&quot;</span><span class="op">);</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>        <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> ns<span class="op">.</span><span class="fu">Count</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ns[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ns<span class="op">[</span>i<span class="op">]</span> <span class="op">);</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 指定されたインデックスの要素を追加できる</span></span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>       <span class="co">// ただし，最良でもO(Count - 要素のインデックス)時間，最悪O(Count)時間かかる．</span></span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>       ns<span class="op">.</span><span class="fu">Insert</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="st">&quot;melon&quot;</span><span class="op">);</span></span>
-<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;After ns.Insert(0,</span><span class="sc">\&quot;</span><span class="st">melon</span><span class="sc">\&quot;</span><span class="st">)&quot;</span><span class="op">);</span></span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>       <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> ns<span class="op">.</span><span class="fu">Count</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>          Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ns[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ns<span class="op">[</span>i<span class="op">]</span> <span class="op">);</span></span>
-<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 指定されたインデックスの要素を追加できる</span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ただし，最良でもO(Count - 要素のインデックス)時間，最悪O(Count)時間かかる．</span></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>        ns<span class="op">.</span><span class="fu">Insert</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="st">&quot;melon&quot;</span><span class="op">);</span></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;After ns.Insert(0,</span><span class="sc">\&quot;</span><span class="st">melon</span><span class="sc">\&quot;</span><span class="st">)&quot;</span><span class="op">);</span></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>        <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> ns<span class="op">.</span><span class="fu">Count</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ns[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ns<span class="op">[</span>i<span class="op">]</span> <span class="op">);</span></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 要素がintであるようなListを作成．</span></span>
-<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>       List<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> ms1 <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> <span class="op">();</span></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 要素がintであるようなListを作成．</span></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>        List<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> ms1 <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> <span class="op">();</span></span>
 <span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>       List<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> ms2<span class="op">;</span></span>
-<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 作成時の要素を指定可能</span></span>
-<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>       ms2 <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">};</span></span>
-<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>       <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> ms2<span class="op">.</span><span class="fu">Count</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ms2[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ms2<span class="op">[</span>i<span class="op">]</span> <span class="op">);</span></span>
-<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>        List<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> ms2<span class="op">;</span></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 作成時の要素を指定可能</span></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>        ms2 <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">};</span></span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>        <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> ms2<span class="op">.</span><span class="fu">Count</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ms2[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ms2<span class="op">[</span>i<span class="op">]</span> <span class="op">);</span></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 配列のときと同様の書き方はできない（以下はエラーになる）</span></span>
-<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>       <span class="co">// List&lt;int&gt; ms3 = {1, 2, 3};</span></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 配列のときと同様の書き方はできない（以下はエラーになる）</span></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>        <span class="co">// List&lt;int&gt; ms3 = {1, 2, 3};</span></span>
 <span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <h3 id="上記で出てきたメソッドプロパティコンストラクタのまとめ">上記で出てきたメソッド，プロパティ，コンストラクタのまとめ</h3>
 <table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">名前</th>
+<th style="text-align: left;">説明</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><code>List&lt;T&gt;()</code></td>
-<td>ジェネリッククラス（後述）<code>List&lt;T&gt;</code>のコンストラクタ．0要素のリストを作成する．</td>
+<td style="text-align: left;"><code>List&lt;T&gt;()</code></td>
+<td style="text-align: left;">ジェネリッククラス（後述）<code>List&lt;T&gt;</code>のコンストラクタ．0要素のリストを作成する．</td>
 </tr>
 <tr class="even">
-<td><code>void Add(T)</code></td>
-<td>リストの末尾に要素を追加する．</td>
+<td style="text-align: left;"><code>void Add(T)</code></td>
+<td style="text-align: left;">リストの末尾に要素を追加する．</td>
 </tr>
 <tr class="odd">
-<td><code>bool Remove(T)</code></td>
-<td>与えられた要素と同じ要素のうちもっとも最初に出現するものを取り除く．返り値は削除に成功した場合は<code>true</code>，そうでなければ（典型的には与えられた要素がリストに存在しない場合）<code>false</code>．</td>
+<td style="text-align: left;"><code>bool Remove(T)</code></td>
+<td style="text-align: left;">与えられた要素と同じ要素のうちもっとも最初に出現するものを取り除く．返り値は削除に成功した場合は<code>true</code>，そうでなければ（典型的には与えられた要素がリストに存在しない 場合）<code>false</code>．</td>
 </tr>
 <tr class="even">
-<td><code>void RemoveAt(int)</code></td>
-<td>与えられたインデックスの要素を取り除く．</td>
+<td style="text-align: left;"><code>void RemoveAt(int)</code></td>
+<td style="text-align: left;">与えられたインデックスの要素を取り除く．</td>
 </tr>
 <tr class="odd">
-<td><code>int Count</code></td>
-<td>リストの要素数を返すプロパティ．読み出し専用．</td>
+<td style="text-align: left;"><code>int Count</code></td>
+<td style="text-align: left;">リストの要素数を返すプロパティ．読み出し専用．</td>
 </tr>
 </tbody>
 </table>
@@ -481,18 +514,24 @@
 <h2 id="練習問題">練習問題</h2>
 <p>プレイリストを管理するためのクラス <code>PlayList</code> を作成しなさい．このクラスは曲名のリスト（<code>List&lt;T&gt;</code>を用いて実装する必要はないが，してもよい）を管理し，以下のpublicなコンストラクタ・メソッドを持つ．</p>
 <table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">名前</th>
+<th style="text-align: left;">説明</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><code>PlayList(string[] titles)</code></td>
-<td>曲目が<code>titles</code>で与えらるようなプレイリストを作成するコンストラクタ．</td>
+<td style="text-align: left;"><code>PlayList(string[] titles)</code></td>
+<td style="text-align: left;">曲目が<code>titles</code>で与えらるようなプレイリストを作成するコンストラクタ．</td>
 </tr>
 <tr class="even">
-<td><code>void PrintTrack(int i)</code></td>
-<td><code>i</code>番目の曲目を標準出力に表示する．</td>
+<td style="text-align: left;"><code>void PrintTrack(int i)</code></td>
+<td style="text-align: left;"><code>i</code>番目の曲目を標準出力に表示する．</td>
 </tr>
 <tr class="odd">
-<td><code>void PrintAllTracks()</code></td>
-<td>全ての曲目を標準出力に表示する．</td>
+<td style="text-align: left;"><code>void PrintAllTracks()</code></td>
+<td style="text-align: left;">全ての曲目を標準出力に表示する．</td>
 </tr>
 </tbody>
 </table>
@@ -513,16 +552,16 @@
 <h2 id="foreach文">foreach文</h2>
 <p>上でも出てきていたが，配列や <code>List&lt;T&gt;</code>等のコレクションにはforeach文が利用可能である．</p>
 <pre style="line-height:1.3">
-<span class="kw">foreach</span> (<span class="metaname">型あるいはvar</span> <span class="metaname">変数</span> in <span class="metaname">コレクションオブジェクト</span>) <span class="metaname">繰り返される文（ループ本体）</span> 
+<span class="kw">foreach</span> (<span class="metaname">型あるいはvar</span> <span class="metaname">変数</span> in <span class="metaname">コレクションオブジェクト</span>) <span class="metaname">繰り返される文（ループ本体）</span>
 </pre>
 <p>上では</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> <span class="op">(</span><span class="dt">string</span> n <span class="kw">in</span> ns<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>n<span class="op">);</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>n<span class="op">);</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span>   </span></code></pre></div>
 <p>のような形で出てきていたが，要素の型は多くの場合はコレクションオブジェクトの型から定まると思われるので，</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> <span class="op">(</span><span class="dt">var</span> n <span class="kw">in</span> ns<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>n<span class="op">);</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span>   </span></code></pre></div>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>n<span class="op">);</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> </span></code></pre></div>
 <p>のように<code>var</code>を使うのが楽であろう．</p>
 <p>直感的には<code>foreach (var x in xs) { ... }</code>はコレクション<code>xs</code>の各要素を<code>x</code>として<code>...</code>内の処理を繰り返す．</p>
 <p>より正確な言い方をすれば，<code>foreach</code>を使用するには<code>in</code>の右に書くオブジェクトが，<code>System.Collections.Generics.IEnumerable&lt;T&gt;</code> インタフェース （か，その非ジェネリック版の<code>System.Collections.IEnumerable</code>）を実装している型である必要がある．</p>
@@ -531,7 +570,7 @@
 <p>実装の際は単に基底クラスと同様に<code>:</code>の右にインタフェース名を書けばよい．</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> A <span class="op">:</span> BaseClass<span class="op">,</span> Interface1<span class="op">,</span> Interface2 </span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>   <span class="co">// ...</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ...</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>インタフェースも継承と同じく再利用性と高める．たとえば<code>foreach</code>文はよい例であり，<code>IEnumerable&lt;T&gt;</code>（か，その非ジェネリック版の<code>IEnumerable</code>）を実装している型ならばどんな型に対しても<code>foreach</code>文を利用可能である．</p>
 <p><code>List&lt;T&gt;</code>の<code>Remove(T)</code>メソッドもインタフェースを利用している．与えられた引数が<code>IEquatable&lt;T&gt;</code>を実装しているクラスのインスタンスであれば，そのインタフェースで規定されているメソッド<code>Equals(T)</code>を使って要素の等価性を判定する．そうでなければ，仮想メソッドである<code>Object.Equals</code> メソッドが用いられる（<a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.remove?view=net-6.0#system-collections-generic-list-1-remove(-0)">参考</a>）．</p>
@@ -575,11 +614,11 @@
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        System<span class="op">.</span><span class="fu">Collections</span><span class="op">.</span><span class="fu">Generic</span><span class="op">.</span><span class="fu">List</span><span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> ns <span class="op">=</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>          <span class="kw">new</span> System<span class="op">.</span><span class="fu">Collections</span><span class="op">.</span><span class="fu">Generic</span><span class="op">.</span><span class="fu">List</span><span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;()</span> <span class="op">{</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span> <span class="op">};</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>            <span class="kw">new</span> System<span class="op">.</span><span class="fu">Collections</span><span class="op">.</span><span class="fu">Generic</span><span class="op">.</span><span class="fu">List</span><span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;()</span> <span class="op">{</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span> <span class="op">};</span></span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> ns<span class="op">.</span><span class="fu">Count</span> <span class="op">;</span> i<span class="op">++)</span></span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>           System<span class="op">.</span><span class="fu">Console</span><span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ns[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ns<span class="op">[</span>i<span class="op">]);</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>            System<span class="op">.</span><span class="fu">Console</span><span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ns[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ns<span class="op">[</span>i<span class="op">]);</span></span>
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
@@ -596,7 +635,7 @@
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>        <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> ns<span class="op">.</span><span class="fu">Count</span> <span class="op">;</span> i<span class="op">++)</span></span>
 <span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ns[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ns<span class="op">[</span>i<span class="op">]);</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ns[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ns<span class="op">[</span>i<span class="op">]);</span></span>
 <span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>

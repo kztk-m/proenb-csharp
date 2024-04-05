@@ -41,7 +41,7 @@
                <h1>第5回 課題 (2023)</h1>
              
             
-               <p class="last-update">最終更新: 2024-03-13 17:09:12</p> 
+               <p class="last-update">最終更新: 2024-04-05 15:48:27</p> 
             
             <div class="qnav">
               <ul>
@@ -73,7 +73,7 @@
 </div>
 <p>再掲：プロジェクトは一つの実行形式やライブラリを作成するためのコード等を全てまとめたものであり，ソリューションは関連するプロジェクトをまとめたもの（参考：<a href="https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2022%3E">What are solutions and projects in Visual Studio?</a>）．</p>
 </div>
-<p>適当な名前（たとえば課題3の解答なので<code>Q3</code>にするなど）のフォルダを適当な場所に作成し，
+<p><strong>指定された名前（課題5では<code>Q5</code>，課題6では<code>Q6</code>とする）</strong>のフォルダを適当な場所に作成し，
 VSCodeで作成したフォルダを開く．そして，VSCode内のターミナルで以下を実行する．</p>
 <pre class="text"><code>dotnet new etoapp -sln</code></pre>
 <h3 id="課題の実施">課題の実施</h3>
@@ -153,15 +153,19 @@ Ready</code></pre>
 <li><p>Windows 10/11であれば，「ドキュメント」（エクスプローラーの左サイドバーの「クイックアクセス」か「PC」以下から見付かるはず）フォルダ直下に<code>test.txt</code>を適当な内容で用意し，作成するアプリケーションのテキストボックスに<code>test.txt</code>を入力して"Load"ボタンを押せばその内容が表示されるようになる．</p></li>
 <li><p>Macであれば，ホームディレクトリ（Finderの左サイドバーの「よく使う項目」の自分のユーザ名を選択することで開かれるディレクトリ．ターミナルだと<code>cd</code>で移動できる箇所）直下に<code>test.txt</code>を適当な内容で用意し，作成するアプリケーションのテキストボックスに<code>test.txt</code>を入力して"Load"ボタンを押せばその内容が表示されるようになる．</p></li>
 </ul>
-<blockquote>
-<p>[!TIPS]
-テキストボックスに入力されたテキストを取得するには<code>Text</code>プロパティを用いる．テキストエリアにテキストを設定するには，当該オブジェクトの<code>Text</code>を用いる．</p>
-<p>例外処理については <code>前回 &lt;./w4.html&gt;</code>__ 参照．</p>
-</blockquote>
-<blockquote>
-<p>[!TIPS]
-ファイルが存在するかどうかを確認するには <code>File</code> クラスの static メソッド <code>Exists(string)</code> を利用する．より具体的には，<code>File.Exists(path)</code> は <code>path</code> が有効なパスで，指す先にファイルが存在しているときに，<code>true</code>を返し，そうでないときには<code>false</code>を返す．（指す先に存在しているのがディレクトリであるときも<code>false</code>となることに注意する．）</p>
-</blockquote>
+<div class="tip">
+<div class="title">
+<p>Tip</p>
+</div>
+<p>テキストボックスに入力されたテキストを取得するには<code>Text</code>プロパティを用いる．テキストエリアにテキストを設定するには，当該オブジェクトの<code>Text</code>を用いる．</p>
+<p>例外処理については<a href="./w4.html">前回</a>参照．</p>
+</div>
+<div class="tip">
+<div class="title">
+<p>Tip</p>
+</div>
+<p>ファイルが存在するかどうかを確認するには <code>File</code> クラスの static メソッド <code>Exists(string)</code> を利用する．より具体的には，<code>File.Exists(path)</code> は <code>path</code> が有効なパスで，指す先にファイルが存在しているときに，<code>true</code>を返し，そうでないときには<code>false</code>を返す．（指す先に存在しているのがディレクトリであるときも<code>false</code>となることに注意する．）</p>
+</div>
 <div class="note">
 <div class="title">
 <p>Note</p>
