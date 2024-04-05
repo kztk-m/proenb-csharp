@@ -41,7 +41,7 @@
                <h1>第1回 C#にさわってみよう</h1>
              
             
-               <p class="last-update">最終更新: 2024-03-13 16:59:35</p> 
+               <p class="last-update">最終更新: 2024-04-05 18:39:56</p> 
             
             <div class="qnav">
               <ul>
@@ -83,7 +83,7 @@
 </ul>
 </nav>
 <section class="mainbody"><h2 id="cプログラムの基本的な構造">C#プログラムの基本的な構造</h2>
-<p>さて，<code>dotnet new console -o HelloWorld -f net6.0 --langVersion 8.0</code>で作成されるテンプレートに含まれている，<code>Program.cs</code>の中身について見てみよう．</p>
+<p>まずは，<code>dotnet new console -o HelloWorldCS --langVersion 8.0</code>で作成されるテンプレートに含まれている，<code>Program.cs</code>の中身について見てみよう．</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Program.cs </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -522,7 +522,7 @@ c.GetCount() = 5</code></pre>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    d<span class="op">++;</span> <span class="co">// x &gt; 0 でないときも実行される．</span></span></code></pre></div>
 <div class="sourceCode" id="cb31"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="op">(</span>x<span class="op">)</span> </span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>   <span class="kw">if</span> <span class="op">(</span>y<span class="op">)</span> a<span class="op">++;</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="kw">else</span> b<span class="op">++;</span> <span class="co">// 内側のifに対応するelse（b++やxがtrueがyがfalseのときに実行される）</span></span></code></pre></div>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="kw">else</span> b<span class="op">++;</span> <span class="co">// 内側のifに対応するelse（b++はxがtrueでyがfalseのときに実行される）</span></span></code></pre></div>
 </div>
 <div class="note">
 <div class="title">

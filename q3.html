@@ -41,7 +41,7 @@
                <h1>第3回 課題 (2023)</h1>
              
             
-               <p class="last-update">最終更新: 2024-03-13 17:19:27</p> 
+               <p class="last-update">最終更新: 2024-04-05 17:28:45</p> 
             
             <div class="qnav">
               <ul>
@@ -120,45 +120,46 @@ VSCodeで作成したフォルダを開く．そして，VSCode内のターミ�
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>   <span class="co">// object.Equals のオーバライド</span></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>   <span class="co">// ジェネリックでないコレクションはこっちを使う場合がある？</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">override</span> <span class="dt">bool</span> <span class="fu">Equals</span><span class="op">(</span><span class="dt">object</span> o<span class="op">)</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>      <span class="co">// e as T は (T) e に近いが， (T) eと異なり T へのキャストが失敗したらnullとなる．</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>      <span class="co">// null はどこも指していない参照．</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="fu">Equals</span><span class="op">(</span>o <span class="kw">as</span> Item<span class="op">);</span></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>   <span class="co">// インタフェース System.IEquatable&lt;Item&gt; のメソッド Equals の定義</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>   <span class="co">// List&lt;Item&gt;やLinkedList&lt;Item&gt;のRemove等はこっちを使う</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="dt">bool</span> <span class="fu">Equals</span><span class="op">(</span>Item o<span class="op">)</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>      <span class="co">// &amp;&amp;の短絡を利用．oがnull のときは o.Name や o.Price は 評価されない．</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>      <span class="co">// (object)がないと，二つ下で定義した演算子が呼ばれ無限ループする</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="op">(</span><span class="dt">object</span><span class="op">)</span> o <span class="op">!=</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> Name <span class="op">==</span> o<span class="op">.</span><span class="fu">Name</span> <span class="op">&amp;&amp;</span> Price <span class="op">==</span> o<span class="op">.</span><span class="fu">Price</span><span class="op">;</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>   <span class="co">// aとbがItem型であるときに a == bと書いたときに呼ばれる．</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>   <span class="co">// aとbがItem型であるときにも a.Equals(b) は a が Itemの派生型のインスタンスであるときには</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 上のメソッドは呼ばれない場合がある．対し，a == b はこのメソッドが呼ばれることに注意．</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="kw">operator</span> <span class="op">==(</span>Item a<span class="op">,</span> Item b<span class="op">)</span></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>      <span class="kw">if</span> <span class="op">((</span><span class="dt">object</span><span class="op">)</span> a <span class="op">==</span> <span class="kw">null</span><span class="op">)</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>      <span class="op">{</span></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>            <span class="kw">return</span> <span class="op">(</span><span class="dt">object</span><span class="op">)</span> b <span class="op">==</span> <span class="kw">null</span><span class="op">;</span></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> a<span class="op">.</span><span class="fu">Equals</span><span class="op">(</span>b<span class="op">);</span></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="kw">operator</span> <span class="op">!=(</span>Item a<span class="op">,</span> Item b<span class="op">)</span></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="op">!(</span>a <span class="op">==</span> b<span class="op">);</span></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 今回は関係ないが GetHashCode も実装しないと </span></span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>   <span class="co">// HashSet や Dictionary につっこんだときの挙動が変になる．</span></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">override</span> <span class="dt">int</span> <span class="fu">GetHashCode</span><span class="op">()</span></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="op">(</span>Name<span class="op">,</span> Price<span class="op">).</span><span class="fu">GetHashCode</span><span class="op">();</span></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>   <span class="co">// ?が付いているのはnull許容（参照）型</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">override</span> <span class="dt">bool</span> <span class="fu">Equals</span><span class="op">(</span><span class="dt">object</span><span class="op">?</span> o<span class="op">)</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>      <span class="co">// e as T は (T) e に近いが， (T) eと異なり T へのキャストが失敗したらnullとなる．</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>      <span class="co">// null はどこも指していない参照．</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="fu">Equals</span><span class="op">(</span>o <span class="kw">as</span> Item<span class="op">);</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>   <span class="co">// インタフェース System.IEquatable&lt;Item&gt; のメソッド Equals の定義</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>   <span class="co">// List&lt;Item&gt;やLinkedList&lt;Item&gt;のRemove等はこっちを使う</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="dt">bool</span> <span class="fu">Equals</span><span class="op">(</span>Item<span class="op">?</span> o<span class="op">)</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>      <span class="co">// &amp;&amp;の短絡を利用．oがnull のときは o.Name や o.Price は 評価されない．</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>      <span class="co">// (object?)がないと，二つ下で定義した演算子が呼ばれ無限ループする</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="op">(</span><span class="dt">object</span><span class="op">?)</span> o <span class="op">!=</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> Name <span class="op">==</span> o<span class="op">.</span><span class="fu">Name</span> <span class="op">&amp;&amp;</span> Price <span class="op">==</span> o<span class="op">.</span><span class="fu">Price</span><span class="op">;</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>   <span class="co">// aとbがItem型であるときに a == bと書いたときに呼ばれる．</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>   <span class="co">// aとbがItem型であるときにも a.Equals(b) は a が Itemの派生型のインスタンスであるときには</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 上のメソッドは呼ばれない場合がある．対し，a == b はこのメソッドが呼ばれることに注意．</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="kw">operator</span> <span class="op">==(</span>Item a<span class="op">,</span> Item b<span class="op">)</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>      <span class="kw">if</span> <span class="op">((</span><span class="dt">object</span><span class="op">)</span> a <span class="op">==</span> <span class="kw">null</span><span class="op">)</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>      <span class="op">{</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>            <span class="kw">return</span> <span class="op">(</span><span class="dt">object</span><span class="op">)</span> b <span class="op">==</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> a<span class="op">.</span><span class="fu">Equals</span><span class="op">(</span>b<span class="op">);</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="kw">operator</span> <span class="op">!=(</span>Item a<span class="op">,</span> Item b<span class="op">)</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="op">!(</span>a <span class="op">==</span> b<span class="op">);</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 今回は関係ないが GetHashCode も実装しないと </span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>   <span class="co">// HashSet や Dictionary につっこんだときの挙動が変になる．</span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">override</span> <span class="dt">int</span> <span class="fu">GetHashCode</span><span class="op">()</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="op">(</span>Name<span class="op">,</span> Price<span class="op">).</span><span class="fu">GetHashCode</span><span class="op">();</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>そのとき<code>Item</code>で表される商品を扱うためのショッピングカートを表すクラス <code>Cart</code> を作成せよ．</p>
 <p>カートは以下の2種類の情報を管理する．</p>
 <ul>
@@ -200,7 +201,7 @@ VSCodeで作成したフォルダを開く．そして，VSCode内のターミ�
 </tr>
 </tbody>
 </table>
-<p>ただし，<code>Report()</code>や<code>int Remaining</code>の実装にあたっては，<code>for</code>文，<code>while</code>文（資料では紹介していないが<code>do</code>文も）を使わないこととする．</p>
+<p>ただし，<strong><code>Report()</code>や<code>int Remaining</code>の実装にあたっては，<code>for</code>文，<code>while</code>文（資料では紹介していないが<code>do</code>文も）を使わない</strong>こととする．</p>
 <div class="note">
 <div class="title">
 <p>Note</p>
@@ -260,12 +261,28 @@ VSCodeで作成したフォルダを開く．そして，VSCode内のターミ�
 <span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>      <span class="co">// 以下をアンコメントするとエラーになる（ようにする）</span></span>
 <span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>      <span class="co">// sc.Budget += 1000 </span></span>
 <span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>      <span class="co">// 予算はいくらだったかな</span></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>      Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>      Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;予算：&quot;</span> <span class="op">+</span> sc<span class="op">.</span><span class="fu">Budget</span><span class="op">);</span> </span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>たとえば以下のような出力が得られる．</p>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>      <span class="co">// 別のカートを作成</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>      Cart sc2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Cart</span><span class="op">(</span><span class="dv">120</span><span class="op">);</span> </span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>      <span class="co">// キャンディを買えるだけカートに入れる</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>      <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> p <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> p <span class="op">&lt;=</span> sc2<span class="op">.</span><span class="fu">Budget</span> <span class="op">;</span> p <span class="op">+=</span> candy<span class="op">.</span><span class="fu">Price</span><span class="op">)</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>      <span class="op">{</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>         sc2<span class="op">.</span><span class="fu">Add</span><span class="op">(</span> candy <span class="op">);</span> </span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>      Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span> </span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>      sc2<span class="op">.</span><span class="fu">Report</span><span class="op">();</span> </span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>      <span class="co">// さらに別のカートを作成</span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>      Cart sc3 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Cart</span><span class="op">(</span><span class="dv">128</span><span class="op">);</span> </span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>      <span class="co">// キャンディを買えるだけカートに入れる—別のやり方</span></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>      <span class="kw">while</span><span class="op">(</span> sc3<span class="op">.</span><span class="fu">Remaining</span> <span class="op">&gt;=</span> candy<span class="op">.</span><span class="fu">Price</span> <span class="op">)</span> </span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>      <span class="op">{</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>         sc3<span class="op">.</span><span class="fu">Add</span><span class="op">(</span> candy <span class="op">);</span> </span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>      Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span> </span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>      sc3<span class="op">.</span><span class="fu">Report</span><span class="op">();</span> </span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>このとき以下の出力が得られるようにする（ただしカートの中身の出力順は異なっていてもよい）．</p>
 <pre class="text"><code>チョコレート: 120
 チップ: 100
 合計: 220
@@ -300,7 +317,23 @@ VSCodeで作成したフォルダを開く．そして，VSCode内のターミ�
 合計: 300
 残額: 0
 
-予算：300</code></pre>
+キャンディ: 20
+キャンディ: 20
+キャンディ: 20
+キャンディ: 20
+キャンディ: 20
+キャンディ: 20
+合計: 120
+残額: 0
+
+キャンディ: 20
+キャンディ: 20
+キャンディ: 20
+キャンディ: 20
+キャンディ: 20
+キャンディ: 20
+合計: 120
+残額: 8</code></pre>
 <h2 id="発展課題">発展課題</h2>
 <div class="important">
 <div class="title">
@@ -337,12 +370,18 @@ VSCodeで作成したフォルダを開く．そして，VSCode内のターミ�
 残額: 170
 
 キャンディ: 20 x 2
-キャンディ: 40 x 1
 ポップコーン: 110 x 2
+キャンディ: 40 x 1
 合計: 300
 残額: 0
 
-予算：300</code></pre>
+キャンディ: 20 x 6
+合計: 120
+残額: 0
+
+キャンディ: 20 x 6
+合計: 120
+残額: 8</code></pre>
 <div class="note">
 <div class="title">
 <p>Note</p>

@@ -41,7 +41,7 @@
                <h1>第3回 コレクション・ジェネリクス</h1>
              
             
-               <p class="last-update">最終更新: 2024-04-05 15:37:16</p> 
+               <p class="last-update">最終更新: 2024-04-05 17:37:55</p> 
             
             <div class="qnav">
               <ul>
@@ -565,6 +565,15 @@
 <p>のように<code>var</code>を使うのが楽であろう．</p>
 <p>直感的には<code>foreach (var x in xs) { ... }</code>はコレクション<code>xs</code>の各要素を<code>x</code>として<code>...</code>内の処理を繰り返す．</p>
 <p>より正確な言い方をすれば，<code>foreach</code>を使用するには<code>in</code>の右に書くオブジェクトが，<code>System.Collections.Generics.IEnumerable&lt;T&gt;</code> インタフェース （か，その非ジェネリック版の<code>System.Collections.IEnumerable</code>）を実装している型である必要がある．</p>
+<div class="caution">
+<div class="title">
+<p>Caution</p>
+</div>
+<p><code>foreach</code>を使用する際はループボディにおいて走査しているコレクションを変更しないようにする．たとえば，<a href="https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.getenumerator?view=net-7.0"><code>List&lt;T&gt;</code></a>については以下とある．</p>
+<blockquote>
+<p>An enumerator remains valid as long as the collection remains unchanged. If changes are made to the collection, such as adding, modifying, or deleting elements, the enumerator is irrecoverably invalidated and the next call to MoveNext or IEnumerator.Reset throws an InvalidOperationException.</p>
+</blockquote>
+</div>
 <h2 id="インタフェース">インタフェース</h2>
 <p><strong>インタフェース</strong>は，大雑把にはオブジェクトが持っているべきインスタンスメソッドやフィールド等を規定するものである．クラスが，これらのインタフェースの規定するメソッドやフィールドを実装しているとき，そのクラスが当該インタフェースを<strong>実装している</strong>と言う．ユーザはクラスがどのインタフェースを実装しているかを陽に与えなければならない．クラスはたかだか一つのクラスを継承できるが，インタフェースは複数実装可能である．</p>
 <p>実装の際は単に基底クラスと同様に<code>:</code>の右にインタフェース名を書けばよい．</p>
