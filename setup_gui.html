@@ -41,7 +41,7 @@
                <h1>第0回 環境構築2（C#演習用）</h1>
              
             
-               <p class="last-update">最終更新: 2024-03-18 11:24:47</p> 
+               <p class="last-update">最終更新: 2024-04-11 07:31:49</p> 
             
             <div class="qnav">
               <ul>
@@ -82,6 +82,9 @@ Visual Studio Code上でC# Dev KitおよびIonide for F#
 </div>
 <p>2.8.0〜2.8.2には<a href="https://github.com/picoe/Eto/issues/2619">テンプレートがコンパイルできない</a>という不具合があるので，以前にテンプレートをインストールした人は上記によりテンプレートを更新する．</p>
 </div></li>
+<li><p>（Macの場合のみ）これまでにインストール済でなければ，以下のコマンドを実行してXcode command line toolsをインストールする．</p>
+<pre><code>xcode-select --install </code></pre>
+<p>いままでにXcodeをインストールしてなければ数GBほどのダウンロードが発生する．</p></li>
 <li><p>確認のために以下を実行してみる．</p>
 <pre><code>dotnet new list eto</code></pre>
 <div class="note">
