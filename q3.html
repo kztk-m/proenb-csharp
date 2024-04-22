@@ -41,7 +41,7 @@
                <h1>第3回 課題 (2023)</h1>
              
             
-               <p class="last-update">最終更新: 2024-04-05 17:28:45</p> 
+               <p class="last-update">最終更新: 2024-04-22 11:02:59</p> 
             
             <div class="qnav">
               <ul>
@@ -88,6 +88,7 @@ VSCodeで作成したフォルダを開く．そして，VSCode内のターミ�
 <ul>
 <li>ただし，友人の解答を見ない，そして友人に解答を見せないようお願いします</li>
 </ul></li>
+<li>TA・教員と相談した場合は，その旨と<em>大雑把な相談の内容</em>がコメントとして書かれているか</li>
 </ul>          
             <h2 id="基本課題">基本課題</h2>
 <p>以下の<code>Item</code>クラスを考える．</p>
@@ -264,7 +265,7 @@ VSCodeで作成したフォルダを開く．そして，VSCode内のターミ�
 <span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>      <span class="co">// 別のカートを作成</span></span>
 <span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>      Cart sc2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Cart</span><span class="op">(</span><span class="dv">120</span><span class="op">);</span> </span>
 <span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>      <span class="co">// キャンディを買えるだけカートに入れる</span></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>      <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> p <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> p <span class="op">&lt;=</span> sc2<span class="op">.</span><span class="fu">Budget</span> <span class="op">;</span> p <span class="op">+=</span> candy<span class="op">.</span><span class="fu">Price</span><span class="op">)</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>      <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> p <span class="op">=</span> candy<span class="op">.</span><span class="fu">Price</span><span class="op">;</span> p <span class="op">&lt;=</span> sc2<span class="op">.</span><span class="fu">Budget</span> <span class="op">;</span> p <span class="op">+=</span> candy<span class="op">.</span><span class="fu">Price</span><span class="op">)</span></span>
 <span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>      <span class="op">{</span></span>
 <span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>         sc2<span class="op">.</span><span class="fu">Add</span><span class="op">(</span> candy <span class="op">);</span> </span>
 <span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
@@ -382,12 +383,10 @@ VSCodeで作成したフォルダを開く．そして，VSCode内のターミ�
 キャンディ: 20 x 6
 合計: 120
 残額: 8</code></pre>
-<div class="note">
-<div class="title">
-<p>Note</p>
-</div>
-<p><code>List&lt;Item&gt;</code>を使って，既に表示した商品かどうかを管理し，既に表示した商品ならば何もせず，そうでなければカートの中その商品の数を数えるとよいう方法で実装できる．与えられた要素がリストに含まれているかの検査を <code>foreach</code> で書くのは難しくないが，<code>List&lt;T&gt;.Contains(T)</code> メソッドを使うことができる（<a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.contains?view=net-6.0#system-collections-generic-list-1-contains(-0)">当該メソッドの詳細</a>）．</p>
-<p>ただ，今回分では紹介しなかったが連想配列を表すクラス<code>Dictionary&lt;Item, int&gt;</code>を使うのがより自然だろう．このクラスがどのようなコンストラクタかメソッドを知るには<a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-6.0%3E">.NET API リファレンスの当該クラスのページ</a>を見るとよい．次回の演習でも少し紹介する．</p>
+<div class="hint">
+<p><em>ヒント</em>：
+<code>List&lt;Item&gt;</code>を使って，既に表示した商品かどうかを管理し，既に表示した商品ならば何もせず，そうでなければカートの中その商品の数を数えるとよいう方法で実装できる．与えられた要素がリストに含まれているかの検査を <code>foreach</code> で書くのは難しくないが，<code>List&lt;T&gt;.Contains(T)</code> メソッドを使うことができる（<a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.contains?view=net-6.0#system-collections-generic-list-1-contains(-0)">当該メソッドの詳細</a>）．</p>
+<p>ただ，第3回では紹介しなかったが連想配列を表すクラス<code>Dictionary&lt;Item, int&gt;</code>を使うのがより自然だろう．このクラスがどのようなコンストラクタかメソッドを知るには<a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-6.0%3E">.NET API リファレンスの当該クラスのページ</a>を見るとよい．<a href="./w4.html">次回</a>の演習でも少し紹介する．</p>
 </div>
           </section>
         </main>
