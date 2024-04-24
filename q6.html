@@ -41,7 +41,7 @@
                <h1>第6回 課題 (2023)</h1>
              
             
-               <p class="last-update">最終更新: 2024-04-24 14:35:45</p> 
+               <p class="last-update">最終更新: 2024-04-24 15:55:49</p> 
             
             <div class="qnav">
               <ul>
@@ -111,7 +111,7 @@ VSCodeで作成したフォルダを開く．そして，VSCode内のターミ�
 </ul></li>
 <li>「クリア」と書かれたボタンが押されたら，書かれた絵がクリアされる．</li>
 </ul>
-<p>たとえば，以下のスクリーンショットは実装するプログラムの一例を表している．</p>
+<p>たとえば，以下のスクリーンショットは実装するプログラムの一例を表している．作成したアプリケーションで，この程度の絵ならばちゃんと描けるようになることを一つの目標にするとよい．</p>
 <figure>
 <img src="./images/eto/oekaki.png" alt="作成を目指すプログラムのスクリーンショット" />
 <figcaption aria-hidden="true">作成を目指すプログラムのスクリーンショット</figcaption>
@@ -139,6 +139,33 @@ VSCodeで作成したフォルダを開く．そして，VSCode内のターミ�
 <li>マウスの主ボタンが押されたままマウスが移動されたら，「マウスの以前の位置」と「マウスの現在の位置」の間に線分を引く．そして，「マウスの以前の位置」を更新する．</li>
 </ul>
 <p>線分の描画には<code>Graphics.DrawLine(Pen, PointF, PointF)</code>メソッドが使用できるだろう．<code>Pen</code>の<code>LineCap</code>プロパティを<code>PenLineCap.Round</code>に設定するときれいに線が引けるかもしれない（<a href="http://pages.picoe.ca/docs/api/html/P_Eto_Drawing_Pen_LineCap.htm%3E">参考</a>）．</p>
+</div>
+<div class="important">
+<div class="title">
+<p>Important</p>
+</div>
+<p>繰り返すが，以下のコードは<code>Drawable</code>である<code>d</code>に対し，<code>Paint</code>イベントが発生したとき（≒ 描画要求があってコントロールが描画されるとき）に呼ばれる処理を追加しているのであって，<em>描画そのものを行っているのではない</em>．</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>d<span class="op">.</span><span class="fu">Paint</span> <span class="op">+=</span> <span class="op">(</span>s<span class="op">,</span> se<span class="op">)</span> <span class="op">=&gt;</span> <span class="op">{</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ...</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<p>なので，たとえば</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>oekakiControl<span class="op">.</span><span class="fu">MouseMove</span> <span class="op">+=</span> <span class="op">(</span>s<span class="op">,</span> me<span class="op">)</span> <span class="op">=&gt;</span> <span class="op">{</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ... </span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    oekakiControl<span class="op">.</span><span class="fu">Paint</span> <span class="op">+=</span> <span class="op">(</span>sp<span class="op">,</span> pe<span class="op">)</span> <span class="op">=&gt;</span> <span class="op">{</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ...</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">};</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ...</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<p>のようなコードを書くと，そもそも<code>oekakiControl.Paint += (sp, pe) =&gt; { ... }</code>の部分で描画は実行されないし，マウスを移動する度に描画要求があったときに実行する処理が増えていきだんだん描画処理が重くなっていく．</p>
+<p>作成するお絵描き用コントロールを<code>oekakiControl</code>とすると，その<code>MouseMove</code>イベントも<code>Paint</code>イベントも購読することになるだろうが，購読する部分のコードは以下のような形になるはずだ．</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>oekakiControl<span class="op">.</span><span class="fu">MouseMove</span> <span class="op">+=</span> <span class="op">(</span>s<span class="op">,</span> me<span class="op">)</span> <span class="op">=&gt;</span> <span class="op">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ...</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">// ...</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>oekakiControl<span class="op">.</span><span class="fu">Paint</span> <span class="op">+=</span> <span class="op">(</span>s<span class="op">,</span> pe<span class="op">)</span> <span class="op">=&gt;</span> <span class="op">{</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ....</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<p>なお，<code>oekakiControl</code>の（再）描画要求を投げるには<code>oekakiControl.Invalidate()</code>を呼ぶ．</p>
 </div>
 <h2 id="発展課題">発展課題</h2>
 <div class="important">
