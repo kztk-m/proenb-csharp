@@ -41,7 +41,7 @@
                <h1>第2回 継承</h1>
              
             
-               <p class="last-update">最終更新: 2023-04-27 14:05:59</p> 
+               <p class="last-update">最終更新: 2024-04-24 14:15:38</p> 
             
             <div class="qnav">
               <ul>
@@ -66,7 +66,7 @@
 </nav>
 <section class="mainbody"><h2 id="オブジェクト指向言語の利点">オブジェクト指向言語の利点</h2>
 <p><a href="./w1.html">前回</a>，オブジェクトというのは大雑把には「データと，それに関連する関数」をまとめたものであり，「オブジェクトの作成やオブジェクトに対するメソッドを呼び出しを基本としてプログラムを構成する」のが（C#などにおける）オブジェクト指向プログラミングであると述べた．そして，実際に例や課題を通してオブジェクト指向プログラミングを体験してもらった．</p>
-<p>では，そのようなアプローチにどのような利点があるだろうか．ひとつは<strong>カプセル化</strong>である．アクセス指定子を適切に設定することにより，関数やデータをプログラムの他のパートから隠蔽することができる．また，クラスを利用することによって，「データ」と「それに関連する関数」という明らかに関連の深いものを，自然に局所にまとめることが可能となる．これにより，クラスを開発する側はプログラムの他の部分を気にすることなく内部実装を変更することができるようになるし，クラスやそのクラスのオブジェクトを使う側は内部の詳細を気にすることなしにそのクラスやそのオブジェクトを利用することができる．こうした，部品毎に分けてプログラムを開発できることは<strong>モジュラリティ</strong>と呼ばれ，実用的なプログラミング言語が兼ね備えているべき能力の一つである．</p>
+<p>では，そのようなアプローチにどのような利点があるだろうか．ひとつは<strong>カプセル化</strong>である．アクセス指定子を適切に設定することにより，メソッドやデータをプログラムの他のパートから隠蔽することができる．また，クラスを利用することによって，「データ」と「それに関連する関数」という明らかに関連の深いものを，自然に局所にまとめることが可能となる．これにより，クラスを開発する側はプログラムの他の部分を気にすることなく内部実装を変更することができるようになるし，クラスやそのクラスのオブジェクトを使う側は内部の詳細を気にすることなしにそのクラスやそのオブジェクトを利用することができる．こうした，部品毎に分けてプログラムを開発できることは<strong>モジュラリティ</strong>と呼ばれ，実用的なプログラミング言語が兼ね備えているべき能力の一つである．</p>
 <div class="note">
 <div class="title">
 <p>Note</p>
@@ -77,7 +77,7 @@
 C#のようなクラスべースのオブジェクト指向言語の利点である．</p>
 <p>今回の演習では，それを詳しくみることにする．</p>
 <h2 id="継承inheritance">継承（inheritance）</h2>
-<p>継承は，元となるクラス<code>B</code>（基底クラス，親クラスなど）からアクセスレベルがprivateでない（protected，internalや publicなど）なフィールドやメソッド等をすべて受け継いだクラス<code>D</code>（派生クラス，子クラスなど）を作成する手法である．その際において以下が可能となる．</p>
+<p>継承は，元となるクラス<code>B</code>（基底クラス，親クラスなど）からアクセスレベルがprivateでない（protected，internalや publicなど）なフィールドやメソッド等をすべて受け継いだクラス<code>D</code>（派生クラス，子クラスなど）を作成する機能である．その際において以下が可能となる．</p>
 <ul>
 <li><code>D</code>のインスタンスは<code>B</code>のインスタンスして扱うことができる (<code>D</code>は<code>B</code>の<strong>部分型 (subtype)</strong>)</li>
 <li>クラス<code>B</code>の<strong>仮想メソッド（virtual method）</strong>を クラス<code>D</code>は<strong>オーバライド（override）</strong>することができる．
@@ -146,7 +146,7 @@ C#では継承は，クラス定義の際にクラス名の横に<code>: 基底�
 <span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 仮想メソッドをオーバライド</span></span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">override</span> <span class="dt">void</span> <span class="fu">Info</span><span class="op">()</span> </span>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 基底クラスの Info() を呼ぶ</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 基底クラスの（すわなち，オーバライドされる前の） Info() を呼ぶ</span></span>
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>       <span class="kw">base</span><span class="op">.</span><span class="fu">Info</span><span class="op">();</span></span>
 <span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;EMail: &quot;</span> <span class="op">+</span> email<span class="op">);</span> </span>

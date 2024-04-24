@@ -41,7 +41,7 @@
                <h1>第4回 課題 (2023)</h1>
              
             
-               <p class="last-update">最終更新: 2024-04-22 11:02:32</p> 
+               <p class="last-update">最終更新: 2024-04-24 14:25:04</p> 
             
             <div class="qnav">
               <ul>
@@ -151,18 +151,18 @@ Candy,5</code></pre>
 <span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>items.txtの中身の例</p>
 <pre class="text"><code>Chocolate,2
-Chips,14
+Chips,0
 Candy,5</code></pre>
 <p>そのときの期待される出力</p>
 <pre class="text"><code>Chocolate × 2
-Chips × 14
+Chips × 0
 Candy × 5</code></pre>
 <h4 id="入力ファイルの形式">入力ファイルの形式</h4>
 <ul>
 <li><p>各行が</p>
 <pre class="text"><code>アイテム名,個数</code></pre>
 <p>という形になっている．基本課題においては，アイテム名，「，」，および個数の前後に余計な空白は含まれない（発展課題で変更あり）</p></li>
-<li><p>個数は<code>int</code>で表現可能な数に比べて十分に小さいとする（オーバフローを考える必要はない）．</p></li>
+<li><p>個数は<code>int</code>で表現可能な数に比べて十分に小さいとする（オーバフローを考える必要はない）．<em>簡便のため負数や0は許すことにする</em>．</p></li>
 <li><p>アイテム名自体は「,」および前後の空白は含まない．たとえば「 」や「 X 」などはここで言うアイテム名ではない．途中の空白は含んでもよい（例：「Ruby Chocolate」）．</p></li>
 <li><p>基本課題1では各行のアイテム名に重複を許さない（基本課題2で変更あり）．</p></li>
 <li><p>基本課題では上記の形式でないファイルが与えられたときの挙動は考えなくてよい．</p></li>
@@ -241,10 +241,11 @@ Candy × 5</code></pre>
 <pre class="text"><code>Chocolate,2
 Chips,14
 Candy,5
-Chocolate,40</code></pre>
+Chocolate,40
+Chips,-14</code></pre>
 <p>そのときの期待される出力</p>
 <pre class="text"><code>Chocolate × 42
-Chips × 14
+Chips × 0
 Candy × 5</code></pre>
 <div class="tip">
 <div class="title">
@@ -300,7 +301,9 @@ Candy × 5</code></pre>
 <pre class="text"><code># アイテム名が数字なのは許される
 100 , 5
 # アイテム名に#は許される
- ####  , 9</code></pre>
+ ####  , 9
+# 個数の部分にはInt32.Parse()が失敗するようなものは許さない
+something,ten</code></pre>
 <h4 id="例3に対し期待される出力">例3に対し期待される出力</h4>
 <pre class="text"><code>100 × 5
 #### × 9</code></pre>
