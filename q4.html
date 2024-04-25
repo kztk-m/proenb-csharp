@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja">
     <head>
-        <title>第4回 課題 (2023) - 東北大学プログラミング演習B (C#)</title>
+        <title>第4回 課題 (2024) - 東北大学プログラミング演習B (C#)</title>
         <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -38,10 +38,10 @@
             </nav>
 
             
-               <h1>第4回 課題 (2023)</h1>
+               <h1>第4回 課題 (2024)</h1>
              
             
-               <p class="last-update">最終更新: 2024-04-24 14:25:04</p> 
+               <p class="last-update">最終更新: 2024-04-25 17:47:19</p> 
             
             <div class="qnav">
               <ul>
@@ -61,7 +61,7 @@
           <section class="mainbody">
             <h2 id="課題の進め方">課題の進め方</h2>
 <p>基本的には適当なプロジェクト/ソリューションを作って課題を進めた上で，<code>Program.cs</code>のみ（特に他に指示がなければ）を提出する．</p>
-<p><strong>他の人（受講者・非受講者両方）に解答内容を見せない</strong>，そして<strong>他の人の解答内容を見ない</strong>ようお願いします．特に，
+<p><strong>他の人（受講者・非受講者両方）に解答内容（一部でも）を見せない</strong>，そして<strong>他の人の解答内容（一部でも）を見ない</strong>ようお願いします．特に，
 <strong>公開の場所に解答を置かないようお願いします．</strong>githubやbitbucket等は使える人は使えばよいと思いますが，<strong>privateレポジトリにする</strong>ようにお願いします．</p>
 <h3 id="プロジェクトソリューションの作成">プロジェクト/ソリューションの作成</h3>
 <div class="note">
@@ -172,7 +172,7 @@ Candy × 5</code></pre>
 <div class="title">
 <p>Note</p>
 </div>
-<p><code>items.txt</code>を相対パス<code>./items.txt</code>でアクセスするためには，<code>items.txt</code>は作業ディレクトリ直下に置く必要がある．<a href="./setup.html">環境設定1</a>で紹介した方法でプログラムを実行しているのならば，VS Codeで開いたフォルダ（プロジェクトルート）直下に置いたので問題がないはずだ．</p>
+<p><code>items.txt</code>を相対パス<code>./items.txt</code>でアクセスするためには，<code>items.txt</code>は作業フォルダ直下に置く必要がある．<a href="./setup.html">環境設定1</a>で紹介した方法でプロジェクトを作成しプログラムを実行しているのならば，VS Codeで開いたフォルダ（プロジェクトルート）直下に置いたので問題がないはずだ．</p>
 <p>そうでない場合（Visual Studioを使用している場合など）は以下のいずれかを行う．</p>
 <ul>
 <li><p>.csprojの<code>&lt;PropertyGroup&gt;...&lt;/PropertyGroup&gt;</code>内に以下の行を追加する．</p>
@@ -271,7 +271,7 @@ Candy × 5</code></pre>
 <pre class="text"><code>AAA, B</code></pre>
 <p>ここで整数以外とは<code>Int32.Parse()</code>が失敗するものとする．</p></li>
 </ul>
-<h4 id="items.txtの中身の例1">items.txtの中身の例1</h4>
+<h3 id="items.txtの中身の例1">items.txtの中身の例1</h3>
 <pre class="text"><code>#コメント行
 Chocolate,  2
    Chips ,14  
@@ -282,7 +282,7 @@ Chocolate,40</code></pre>
 <pre class="text"><code>Chocolate × 42
 Chips × 14
 Candy × 5</code></pre>
-<h4 id="items.txtの中身の例2">items.txtの中身の例2</h4>
+<h3 id="items.txtの中身の例2">items.txtの中身の例2</h3>
 <pre class="text"><code># コメント行
 Chocolate,  2
    Chips ,14  
@@ -297,7 +297,7 @@ Candy,25</code></pre>
 <pre class="text"><code>Chocolate × 42
 Chips × 14
 Candy × 5</code></pre>
-<h4 id="items.txtの中身の例3">items.txtの中身の例3</h4>
+<h3 id="items.txtの中身の例3">items.txtの中身の例3</h3>
 <pre class="text"><code># アイテム名が数字なのは許される
 100 , 5
 # アイテム名に#は許される
