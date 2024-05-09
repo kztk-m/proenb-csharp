@@ -41,7 +41,7 @@
                <h1>第5回 課題 (2023)</h1>
              
             
-               <p class="last-update">最終更新: 2024-04-25 17:38:18</p> 
+               <p class="last-update">最終更新: 2024-05-09 14:59:25</p> 
             
             <div class="qnav">
               <ul>
@@ -143,9 +143,9 @@ Ready</code></pre>
 <li>本課題では，ファイルを開いたり読みこんだりしたときに例外が発生した場合の挙動については規定しない．</li>
 </ul></li>
 </ul>
-<p>ただし，相対パスを用いて「ドキュメント」内（Windowsの場合．Windows 8以前は「マイ ドキュメント」）やホームディレクトリ内（Mac等の場合）のファイルを開けるようにするために，以下を<code>MainForm</code>のコンストラクタに含めるなどせよ（フォームの関心毎ではないので<code>Main</code>等で実行すべきだが，3箇所のファイルを修正するのは大変なので）．</p>
+<p>ただし，相対パスを用いて「ドキュメント」内（Windowsの場合．Windows 8以前は「マイ ドキュメント」）や「書類」（<code>~/Documents</code>）内（Mac等の場合で.NET 8以降．7以前はホームディレクトリ）のファイルを開けるようにするために，以下を<code>MainForm</code>のコンストラクタに含めるなどせよ（フォームの関心毎ではないので<code>Main</code>等で実行すべきだが，3箇所のファイルを修正するのは大変なので）．</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 現在の（作業）ディレクトリを，プラットフォーム毎の「ドキュメント」的なディレクトリに設定する</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Windowsだと「ドキュメント」，Macだとホームディレクトリ．他の環境は未確認．</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Windowsだと「ドキュメント」，Macで.NET 8以降だと「書類」（~/Documents/），7以前はホームディレクトリ．他の環境は未確認．</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">// </span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">// より安全には，Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) が空文字列かどうか</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">// を検査してから Environment.CurrentDirectory に代入したほうがよい．</span></span>
@@ -153,8 +153,24 @@ Ready</code></pre>
 <p>上記の設定により，「ドキュメント」フォルダやホームディレクトリ直下のファイルにファイル名のみでアクセスできるようになる（より正確には相対パスの基準が「ドキュメント」フォルダやホームディレクトリになる）．より具体的には：</p>
 <ul>
 <li><p>Windows 10/11であれば，「ドキュメント」（エクスプローラーの左サイドバーの「クイックアクセス」か「PC」以下から見付かるはず）フォルダ直下に<code>test.txt</code>を適当な内容で用意し，作成するアプリケーションのテキストボックスに<code>test.txt</code>を入力して"Load"ボタンを押せばその内容が表示されるようになる．</p></li>
-<li><p>Macであれば，ホームディレクトリ（Finderの左サイドバーの「よく使う項目」の自分のユーザ名を選択することで開かれるディレクトリ．ターミナルだと<code>cd</code>で移動できる箇所）直下に<code>test.txt</code>を適当な内容で用意し，作成するアプリケーションのテキストボックスに<code>test.txt</code>を入力して"Load"ボタンを押せばその内容が表示されるようになる．</p></li>
+<li><p>Macであれば，Finderの左サイドバーの「よく使う項目」の「書類」（<code>~/Documents</code>）直下に<code>test.txt</code>を適当な内容で用意し，作成するアプリケーションのテキストボックスに<code>test.txt</code>を入力して"Load"ボタンを押せばその内容が表示されるようになる．</p></li>
 </ul>
+<div class="tip">
+<div class="title">
+<p>Tip</p>
+</div>
+<p>ファイルを置く場所を確認してみるには以下を実行してみるのもよい．</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>Environment<span class="op">.</span><span class="fu">GetFolderPath</span><span class="op">(</span>Environment<span class="op">.</span><span class="fu">SpecialFolder</span><span class="op">.</span><span class="fu">MyDocuments</span><span class="op">));</span></span></code></pre></div>
+<p>当方の環境（Mac）では以下が表示される．</p>
+<pre class="text"><code>/Users/kztk/Documents</code></pre>
+<p>当該パスはホームディレクトリを表す<code>~</code>を用いて書くと<code>~/Documents/</code>．</p>
+</div>
+<div class="caution">
+<div class="title">
+<p>Caution</p>
+</div>
+<p>Mac含めUnix環境では.NET 8以降とそれ以前で挙動が異なるので注意（参考：<a href="https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/8.0/getfolderpath-unix" class="uri">https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/8.0/getfolderpath-unix</a>）</p>
+</div>
 <div class="tip">
 <div class="title">
 <p>Tip</p>
