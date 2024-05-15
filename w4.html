@@ -41,7 +41,7 @@
                <h1>第4回 ファイル入出力と例外処理</h1>
              
             
-               <p class="last-update">最終更新: 2024-04-25 17:22:56</p> 
+               <p class="last-update">最終更新: 2024-05-15 14:35:59</p> 
             
             <div class="qnav">
               <ul>
@@ -78,28 +78,28 @@
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>   <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>       <span class="co">// ディクショナリの作成</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>       Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> dict <span class="op">=</span> <span class="kw">new</span> Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;();</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 辞書に要素を追加するには Add メソッドを用いる．</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>       dict<span class="op">.</span><span class="fu">Add</span><span class="op">(</span> <span class="st">&quot;Chocolate&quot;</span><span class="op">,</span> <span class="dv">2</span> <span class="op">);</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>       dict<span class="op">.</span><span class="fu">Add</span><span class="op">(</span> <span class="st">&quot;Chips&quot;</span><span class="op">,</span>     <span class="dv">4</span> <span class="op">);</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>       dict<span class="op">.</span><span class="fu">Add</span><span class="op">(</span> <span class="st">&quot;Candy&quot;</span><span class="op">,</span>     <span class="dv">5</span> <span class="op">);</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>       <span class="co">// バリューにはキーが添字である配列のようにアクセスできる</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>       dict<span class="op">[</span><span class="st">&quot;Chips&quot;</span><span class="op">]</span> <span class="op">=</span> <span class="dv">7</span><span class="op">;</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;dict[</span><span class="sc">\&quot;</span><span class="st">Chips</span><span class="sc">\&quot;</span><span class="st">] = &quot;</span> <span class="op">+</span> dict<span class="op">[</span><span class="st">&quot;Chips&quot;</span><span class="op">]</span> <span class="op">);</span> <span class="co">// dict[&quot;Chips&quot;] = 7</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>       <span class="co">// ContainsKey メソッドにより，キーを含んでいるか否かを検査できる．</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> dict<span class="op">.</span><span class="fu">ContainsKey</span><span class="op">(</span><span class="st">&quot;Candy&quot;</span><span class="op">)</span> <span class="op">);</span>  <span class="co">// True</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> dict<span class="op">.</span><span class="fu">ContainsKey</span><span class="op">(</span><span class="st">&quot;Banana&quot;</span><span class="op">)</span> <span class="op">);</span> <span class="co">// False </span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>       <span class="co">// foreach 文では個々の要素は KeyValuePair&lt;string, int&gt; として手に入る</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 添字として使われるデータの部分をキー</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>       <span class="co">// それに対応したデータをバリューと呼ぶ．</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 用語が衝突しているが，式の評価結果である値とは直接は関係はない．</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>       <span class="co">// キーの型がstringでバリューの型がintであるディクショナリの作成</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 添字として使われるデータの部分をキー</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>       <span class="co">// それに対応したデータをバリューと呼ぶ．</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 用語が衝突しているが，式の評価結果である値とは直接は関係はない．</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>       Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> dict <span class="op">=</span> <span class="kw">new</span> Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;();</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 辞書に要素を追加するには Add メソッドを用いる．</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>       dict<span class="op">.</span><span class="fu">Add</span><span class="op">(</span> <span class="st">&quot;Chocolate&quot;</span><span class="op">,</span> <span class="dv">2</span> <span class="op">);</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>       dict<span class="op">.</span><span class="fu">Add</span><span class="op">(</span> <span class="st">&quot;Chips&quot;</span><span class="op">,</span>     <span class="dv">4</span> <span class="op">);</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>       dict<span class="op">.</span><span class="fu">Add</span><span class="op">(</span> <span class="st">&quot;Candy&quot;</span><span class="op">,</span>     <span class="dv">5</span> <span class="op">);</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>       <span class="co">// バリューにはキーが添字である配列のようにアクセスできる</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>       dict<span class="op">[</span><span class="st">&quot;Chips&quot;</span><span class="op">]</span> <span class="op">=</span> <span class="dv">7</span><span class="op">;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;dict[</span><span class="sc">\&quot;</span><span class="st">Chips</span><span class="sc">\&quot;</span><span class="st">] = &quot;</span> <span class="op">+</span> dict<span class="op">[</span><span class="st">&quot;Chips&quot;</span><span class="op">]</span> <span class="op">);</span> <span class="co">// dict[&quot;Chips&quot;] = 7</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>       <span class="co">// ContainsKey メソッドにより，キーを含んでいるか否かを検査できる．</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> dict<span class="op">.</span><span class="fu">ContainsKey</span><span class="op">(</span><span class="st">&quot;Candy&quot;</span><span class="op">)</span> <span class="op">);</span>  <span class="co">// True</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> dict<span class="op">.</span><span class="fu">ContainsKey</span><span class="op">(</span><span class="st">&quot;Banana&quot;</span><span class="op">)</span> <span class="op">);</span> <span class="co">// False </span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>       <span class="co">// foreach 文では個々の要素は KeyValuePair&lt;string, int&gt; として手に入る</span></span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>       <span class="kw">foreach</span> <span class="op">(</span> KeyValuePair<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> kv <span class="kw">in</span> dict <span class="op">)</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>       <span class="op">{</span></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> kv<span class="op">.</span><span class="fu">Key</span> <span class="op">+</span> <span class="st">&quot; -&gt; &quot;</span> <span class="op">+</span> kv<span class="op">.</span><span class="fu">Value</span> <span class="op">);</span></span>
@@ -169,7 +169,7 @@ Banana -&gt; 2</code></pre>
 <tr class="odd">
 <td><p><code>this[TKey]</code></p></td>
 <td><p>インデクサー．<code>dict[k] = v</code>は<code>k</code>が辞書に存在しない場合は<code>dict.Add(k,v)</code>と同様．存在する場合はバリューを<code>v</code>で上書き．
-<code>dick[k]</code>を式として使うときはキーが辞書に存在してなければ例外発生．</p></td>
+<code>dict[k]</code>を式として使うときはキーが辞書に存在してなければ例外発生．</p></td>
 </tr>
 <tr class="even">
 <td><code>Keys</code></td>
@@ -459,7 +459,7 @@ Visual Studioを使っている方は設定が必要になる．</p>
 <span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>            <span class="kw">try</span></span>
 <span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span></span>
 <span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>                <span class="co">// ファイルの中身を一行ずつ処理する．ファイルが大きいときなどメモリ使用量を気にするとき．</span></span>
-<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>                <span class="dt">string</span> s<span class="op">;</span></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>                <span class="dt">string</span><span class="op">?</span> s<span class="op">;</span> <span class="co">// string?はstringのnull許容版．sr.ReadLine()の返り値の型はstring? </span></span>
 <span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>                <span class="kw">while</span> <span class="op">((</span>s <span class="op">=</span> sr<span class="op">.</span><span class="fu">ReadLine</span><span class="op">())</span> <span class="op">!=</span> <span class="kw">null</span><span class="op">)</span></span>
 <span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>                <span class="op">{</span></span>
 <span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>                    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>s<span class="op">);</span></span>
@@ -580,7 +580,7 @@ Visual Studioを使っている方は設定が必要になる．</p>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">// txtはtxtsの各要素を&quot;\n&quot;を間に挟んでつなげた文字列</span></span>
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">// つまり，txt = txts[0] + &quot;\n&quot; + txts[1] + &quot;\n&quot; + ... + &quot;\n&quot; + txts[txts.Length - 1]</span></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>        <span class="dt">string</span> txt <span class="op">=</span> String<span class="op">.</span><span class="fu">Join</span><span class="op">(</span><span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> txts<span class="op">);</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>        <span class="dt">string</span> txt <span class="op">=</span> <span class="dt">string</span><span class="op">.</span><span class="fu">Join</span><span class="op">(</span><span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">,</span> txts<span class="op">);</span></span>
 <span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 文字列の内容を一気に書く</span></span>
 <span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>        File<span class="op">.</span><span class="fu">WriteAllText</span><span class="op">(</span><span class="st">&quot;./MyText1.txt&quot;</span><span class="op">,</span> txt<span class="op">);</span></span>
@@ -612,7 +612,7 @@ Visual Studioを使っている方は設定が必要になる．</p>
 </tr>
 <tr class="even">
 <td><code>File.WriteAllLines(string,string[])</code></td>
-<td>static メソッド．与えられたパスのファイルを開いて，与えられた文字列の配列で上書きして閉じる．パスにファイルが存在してなければ作成する．</td>
+<td>static メソッド．与えられたパスのファイルを開いて，各行の中身が与えられた文字列の配列になるように上書きして閉じる．パスにファイルが存在してなければ作成する．</td>
 </tr>
 <tr class="odd">
 <td><code>File.CreateText(string)</code></td>
@@ -743,7 +743,7 @@ cdef
 </tr>
 <tr class="even">
 <td><code>Split()</code></td>
-<td>文字列を与えられた空白文字文字で分割した配列を返す．</td>
+<td>文字列を空白文字（改行やタブ文字や非ASCII空白も含む）で分割した配列を返す．</td>
 </tr>
 <tr class="odd">
 <td><code>StartsWith(string)</code></td>

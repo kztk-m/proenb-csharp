@@ -41,7 +41,7 @@
                <h1>第4回 課題 (2024)</h1>
              
             
-               <p class="last-update">最終更新: 2024-04-25 17:47:19</p> 
+               <p class="last-update">最終更新: 2024-05-15 14:41:02</p> 
             
             <div class="qnav">
               <ul>
@@ -61,8 +61,7 @@
           <section class="mainbody">
             <h2 id="課題の進め方">課題の進め方</h2>
 <p>基本的には適当なプロジェクト/ソリューションを作って課題を進めた上で，<code>Program.cs</code>のみ（特に他に指示がなければ）を提出する．</p>
-<p><strong>他の人（受講者・非受講者両方）に解答内容（一部でも）を見せない</strong>，そして<strong>他の人の解答内容（一部でも）を見ない</strong>ようお願いします．特に，
-<strong>公開の場所に解答を置かないようお願いします．</strong>githubやbitbucket等は使える人は使えばよいと思いますが，<strong>privateレポジトリにする</strong>ようにお願いします．</p>
+<p><strong>他の人（受講者・非受講者両方）に解答内容（一部でも）を見せない</strong>，そして<strong>他の人の解答内容（一部でも）を見ない</strong>ようお願いします．特に，<strong>公開の場所に解答を置かないようお願いします．</strong>githubやbitbucket等は使える人は使えばよいと思いますが，<strong>privateレポジトリにする</strong>ようにお願いします．</p>
 <h3 id="プロジェクトソリューションの作成">プロジェクト/ソリューションの作成</h3>
 <div class="note">
 <div class="title">
@@ -92,7 +91,7 @@ VSCodeで作成したフォルダを開く．そして，VSCode内のターミ�
 </ul>          
             <h2 id="基本課題">基本課題</h2>
 <h3 id="その1">その1</h3>
-<p><code>Dictionary&lt;string, int&gt;</code>型の値の要素をファイルから読みとることで追加したい．具体的には，中身が</p>
+<p><code>Dictionary&lt;string, int&gt;</code>型のオブジェクトにエントリ（キーと値の組）をファイルから読みとることで追加したい．具体的には，中身が</p>
 <pre class="text"><code>Chocolate,2
 Chips,4
 Candy,5</code></pre>
@@ -149,7 +148,7 @@ Candy,5</code></pre>
 <span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>         i<span class="op">.</span><span class="fu">PrintAll</span><span class="op">();</span></span>
 <span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
 <span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>items.txtの中身の例</p>
+<p><code>items.txt</code>の中身の例</p>
 <pre class="text"><code>Chocolate,2
 Chips,0
 Candy,5</code></pre>
@@ -163,11 +162,11 @@ Candy × 5</code></pre>
 <pre class="text"><code>アイテム名,個数</code></pre>
 <p>という形になっている．基本課題においては，アイテム名，「，」，および個数の前後に余計な空白は含まれない（発展課題で変更あり）</p></li>
 <li><p>個数は<code>int</code>で表現可能な数に比べて十分に小さいとする（オーバフローを考える必要はない）．<em>簡便のため負数や0は許すことにする</em>．</p></li>
-<li><p>アイテム名自体は「,」および前後の空白は含まない．たとえば「 」や「 X 」などはここで言うアイテム名ではない．途中の空白は含んでもよい（例：「Ruby Chocolate」）．</p></li>
+<li><p>アイテム名自体は「,」および前後の空白は含まない．たとえば「 」（空白文字からなる文字列）や「 X 」（空白文字，'X'，空白文字からなる文字列）などはここで言うアイテム名ではない．途中の空白は含んでもよい（例：「Ruby Chocolate」）．</p></li>
 <li><p>基本課題1では各行のアイテム名に重複を許さない（基本課題2で変更あり）．</p></li>
 <li><p>基本課題では上記の形式でないファイルが与えられたときの挙動は考えなくてよい．</p></li>
 </ul>
-<p><strong>items.txtも提出物に含めること</strong>．</p>
+<p><strong><code>items.txt</code>も提出物に含めること（発展課題も同じ）</strong>．含める<code>items.txt</code>は自信がプログラムの挙動を確認するのに使用したものでよい．</p>
 <div class="note">
 <div class="title">
 <p>Note</p>
@@ -237,7 +236,7 @@ Candy × 5</code></pre>
 </div>
 <h3 id="その2">その2</h3>
 <p>基本課題その1で作成した<code>AddItemsFromFile(string)</code>を拡張し，入力テキストファイルに同じアイテム名が複数含まれていた場合にそれらの個数を合計するようにせよ．</p>
-<p>items.txtの中身の例</p>
+<p><code>items.txt</code>の中身の例</p>
 <pre class="text"><code>Chocolate,2
 Chips,14
 Candy,5
@@ -271,7 +270,7 @@ Candy × 5</code></pre>
 <pre class="text"><code>AAA, B</code></pre>
 <p>ここで整数以外とは<code>Int32.Parse()</code>が失敗するものとする．</p></li>
 </ul>
-<h3 id="items.txtの中身の例1">items.txtの中身の例1</h3>
+<h3 id="items.txtの中身の例1"><code>items.txt</code>の中身の例1</h3>
 <pre class="text"><code>#コメント行
 Chocolate,  2
    Chips ,14  
@@ -282,7 +281,7 @@ Chocolate,40</code></pre>
 <pre class="text"><code>Chocolate × 42
 Chips × 14
 Candy × 5</code></pre>
-<h3 id="items.txtの中身の例2">items.txtの中身の例2</h3>
+<h3 id="items.txtの中身の例2"><code>items.txt</code>の中身の例2</h3>
 <pre class="text"><code># コメント行
 Chocolate,  2
    Chips ,14  
@@ -297,7 +296,7 @@ Candy,25</code></pre>
 <pre class="text"><code>Chocolate × 42
 Chips × 14
 Candy × 5</code></pre>
-<h3 id="items.txtの中身の例3">items.txtの中身の例3</h3>
+<h3 id="items.txtの中身の例3"><code>items.txt</code>の中身の例3</h3>
 <pre class="text"><code># アイテム名が数字なのは許される
 100 , 5
 # アイテム名に#は許される
