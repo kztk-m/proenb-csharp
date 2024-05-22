@@ -41,7 +41,7 @@
                <h1>第5回 課題 (2024)</h1>
              
             
-               <p class="last-update">最終更新: 2024-05-17 12:21:10</p> 
+               <p class="last-update">最終更新: 2024-05-22 14:08:43</p> 
             
             <div class="qnav">
               <ul>
@@ -61,7 +61,7 @@
           <section class="mainbody">
             <h2 id="課題の進め方">課題の進め方</h2>
 <p>基本的には適当なプロジェクト/ソリューションを作って課題を進めた上で，<code>MainForm.cs</code>を提出する．</p>
-<p>採点はコマンドラインから<code>dotnet new etoapp</code>を実行した上で<code>MainForm.cs</code>を提出されたもの上書きすることで行う．
+<p>採点はコマンドラインから<code>dotnet new etoapp</code>を実行した上で<code>MainForm.cs</code>を提出されたもので上書きすることにより行う．
 <em>採点者は基本的に採点者自身の環境で動作確認を行うことに注意する．</em></p>
 <p>第6回課題において<code>MainForm.cs</code>以外に提出に含めたいものがある場合（たとえば画像ファイル等）は事前にメール（メールアドレスはClassroom内「受講者用案内」を参照）で相談のこと．</p>
 <p><strong>他の人（受講者・非受講者両方）に解答内容（一部でも）を見せない</strong>，そして<strong>他の人の解答内容（一部でも）を見ない</strong>ようお願いします．特に，
@@ -143,14 +143,14 @@ Ready</code></pre>
 <li>本課題では，ファイルを開いたり読みこんだりしたときに例外が発生した場合の挙動については規定しない．</li>
 </ul></li>
 </ul>
-<p>ただし，相対パスを用いて「ドキュメント」内（Windowsの場合．Windows 8以前は「マイ ドキュメント」）や「書類」（<code>~/Documents</code>）内（Mac等の場合で.NET 8以降．7以前はホームディレクトリ）のファイルを開けるようにするために，以下を<code>MainForm</code>のコンストラクタに含めるなどせよ（フォームの関心毎ではないので<code>Main</code>等で実行すべきだが，3箇所のファイルを修正するのは大変なので）．</p>
+<p>ただし，相対パスを用いて「ドキュメント」内（Windowsの場合．Windows 8以前は「マイ ドキュメント」）や「書類」（<code>~/Documents</code>）内（Mac等の場合で.NET 8以降．7以前はホームディレクトリ．以降の説明は.NET 8以降を想定）のファイルを開けるようにするために，以下を<code>MainForm</code>のコンストラクタに含めるなどせよ（フォームの関心毎ではないので<code>Main</code>等で実行すべきだが，3箇所のファイルを修正するのは大変なので）．</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 現在の（作業）ディレクトリを，プラットフォーム毎の「ドキュメント」的なディレクトリに設定する</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Windowsだと「ドキュメント」，Macで.NET 8以降だと「書類」（~/Documents/），7以前はホームディレクトリ．他の環境は未確認．</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">// </span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">// より安全には，Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) が空文字列かどうか</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">// を検査してから Environment.CurrentDirectory に代入したほうがよい．</span></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>Environment<span class="op">.</span><span class="fu">CurrentDirectory</span> <span class="op">=</span> Environment<span class="op">.</span><span class="fu">GetFolderPath</span><span class="op">(</span>Environment<span class="op">.</span><span class="fu">SpecialFolder</span><span class="op">.</span><span class="fu">MyDocuments</span><span class="op">);</span></span></code></pre></div>
-<p>上記の設定により，「ドキュメント」フォルダやホームディレクトリ直下のファイルにファイル名のみでアクセスできるようになる（より正確には相対パスの基準が「ドキュメント」フォルダやホームディレクトリになる）．より具体的には：</p>
+<p>上記の設定により，「ドキュメント」フォルダ（Windowsの場合）や「書類」（Macの場合）フォルダの直下のファイルにファイル名のみでアクセスできるようになる（より正確には相対パスの基準がこれらのフォルダになる）．より具体的には：</p>
 <ul>
 <li><p>Windows 10/11であれば，「ドキュメント」（エクスプローラーの左サイドバーの「クイックアクセス」か「PC」以下から見付かるはず）フォルダ直下に<code>test.txt</code>を適当な内容で用意し，作成するアプリケーションのテキストボックスに<code>test.txt</code>を入力して"Load"ボタンを押せばその内容が表示されるようになる．</p></li>
 <li><p>Macであれば，Finderの左サイドバーの「よく使う項目」の「書類」（<code>~/Documents</code>）直下に<code>test.txt</code>を適当な内容で用意し，作成するアプリケーションのテキストボックスに<code>test.txt</code>を入力して"Load"ボタンを押せばその内容が表示されるようになる．</p></li>
@@ -207,7 +207,7 @@ Ready</code></pre>
 |                                     |
 +-------------------------------------+
 Ready</code></pre>
-<p>"Save"ボタンが押されたときには，その時点でのテキストエリアの内容を，その時点でのテキストボックスに入力されたパスにファイルに保存する機能を実装せよ．ただし，</p>
+<p>"Save"ボタンが押されたときには，その時点でのテキストエリアの内容を，その時点でのテキストボックスに入力されたパスのファイルとして保存する機能を実装せよ．ただし，</p>
 <ul>
 <li><p>もしファイルが見付からなければそのファイルを作成するようにし，ファイルが見付かったならばそのファイルを上書きするようにする．</p></li>
 <li><p>何らかの理由で与えられたパスのファイルを作成したり開いたりできない場合は，ステータス行に読込や保存に失敗した旨を表示</p></li>
