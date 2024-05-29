@@ -41,7 +41,7 @@
                <h1>第6回 C#でお絵描き</h1>
              
             
-               <p class="last-update">最終更新: 2023-05-31 14:47:01</p> 
+               <p class="last-update">最終更新: 2024-05-29 19:29:06</p> 
             
             <div class="qnav">
               <ul>
@@ -469,7 +469,7 @@
 <p>たとえばMacにおける，上（を含むプログラム）の実行例は以下となる．</p>
 <p><img src="./images/eto/mouse_demo.png" alt="image" /></p>
 <h3 id="円の色を選択できるように">円の色を選択できるように</h3>
-<p>作成したプログラムを少し拡張して，色を選べるようにしてみよう．この目的には<code>ColorPicker</code>というコントロールが利用可能である．このコントロールはクリックすると専用のダイアログ（プラットフォーム毎に異なる）を表示し，ユーザに色を選ぶことを可能にする．</p>
+<p>作成したプログラムを少し拡張して，色を選べるようにしてみよう．この目的には<code>ColorPicker</code>というコントロールが利用可能である．このコントロールはクリックすると専用のダイアログ（プラットフォーム毎に異なる）を表示し，ユーザが色を選ぶことを可能にする．</p>
 <p>より具体的には，<code>ColorPicker</code>により<em>次にクリックしたとき</em>に表示される円の色を指定できるようする．そのためには，中心の座標のみならず，塗るべき色も覚えておけばよい．そのために，以下のクラスを準備する．</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 色と中心点の組</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ColoredCircle</span>
