@@ -41,7 +41,7 @@
                <h1>第1回 C#にさわってみよう</h1>
              
             
-               <p class="last-update">最終更新: 2024-04-18 14:00:23</p> 
+               <p class="last-update">最終更新: 2025-04-02 16:22:11</p> 
             
             <div class="qnav">
               <ul>
@@ -111,8 +111,8 @@
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>となる．<code>using System;</code>の部分はしばらくはプログラムはそういうものを含むのだと思ってほしい．</p>
 <p>次に興味深いのは<code>class Program {…}</code>の部分である．この部分は<code>Program</code>という<strong>クラス</strong>を宣言している．C#はオブジェクト指向言語であり，
-<strong>オブジェクト</strong>という概念が重要となる．ものすごく大雑把には，オブジェクトは， 「データと，それに関連する関数（<strong>メソッド</strong>と呼ばれる）」をまとめたものであり，
-<strong>クラス</strong>はオブジェクトの定義の記述（方法の一つ）である．ものすごく大雑把にはC#のようなオブジェクト指向言語では，<em>オブジェクトを作成しそのメソッドを呼び出すことを繰り返すことで計算を行う</em>．</p>
+<strong>オブジェクト</strong>という概念が重要となる．ものすごく大雑把には，<strong>オブジェクトは 「データ（状態）と，それに関連する関数」をまとめたもの</strong>であり，
+<strong>クラス</strong>はオブジェクトの定義の記述（方法の一つ）で大雑把には<strong>どういったデータ（状態）や関数がまとめられているのか</strong>を記述する．そうして「まとめられる」関数は<strong>メソッド</strong>と呼ばれる．ものすごく大雑把にはC#のようなオブジェクト指向言語では，<em>オブジェクトを作成しそのメソッドを呼び出すことを繰り返すことで計算を行う</em>．</p>
 <p>さて，クラス<code>Program</code>は<code>static void Main(string [] args)</code>というメソッドを持っている．この<code>Main</code>メソッドは特殊なものであり，Cのmain関数のように，プログラムが実行されるときに実行されるメソッドを表している．ここで<code>Console.WriteLine</code>は文字列が引数として与えられた場合にはそれを標準出力へ出力するメソッドであるので，このプログラムを実行すると<code>Hello World!</code>という文字列が標準出力に出力されることになる．</p>
 <h2 id="クラスのとても基本的な構造">クラスのとても基本的な構造</h2>
 <p>まずは，クラスはどういう構造をもっているかを見ていこう．基本的には以下の構造をしているが，これだとピンとこない人も多いと思うので，例を用いて説明することにする．</p>
@@ -332,7 +332,7 @@ d.GetCount() = 7</code></pre>
 <span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> get_count<span class="op">(</span><span class="kw">struct</span> counter<span class="op">*</span> p<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> p<span class="op">-&gt;</span>count<span class="op">;</span> </span>
 <span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>クラスと，こうした構造体定義と関数のあつまりの違いには<a href="./w2.html%3E">次回</a>触れる．</p>
+<p>クラスと，こうした構造体定義と関数のあつまりの違いには<a href="./w2.html">次回</a>触れる．</p>
 </div>
 <div class="note">
 <div class="title">

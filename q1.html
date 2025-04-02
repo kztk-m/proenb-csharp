@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja">
     <head>
-        <title>第1回 課題 (2024) - 東北大学プログラミング演習B (C#)</title>
+        <title>第1回 課題 (2025 修正中) - 東北大学プログラミング演習B (C#)</title>
         <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -38,10 +38,10 @@
             </nav>
 
             
-               <h1>第1回 課題 (2024)</h1>
+               <h1>第1回 課題 (2025 修正中)</h1>
              
             
-               <p class="last-update">最終更新: 2024-05-15 14:25:30</p> 
+               <p class="last-update">最終更新: 2025-04-02 18:19:51</p> 
             
             <div class="qnav">
               <ul>
@@ -67,7 +67,7 @@
 <div class="title">
 <p>Note</p>
 </div>
-<p>再掲：プロジェクトは一つの実行形式やライブラリを作成するためのコード等を全てまとめたものであり，ソリューションは関連するプロジェクトをまとめたもの（参考：<a href="https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2022%3E">What are solutions and projects in Visual Studio</a>）．</p>
+<p>再掲：プロジェクトは一つの実行形式やライブラリを作成するためのコード等を全てまとめたものであり，ソリューションは関連するプロジェクトをまとめたもの（参考：<a href="https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2022">What are solutions and projects in Visual Studio</a>）．</p>
 </div>
 <p>適当な名前（たとえば課題3の解答なので<code>Q3</code>にするなど）のフォルダを適当な場所に作成し，
 VSCodeで作成したフォルダを開く．そして，VSCode内のターミナルで以下を実行する．</p>
@@ -79,15 +79,15 @@ VSCodeで作成したフォルダを開く．そして，VSCode内のターミ�
 <p>という行から始まる．</p>
 <h3 id="提出">提出</h3>
 <p>できあがった <code>Program.cs</code>をClassroom内の当該回の「課題」より提出する．最初のステップで作成したフォルダにあるはず．また問題文に指示がある場合はそのファイル（例：課題4のitems.txt）も提出する．提出前には以下を確認しよう．</p>
+<ul class="task-list">
+<li><label><input type="checkbox" />提出プログラムコードのファイル名は<code>Program.cs</code>になっているか</label></li>
+<li><label><input type="checkbox" />提出するファイルに<em>学籍番号と名前</em>がコメントとして含まれているか</label></li>
+<li><label><input type="checkbox" />文献やWebサイトを参考にした場合は<em>文献の情報やURLおよびアクセス日</em>に加えて<em>元文献のどの部分を参考にしたのか</em>が<em>コードの当該箇所</em>付近のコメントとして記述されているか</label></li>
+<li><label><input type="checkbox" />友人と相談した・された場合はその<em>友人の名前</em>および<em>大雑把な相談の内容</em>がコメントとして書かれているか</label>
 <ul>
-<li>提出プログラムコードのファイル名は<code>Program.cs</code>になっているか</li>
-<li>提出するファイルに<em>学籍番号と名前</em>がコメントとして含まれているか</li>
-<li>文献やWebサイトを参考にした場合は<em>文献の情報やURLおよびアクセス日</em>に加えて<em>元文献のどの部分を参考にしたのか</em>が<em>コードの当該箇所</em>付近のコメントとして記述されているか</li>
-<li>友人と相談した・された場合はその<em>友人の名前</em>および<em>大雑把な相談の内容</em>がコメントとして書かれているか
-<ul>
-<li>ただし，友人の解答を見ない，そして友人に解答を見せないようお願いします</li>
+<li>ただし，友人の解答を見ない（一部でも），そして友人に解答を見せない（一部でも）ようお願いします</li>
 </ul></li>
-<li>TA・教員と相談した場合は，その旨と<em>大雑把な相談の内容</em>がコメントとして書かれているか</li>
+<li><label><input type="checkbox" />TA・教員と相談した場合は，その旨と<em>大雑把な相談の内容</em>がコメントとして書かれているか</label></li>
 </ul>          
             <h2 id="基本課題">基本課題</h2>
 <p>以下の<code>Program.cs</code>を適切に埋めて，プログラム完成させよ．</p>
@@ -101,7 +101,7 @@ VSCodeで作成したフォルダを開く．そして，VSCode内のターミ�
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 残高</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> balance<span class="op">;</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// カードの名前</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">string</span> name<span class="op">;</span> </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">string</span> cardName<span class="op">;</span> </span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">EmoneyCard</span><span class="op">(</span><span class="dt">string</span> n<span class="op">)</span> </span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
@@ -172,8 +172,14 @@ VSCodeで作成したフォルダを開く．そして，VSCode内のターミ�
 <span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;payment failed&quot;</span><span class="op">);</span> </span>
 <span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span>           </span>
 <span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>        ec<span class="op">.</span><span class="fu">Print</span><span class="op">();</span> </span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;----&quot;</span><span class="op">);</span></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>        EmoneyCard ec2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">EmoneyCard</span><span class="op">(</span><span class="st">&quot;MySecondCard&quot;</span><span class="op">);</span> </span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>        ec2<span class="op">.</span><span class="fu">Charge</span><span class="op">(</span><span class="dv">255</span><span class="op">);</span></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>        ec<span class="op">.</span><span class="fu">Print</span><span class="op">();</span></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>        ec2<span class="op">.</span><span class="fu">Print</span><span class="op">();</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>正しく実装できれば以下が出力される．</p>
 <pre class="text"><code>MyCard: 100
 payment failed
@@ -181,7 +187,10 @@ MyCard: 1100
 payment succeeded
 MyCard: 600
 payment succeeded
-MyCard: 0</code></pre>
+MyCard: 0
+----
+MyCard: 0
+MySecondCard: 255</code></pre>
 <h2 id="発展課題">発展課題</h2>
 <div class="important">
 <div class="title">
