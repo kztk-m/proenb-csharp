@@ -41,7 +41,7 @@
                <h1>第0回 環境構築1（C#/F#共通）</h1>
              
             
-               <p class="last-update">最終更新: 2025-04-08 09:33:53</p> 
+               <p class="last-update">最終更新: 2025-04-09 22:53:49</p> 
             
             <div class="qnav">
               <ul>
@@ -69,13 +69,14 @@
 <div class="title">
 <p>Caution</p>
 </div>
-<p><a href="https://learn.microsoft.com/en-us/visualstudio/mac/what-happened-to-vs-for-mac?view=vsmac-2022">2024年8月一杯でVisual Studio for Macの提供が廃止される</a>こととなった．それにともない，今年はVisual Studio Code上でC# Dev KitおよびIonide for F#を用いた環境構築法を紹介することとする．Visual Studio を使いたい人は<a href="./setup_gui_2023.html">2023年度の環境構築法</a>を参照されたし．</p>
+<p><a href="https://learn.microsoft.com/en-us/visualstudio/mac/what-happened-to-vs-for-mac?view=vsmac-2022">2024年8月一杯でVisual Studio for Macの提供が廃止される</a>こととなった．それにともない，今年はVisual Studio Code上でC# Dev KitおよびIonide for F#を用いた環境構築法を紹介することとする．Visual Studio を使いたい人は<a href="./setup_2023.html">2023年度の環境構築法</a>を参照されたし．</p>
 </div>
 <p>まずは，<a href="#dotnet_sdk">.NET SDKのインストール</a>を行い，その後<a href="#vscode">Visual Studio Code (VSCode) のインストール・設定</a>を行う．自分の好きなエディタ（viやEmacs等）を使用したい人は後者はしなくてもよい．</p>
 <p>なお，このページで紹介している方法ではF#演習のための環境構築にもなっている．C#演習の第5週・第6週目の課題を進めるには<a href="./setup_gui.html">さらなる準備（別ページ）</a>が必要である（こちらはC#演習分のみ）．</p>
 <p>（本ページに掲載されているスクリーンショットは，マイクロソフトの許諾を得て使用しています．）</p>
 <h2 id="dotnet_sdk">.NET SDKのインストール</h2>
 <h3 id="インストール">インストール</h3>
+<div class="Instructions">
 <ol type="1">
 <li><p><a href="https://dotnet.microsoft.com/ja-jp/download">.NET SDKのダウンロードページ</a>より，software development kit (SDK)をダウンロードする．2025年度は<code>.NET 8.0</code>のものを使用することとする．</p>
 <ul>
@@ -102,8 +103,10 @@
 8.0.200 [/usr/local/share/dotnet/sdk]
 8.0.407 [/usr/local/share/dotnet/sdk]</code></pre></li>
 </ol>
+</div>
 <h3 id="check_dotnetsdk_install">動作確認</h3>
 <p>（動作確認は以下のVSCodeのインストール・設定後にも行うので，この時点では飛ばしてもよい）</p>
+<div class="Instructions">
 <ol type="1">
 <li><p>適当なフォルダに移動して以下を実行する．</p>
 <pre class="console"><code>dotnet new console -o HelloWorldCS </code></pre></li>
@@ -121,8 +124,10 @@
 <p>すると，<code>"Hello, World!"</code>が表示されるのが確認できるはずだ．</p></li>
 <li><p>F#でも同様であることを確認しておこう（<code>dotnet new</code>を実行する場面で，<code>dotnet new console -o HelloWorldCS</code> の代わりに <code>dotnet new console -lang "F#" -o HelloWorldFS</code> とする．また，このコマンドだと<code>HelloWorldCS</code>ではなく<code>HelloWorldFS</code>というフォルダが作成される）</p></li>
 </ol>
+</div>
 <h2 id="vscode">Visual Studio Code (VSCode) のインストール・設定</h2>
 <h3 id="インストール設定">インストール・設定</h3>
+<div class="Instructions">
 <ol type="1">
 <li><p><a href="https://code.visualstudio.com/" class="uri">https://code.visualstudio.com/</a>からインストーラをダウンロードする．</p></li>
 <li><p>ダウンロードしたインストーラを実行し，指示に従いインストールする．</p></li>
@@ -161,7 +166,13 @@ Shell Command: Install 'code' command in PATH</code></pre>
 <p>とあるが，私の環境だと<code>Shell Command: Install 'code' command in PATH</code>をすることで，<code>/usr/local/bin</code>下に実行形式ファイル<code>code</code>がインストールされた（そして記述に反して環境変数<code>PATH</code>は変更されなかった）ので，もともと<code>/usr/local/bin</code>がパスに通っているのならばターミナルの再起動は必要がないかもしれない（2023年3月27日時点）．</p>
 </div></li>
 </ol>
+</div>
 <h3 id="動作確認">動作確認</h3>
+<p>以下を行う．</p>
+<ul>
+<li><a href="#cs_console">C#編1</a>か<a href="#cs_dev_kit">C#編2</a>のいずれか，および</li>
+<li><a href="#fs">F#編</a></li>
+</ul>
 <div class="note">
 <div class="title">
 <p>Note</p>
@@ -169,32 +180,26 @@ Shell Command: Install 'code' command in PATH</code></pre>
 <p>いずれの方法でも，フォルダを開くタイミングで「このフォルダー内のファイルの作成者を信頼しますか？」なるダイアログで出てくるかもしれない．その場合は，<strong>今回については</strong>自分が用意したファイルであるはずなので「はい，…」を選択する．</p>
 </div>
 <h4 id="cs_console">C#編1（プロジェクトの作成にコマンドライン使用；本演習ではオススメ）</h4>
+<div class="Instructions">
 <ol type="1">
-<li><p>ターミナルでプロジェクトを作成し，それを開く．</p>
+<li><p>ターミナルでプロジェクトを作成し，それを開く．具体的には以下の<a href="#terminal_first">方法1</a>と<a href="#vscode_first">方法2</a>のいずれかを行う．いずれの場合もC# Dev Kitがプロジェクトを認識した時点で，開いたフォルダ直下に<code>フォルダ名.sln</code>なるファイルが作成されるはず．</p>
 <div class="note">
 <div class="title">
 <p>Note</p>
 </div>
-<p>ここでいうプロジェクトとは一つの実行形式やライブラリを作成するためのコード等を全てまとめたものである（参考：<a href="https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2022">What are solutions and projects in Visual Studio?</a>）．プロジェクトの設定は<code>.csproj</code>ファイルに記述されている．</p>
+<p>ここでいうプロジェクトとは一つの実行形式やライブラリを作成するためのコード等を全てまとめたものである．プロジェクトの設定は<code>.csproj</code>ファイルに記述されている．複数のプロジェクトをまとめたものはソリューションと呼ばれ，<code>.sln</code>ファイルにその情報が記述されている（参考：<a href="https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2022">What are solutions and projects in Visual Studio?</a>）</p>
 </div>
-<ul>
-<li><p>方法1：ターミナル上で，<a href="#check_dotnetsdk_install">上に書いた</a>ように<code>dotnet new console -o HelloWorldCS</code>で適当なプロジェクト（ここでは<code>HelloWorldCS</code>）を作成し，その後<code>code HelloWorldCS</code>でVSCodeを開く（Macの場合は<code>code</code>コマンドの<a href="#command_code_install">インストールが必要</a>）．少し待つとC# Dev Kitがプロジェクトを認識する（「エクスプローラー」サイドバーに「ソリューション エクスプローラー」が増える）．</p></li>
-<li><p>方法2：VSCodeで作成したいプロジェクトと同名のフォルダ（<code>HelloWorldCS</code>とする）を開く（<strong>Windowsでは「ファイルを開く」ではなく「フォルダーを開く」から開く</strong>）．メニューの「表示」→「ターミナル」よりターミナルを起動・表示する．</p>
+<h5 id="terminal_first">方法1：ターミナルでプロジェクトを作成してからVSCodeでそのフォルダを開く</h5>
+<p>ターミナル上で，<a href="#check_dotnetsdk_install">上に書いた</a>ように<code>dotnet new console -o HelloWorldCS</code>で適当なプロジェクト（ここでは<code>HelloWorldCS</code>）を作成し，その後<code>code HelloWorldCS</code>でVSCodeを開く（Macの場合は<code>code</code>コマンドの<a href="#command_code_install">インストールが必要</a>）．少し待つとC# Dev Kitがプロジェクトを認識する（「エクスプローラー」サイドバーに「ソリューション エクスプローラー」が増える）．</p>
+<h5 id="vscode_first">方法2：VSCodeでフォルダを開いてからVSCode内ターミナルでプロジェクトを作成する</h5>
+<p>VSCodeで作成したいプロジェクトと同名のフォルダ（<code>HelloWorldCS</code>とする）を開く（<strong>Windowsでは「ファイルを開く」ではなく「フォルダーを開く」から開く</strong>）．メニューの「表示」→「ターミナル」よりターミナルを起動・表示する．</p>
 <p><img src="images/vscode/vscode_terminal.png" alt="VSCodeの内蔵ターミナルは画面下部に表示される" /><br />
 </p>
 <p>ターミナルで</p>
 <pre class="console"><code>dotnet new console -o .</code></pre>
 <p>を実行し開いたフォルダと同名のプロジェクトを作成する．</p>
 <p><img src="images/vscode/vscode_dotnet_new.png" /></p>
-<p>「エクスプローラ」サイドバーより<code>.cs</code>ファイルを選択して少し待つと，C# Dev Kitによりプロジェクトが認識される（同サイドバーに「SOLUTION EXPLORER」が増える）．</p></li>
-</ul>
-<p>いずれの場合もC# Dev Kitがプロジェクトを認識した時点で，開いたフォルダ直下に<code>フォルダ名.sln</code>なるファイルが作成されるはず．</p>
-<div class="note">
-<div class="title">
-<p>Note</p>
-</div>
-<p><code>.sln</code>はソリューションファイルと呼ばれる．ソリューションは関連する複数のプロジェクトをまとめたもの（参考：<a href="https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2022">What are solutions and projects in Visual Studio?</a>）</p>
-</div></li>
+<p>エクスプローラ」サイドバーより<code>.cs</code>ファイルを選択して少し待つと，C# Dev Kitによりプロジェクトが認識される（同サイドバーに「SOLUTION EXPLORER」が増える）．</p></li>
 <li><p>ターミナルから<code>dotnet run</code>を実行してもよいが，ここでは別の方法を紹介する．
 <code>Program.cs</code>を左のエクスプローラーから選択して開き，エディタパネル<em>右上</em>（左にあるものではない）の「再生ボタンの右下に虫がついたアイコン」をクリックする．このボタンは<code>.cs</code>ファイルに関連するプロジェクトをデバッグ実行する（右側の ﹀ から通常の実行に切り替えられる）．</p>
 <p><img src="images/vscode/vscode_run_button.png" /></p></li>
@@ -211,7 +216,9 @@ Shell Command: Install 'code' command in PATH</code></pre>
 <p>また，ターミナルから<code>dotnet run</code>を実行するのでもよい．</p>
 </div></li>
 </ol>
-<h4 id="c編2プロジェクト作成にc-dev-kitの機能を利用">C#編2（プロジェクト作成にC# Dev Kitの機能を利用）</h4>
+</div>
+<h4 id="cs_dev_kit">C#編2（プロジェクト作成にC# Dev Kitの機能を利用）</h4>
+<div class="Instructions">
 <ol type="1">
 <li><p>次のいずれかを行う．</p>
 <ul>
@@ -229,14 +236,17 @@ Shell Command: Install 'code' command in PATH</code></pre>
 </ul></li>
 <li><p>ターミナル（VSCodeのものでもよい）から<code>dotnet run</code>で実行してもよいし，「C#編1」に書いたように右上の「再生ボタンの右下に虫がついたアイコン」で実行してもよい．</p></li>
 </ol>
-<h4 id="f編">F#編</h4>
+</div>
+<h4 id="fs">F#編</h4>
+<div class="Instructions">
 <ol type="1">
 <li><p>ターミナルでプロジェクトを作成し，それを開く．<a href="#cs_console">C#編1（プロジェクトの作成にコマンドライン使用；本演習ではオススメ）</a>とほぼ同様の方法で <code>dotnet new console</code> コマンドに <code>-lang "F#"</code> というオプションを渡すだけなので，詳細は割愛．</p></li>
 <li><p>（オプショナル）サイドバーをIonideのものに切り替える．アクティビティーバー（一番左にあるアイコンが並んでいるバー）からIonideのアイコン（マウスをホバーすると「F#」と出るもの）を選択することで切り替えられる．なお元にもどすには，アクティビティーバーの一番上のアイコン（マウスをホバーすると「エクスプローラー」と出るもの）を選択すればよい．</p>
 <p><img src="images/vscode/vscode_ionide.png" /></p></li>
 <li><p>ターミナルから<code>dotnet run</code>で実行する．</p>
 <p>Ionideのサイドバーの上部の実行ボタンからも実行できる…はずだが，Windows環境だとサイドバー上部の実行ボタンから実行すると，ターミナルが一瞬で閉じてしまう模様．</p></li>
-</ol></section>
+</ol>
+</div></section>
 
         </main>
 
