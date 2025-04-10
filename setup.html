@@ -41,7 +41,7 @@
                <h1>第0回 環境構築1（C#/F#共通）</h1>
              
             
-               <p class="last-update">最終更新: 2025-04-09 22:53:49</p> 
+               <p class="last-update">最終更新: 2025-04-10 11:56:40</p> 
             
             <div class="qnav">
               <ul>
@@ -122,7 +122,11 @@
 <li><p>以下を実行してビルドしたプログラムを実行する．</p>
 <pre class="console"><code>dotnet run </code></pre>
 <p>すると，<code>"Hello, World!"</code>が表示されるのが確認できるはずだ．</p></li>
-<li><p>F#でも同様であることを確認しておこう（<code>dotnet new</code>を実行する場面で，<code>dotnet new console -o HelloWorldCS</code> の代わりに <code>dotnet new console -lang "F#" -o HelloWorldFS</code> とする．また，このコマンドだと<code>HelloWorldCS</code>ではなく<code>HelloWorldFS</code>というフォルダが作成される）</p></li>
+<li><p>F#でも同様であることを確認しておこう．</p>
+<ol type="i">
+<li><p>まず，今<code>HelloWorldCS</code>の中にいるのであれば，その外に移動する．</p></li>
+<li><p>そして，上記において，<code>dotnet new</code>を実行する場面で，<code>dotnet new console -o HelloWorldCS</code> の代わりに <code>dotnet new console -lang "F#" -o HelloWorldFS</code> とする．また，このコマンドだと<code>HelloWorldCS</code>ではなく<code>HelloWorldFS</code>というフォルダが作成される．</p></li>
+</ol></li>
 </ol>
 </div>
 <h2 id="vscode">Visual Studio Code (VSCode) のインストール・設定</h2>
@@ -188,6 +192,12 @@ Shell Command: Install 'code' command in PATH</code></pre>
 <p>Note</p>
 </div>
 <p>ここでいうプロジェクトとは一つの実行形式やライブラリを作成するためのコード等を全てまとめたものである．プロジェクトの設定は<code>.csproj</code>ファイルに記述されている．複数のプロジェクトをまとめたものはソリューションと呼ばれ，<code>.sln</code>ファイルにその情報が記述されている（参考：<a href="https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2022">What are solutions and projects in Visual Studio?</a>）</p>
+</div>
+<div class="caution">
+<div class="title">
+<p>Caution</p>
+</div>
+<p>プロジェクトはネストさせない．つまり，<code>.csproj</code>が含まれているフォルダ以下に別の<code>.csproj</code>が含まれているフォルダを作らない．</p>
 </div>
 <h5 id="terminal_first">方法1：ターミナルでプロジェクトを作成してからVSCodeでそのフォルダを開く</h5>
 <p>ターミナル上で，<a href="#check_dotnetsdk_install">上に書いた</a>ように<code>dotnet new console -o HelloWorldCS</code>で適当なプロジェクト（ここでは<code>HelloWorldCS</code>）を作成し，その後<code>code HelloWorldCS</code>でVSCodeを開く（Macの場合は<code>code</code>コマンドの<a href="#command_code_install">インストールが必要</a>）．少し待つとC# Dev Kitがプロジェクトを認識する（「エクスプローラー」サイドバーに「ソリューション エクスプローラー」が増える）．</p>
