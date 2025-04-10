@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja">
     <head>
-        <title>第2回 課題 (2025 修正中) - 東北大学プログラミング演習B (C#)</title>
+        <title>第2回 課題 (2025) - 東北大学プログラミング演習B (C#)</title>
         <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -38,10 +38,10 @@
             </nav>
 
             
-               <h1>第2回 課題 (2025 修正中)</h1>
+               <h1>第2回 課題 (2025)</h1>
              
             
-               <p class="last-update">最終更新: 2025-04-03 15:17:15</p> 
+               <p class="last-update">最終更新: 2025-04-10 17:45:09</p> 
             
             <div class="qnav">
               <ul>
@@ -59,10 +59,12 @@
             </ul>
           </nav>
           <section class="mainbody">
-            <h2 id="課題の進め方">課題の進め方</h2>
+            <section id="課題の進め方" class="level2">
+<h2>課題の進め方</h2>
 <p>基本的には適当なプロジェクト/ソリューションを作って課題を進めた上で，<code>Program.cs</code>のみ（特に他に指示がなければ）を提出する．</p>
 <p><strong>他の人（受講者・非受講者両方）に解答内容（一部でも）を見せない</strong>，そして<strong>他の人の解答内容（一部でも）を見ない</strong>ようお願いします．特に，<strong>公開の場所に解答を置かないようお願いします．</strong>githubやbitbucket等は使える人は使えばよいと思いますが，<strong>privateレポジトリにする</strong>ようにお願いします．</p>
-<h3 id="プロジェクトソリューションの作成">プロジェクト/ソリューションの作成</h3>
+<section id="プロジェクトソリューションの作成" class="level3">
+<h3>プロジェクト/ソリューションの作成</h3>
 <div class="note">
 <div class="title">
 <p>Note</p>
@@ -72,12 +74,16 @@
 <p>適当な名前（たとえば課題3の解答なので<code>Q3</code>にするなど）のフォルダを適当な場所に作成し，
 VSCodeで作成したフォルダを開く．そして，VSCode内のターミナルで以下を実行する．</p>
 <pre class="text"><code>dotnet new console -o .</code></pre>
-<h3 id="課題の実施">課題の実施</h3>
-<p><code>Program.cs</code> を問題文の指示の通りに編集する（課題によっては他のファイルも．ただし<strong>提出・採点手続きの簡略化のため提出する.csファイルは一つのみ</strong>）．作成した.csファイルには先頭部分に<strong>学籍番号と名前をコメントとして含める</strong>こと．なので，たとえば学籍番号Z0TB9999の東北 大学さんの提出ファイルは</p>
+</section>
+<section id="課題の実施" class="level3">
+<h3>課題の実施</h3>
+<p><code>Program.cs</code>を問題文の指示の通りに編集する（課題によっては他のファイルも．ただし<strong>提出・採点手続きの簡略化のため提出する.csファイルは<code>Program.cs</code>のみ</strong>）．作成した.csファイルには先頭部分に<strong>学籍番号と名前をコメントとして含める</strong>こと．なので，たとえば学籍番号Z0TB9999の東北 大学さんの提出ファイルは</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Z0TB9999</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 東北 大学</span></span></code></pre></div>
 <p>という行から始まる．</p>
-<h3 id="提出">提出</h3>
+</section>
+<section id="提出" class="level3">
+<h3>提出</h3>
 <p>できあがった <code>Program.cs</code>をClassroom内の当該回の「課題」より提出する．最初のステップで作成したフォルダにあるはず．また問題文に指示がある場合はそのファイル（例：課題4のitems.txt）も提出する．提出前には以下を確認しよう．</p>
 <ul class="task-list">
 <li><label><input type="checkbox" />提出プログラムコードのファイル名は<code>Program.cs</code>になっているか</label></li>
@@ -88,8 +94,11 @@ VSCodeで作成したフォルダを開く．そして，VSCode内のターミ�
 <li>ただし，友人の解答を見ない（一部でも），そして友人に解答を見せない（一部でも）ようお願いします</li>
 </ul></li>
 <li><label><input type="checkbox" />TA・教員と相談した場合は，その旨と<em>大雑把な相談の内容</em>がコメントとして書かれているか</label></li>
-</ul>          
-            <h2 id="基本課題">基本課題</h2>
+</ul>
+</section>
+</section>          
+            <section id="基本課題" class="level2">
+<h2>基本課題</h2>
 <p>「電卓」を表す以下の<code>Calc</code>クラスについて考える．</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Calc.cs</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
@@ -249,7 +258,9 @@ Value: 1</code></pre>
 πについても<code>Math.PI</code>が利用可能である．詳細は，<a href="https://docs.microsoft.com/en-us/dotnet/api/system.math?view=net-6.0%3E">.NET API リファレンスの関連ページ</a>を参照のこと．特に，<code>Log</code>や<code>Pow</code>がどっちの引数が何を表しているかをちゃんと確認するとよい．</p>
 <p>また言うまでもないかもだが，180° = πラジアン である．</p>
 </div>
-<h2 id="発展課題">発展課題</h2>
+</section>
+<section id="発展課題" class="level2">
+<h2>発展課題</h2>
 <div class="important">
 <div class="title">
 <p>Important</p>
@@ -303,6 +314,7 @@ Value: 1</code></pre>
 <div class="hint">
 <p><em>ヒント</em>： 一部の実装にはオーバライドを使う？</p>
 </div>
+</section>
           </section>
         </main>
 

@@ -62,7 +62,8 @@
 </ul></li>
 </ul>
 </nav>
-<section class="mainbody"><h2 id="drawableコントロール"><code>Drawable</code>コントロール</h2>
+<section class="mainbody"><section id="drawableコントロール" class="level2">
+<h2><code>Drawable</code>コントロール</h2>
 <p>Eto.Forms の <code>Drawable</code> コントロールを利用することで，直線，矩形，楕円，文字列等いろんなものをコントロールに自由に描画できる．</p>
 <p>そのためには，以下のように<code>Drawable</code>の<code>Paint</code>イベントを購読（ハンドラを登録）するとよい．</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// MainForm.cs </span></span>
@@ -247,7 +248,9 @@
 </tbody>
 </table>
 <p>なお，上記はあくまで一部である．より詳細は<a href="http://pages.picoe.ca/docs/api/html/T_Eto_Drawing_Graphics.htm">Eto.FormsのドキュメンテーションのGraphicsのページ</a>を見るとよい．</p>
-<h2 id="フォント">フォント</h2>
+</section>
+<section id="フォント" class="level2">
+<h2>フォント</h2>
 <p><code>Font(FontFamily,float)</code>コンストラクタを使うことで，システムにインストールされたフォントから<code>Font</code>オブジェクトを作成できる．</p>
 <p><code>FontFamily</code>インスタンスの作成にはフォント名をとるコンストラクタ<code>FontFamily(string)</code>を用いてもよいが，システムによってインストールされているフォントは違うので<code>Fonts.AvailableFontFamilies</code>を使うのがよいかもしれない．たとえば，<code>Fonts.AvailableFontFamilies</code>は以下のように<code>List&lt;FontFamily&gt;</code>に変換することができる．</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// システムにインストールされているフォントを取得し，List&lt;FontFamily&gt;に変換する</span></span>
@@ -359,7 +362,9 @@
 <span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>上記のMac（非Retinaディスプレイでの表示）での実行例は以下となる（起動直後ではなく，リサイズやテキストの変更などを行った状態）．</p>
 <p><img src="./images/eto/font_demo.png" alt="image" /></p>
-<h2 id="マウスイベントの処理クリックした位置に円を描く">マウスイベントの処理：クリックした位置に円を描く</h2>
+</section>
+<section id="マウスイベントの処理クリックした位置に円を描く" class="level2">
+<h2>マウスイベントの処理：クリックした位置に円を描く</h2>
 <p>マウスイベントを購読するには，<code>MouseDown</code>等にハンドラを登録すればよい．</p>
 <table>
 <thead>
@@ -468,7 +473,8 @@
 <span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>たとえばMacにおける，上（を含むプログラム）の実行例は以下となる．</p>
 <p><img src="./images/eto/mouse_demo.png" alt="image" /></p>
-<h3 id="円の色を選択できるように">円の色を選択できるように</h3>
+<section id="円の色を選択できるように" class="level3">
+<h3>円の色を選択できるように</h3>
 <p>作成したプログラムを少し拡張して，色を選べるようにしてみよう．この目的には<code>ColorPicker</code>というコントロールが利用可能である．このコントロールはクリックすると専用のダイアログ（プラットフォーム毎に異なる）を表示し，ユーザが色を選ぶことを可能にする．</p>
 <p>より具体的には，<code>ColorPicker</code>により<em>次にクリックしたとき</em>に表示される円の色を指定できるようする．そのためには，中心の座標のみならず，塗るべき色も覚えておけばよい．そのために，以下のクラスを準備する．</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 色と中心点の組</span></span>
@@ -570,13 +576,16 @@
 <span id="cb15-61"><a href="#cb15-61" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>上のコードのMacでの実行例たとえば以下となる．</p>
 <p><img src="./images/eto/mouse_demo2.png" alt="image" /></p>
-<h3 id="複数個の円を描く">複数個の円を描く</h3>
+</section>
+<section id="複数個の円を描く" class="level3">
+<h3>複数個の円を描く</h3>
 <p>さて，円が一個だけでは寂しいのでもっとたくさん描画できるようしたい．そこで，クリックするたびに円を描くようにしたい．この実現方法は2通りある．</p>
 <ul>
 <li><code>ColoredCircle</code>のリストを覚えておき，<code>Paint</code>イベントのハンドラはそれらすべてを描画する．</li>
 <li>画像を保持しておきクリックをしたら<code>ColoredCircle</code>をそこに描く．<code>Paint</code>イベントのハンドラは画像を表示する．</li>
 </ul>
-<h4 id="円のリストを覚える方法">円のリストを覚える方法</h4>
+<section id="円のリストを覚える方法" class="level4">
+<h4>円のリストを覚える方法</h4>
 <p>前者の拡張はとても直截である．一つの<code>ColoredCircle</code>でなく，<code>ColoredCircle</code>のリストを保持するようにすればよい．上のコードに対する変更はわずか5箇所（うち一つはnamespaceの名前）だ．</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">// MainForm.cs</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
@@ -641,7 +650,9 @@
 <span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>上のコードのMacにおける実行例は以下となる．</p>
 <p><img src="./images/eto/mouse_demo3.png" alt="image" /></p>
-<h4 id="画像を保持する方法">画像を保持する方法</h4>
+</section>
+<section id="画像を保持する方法" class="level4">
+<h4>画像を保持する方法</h4>
 <p>ビットマップイメージ（<code>Bitmap</code>）を保持し，マウスクリック時にはイメージのほうに円を描き，<code>Drawable</code>の<code>Paint</code>ではその画像を単に表示するという方法もある．その場合は，少しプログラムが複雑になるので，<code>Drawable</code>に関連するイベント処理を，派生クラスのコンストラクタにまとめてしまうのがよいだろう．</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">// MainForm.cs</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
@@ -731,7 +742,10 @@
 <span id="cb17-86"><a href="#cb17-86" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb17-87"><a href="#cb17-87" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb17-88"><a href="#cb17-88" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>実行例は上と変わらないので割愛．</p></section>
+<p>実行例は上と変わらないので割愛．</p>
+</section>
+</section>
+</section></section>
 
         </main>
 

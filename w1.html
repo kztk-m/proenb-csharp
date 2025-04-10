@@ -41,7 +41,7 @@
                <h1>第1回 C#にさわってみよう</h1>
              
             
-               <p class="last-update">最終更新: 2025-04-02 16:22:11</p> 
+               <p class="last-update">最終更新: 2025-04-10 14:22:52</p> 
             
             <div class="qnav">
               <ul>
@@ -83,7 +83,8 @@
 </ul></li>
 </ul>
 </nav>
-<section class="mainbody"><h2 id="cプログラムの基本的な構造">C#プログラムの基本的な構造</h2>
+<section class="mainbody"><section id="cプログラムの基本的な構造" class="level2">
+<h2>C#プログラムの基本的な構造</h2>
 <p>まずは，<code>dotnet new console -o HelloWorldCS --langVersion 8.0</code>で作成されるテンプレートに含まれている，<code>Program.cs</code>の中身について見てみよう．</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Program.cs </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
@@ -114,7 +115,9 @@
 <strong>オブジェクト</strong>という概念が重要となる．ものすごく大雑把には，<strong>オブジェクトは 「データ（状態）と，それに関連する関数」をまとめたもの</strong>であり，
 <strong>クラス</strong>はオブジェクトの定義の記述（方法の一つ）で大雑把には<strong>どういったデータ（状態）や関数がまとめられているのか</strong>を記述する．そうして「まとめられる」関数は<strong>メソッド</strong>と呼ばれる．ものすごく大雑把にはC#のようなオブジェクト指向言語では，<em>オブジェクトを作成しそのメソッドを呼び出すことを繰り返すことで計算を行う</em>．</p>
 <p>さて，クラス<code>Program</code>は<code>static void Main(string [] args)</code>というメソッドを持っている．この<code>Main</code>メソッドは特殊なものであり，Cのmain関数のように，プログラムが実行されるときに実行されるメソッドを表している．ここで<code>Console.WriteLine</code>は文字列が引数として与えられた場合にはそれを標準出力へ出力するメソッドであるので，このプログラムを実行すると<code>Hello World!</code>という文字列が標準出力に出力されることになる．</p>
-<h2 id="クラスのとても基本的な構造">クラスのとても基本的な構造</h2>
+</section>
+<section id="クラスのとても基本的な構造" class="level2">
+<h2>クラスのとても基本的な構造</h2>
 <p>まずは，クラスはどういう構造をもっているかを見ていこう．基本的には以下の構造をしているが，これだとピンとこない人も多いと思うので，例を用いて説明することにする．</p>
 <pre style="line-height:1.3">
 <span class="metaname">修飾子</span> <span class="kw">class</span> <span class="metaname">クラス名</span>
@@ -122,7 +125,8 @@
    <span class="metaname">フィールドやコンストラクタ，メソッドの宣言の列</span>
 }
 </pre>
-<h3 id="例カウンター">例：カウンター</h3>
+<section id="例カウンター" class="level3">
+<h3>例：カウンター</h3>
 <p>今，カウンターを実装することを考える．カウンターの機能はシンプルに数をカウントするだけである．カウンターオブジェクトは内部でカウントを持っていて，作成時にカウントの初期値を指定することができる．またカウンターに対してできることは</p>
 <ul>
 <li>カウントを1増やす</li>
@@ -130,7 +134,8 @@
 <li>現在のカウントを調べる</li>
 </ul>
 <p>のみであるようにしたい．</p>
-<h4 id="counterクラスのフィールドとコンストラクタ"><code>Counter</code>クラスのフィールドとコンストラクタ</h4>
+<section id="counterクラスのフィールドとコンストラクタ" class="level4">
+<h4><code>Counter</code>クラスのフィールドとコンストラクタ</h4>
 <p>ではこの要求を少しずつ形にしていってみよう．まずは，カウンターオブジェクトは内部でカウントを持っているので，以下を実装する．</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// クラスCounterの宣言</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Counter </span>
@@ -210,7 +215,9 @@
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>が，これは<em>あまりよくないコード</em>である．なぜならば，<code>Counter</code>はカウンターを実装するということが関心事であるのにそれ以外の処理を行っているためである．さらには，<code>Counter</code>は直接カウンターへのアクセスを防ぐために<code>count</code>をprivateフィールドにしたので，そのアクセス制限を台無しにしている．</p>
 </div>
-<h4 id="メソッドの追加">メソッドの追加</h4>
+</section>
+<section id="メソッドの追加" class="level4">
+<h4>メソッドの追加</h4>
 <p>では，<code>Counter</code>クラスに<strong>（インスタンス）メソッド</strong>を追加してもっと面白くしてみよう．（インスタンス）メソッド<code>Method</code>はオブジェクト<code>o</code>に対し，<code>o.Method(arg1, arg2)</code>のよう形で呼出すことができる関数のようなものである．具体的にはカウンタをインクリメントするメソッド<code>Inc()</code>，リセットするメソッド<code>Reset()</code>，取得するメソッド<code>GetCount()</code>を定義してみよう．</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Counter </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -348,9 +355,11 @@ d.GetCount() = 7</code></pre>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>d<span class="op">.</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">());</span> <span class="co">// 1</span></span></code></pre></div>
 <p>この点については<a href="./w3.html">第3回</a>のNoteでも少し触れる．</p>
 </div>
-<h4 id="staticメソッドの追加">staticメソッドの追加</h4>
-<p>さらに<code>Counter</code>を便利なものにするために，<code>"12"</code>や<code>"-34"</code>といった文字列を構文解析してカウンターを作成することを考えてみよう．</p>
-<p>このような処理はコンストラクタとしても実装可能であるが，カウンターオブジェクトの生成という関心事からいささか複雑すぎるので避けたい．一方で，このような処理を<code>Counter</code>クラスの（インスタンス）メソッドとして実装することはできない．これは，<em>インタンスメソッドはインタンスに属する</em>ものであるが，行いたい処理の時点では<em>インスタンスはまだ生成されていない</em>ためである．実際に，構文上においても，インスタンス<code>o</code>に対するインスタンスメソッド<code>Method</code>の呼出しは<code>o.Method(arg1, arg2)</code>となっていて，インスタンスが与えられなければインスタンスメソッドを呼び出すことができない．</p>
+</section>
+<section id="staticメソッドの追加" class="level4">
+<h4>staticメソッドの追加</h4>
+<p>さらに<code>Counter</code>を便利なものにするために，<code>"12"</code>や<code>"-34"</code>といった文字列からカウンターを作成することを考えてみよう．</p>
+<p>このような処理はコンストラクタとしても実装可能である．が，カウンターオブジェクトの生成という関心事からいささか複雑すぎるので，今回はそのようなアプローチは取らないことにする．一方で，このような処理を<code>Counter</code>クラスの（インスタンス）メソッドとして実装することはできない．これは，<em>インタンスメソッドはインタンスに属する</em>ものであるが，行いたい処理の時点では<em>インスタンスはまだ生成されていない</em>ためである．実際に，構文上においても，インスタンス<code>o</code>に対するインスタンスメソッド<code>Method</code>の呼出しは<code>o.Method(arg1, arg2)</code>となっていて，インスタンスが与えられなければインスタンスメソッドを呼び出すことができない．</p>
 <p><strong>staticメソッド</strong>を用いればこの問題を解決することができる．staticメソッドはざっくりと説明するならば，
 <em>インスタンスではなくクラスに属するメソッド</em>（この言い方は少し正確でない．C#だと構造体型がありそちらもstaticメソッドを持てるので）である．そのため，インスタンスが与えられなくても呼び出すことが可能である．具体的には以下の形のメソッドを追加する．</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">static</span> Counter <span class="fu">Parse</span><span class="op">(</span><span class="dt">string</span> s<span class="op">)</span> </span>
@@ -414,7 +423,10 @@ c.GetCount() = 5</code></pre>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    count <span class="op">=</span> i<span class="op">;</span> <span class="co">// エラー</span></span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>直観的には<code>Parse</code>はクラスに属するメソッドであるので，インスタンスに属するフィールド<code>count</code>をオブジェクト経由なしにアクセスすることができないためである．</p>
-<h3 id="フィールド宣言の基本的な形">フィールド宣言の基本的な形</h3>
+</section>
+</section>
+<section id="フィールド宣言の基本的な形" class="level3">
+<h3>フィールド宣言の基本的な形</h3>
 <pre style="line-height:1.3">
 <span class="metaname">修飾子</span> <span class="metaname">型</span> <span class="metaname">フィールド名</span>;
 </pre>
@@ -426,7 +438,8 @@ c.GetCount() = 5</code></pre>
 <p><span class="title">例</span></p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="dt">int</span> count<span class="op">;</span> </span></code></pre></div>
 </div>
-<h4 id="修飾子">修飾子</h4>
+<section id="修飾子" class="level4">
+<h4>修飾子</h4>
 <p>上で出てきた<code>static</code>，<code>public</code>等は<strong>修飾子</strong>と呼ばれるものである．中でも<code>private</code>や<code>public</code>は<strong>アクセス修飾子</strong>と呼ばれ，メソッドやフィールドにアクセスする範囲を限定する．アクセス修飾子にはたとえば以下のようなものがある（全部ではない）．</p>
 <ul>
 <li><p><code>private</code>: それを含むクラスの中からしかアクセスできない．メソッドやフィールドなどの修飾子を省略した場合はprivateになる．</p></li>
@@ -435,7 +448,9 @@ c.GetCount() = 5</code></pre>
 <li><p><code>internal</code>: 同一コンパイル単位内からのみアクセスできる．（ネストされていない）クラスの修飾子を省略した場合はinternalになる．</p>
 <p><!-- 修飾子は他にも``readonly``，``const``などがある．また，クラスに指定できる修飾子に``abstract``，``sealed``などがある． --></p></li>
 </ul>
-<h4 id="型">型</h4>
+</section>
+<section id="型" class="level4">
+<h4>型</h4>
 <p>型には<code>Counter</code>等のクラスや，<code>int</code>等の数値型，<code>bool</code>（真偽値型）や<code>string</code>（文字列型）などがある．数値型にはたとえば，以下のようなものがある（全部ではない）．</p>
 <ul>
 <li><p>整数型</p>
@@ -453,7 +468,10 @@ c.GetCount() = 5</code></pre>
 <li><code>double</code>: 倍精度浮動小数点型</li>
 </ul></li>
 </ul>
-<h3 id="コンストラクタ宣言の基本的な形">コンストラクタ宣言の基本的な形</h3>
+</section>
+</section>
+<section id="コンストラクタ宣言の基本的な形" class="level3">
+<h3>コンストラクタ宣言の基本的な形</h3>
 <pre style="line-height:1.3">
 <span class="metaname">修飾子</span> <span class="metaname">クラス名</span>(<span class="metaname">「パラメータの型 パラメータ」のコンマ区切りの列</span>)
 {
@@ -469,7 +487,9 @@ c.GetCount() = 5</code></pre>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    count <span class="op">=</span> c0<span class="op">;</span> </span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </div>
-<h3 id="メソッド宣言の基本的な形">メソッド宣言の基本的な形</h3>
+</section>
+<section id="メソッド宣言の基本的な形" class="level3">
+<h3>メソッド宣言の基本的な形</h3>
 <pre style="line-height:1.3">
 <span class="metaname">修飾子</span> <span class="metaname">返り値の型</span> <span class="metaname">メソッド名</span>(<span class="metaname">「パラメータの型 パラメータ」のコンマ区切りの列</span>)
 {
@@ -494,8 +514,12 @@ c.GetCount() = 5</code></pre>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello World!&quot;</span><span class="op">);</span></span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </div>
-<h2 id="基本的な文statement">基本的な文（statement）</h2>
-<h3 id="宣言文">宣言文</h3>
+</section>
+</section>
+<section id="基本的な文statement" class="level2">
+<h2>基本的な文（statement）</h2>
+<section id="宣言文" class="level3">
+<h3>宣言文</h3>
 <p>（主に）変数を宣言する文．</p>
 <pre style="line-height:1.3">
 <span class="metaname">型</span> <span class="metaname">変数名</span>;
@@ -511,7 +535,9 @@ c.GetCount() = 5</code></pre>
 <p>とも書ける．また，複数の宣言をまとめて行うことができる．</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x<span class="op">,</span> y <span class="op">=</span> <span class="dv">2</span><span class="op">,</span> z<span class="op">;</span> </span></code></pre></div>
 </div>
-<h3 id="式文いわゆる代入文など">式文（いわゆる代入文など）</h3>
+</section>
+<section id="式文いわゆる代入文など" class="level3">
+<h3>式文（いわゆる代入文など）</h3>
 <p>「式」のみからなる文．全ての式が式文として使用できるわけではない．代表的なものは，インクリメントやデクリメント（前置後置），メソッド呼出，代入など．</p>
 <div class="example">
 <p><span class="title">例</span></p>
@@ -519,7 +545,8 @@ c.GetCount() = 5</code></pre>
 <div class="sourceCode" id="cb29"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello World&quot;</span><span class="op">);</span></span></code></pre></div>
 <div class="sourceCode" id="cb30"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 </div>
-<h4 id="return文">return文</h4>
+<section id="return文" class="level4">
+<h4>return文</h4>
 <p>メソッドから値を返す．</p>
 <pre>
 <span class="kw">return</span> <span class="metaname">式</span>
@@ -531,7 +558,10 @@ c.GetCount() = 5</code></pre>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> count<span class="op">;</span> </span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </div>
-<h3 id="ブロック">ブロック</h3>
+</section>
+</section>
+<section id="ブロック" class="level3">
+<h3>ブロック</h3>
 <p>複数の文をまとめた文．</p>
 <pre style="line-height:1.3">
 {
@@ -540,7 +570,9 @@ c.GetCount() = 5</code></pre>
     <span class="metaname">文</span>
 }
 </pre>
-<h3 id="if文">if文</h3>
+</section>
+<section id="if文" class="level3">
+<h3>if文</h3>
 <p>真偽値によって分岐を行う文．</p>
 <pre style="line-height:1.3">
 <span class="kw">if</span> (<span class="metaname">式</span>) <span class="metaname">式がtrueに評価されたときに実行される文</span>
@@ -596,7 +628,9 @@ c.GetCount() = 5</code></pre>
 <p>一方で以下は文法上は正しい．</p>
 <div class="sourceCode" id="cb39"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="op">(</span>x<span class="op">)</span> <span class="op">{</span><span class="dt">int</span> b <span class="op">=</span> <span class="dv">0</span><span class="op">;}</span> </span></code></pre></div>
 </div>
-<h3 id="for文while文">for文，while文</h3>
+</section>
+<section id="for文while文" class="level3">
+<h3>for文，while文</h3>
 <pre style="line-height:1.3">
 <span class="kw">for</span> (<span class="metaname">ループ変数宣言</span> ; <span class="metaname">繰り返し条件</span> ; <span class="metaname">ループ毎の後処理</span>) <span class="metaname">繰り返される文（ループ本体）</span>
 </pre>
@@ -626,11 +660,17 @@ c.GetCount() = 5</code></pre>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;yes&quot;</span><span class="op">);</span></span>
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </div>
-<h3 id="continue文break文">continue文，break文</h3>
+</section>
+<section id="continue文break文" class="level3">
+<h3>continue文，break文</h3>
 <p><code>continue</code>は次のループに移る．<code>break</code>はループから抜ける．</p>
-<h2 id="基本的な式expression">基本的な式（expression）</h2>
+</section>
+</section>
+<section id="基本的な式expression" class="level2">
+<h2>基本的な式（expression）</h2>
 <p>式：評価されて値となるもの．</p>
-<h3 id="メソッド呼出">メソッド呼出</h3>
+<section id="メソッド呼出" class="level3">
+<h3>メソッド呼出</h3>
 <div class="example">
 <p><span class="title">例</span></p>
 <div class="sourceCode" id="cb44"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello World!&quot;</span><span class="op">)</span></span></code></pre></div>
@@ -639,7 +679,9 @@ c.GetCount() = 5</code></pre>
 <div class="sourceCode" id="cb46"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>c<span class="op">.</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">()</span> </span></code></pre></div>
 <div class="sourceCode" id="cb47"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="op">(</span><span class="dv">1</span> <span class="op">+</span> <span class="dv">2</span><span class="op">).</span><span class="fu">ToString</span><span class="op">()</span> <span class="op">);</span></span></code></pre></div>
 </div>
-<h3 id="オブジェクト生成式new">オブジェクト生成式（<code>new</code>）</h3>
+</section>
+<section id="オブジェクト生成式new" class="level3">
+<h3>オブジェクト生成式（<code>new</code>）</h3>
 <p>オブジェクトを生成する．</p>
 <div class="example">
 <p><span class="title">例</span></p>
@@ -647,7 +689,9 @@ c.GetCount() = 5</code></pre>
 <p>式なので，他の式の中でも（型が合えば）使うことができる．</p>
 <div class="sourceCode" id="cb49"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="kw">new</span> <span class="fu">Counter</span><span class="op">(</span><span class="dv">0</span><span class="op">).</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">()</span></span></code></pre></div>
 </div>
-<h3 id="インクリメントとデクリメント-">インクリメント（<code>++</code>）とデクリメント（<code>-</code>）</h3>
+</section>
+<section id="インクリメントとデクリメント-" class="level3">
+<h3>インクリメント（<code>++</code>）とデクリメント（<code>-</code>）</h3>
 <ul>
 <li><code>++x</code>は <code>x</code>を1増やす．増やした後の値がこの式の評価結果となる．</li>
 <li><code>--x</code>は <code>x</code>を1減らす．減らした後の値がこの式の評価結果となる．</li>
@@ -664,7 +708,9 @@ c.GetCount() = 5</code></pre>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;a = &quot;</span> <span class="op">+</span> <span class="op">(++</span>a<span class="op">).</span><span class="fu">ToString</span><span class="op">()</span> <span class="op">);</span> <span class="co">// a = 3</span></span></code></pre></div>
 <p>なお <code>++a.ToString()</code>は<code>++(a.ToString())</code>と解釈される（結果，エラーになる）．これはメソッド呼出構文のほうが結合が強いため．</p>
 </div>
-<h3 id="四則演算">四則演算</h3>
+</section>
+<section id="四則演算" class="level3">
+<h3>四則演算</h3>
 <ul>
 <li><code>+</code> 加算</li>
 <li><code>-</code> 減算</li>
@@ -678,7 +724,9 @@ c.GetCount() = 5</code></pre>
 <div class="sourceCode" id="cb53"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span> <span class="op">*</span> <span class="dv">4</span>   <span class="co">// 14に評価される</span></span></code></pre></div>
 <div class="sourceCode" id="cb54"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="op">(</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span><span class="op">)</span> <span class="op">*</span> <span class="dv">4</span> <span class="co">// 20に評価される．</span></span></code></pre></div>
 </div>
-<h3 id="文字列の連接">文字列の連接</h3>
+</section>
+<section id="文字列の連接" class="level3">
+<h3>文字列の連接</h3>
 <p>また，<code>+</code>演算子は文字列の連接にも使用する．</p>
 <div class="example">
 <p><span class="title">例</span></p>
@@ -688,7 +736,9 @@ c.GetCount() = 5</code></pre>
 <div class="sourceCode" id="cb57"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span><span class="fu">ToString</span><span class="op">()</span> <span class="op">+</span> <span class="op">(</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span><span class="op">)</span> <span class="co">// &quot;15&quot;に評価される</span></span></code></pre></div>
 <div class="sourceCode" id="cb58"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">+</span> <span class="op">(</span><span class="dv">2</span> <span class="op">+</span> <span class="dv">3</span><span class="op">).</span><span class="fu">ToString</span><span class="op">()</span> <span class="co">// &quot;15&quot;に評価される</span></span></code></pre></div>
 </div>
-<h3 id="比較演算">比較演算</h3>
+</section>
+<section id="比較演算" class="level3">
+<h3>比較演算</h3>
 <ul>
 <li><code>==</code> 等しい</li>
 <li><code>!=</code> 等しくない</li>
@@ -704,7 +754,9 @@ c.GetCount() = 5</code></pre>
 <div class="sourceCode" id="cb61"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="op">&lt;</span> <span class="dv">2</span> <span class="co">// true </span></span></code></pre></div>
 <div class="sourceCode" id="cb62"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.0</span> <span class="op">&lt;=</span> <span class="fl">2.0</span> <span class="co">// true</span></span></code></pre></div>
 </div>
-<h3 id="論理演算">論理演算</h3>
+</section>
+<section id="論理演算" class="level3">
+<h3>論理演算</h3>
 <ul>
 <li><code>&amp;&amp;</code> 論理積</li>
 <li><code>||</code> 論理和</li>
@@ -722,7 +774,9 @@ c.GetCount() = 5</code></pre>
 </div>
 <p><code>&amp;&amp;</code>および<code>||</code>は短絡する．すなわち<code>false &amp;&amp; e</code>および<code>true || e</code>の<code>e</code>は評価されない．</p>
 </div>
-<h3 id="代入演算">代入演算</h3>
+</section>
+<section id="代入演算" class="level3">
+<h3>代入演算</h3>
 <ul>
 <li><code>x = e</code>は<code>x</code>に<code>e</code>の評価結果を代入する．また，それが，<code>x = e</code>の評価結果となる．</li>
 <li><code>x += e</code>は基本的には<code>x = x + e</code>に同じ</li>
@@ -749,7 +803,9 @@ c.GetCount() = 5</code></pre>
 <p>Note</p>
 </div>
 <p>第5回および第6回では，「イベント」を扱うための特殊な<code>+=</code>および<code>-=</code>が登場する．</p>
-</div></section>
+</div>
+</section>
+</section></section>
 
         </main>
 

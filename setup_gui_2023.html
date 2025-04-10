@@ -69,8 +69,10 @@
 <a href="./setup.html">環境設定1</a>で「Visual Studioのインストール」を選んだ人は，<a href="#visual-studioの設定">Visual Studioの設定</a>を，「.NET SDKのインストール （Windows/Mac ほぼ共通）」を選んだ人は「<a href="#コマンドライン環境の設定">コマンドライン環境の設定</a>」を参照する．</p>
 <p>また，GTK用アプリケーションを作成したい人は<a href="#gtkのインストール">GTKのインストール</a>を参照する（現状Mac環境のみ記載．Windows環境は情報収集中）．</p>
 <p>（本ページに掲載されているスクリーンショットは，マイクロソフトの許諾を得て使用しています．）</p>
-<h2 id="visual-studioの設定">Visual Studioの設定</h2>
-<h3 id="windows編">Windows編</h3>
+<section id="visual-studioの設定" class="level2">
+<h2>Visual Studioの設定</h2>
+<section id="windows編" class="level3">
+<h3>Windows編</h3>
 <ol type="1">
 <li><p>Visual Studioを起動し，メニューバーが表示されている状態にする（たとえば，スタート画面から「コードなしで続行」する）．</p>
 <p><img src="images/ss_eto/vs2022_win_start_without_initial_code.png" alt="image" /></p></li>
@@ -105,7 +107,9 @@
 <li><p>"Click Me!"と書かれた部分をクリックするとダイアログが表示される．</p></li>
 <li><p>ウィンドウ右上の閉じるボタンか，Ctrl + Q を押すか，メニューからQuitを選択してプログラムを終了する．</p></li>
 </ol>
-<h3 id="mac編">Mac編</h3>
+</section>
+<section id="mac編" class="level3">
+<h3>Mac編</h3>
 <ol type="1">
 <li><p><a href="https://github.com/picoe/Eto.DevExtensions/releases">Eto.Forms developper extensionsのリリースページ</a>から，<code>Eto.DevExtension.VisualStudio.Mac.2022-X.X.X.mpack</code> の最新版を入手する．令和5年3月29日(水)時点での最新版は <code>Eto.DevExtension.VisualStudio.Mac.2022-2.7.1.mpack</code>．</p></li>
 <li><p>メニューの「Visual Studio」以下の「拡張機能...」を開く．</p>
@@ -168,7 +172,10 @@
 </ol></li>
 </ul></li>
 </ol>
-<h2 id="コマンドライン環境の設定">コマンドライン環境の設定</h2>
+</section>
+</section>
+<section id="コマンドライン環境の設定" class="level2">
+<h2>コマンドライン環境の設定</h2>
 <p>WindowsだとPowerShell，Macだと適当な仮想端末アプリケーション（Terminal.app）を使って以下を実行する．</p>
 <ol type="1">
 <li><p>以下を行う（設定自体はこれで終わり）．</p>
@@ -290,17 +297,22 @@ dotnet sln add HelloEto.Gtk
 dotnet sln add HelloEto.Mac
 dotnet sln add HelloEto.Wpf</code></pre>
 </div>
-<h2 id="gtkのインストール">GTKのインストール</h2>
+</section>
+<section id="gtkのインストール" class="level2">
+<h2>GTKのインストール</h2>
 <p>オプショナル．MacだとVisual Studio上での実行に設定が必要になるのは面倒だし，インストールするのもよいかもしれない．遅かれ早かれ<code>brew</code>は入れることになると思うので，そう手間は大きくないはず．</p>
 <p>Windows環境については情報収集中．</p>
-<h3 id="mac">Mac</h3>
+<section id="mac" class="level3">
+<h3>Mac</h3>
 <ol type="1">
 <li><a href="https://brew.sh/">Homebrew</a>をトップページに書いてあることに従いインストールする．</li>
 <li>ターミナルから <code>brew install gtk+3</code> を実行する
 <ul>
 <li><code>brew update</code>も必要かもしれない</li>
 </ul></li>
-</ol></section>
+</ol>
+</section>
+</section></section>
 
         </main>
 

@@ -69,7 +69,8 @@
 </div>
 <p>C#演習第5・6回課題ではクロスプラットフォームGUIフレームワーク<a href="https://github.com/picoe/Eto">Eto.Forms</a>を用いるので，その環境をセットアップする．具体的な手順は「<a href="#cl_setup">コマンドライン環境の設定</a>」を行った後，VSCode上で<a href="#check">動作確認</a>を行う．</p>
 <p>また，GTK用アプリケーションを作成したい人は<a href="#setup_gtk">GTKのインストール</a>を参照する（現状Mac環境のみ記載．Windows環境は情報収集中）．</p>
-<h2 id="cl_setup">コマンドライン環境の設定</h2>
+<section id="cl_setup" class="level2">
+<h2>コマンドライン環境の設定</h2>
 <p>ターミナル（WindowsだとPowerShell，Macだと"Terminal"や"iTerm2"など．VSCode内のターミナルでもよい）上で以下を実行する．</p>
 <div class="Instructions">
 <ol type="1">
@@ -101,7 +102,9 @@ Eto Application            etoapp    [C#],F#,VB  Cross Platform/Eto
 Eto Panel, Dialog or Form  etofile   [C#],F#,VB  Cross Platform/Eto</code></pre></li>
 </ol>
 </div>
-<h2 id="check">動作確認</h2>
+</section>
+<section id="check" class="level2">
+<h2>動作確認</h2>
 <div class="Instructions">
 <ol type="1">
 <li><p>Eto.Formsプロジェクトを作成し，VSCodeで開く．以下は「VSCodeでフォルダを開いた後に，VSCode内のターミナルからプロジェクト/ソリューションを作成する」流れを紹介しているが，<a href="./setup.html">環境構築1</a>で紹介した通り「ターミナルで予めプロジェクト/ソリューションを作成し，その後VSCodeでソリューションを開く」を行ってもよい．</p>
@@ -164,7 +167,9 @@ VSCodeの画面上部にデバッグ実行を制御するためのUIが表示さ
 </ul></li>
 </ol>
 </div>
-<h2 id="setup_gtk">GTKのインストール</h2>
+</section>
+<section id="setup_gtk" class="level2">
+<h2>GTKのインストール</h2>
 <p>オプショナル．</p>
 <p>Windows環境については情報収集中．</p>
 <p><!-- ---------------------
@@ -172,7 +177,8 @@ VSCodeの画面上部にデバッグ実行を制御するためのUIが表示さ
    ---------------------
 
    https://www.gtk.org/docs/installations/windows/ によると，https://github.com/wingtk/gvsbuild の手順に従うことでインストールできるとある．しかし，私の環境では実際にインストールに成功したものの，上で ``dotnet run --project HelloEto.Gtk``をしても直ぐにプログラムが終了する模様． --></p>
-<h3 id="mac">Mac</h3>
+<section id="mac" class="level3">
+<h3>Mac</h3>
 <p>遅かれ早かれ<code>brew</code>は入れることになると思うので，そう手間は大きくないはず．</p>
 <div class="Instructions">
 <ol type="1">
@@ -182,7 +188,9 @@ VSCodeの画面上部にデバッグ実行を制御するためのUIが表示さ
 <li><code>brew update</code>も必要かもしれない</li>
 </ul></li>
 </ol>
-</div></section>
+</div>
+</section>
+</section></section>
 
         </main>
 

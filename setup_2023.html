@@ -70,8 +70,10 @@
 <p>なお，このページで紹介している方法ではF#演習のための環境構築にもなっている．
 C#演習の第5週・第6週目の課題を進めるには<a href="./setup_gui.html">さらなる準備（別ページ）</a>が必要である（こちらはC#演習分のみ）．</p>
 <p>（本ページに掲載されているスクリーンショットは，マイクロソフトの許諾を得て使用しています．）</p>
-<h2 id="visual-studioのインストール">Visual Studioのインストール</h2>
-<h3 id="windows編">Windows編</h3>
+<section id="visual-studioのインストール" class="level2">
+<h2>Visual Studioのインストール</h2>
+<section id="windows編" class="level3">
+<h3>Windows編</h3>
 <p><strong>インストール中はネットワーク接続が必要なことに注意する．</strong></p>
 <ol>
 <li><a href="https://visualstudio.microsoft.com/ja/">Visual Studio 2022のページ</a>において「Visual Studioのダウンロード」にマウスポインタを合わせるといくつかの項目が表示される．その中の「Community 2022」を選択し，Visual Studio Community 2022をダウンロードする．</li>
@@ -119,7 +121,9 @@ C#演習の第5週・第6週目の課題を進めるには<a href="./setup_gui.h
 </div></li>
 </ol></li>
 </ol>
-<h3 id="mac編">Mac編</h3>
+</section>
+<section id="mac編" class="level3">
+<h3>Mac編</h3>
 <p><strong>インストール中はネットワーク接続が必要なことに注意する．</strong></p>
 <ol>
 <li><p><a href="https://visualstudio.microsoft.com/ja/">Visual Studio 2022のページ</a>より「Visual Studio for Macをダウンロード」をたどり，Visual Studio 2022 for Macをダウンロードする．</p>
@@ -203,7 +207,10 @@ C#演習の第5週・第6週目の課題を進めるには<a href="./setup_gui.h
 </div>
 <p>Visual Studio for Mac をアンインストールする場合には，アプリケーションフォルダから当該アイコンをゴミ箱に入れるだけでは不十分である．完全にアンインストールするには<a href="https://learn.microsoft.com/en-us/visualstudio/mac/uninstall?view=vsmac-2022">公式のアンインストール手順</a>に従ってアンインストールする必要がある．</p>
 </div>
-<h2 id="net-sdkのインストール-windowsmac-ほぼ共通">.NET SDKのインストール （Windows/Mac ほぼ共通）</h2>
+</section>
+</section>
+<section id="net-sdkのインストール-windowsmac-ほぼ共通" class="level2">
+<h2>.NET SDKのインストール （Windows/Mac ほぼ共通）</h2>
 <p>Visual Studioに含まれているので，上記を行っている場合は以下を行う必要はない．</p>
 <ol type="1">
 <li><p><a href="https://dotnet.microsoft.com/ja-jp/download">.NET SDKのダウンロードページ</a>より，software development kit (SDK)をダウンロードする．</p>
@@ -240,7 +247,8 @@ C#演習の第5週・第6週目の課題を進めるには<a href="./setup_gui.h
 <p>すると，"Hello, World!"が表示されるのが確認できるはずだ．</p></li>
 <li><p>F#でも同様であることを確認しておこう（<code>dotnet new</code>を実行する場面で，<code>dotnet new console -o HelloWorldCS</code> の代わりに <code>dotnet new console -lang "F#" -o HelloWorldFS</code> とする．また，このコマンドだと<code>HelloWorldCS</code>ではなく<code>HelloWorldFS</code>というディレクトリが作成される）</p></li>
 </ol></li>
-</ol></section>
+</ol>
+</section></section>
 
         </main>
 

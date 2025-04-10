@@ -67,7 +67,8 @@
 <li><a href="#名前空間" id="toc-名前空間">名前空間</a></li>
 </ul>
 </nav>
-<section class="mainbody"><h2 id="配列">配列</h2>
+<section class="mainbody"><section id="配列" class="level2">
+<h2>配列</h2>
 <p>いくつかのデータをひとまとめ（コレクション）にして取り扱いたいことはよくある．
 <strong>配列</strong>は同じ型のデータを固定個まとめて扱うことを可能にする．</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
@@ -225,7 +226,9 @@
 <p>これは<code>a</code>や<code>b</code>が配列そのものではなく配列への参照であり，<code>int[] b = a</code>によりそれぞれの値が同じ配列への参照になっているためである．C#においては，こうした，その型の値が実体そのものでなく実体への参照であるような型を参照型（reference type）といい，たとえば配列型やクラス型，そして文字列型は参照型である．一方で，<code>int</code>や<code>bool</code>等はその型の値は実体（整数や真偽値）そのものである（ように振る舞う）．そのような型を値型（value type）という．</p>
 <p>複合的な型やユーザ定義型が必ずしも参照型ということはなく，組型（tuple type）や構造体型（structure type）は値型となる（いずれも本演習では未登場）．本演習ではこの区別には深入りしないが，興味のある人は<a href="https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/types/" class="uri">https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/types/</a>や，そこから辿れる文章等を調べてみるとよい．</p>
 </div>
-<h2 id="プロパティproperty">プロパティ（property）</h2>
+</section>
+<section id="プロパティproperty" class="level2">
+<h2>プロパティ（property）</h2>
 <p>上で <code>nums.Length</code> や <code>nums.Rank</code> は一見フィールドに見える．が，実際にはこれらは<strong>プロパティ</strong>と呼ばれるものである．</p>
 <p>インスタンス<code>o</code>のプロパティ<code>P</code>はフィールドのように<code>o.P</code>で読み出したり<code>o.P = e</code>で書き込んだりできる．しかし，フィールドと異なるのはプロパティは読み出しや書き込みのアクセス範囲を独立して指定することができ（特に読み出し専用や書き込み専用にできる），またメソッドのように読み出しや書き込みの際に処理を実行できる．</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
@@ -375,7 +378,9 @@
 </tbody>
 </table>
 <p><a href="./w2.html%3E">前回</a>，<a href="./w1.html">前々回</a>でいくつかのクラスは<code>T GetXXX()</code>や<code>void SetXXX(T x)</code>といったメソッドを持っていたが，こういったメソッドはプロパティとして実装することができる．</p>
-<h2 id="list-t"><code>List &lt;T&gt;</code></h2>
+</section>
+<section id="list-t" class="level2">
+<h2><code>List &lt;T&gt;</code></h2>
 <p>配列は基本的ながら強力なデータ構造の一つではあるが，サイズが生成後に変更できないのは不便であることが多い．生成後のサイズを増減させたい場合は <code>System.Collections.Generic.List&lt;T&gt;</code> を用いるとよい．</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">// System.Collections.Generic.List&lt;T&gt; を単に List&lt;T&gt; と書けるようにする．</span></span>
@@ -447,7 +452,8 @@
 <span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>        List<span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;</span> ms5 <span class="op">=</span> <span class="op">[</span><span class="st">&quot;apple&quot;</span><span class="op">,</span> <span class="st">&quot;orange&quot;</span><span class="op">,</span> <span class="st">&quot;banana&quot;</span><span class="op">];</span></span>
 <span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<h3 id="上記で出てきたメソッドプロパティコンストラクタのまとめ">上記で出てきたメソッド，プロパティ，コンストラクタのまとめ</h3>
+<section id="上記で出てきたメソッドプロパティコンストラクタのまとめ" class="level3">
+<h3>上記で出てきたメソッド，プロパティ，コンストラクタのまとめ</h3>
 <table>
 <thead>
 <tr class="header">
@@ -494,7 +500,10 @@
 <p><code>List&lt;T&gt;</code> は最後尾でない場所に対する要素の削除や追加が重い（末尾への要素の追加はO(1)時間で済む場合とO(Count)時間かかる場合があるが，ならしO(1)）．その代わり，インデックスアクセスがO(1)時間で可能である．</p>
 <p>他の「T型の要素の列」を扱うためのクラスに <code>LinkedList&lt;T&gt;</code> がある．こちらは着目している要素の前後への挿入や，その要素の削除がO(1)で可能である．その代わりにインデックスアクセスができず，着目している要素へのアクセスは先頭あるいは末尾から辿っていく必要がありO(Count)時間かかる．目的によって使いわけよう．</p>
 </div>
-<h2 id="ジェネリクスgenerics">ジェネリクス（generics）</h2>
+</section>
+</section>
+<section id="ジェネリクスgenerics" class="level2">
+<h2>ジェネリクス（generics）</h2>
 <p><code>List&lt;T&gt;</code>のような型パラメータ（<code>T</code>）を取るようなクラスは<strong>ジェネリッククラス</strong>と呼ばれる．ジェネリクスは「ジェネリック…」の総称である．</p>
 <p>ユーザ自身もジェネリッククラスを作成することが可能である．</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
@@ -539,7 +548,9 @@
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 </div>
 <p>ジェネリクスもポリモーフィズムを実現する重要な言語機能の一つである．</p>
-<h2 id="練習問題">練習問題</h2>
+</section>
+<section id="練習問題" class="level2">
+<h2>練習問題</h2>
 <p>プレイリストを管理するためのクラス <code>PlayList</code> を作成しなさい．このクラスは曲名のリスト（<code>List&lt;T&gt;</code>を用いて実装する必要はないが，してもよい）を管理し，以下のpublicなコンストラクタ・メソッドを持つ．</p>
 <table>
 <thead>
@@ -577,7 +588,9 @@
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        pl<span class="op">.</span><span class="fu">PrintAllTracks</span><span class="op">();</span></span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<h2 id="foreach文">foreach文</h2>
+</section>
+<section id="foreach文" class="level2">
+<h2>foreach文</h2>
 <p>上でも出てきていたが，配列や <code>List&lt;T&gt;</code>等のコレクションにはforeach文が利用可能である．</p>
 <pre style="line-height:1.3">
 <span class="kw">foreach</span> (<span class="metaname">型あるいはvar</span> <span class="metaname">変数</span> in <span class="metaname">コレクションオブジェクト</span>) <span class="metaname">繰り返される文（ループ本体）</span>
@@ -602,7 +615,9 @@
 <p>An enumerator remains valid as long as the collection remains unchanged. If changes are made to the collection, such as adding, modifying, or deleting elements, the enumerator is irrecoverably invalidated and the next call to MoveNext or IEnumerator.Reset throws an InvalidOperationException.</p>
 </blockquote>
 </div>
-<h2 id="インタフェース">インタフェース</h2>
+</section>
+<section id="インタフェース" class="level2">
+<h2>インタフェース</h2>
 <p><strong>インタフェース</strong>は，大雑把にはオブジェクトが持っているべきインスタンスメソッドやフィールド等を規定するものである．クラスが，これらのインタフェースの規定するメソッドやフィールドを実装しているとき，そのクラスが当該インタフェースを<strong>実装している</strong>と言う．ユーザはクラスがどのインタフェースを実装しているかを陽に与えなければならない．クラスはたかだか一つのクラスを継承できるが，インタフェースは複数実装可能である．</p>
 <p>実装の際は単に基底クラスと同様に<code>:</code>の右にインタフェース名を書けばよい．</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> A <span class="op">:</span> BaseClass<span class="op">,</span> Interface1<span class="op">,</span> Interface2 </span>
@@ -612,7 +627,9 @@
 <p>インタフェースも継承と同じく再利用性と高める．たとえば<code>foreach</code>文はよい例であり，<code>IEnumerable&lt;T&gt;</code>（か，その非ジェネリック版の<code>IEnumerable</code>）を実装している型ならばどんな型に対しても<code>foreach</code>文を利用可能である．</p>
 <p><code>List&lt;T&gt;</code>の<code>Remove(T)</code>メソッドもインタフェースを利用している．与えられた引数が<code>IEquatable&lt;T&gt;</code>を実装しているクラスのインスタンスであれば，そのインタフェースで規定されているメソッド<code>Equals(T)</code>を使って要素の等価性を判定する．そうでなければ，仮想メソッドである<code>Object.Equals</code> メソッドが用いられる（<a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.remove?view=net-6.0#system-collections-generic-list-1-remove(-0)">参考</a>）．</p>
 <p>インタフェースを適切に用いることでメソッドの再利用を高めることができる．たとえば，<code>f(IEnumerable&lt;int&gt;)</code>には<code>int[]</code>型の値も，<code>List&lt;int&gt;</code>型や<code>LinkedList&lt;int&gt;</code>型の値も渡すことができる．本演習ではインタフェースにはこれ以上はあまり立ち入らない．</p>
-<h2 id="コレクション初期化子">コレクション初期化子</h2>
+</section>
+<section id="コレクション初期化子" class="level2">
+<h2>コレクション初期化子</h2>
 <p><code>List&lt;T&gt;</code>など，<code>Add</code>メソッドを持ち，なおかつ<code>IEnumerable</code>を実装しているクラス（<code>IEnumerable&lt;T&gt;</code>でもよい）に対しては，
 <strong>コレクション初期化子</strong>を利用することができる．</p>
 <p>たとえば，</p>
@@ -637,7 +654,9 @@
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>_c<span class="op">.</span><span class="fu">Add</span><span class="op">(</span> e2 <span class="op">);</span> </span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>lhs <span class="op">=</span> _c<span class="op">;</span> </span></code></pre></div>
 </div>
-<h2 id="名前空間">名前空間</h2>
+</section>
+<section id="名前空間" class="level2">
+<h2>名前空間</h2>
 <p>（読みとばしてもよい．）</p>
 <p>さて，先程 <code>using System.Collections.Generic;</code>という<code>using System;</code>以外の<code>using</code>が出てきたので，<strong>名前空間</strong>について説明しておく．</p>
 <p>C#において，クラス名やメソッド名などの名前はいずれかの名前空間に属している．たとえば，<code>Console</code>は<code>System</code>という名前空間に属している．また，上記の<code>MyPair</code>や<code>ArrayExample</code>等は「空」の名前空間（グローバル名前空間）に属している．名前空間は名前空間を含むことができる．たとえば，<code>System</code>は<code>Collections</code>という名前空間を含んでいて，その<code>Collections</code>は
@@ -717,7 +736,8 @@
 <span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>            System<span class="op">.</span><span class="fu">Console</span><span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>n<span class="op">);</span></span>
 <span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div></section>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+</section></section>
 
         </main>
 

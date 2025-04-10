@@ -74,8 +74,10 @@
 <p>まずは，<a href="#dotnet_sdk">.NET SDKのインストール</a>を行い，その後<a href="#vscode">Visual Studio Code (VSCode) のインストール・設定</a>を行う．自分の好きなエディタ（viやEmacs等）を使用したい人は後者はしなくてもよい．</p>
 <p>なお，このページで紹介している方法ではF#演習のための環境構築にもなっている．C#演習の第5週・第6週目の課題を進めるには<a href="./setup_gui.html">さらなる準備（別ページ）</a>が必要である（こちらはC#演習分のみ）．</p>
 <p>（本ページに掲載されているスクリーンショットは，マイクロソフトの許諾を得て使用しています．）</p>
-<h2 id="dotnet_sdk">.NET SDKのインストール</h2>
-<h3 id="インストール">インストール</h3>
+<section id="dotnet_sdk" class="level2">
+<h2>.NET SDKのインストール</h2>
+<section id="インストール" class="level3">
+<h3>インストール</h3>
 <div class="Instructions">
 <ol type="1">
 <li><p><a href="https://dotnet.microsoft.com/ja-jp/download">.NET SDKのダウンロードページ</a>より，software development kit (SDK)をダウンロードする．2025年度は<code>.NET 8.0</code>のものを使用することとする．</p>
@@ -104,7 +106,9 @@
 8.0.407 [/usr/local/share/dotnet/sdk]</code></pre></li>
 </ol>
 </div>
-<h3 id="check_dotnetsdk_install">動作確認</h3>
+</section>
+<section id="check_dotnetsdk_install" class="level3">
+<h3>動作確認</h3>
 <p>（動作確認は以下のVSCodeのインストール・設定後にも行うので，この時点では飛ばしてもよい）</p>
 <div class="Instructions">
 <ol type="1">
@@ -129,8 +133,12 @@
 </ol></li>
 </ol>
 </div>
-<h2 id="vscode">Visual Studio Code (VSCode) のインストール・設定</h2>
-<h3 id="インストール設定">インストール・設定</h3>
+</section>
+</section>
+<section id="vscode" class="level2">
+<h2>Visual Studio Code (VSCode) のインストール・設定</h2>
+<section id="インストール設定" class="level3">
+<h3>インストール・設定</h3>
 <div class="Instructions">
 <ol type="1">
 <li><p><a href="https://code.visualstudio.com/" class="uri">https://code.visualstudio.com/</a>からインストーラをダウンロードする．</p></li>
@@ -171,7 +179,9 @@ Shell Command: Install 'code' command in PATH</code></pre>
 </div></li>
 </ol>
 </div>
-<h3 id="動作確認">動作確認</h3>
+</section>
+<section id="動作確認" class="level3">
+<h3>動作確認</h3>
 <p>以下を行う．</p>
 <ul>
 <li><a href="#cs_console">C#編1</a>か<a href="#cs_dev_kit">C#編2</a>のいずれか，および</li>
@@ -183,7 +193,8 @@ Shell Command: Install 'code' command in PATH</code></pre>
 </div>
 <p>いずれの方法でも，フォルダを開くタイミングで「このフォルダー内のファイルの作成者を信頼しますか？」なるダイアログで出てくるかもしれない．その場合は，<strong>今回については</strong>自分が用意したファイルであるはずなので「はい，…」を選択する．</p>
 </div>
-<h4 id="cs_console">C#編1（プロジェクトの作成にコマンドライン使用；本演習ではオススメ）</h4>
+<section id="cs_console" class="level4">
+<h4>C#編1（プロジェクトの作成にコマンドライン使用；本演習ではオススメ）</h4>
 <div class="Instructions">
 <ol type="1">
 <li><p>ターミナルでプロジェクトを作成し，それを開く．具体的には以下の<a href="#terminal_first">方法1</a>と<a href="#vscode_first">方法2</a>のいずれかを行う．いずれの場合もC# Dev Kitがプロジェクトを認識した時点で，開いたフォルダ直下に<code>フォルダ名.sln</code>なるファイルが作成されるはず．</p>
@@ -227,7 +238,9 @@ Shell Command: Install 'code' command in PATH</code></pre>
 </div></li>
 </ol>
 </div>
-<h4 id="cs_dev_kit">C#編2（プロジェクト作成にC# Dev Kitの機能を利用）</h4>
+</section>
+<section id="cs_dev_kit" class="level4">
+<h4>C#編2（プロジェクト作成にC# Dev Kitの機能を利用）</h4>
 <div class="Instructions">
 <ol type="1">
 <li><p>次のいずれかを行う．</p>
@@ -247,7 +260,9 @@ Shell Command: Install 'code' command in PATH</code></pre>
 <li><p>ターミナル（VSCodeのものでもよい）から<code>dotnet run</code>で実行してもよいし，「C#編1」に書いたように右上の「再生ボタンの右下に虫がついたアイコン」で実行してもよい．</p></li>
 </ol>
 </div>
-<h4 id="fs">F#編</h4>
+</section>
+<section id="fs" class="level4">
+<h4>F#編</h4>
 <div class="Instructions">
 <ol type="1">
 <li><p>ターミナルでプロジェクトを作成し，それを開く．<a href="#cs_console">C#編1（プロジェクトの作成にコマンドライン使用；本演習ではオススメ）</a>とほぼ同様の方法で <code>dotnet new console</code> コマンドに <code>-lang "F#"</code> というオプションを渡すだけなので，詳細は割愛．</p></li>
@@ -256,7 +271,10 @@ Shell Command: Install 'code' command in PATH</code></pre>
 <li><p>ターミナルから<code>dotnet run</code>で実行する．</p>
 <p>Ionideのサイドバーの上部の実行ボタンからも実行できる…はずだが，Windows環境だとサイドバー上部の実行ボタンから実行すると，ターミナルが一瞬で閉じてしまう模様．</p></li>
 </ol>
-</div></section>
+</div>
+</section>
+</section>
+</section></section>
 
         </main>
 

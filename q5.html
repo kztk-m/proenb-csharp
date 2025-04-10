@@ -59,14 +59,16 @@
             </ul>
           </nav>
           <section class="mainbody">
-            <h2 id="課題の進め方">課題の進め方</h2>
+            <section id="課題の進め方" class="level2">
+<h2>課題の進め方</h2>
 <p>基本的には適当なプロジェクト/ソリューションを作って課題を進めた上で，<code>MainForm.cs</code>を提出する．</p>
 <p>採点はコマンドラインから<code>dotnet new etoapp</code>を実行した上で<code>MainForm.cs</code>を提出されたもので上書きすることにより行う．
 <em>採点者は基本的に採点者自身の環境で動作確認を行うことに注意する．</em></p>
 <p>第6回課題において<code>MainForm.cs</code>以外に提出に含めたいものがある場合（たとえば画像ファイル等）は事前にメール（メールアドレスはClassroom内「受講者用案内」を参照）で相談のこと．</p>
 <p><strong>他の人（受講者・非受講者両方）に解答内容（一部でも）を見せない</strong>，そして<strong>他の人の解答内容（一部でも）を見ない</strong>ようお願いします．特に，
 <strong>公開の場所に解答を置かないようお願いします．</strong>githubやbitbucket等は使える人は使えばよいと思いますが，<strong>privateレポジトリにする</strong>ようにお願いします．</p>
-<h3 id="プロジェクトソリューションの作成">プロジェクト/ソリューションの作成</h3>
+<section id="プロジェクトソリューションの作成" class="level3">
+<h3>プロジェクト/ソリューションの作成</h3>
 <div class="note">
 <div class="title">
 <p>Note</p>
@@ -76,13 +78,17 @@
 <p><strong>指定された名前（課題5では<code>Q5</code>，課題6では<code>Q6</code>とする）</strong>の空のフォルダを適当な場所に新規作成し，
 VSCodeで作成したフォルダを開く．そして，VSCode内のターミナルで以下を実行する．</p>
 <pre class="text"><code>dotnet new etoapp -sln</code></pre>
-<h3 id="課題の実施">課題の実施</h3>
+</section>
+<section id="課題の実施" class="level3">
+<h3>課題の実施</h3>
 <p><code>MainForm.cs</code> を問題文の指示の通りに編集する（<strong>提出・採点手続きの簡略化のため提出する.csファイルは一つのみ</strong>）．作成した.csファイルには先頭部分に<strong>学籍番号と名前をコメントとして含める</strong>こと．また，自身のプログラムの動作確認を行ったプラットフォームの情報（Mac, Gtk, Wpfの別．複数可．わからないならOS名）も含めるものとする．こちらの情報はあくまで念のためであり，基本的には採点者は自身の環境で動作を確認を行う．なので，たとえば学籍番号Z0TB9999の東北 大学さんの提出ファイルは，もし当人が動作確認を<code><span class="metaname">プロジェクト名</span>.Mac</code>を用いて行ったのであれば</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Z0TB9999</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 東北 大学</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">// 動作確認：Mac </span></span></code></pre></div>
 <p>という行から始まる．</p>
-<h3 id="提出">提出</h3>
+</section>
+<section id="提出" class="level3">
+<h3>提出</h3>
 <p>できあがった <code>MainForm.cs</code>をClassroom内の当該回の「課題」より提出する．また問題文に指示がある場合はそのファイル（例：課題6で提出物に含めたいリソースがある場合）も提出する．提出前には以下を確認しよう．</p>
 <ul class="task-list">
 <li><label><input type="checkbox" />提出プログラムコードのファイル名は<code>MainForm.cs</code>になっているか</label></li>
@@ -93,9 +99,13 @@ VSCodeで作成したフォルダを開く．そして，VSCode内のターミ�
 <li>ただし，友人の解答を見ない（一部でも），そして友人に解答を見せない（一部でも）ようお願いします</li>
 </ul></li>
 <li><label><input type="checkbox" />TA・教員と相談した場合は，その旨と<em>大雑把な相談の内容</em>がコメントとして書かれているか</label></li>
-</ul>          
-            <h2 id="基本課題">基本課題</h2>
-<h3 id="その1">その1</h3>
+</ul>
+</section>
+</section>          
+            <section id="基本課題" class="level2">
+<h2>基本課題</h2>
+<section id="その1" class="level3">
+<h3>その1</h3>
 <p>ラベルを</p>
 <pre class="text asciiart"><code>Label</code></pre>
 <p>ボタンを</p>
@@ -132,7 +142,9 @@ Ready</code></pre>
 </ul></li>
 <li>ウィンドウサイズの変更に伴い，TextBoxの部分の幅，TextAreaの部分の高さと幅が伸長するように</li>
 </ul>
-<h3 id="その2">その2</h3>
+</section>
+<section id="その2" class="level3">
+<h3>その2</h3>
 <p>便宜上，上記で"Ready"と書かれている部分を「ステータス行」と呼ぶことにする．</p>
 <p>上記のアプリケーションに以下の機能を実装せよ．</p>
 <ul>
@@ -190,7 +202,10 @@ Ready</code></pre>
 </div>
 <p>なお，<code>File.Exists(path)</code> が <code>true</code> を返した場合にも，ファイルの読み取りが行えない場合はある．たとえば，当該ファイルの read パーミッション がない場合には<code>UnauthorizedAccessException</code>が発生する．</p>
 </div>
-<h2 id="発展課題">発展課題</h2>
+</section>
+</section>
+<section id="発展課題" class="level2">
+<h2>発展課題</h2>
 <div class="important">
 <div class="title">
 <p>Important</p>
@@ -223,6 +238,7 @@ Ready</code></pre>
 <code>File.Exists</code> や <code>Directory.Exists</code> や，<code>File.GetAttributes</code> などを利用するとよいかもしれない（参考：<a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file?view=net-6.0">.NET API リファレンスのFlieクラスの説明</a>）</p>
 <p><em>注意（2022-05-25追記）</em>：どうやらWindows環境（.NET 5.0.408，6.0.201で確認）では，<code>ArgumentException</code>や<code>PathTooLongException</code>が上記リファレンスの記述通りには発生しない模様．また，<code>FileInfo</code>のコンストラクタも記述通りの例外を投げない模様．たとえば，<code>fi = new FileInfo("./test???.txt")</code>は例外を投げず，<code>fi.CreateText()</code>などとしたときに<code>IOException</code>が発生する．</p>
 </div>
+</section>
           </section>
         </main>
 
