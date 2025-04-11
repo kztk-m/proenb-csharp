@@ -41,7 +41,7 @@
                <h1>第4回 ファイル入出力と例外処理</h1>
              
             
-               <p class="last-update">最終更新: 2024-05-17 11:57:27</p> 
+               <p class="last-update">最終更新: 2025-04-11 18:36:05</p> 
             
             <div class="qnav">
               <ul>
@@ -78,66 +78,66 @@
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> DictionaryExample</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>   <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>       <span class="co">// キーの型がstringでバリューの型がintであるディクショナリの作成</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 添字として使われるデータの部分をキー</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>       <span class="co">// それに対応したデータをバリューと呼ぶ．</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 用語が衝突しているが，式の評価結果である値とは直接は関係はない．</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>       Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> dict <span class="op">=</span> <span class="kw">new</span> Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;();</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">// キーの型がstringでバリューの型がintであるディクショナリの作成</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 添字として使われるデータの部分をキー</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">// それに対応したデータをバリューと呼ぶ．</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 用語が衝突しているが，式の評価結果である値とは直接は関係はない．</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> dict <span class="op">=</span> <span class="kw">new</span> Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;();</span></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 辞書に要素を追加するには Add メソッドを用いる．</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>       dict<span class="op">.</span><span class="fu">Add</span><span class="op">(</span> <span class="st">&quot;Chocolate&quot;</span><span class="op">,</span> <span class="dv">2</span> <span class="op">);</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>       dict<span class="op">.</span><span class="fu">Add</span><span class="op">(</span> <span class="st">&quot;Chips&quot;</span><span class="op">,</span>     <span class="dv">4</span> <span class="op">);</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>       dict<span class="op">.</span><span class="fu">Add</span><span class="op">(</span> <span class="st">&quot;Candy&quot;</span><span class="op">,</span>     <span class="dv">5</span> <span class="op">);</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 辞書に要素を追加するには Add メソッドを用いる．</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        dict<span class="op">.</span><span class="fu">Add</span><span class="op">(</span> <span class="st">&quot;Chocolate&quot;</span><span class="op">,</span> <span class="dv">2</span> <span class="op">);</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        dict<span class="op">.</span><span class="fu">Add</span><span class="op">(</span> <span class="st">&quot;Chips&quot;</span><span class="op">,</span>     <span class="dv">4</span> <span class="op">);</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        dict<span class="op">.</span><span class="fu">Add</span><span class="op">(</span> <span class="st">&quot;Candy&quot;</span><span class="op">,</span>     <span class="dv">5</span> <span class="op">);</span></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>       <span class="co">// バリューにはキーが添字である配列のようにアクセスできる</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>       dict<span class="op">[</span><span class="st">&quot;Chips&quot;</span><span class="op">]</span> <span class="op">=</span> <span class="dv">7</span><span class="op">;</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;dict[</span><span class="sc">\&quot;</span><span class="st">Chips</span><span class="sc">\&quot;</span><span class="st">] = &quot;</span> <span class="op">+</span> dict<span class="op">[</span><span class="st">&quot;Chips&quot;</span><span class="op">]</span> <span class="op">);</span> <span class="co">// dict[&quot;Chips&quot;] = 7</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="co">// バリューにはキーが添字である配列のようにアクセスできる</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        dict<span class="op">[</span><span class="st">&quot;Chips&quot;</span><span class="op">]</span> <span class="op">=</span> <span class="dv">7</span><span class="op">;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;dict[</span><span class="sc">\&quot;</span><span class="st">Chips</span><span class="sc">\&quot;</span><span class="st">] = &quot;</span> <span class="op">+</span> dict<span class="op">[</span><span class="st">&quot;Chips&quot;</span><span class="op">]</span> <span class="op">);</span> <span class="co">// dict[&quot;Chips&quot;] = 7</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>       <span class="co">// ContainsKey メソッドにより，キーを含んでいるか否かを検査できる．</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> dict<span class="op">.</span><span class="fu">ContainsKey</span><span class="op">(</span><span class="st">&quot;Candy&quot;</span><span class="op">)</span> <span class="op">);</span>  <span class="co">// True</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> dict<span class="op">.</span><span class="fu">ContainsKey</span><span class="op">(</span><span class="st">&quot;Banana&quot;</span><span class="op">)</span> <span class="op">);</span> <span class="co">// False </span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ContainsKey メソッドにより，キーを含んでいるか否かを検査できる．</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> dict<span class="op">.</span><span class="fu">ContainsKey</span><span class="op">(</span><span class="st">&quot;Candy&quot;</span><span class="op">)</span> <span class="op">);</span>  <span class="co">// True</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> dict<span class="op">.</span><span class="fu">ContainsKey</span><span class="op">(</span><span class="st">&quot;Banana&quot;</span><span class="op">)</span> <span class="op">);</span> <span class="co">// False </span></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>       <span class="co">// foreach 文では個々の要素は KeyValuePair&lt;string, int&gt; として手に入る</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>       <span class="kw">foreach</span> <span class="op">(</span> KeyValuePair<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> kv <span class="kw">in</span> dict <span class="op">)</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>       <span class="op">{</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> kv<span class="op">.</span><span class="fu">Key</span> <span class="op">+</span> <span class="st">&quot; -&gt; &quot;</span> <span class="op">+</span> kv<span class="op">.</span><span class="fu">Value</span> <span class="op">);</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>        <span class="co">// foreach 文では個々の要素は KeyValuePair&lt;string, int&gt; として手に入る</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        <span class="kw">foreach</span> <span class="op">(</span> KeyValuePair<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> kv <span class="kw">in</span> dict <span class="op">)</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> kv<span class="op">.</span><span class="fu">Key</span> <span class="op">+</span> <span class="st">&quot; -&gt; &quot;</span> <span class="op">+</span> kv<span class="op">.</span><span class="fu">Value</span> <span class="op">);</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>       <span class="co">// キーのみが必要な場合は Keys プロパティを使う．</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>       <span class="co">// もちろん，キーからバリューを引けるので バリューにもアクセスできる．</span></span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>       <span class="co">// なお dict.Keys は Dictionary&lt;string, int&gt;.KeyCollection 型</span></span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>       <span class="kw">foreach</span> <span class="op">(</span> <span class="dt">string</span> k <span class="kw">in</span> dict<span class="op">.</span><span class="fu">Keys</span> <span class="op">)</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>       <span class="op">{</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> k <span class="op">+</span> <span class="st">&quot; -&gt; &quot;</span> <span class="op">+</span> dict<span class="op">[</span>k<span class="op">]</span> <span class="op">);</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        <span class="co">// キーのみが必要な場合は Keys プロパティを使う．</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        <span class="co">// もちろん，キーからバリューを引けるので バリューにもアクセスできる．</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        <span class="co">// なお dict.Keys は Dictionary&lt;string, int&gt;.KeyCollection 型</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        <span class="kw">foreach</span> <span class="op">(</span> <span class="dt">string</span> k <span class="kw">in</span> dict<span class="op">.</span><span class="fu">Keys</span> <span class="op">)</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> k <span class="op">+</span> <span class="st">&quot; -&gt; &quot;</span> <span class="op">+</span> dict<span class="op">[</span>k<span class="op">]</span> <span class="op">);</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>       <span class="co">// バリューのみが必要な場合は Values プロパティを使う．</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>       <span class="kw">foreach</span> <span class="op">(</span> <span class="dt">int</span> v <span class="kw">in</span> dict<span class="op">.</span><span class="fu">Values</span> <span class="op">)</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>       <span class="op">{</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;Value: &quot;</span> <span class="op">+</span> v <span class="op">);</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>        <span class="co">// バリューのみが必要な場合は Values プロパティを使う．</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>        <span class="kw">foreach</span> <span class="op">(</span> <span class="dt">int</span> v <span class="kw">in</span> dict<span class="op">.</span><span class="fu">Values</span> <span class="op">)</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;Value: &quot;</span> <span class="op">+</span> v <span class="op">);</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 新しいキーは添字アクセスでも追加できる</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>       dict<span class="op">[</span><span class="st">&quot;Banana&quot;</span><span class="op">]</span> <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 新しいキーは添字アクセスでも追加できる</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>        dict<span class="op">[</span><span class="st">&quot;Banana&quot;</span><span class="op">]</span> <span class="op">=</span> <span class="dv">2</span><span class="op">;</span></span>
 <span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>       <span class="co">// キーを指定することで，そのキーと関連づけられているバリューの組を辞書から取り除ける．</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>       dict<span class="op">.</span><span class="fu">Remove</span><span class="op">(</span><span class="st">&quot;Candy&quot;</span><span class="op">);</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>        <span class="co">// キーを指定することで，そのキーと関連づけられているバリューの組を辞書から取り除ける．</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>        dict<span class="op">.</span><span class="fu">Remove</span><span class="op">(</span><span class="st">&quot;Candy&quot;</span><span class="op">);</span></span>
 <span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>       <span class="kw">foreach</span> <span class="op">(</span> <span class="dt">var</span> kv <span class="kw">in</span> dict <span class="op">)</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>       <span class="op">{</span></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> kv<span class="op">.</span><span class="fu">Key</span> <span class="op">+</span> <span class="st">&quot; -&gt; &quot;</span> <span class="op">+</span> kv<span class="op">.</span><span class="fu">Value</span> <span class="op">);</span></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>        <span class="kw">foreach</span> <span class="op">(</span> <span class="dt">var</span> kv <span class="kw">in</span> dict <span class="op">)</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> kv<span class="op">.</span><span class="fu">Key</span> <span class="op">+</span> <span class="st">&quot; -&gt; &quot;</span> <span class="op">+</span> kv<span class="op">.</span><span class="fu">Value</span> <span class="op">);</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>上のプログラムの出力は以下となる．</p>
-<pre><code>dict[&quot;Chips&quot;] = 7
+<pre class="text"><code>dict[&quot;Chips&quot;] = 7
 
 True
 False
@@ -160,35 +160,40 @@ Banana -&gt; 2</code></pre>
 <section id="上記のコードで使用したdictionarytkeytvalueのコンストラクタプロパティメソッド" class="level4">
 <h4>上記のコードで使用した<code>Dictionary&lt;TKey,TValue&gt;</code>のコンストラクタ，プロパティ，メソッド</h4>
 <table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">名前</th>
+<th style="text-align: left;">説明</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><code>Dictionary&lt;TKey,TValue&gt;()</code></td>
-<td>キーが<code>TKey</code>，バリューが<code>TValue</code>型であるようなディクショナリを作成するコンストラクタ．</td>
+<td style="text-align: left;"><code>Dictionary&lt;TKey,TValue&gt;()</code></td>
+<td style="text-align: left;">キーが<code>TKey</code>，バリューが<code>TValue</code>型であるようなディクショナリを作成するコンストラクタ．</td>
 </tr>
 <tr class="even">
-<td><code>Add(TKey, TValue)</code></td>
-<td>キーとバリューの対応を付けを辞書に追加する．キーが辞書にすでに存在していたら例外（後述）発生．</td>
+<td style="text-align: left;"><code>Add(TKey, TValue)</code></td>
+<td style="text-align: left;">キーとバリューの対応を付けを辞書に追加する．キーが辞書にすでに存在していたら例外（後述）発生．</td>
 </tr>
 <tr class="odd">
-<td><p><code>this[TKey]</code></p></td>
-<td><p>インデクサー．<code>dict[k] = v</code>は<code>k</code>が辞書に存在しない場合は<code>dict.Add(k,v)</code>と同様．存在する場合はバリューを<code>v</code>で上書き．
-<code>dict[k]</code>を式として使うときはキーが辞書に存在してなければ例外発生．</p></td>
+<td style="text-align: left;"><code>this[TKey]</code></td>
+<td style="text-align: left;">インデクサー．<code>dict[k] = v</code>は<code>k</code>が辞書に存在しない場合は<code>dict.Add(k,v)</code>と同様．存在する場合はバリューを<code>v</code>で上書き．<code>dict[k]</code>を式として使うときはキーが辞書に存在してなければ例外発生．</td>
 </tr>
 <tr class="even">
-<td><code>ContainsKey(TKey)</code></td>
-<td>キーが辞書に含まれているか否かを判定する．</td>
+<td style="text-align: left;"><code>ContainsKey(TKey)</code></td>
+<td style="text-align: left;">キーが辞書に含まれているか否かを判定する．</td>
 </tr>
 <tr class="odd">
-<td><code>Keys</code></td>
-<td>キーのコレクションを表すプロパティ．読み出し専用．</td>
+<td style="text-align: left;"><code>Keys</code></td>
+<td style="text-align: left;">キーのコレクションを表すプロパティ．読み出し専用．</td>
 </tr>
 <tr class="even">
-<td><code>Values</code></td>
-<td>バリューのコレクションを表すプロパティ．読み出し専用．</td>
+<td style="text-align: left;"><code>Values</code></td>
+<td style="text-align: left;">バリューのコレクションを表すプロパティ．読み出し専用．</td>
 </tr>
 <tr class="odd">
-<td><code>Remove(TKey)</code></td>
-<td>指定されたキーと対応するバリューを取り除く．返り値はキーの有無（取り除けたか否か）を表す<code>bool</code></td>
+<td style="text-align: left;"><code>Remove(TKey)</code></td>
+<td style="text-align: left;">指定されたキーと対応するバリューを取り除く．返り値はキーの有無（取り除けたか否か）を表す<code>bool</code></td>
 </tr>
 </tbody>
 </table>
@@ -197,50 +202,50 @@ Banana -&gt; 2</code></pre>
 </section>
 <section id="オブジェクト初期化子object-initializer" class="level2">
 <h2>オブジェクト初期化子（object initializer）</h2>
-<p>ディクショナリは<strong>オブジェクト初期化子</strong>やコレクション初期化子（<a href="./w3.html">前回参照</a>）を用いることで下記のように初期値を指定することができる．</p>
+<p>ディクショナリは<strong>オブジェクト初期化子</strong>やコレクション初期化子（<code>前回参照 &lt;./w3.html&gt;</code>__）を用いることで下記のように初期値を指定することができる．</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">.</span><span class="fu">Collections</span><span class="op">.</span><span class="fu">Generic</span><span class="op">;</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> DictionaryExample2</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>   <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>       <span class="co">// オブジェクト初期化子を利用した版</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>       Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> dict <span class="op">=</span> <span class="kw">new</span> Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;()</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>       <span class="op">{</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>           <span class="co">// この{}で囲まれている部分がオブジェクト初期化子（{}を含む）</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>           <span class="op">[</span><span class="st">&quot;Chocolate&quot;</span><span class="op">]</span> <span class="op">=</span> <span class="dv">2</span><span class="op">,</span> <span class="co">// 注意 &quot;;&quot; でなく &quot;,&quot;</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>           <span class="op">[</span><span class="st">&quot;Chips&quot;</span><span class="op">]</span>     <span class="op">=</span> <span class="dv">4</span><span class="op">,</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>           <span class="op">[</span><span class="st">&quot;Candy&quot;</span><span class="op">]</span>     <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>       <span class="op">};</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">// オブジェクト初期化子を利用した版</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> dict <span class="op">=</span> <span class="kw">new</span> Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;()</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>            <span class="co">// この{}で囲まれている部分がオブジェクト初期化子（{}を含む）</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            <span class="op">[</span><span class="st">&quot;Chocolate&quot;</span><span class="op">]</span> <span class="op">=</span> <span class="dv">2</span><span class="op">,</span> <span class="co">// 注意 &quot;;&quot; でなく &quot;,&quot;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>            <span class="op">[</span><span class="st">&quot;Chips&quot;</span><span class="op">]</span>     <span class="op">=</span> <span class="dv">4</span><span class="op">,</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>            <span class="op">[</span><span class="st">&quot;Candy&quot;</span><span class="op">]</span>     <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">};</span></span>
 <span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>       <span class="kw">foreach</span> <span class="op">(</span> KeyValuePair<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> kv <span class="kw">in</span> dict <span class="op">)</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>       <span class="op">{</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> kv<span class="op">.</span><span class="fu">Key</span> <span class="op">+</span> <span class="st">&quot; -&gt; &quot;</span> <span class="op">+</span> kv<span class="op">.</span><span class="fu">Value</span> <span class="op">);</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        <span class="kw">foreach</span> <span class="op">(</span> KeyValuePair<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> kv <span class="kw">in</span> dict <span class="op">)</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> kv<span class="op">.</span><span class="fu">Key</span> <span class="op">+</span> <span class="st">&quot; -&gt; &quot;</span> <span class="op">+</span> kv<span class="op">.</span><span class="fu">Value</span> <span class="op">);</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>       <span class="co">// コレクション初期化子を利用した版 </span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>       Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> dict2 <span class="op">=</span> <span class="kw">new</span> Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;()</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>       <span class="op">{</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>           <span class="co">// 以下の括弧内がAddの引数になる</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>           <span class="op">{</span> <span class="st">&quot;Chocolate&quot;</span><span class="op">,</span> <span class="dv">2</span> <span class="op">},</span> </span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>           <span class="op">{</span> <span class="st">&quot;Chips&quot;</span><span class="op">,</span>     <span class="dv">4</span> <span class="op">},</span> </span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>           <span class="op">{</span> <span class="st">&quot;Candy&quot;</span><span class="op">,</span>     <span class="dv">5</span> <span class="op">}</span></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>       <span class="op">};</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="co">// コレクション初期化子を利用した版 </span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> dict2 <span class="op">=</span> <span class="kw">new</span> Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;()</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>            <span class="co">// 以下の括弧内がAddの引数になる</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span> <span class="st">&quot;Chocolate&quot;</span><span class="op">,</span> <span class="dv">2</span> <span class="op">},</span> </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span> <span class="st">&quot;Chips&quot;</span><span class="op">,</span>     <span class="dv">4</span> <span class="op">},</span> </span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span> <span class="st">&quot;Candy&quot;</span><span class="op">,</span>     <span class="dv">5</span> <span class="op">}</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        <span class="op">};</span></span>
 <span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>       <span class="kw">foreach</span> <span class="op">(</span> KeyValuePair<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> kv <span class="kw">in</span> dict2 <span class="op">)</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>       <span class="op">{</span></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> kv<span class="op">.</span><span class="fu">Key</span> <span class="op">+</span> <span class="st">&quot; -&gt; &quot;</span> <span class="op">+</span> kv<span class="op">.</span><span class="fu">Value</span> <span class="op">);</span></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>        <span class="kw">foreach</span> <span class="op">(</span> KeyValuePair<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> kv <span class="kw">in</span> dict2 <span class="op">)</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> kv<span class="op">.</span><span class="fu">Key</span> <span class="op">+</span> <span class="st">&quot; -&gt; &quot;</span> <span class="op">+</span> kv<span class="op">.</span><span class="fu">Value</span> <span class="op">);</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>オブジェクト初期化子は上記の <code>new Dictionary&lt;string, int&gt;()</code>の直後の中括弧の部分である．一般に，C#ではオブジェクト生成直後のpublicフィールドやプロパティ，添字への代入を，オブジェクト初期化子を使うことで生成とまとめて行うことができる．</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Point <span class="op">{</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">public</span> <span class="dt">double</span> X<span class="op">;</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">public</span> <span class="dt">double</span> Y<span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">double</span> X<span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">double</span> Y<span class="op">;</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ObjectInitializerExample</span>
@@ -269,19 +274,19 @@ Banana -&gt; 2</code></pre>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ExceptionExample</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>   <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 空のディクショナリの作成</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>       Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> dict <span class="op">=</span> <span class="kw">new</span> Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;();</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 空のディクショナリの作成</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> dict <span class="op">=</span> <span class="kw">new</span> Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;();</span></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 存在しないキーへのアクセス</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> dict<span class="op">[</span><span class="st">&quot;somekey&quot;</span><span class="op">]</span> <span class="op">);</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 存在しないキーへのアクセス</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> dict<span class="op">[</span><span class="st">&quot;somekey&quot;</span><span class="op">]</span> <span class="op">);</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>実際に実行させてみると，以下のような実行時エラーとなる.</p>
-<pre><code>Unhandled exception. System.Collections.Generic.KeyNotFoundException: The given key 'somekey' was not present in the dictionary.
-   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
-   at ExceptionExample.Main() in /Users/kztk/prog/cs/Materials/Week4/ExceptionExample/Program.cs:line 12</code></pre>
+<pre class="text"><code>Unhandled exception. System.Collections.Generic.KeyNotFoundException: The given key 'somekey' was not present in the dictionary.
+    at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+    at ExceptionExample.Main() in /Users/kztk/prog/cs/Materials/Week4/ExceptionExample/Program.cs:line 12</code></pre>
 <p>もちろん，このようなエラーは<code>ContainsKey(TKey)</code>メソッド等を使って逐一検査すれば防ぐことができる．しかしながら，そうした逐一の検査は<em>煩雑でありなおかつコードの見通しを悪く</em>する．また，問題が起きてしまった場合の処理も共通であることもしばしばである．たとえば，対話的アプリケーションだとエラーを報告しユーザの入力を再度促すことになるだろうし，対話的でないアプリケーションだとユーザフレンドリーなエラーメッセージを吐いて終了することになるだろう．</p>
 <p>そのような問題を解決するのが<strong>例外処理</strong>である．例外は上記の存在しないキーへのアクセスなど様々な原因で投げられる．
 <code>try</code>-<code>catch</code>文を用いると例外を捕捉することができる．</p>
@@ -290,52 +295,53 @@ Banana -&gt; 2</code></pre>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ExceptionExample2</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>   <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 空のディクショナリの作成</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>       Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> dict <span class="op">=</span> <span class="kw">new</span> Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;();</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 空のディクショナリの作成</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> dict <span class="op">=</span> <span class="kw">new</span> Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;();</span></span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>       <span class="kw">try</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>       <span class="op">{</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hi&quot;</span><span class="op">);</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> dict<span class="op">[</span><span class="st">&quot;somekey&quot;</span><span class="op">]</span> <span class="op">);</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello&quot;</span><span class="op">);</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> dict<span class="op">[</span><span class="st">&quot;anotherkey&quot;</span><span class="op">]</span> <span class="op">);</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello?&quot;</span><span class="op">);</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> dict<span class="op">[</span><span class="st">&quot;yetanotherkey&quot;</span><span class="op">]</span> <span class="op">);</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello??&quot;</span><span class="op">);</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>       <span class="kw">catch</span> <span class="op">(</span>KeyNotFoundException e<span class="op">)</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>       <span class="op">{</span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>           <span class="co">// tryの中で KeyNotFoundException型（あるいはその派生型）の例外が発生したら，以下の処理を実施．</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Caught exception:&quot;</span><span class="op">);</span></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>e<span class="op">);</span></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;---------------------------&quot;</span><span class="op">);</span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;e.GetType().Name: &quot;</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">GetType</span><span class="op">().</span><span class="fu">Name</span> <span class="op">);</span></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;e.Message: &quot;</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">Message</span> <span class="op">);</span></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;e.Source: &quot;</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">Source</span> <span class="op">);</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;e.TargetSite: &quot;</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">TargetSite</span> <span class="op">);</span></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;e.StackTrace:&quot;</span><span class="op">);</span></span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>           Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> e<span class="op">.</span><span class="fu">StackTrace</span> <span class="op">);</span></span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 例外が発生し捕捉された or 発生しなかったならばここに処理が移る．</span></span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>       Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello, again.&quot;</span><span class="op">);</span></span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>        <span class="kw">try</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hi&quot;</span><span class="op">);</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> dict<span class="op">[</span><span class="st">&quot;somekey&quot;</span><span class="op">]</span> <span class="op">);</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello&quot;</span><span class="op">);</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> dict<span class="op">[</span><span class="st">&quot;anotherkey&quot;</span><span class="op">]</span> <span class="op">);</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello?&quot;</span><span class="op">);</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> dict<span class="op">[</span><span class="st">&quot;yetanotherkey&quot;</span><span class="op">]</span> <span class="op">);</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello??&quot;</span><span class="op">);</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        <span class="kw">catch</span> <span class="op">(</span>KeyNotFoundException e<span class="op">)</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>            <span class="co">// tryの中で KeyNotFoundException型（あるいはその派生型）の例外が発生したら，以下の処理を実施．</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Caught exception:&quot;</span><span class="op">);</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>e<span class="op">);</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;---------------------------&quot;</span><span class="op">);</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;e.GetType().Name: &quot;</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">GetType</span><span class="op">().</span><span class="fu">Name</span> <span class="op">);</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;e.Message: &quot;</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">Message</span> <span class="op">);</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;e.Source: &quot;</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">Source</span> <span class="op">);</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;e.TargetSite: &quot;</span> <span class="op">+</span> e<span class="op">.</span><span class="fu">TargetSite</span> <span class="op">);</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;e.StackTrace:&quot;</span><span class="op">);</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> e<span class="op">.</span><span class="fu">StackTrace</span> <span class="op">);</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 例外が発生し捕捉された or 発生しなかったならばここに処理が移る．</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;Hello, again.&quot;</span><span class="op">);</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>上記プログラムを実行すると以下の出力が得られる．</p>
-<pre><code>Hi
+<pre class="text"><code>Hi
 Caught exception:
 System.Collections.Generic.KeyNotFoundException: The given key 'somekey' was not present in the dictionary.
-   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
-   at ExceptionExample2.Main() in /Users/kztk/prog/cs/Materials/Week4/ExceptionExample2/Program.cs:line 14
+    at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+    at ExceptionExample2.Main() in /Users/kztk/prog/cs/Materials/Week4/ExceptionExample2/Program.cs:line 14
 ---------------------------
+
 e.GetType().Name: KeyNotFoundException
 e.Message: The given key 'somekey' was not present in the dictionary.
 e.Source: System.Private.CoreLib
 e.TargetSite: Void ThrowKeyNotFoundException[T](T)
 e.StackTrace:
-   at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
-   at ExceptionExample2.Main() in /Users/kztk/prog/cs/Materials/Week4/ExceptionExample2/Program.cs:line 14
+    at System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+    at ExceptionExample2.Main() in /Users/kztk/prog/cs/Materials/Week4/ExceptionExample2/Program.cs:line 14
 Hello, again.</code></pre>
 <p>例外を投げるには<code>throw</code>文を使用する．</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
@@ -344,18 +350,18 @@ Hello, again.</code></pre>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> score <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">int</span> Score <span class="op">{</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>       <span class="kw">get</span> <span class="op">{</span> <span class="kw">return</span> score<span class="op">;</span>  <span class="op">}</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>       <span class="kw">set</span> <span class="op">{</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>           <span class="kw">if</span> <span class="op">(</span><span class="dv">0</span> <span class="op">&lt;=</span> value <span class="op">&amp;&amp;</span> value <span class="op">&lt;=</span> <span class="dv">100</span><span class="op">)</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>           <span class="op">{</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>               score <span class="op">=</span> value<span class="op">;</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>           <span class="op">}</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>           <span class="kw">else</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>           <span class="op">{</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>               <span class="co">// 例外を投げる．</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>               <span class="kw">throw</span> <span class="kw">new</span> <span class="fu">ArgumentException</span><span class="op">(</span><span class="st">&quot;Scoreは0から100までの範囲内の整数でなければならない&quot;</span><span class="op">);</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>           <span class="op">}</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">get</span> <span class="op">{</span> <span class="kw">return</span> score<span class="op">;</span>  <span class="op">}</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">set</span> <span class="op">{</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>            <span class="kw">if</span> <span class="op">(</span><span class="dv">0</span> <span class="op">&lt;=</span> value <span class="op">&amp;&amp;</span> value <span class="op">&lt;=</span> <span class="dv">100</span><span class="op">)</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>                score <span class="op">=</span> value<span class="op">;</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>            <span class="kw">else</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>            <span class="op">{</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>                <span class="co">// 例外を投げる．</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>                <span class="kw">throw</span> <span class="kw">new</span> <span class="fu">ArgumentException</span><span class="op">(</span><span class="st">&quot;Scoreは0から100までの範囲内の整数でなければならない&quot;</span><span class="op">);</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="dt">string</span> Name <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="kw">set</span><span class="op">;</span> <span class="op">}</span> <span class="op">=</span> <span class="st">&quot;&quot;</span><span class="op">;</span></span>
 <span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
@@ -364,27 +370,27 @@ Hello, again.</code></pre>
 <span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span></span>
 <span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>       <span class="kw">try</span></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>       <span class="op">{</span></span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>          Student s <span class="op">=</span> <span class="kw">new</span> <span class="fu">Student</span> <span class="op">()</span> <span class="op">{</span> Name <span class="op">=</span> <span class="st">&quot;Taro Tohoku&quot;</span><span class="op">,</span> Score <span class="op">=</span> <span class="dv">105</span> <span class="op">}</span> <span class="op">;</span></span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>       <span class="kw">catch</span><span class="op">(</span>ArgumentException e<span class="op">)</span></span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>       <span class="op">{</span></span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>          Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>e<span class="op">);</span></span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>       <span class="op">}</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>        <span class="kw">try</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>            Student s <span class="op">=</span> <span class="kw">new</span> <span class="fu">Student</span> <span class="op">()</span> <span class="op">{</span> Name <span class="op">=</span> <span class="st">&quot;Taro Tohoku&quot;</span><span class="op">,</span> Score <span class="op">=</span> <span class="dv">105</span> <span class="op">}</span> <span class="op">;</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>        <span class="kw">catch</span><span class="op">(</span>ArgumentException e<span class="op">)</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>e<span class="op">);</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>上記のコードの実行結果は以下となる．</p>
-<pre><code>System.ArgumentException: Scoreは0から100までの範囲内の整数でなければならない
-   at Student.set_Score(Int32 value) in /Users/kztk/prog/cs/Materials/Week4/ExceptionExample3/Program.cs:line 16
-   at ExceptionExample3.Main() in /Users/kztk/prog/cs/Materials/Week4/ExceptionExample3/Program.cs:line 29</code></pre>
+<pre class="text"><code>System.ArgumentException: Scoreは0から100までの範囲内の整数でなければならない
+    at Student.set_Score(Int32 value) in /Users/kztk/prog/cs/Materials/Week4/ExceptionExample3/Program.cs:line 16
+    at ExceptionExample3.Main() in /Users/kztk/prog/cs/Materials/Week4/ExceptionExample3/Program.cs:line 29</code></pre>
 <p>一般的には例外とは，<code>System.Exception</code>を継承しているクラスのオブジェクトである．そのため，<code>System.Exception</code>かその派生クラス（上記<code>ArgumentException</code>や<code>KeyNotFoundException</code>など）を継承することでユーザ定義の例外を作成することもできる．</p>
 <p>また，一つの<code>try</code>はいくつもの<code>catch</code>ブロックを持つことができる．</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">try</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>   <span class="co">// s や dict が適当に（nullでないオブジェクトとして）定義されているとする</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>   s<span class="op">.</span><span class="fu">Score</span> <span class="op">=</span> dict<span class="op">[</span>s<span class="op">.</span><span class="fu">Name</span><span class="op">];</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>   Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>s<span class="op">.</span><span class="fu">Score</span><span class="op">);</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// s や dict が適当に（nullでないオブジェクトとして）定義されているとする</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    s<span class="op">.</span><span class="fu">Score</span> <span class="op">=</span> dict<span class="op">[</span>s<span class="op">.</span><span class="fu">Name</span><span class="op">];</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>s<span class="op">.</span><span class="fu">Score</span><span class="op">);</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="kw">catch</span><span class="op">(</span>ArgumentNullException e<span class="op">)</span></span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
@@ -402,18 +408,18 @@ Hello, again.</code></pre>
 <span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="kw">catch</span><span class="op">(</span>ArgumentException e<span class="op">)</span></span>
 <span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>   <span class="co">// この具体例においては，dict[s.Name] が0〜100の範囲にないときに発生</span></span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>   <span class="co">// なお，ArgumentException は Exception の（直接ではないが）派生クラス</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">// この具体例においては，dict[s.Name] が0〜100の範囲にないときに発生</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>    <span class="co">// なお，ArgumentException は Exception の（直接ではないが）派生クラス</span></span>
 <span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>   <span class="co">// ArgumentException が起きたときの処理</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ArgumentException が起きたときの処理</span></span>
 <span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a><span class="kw">catch</span><span class="op">(</span>Exception e<span class="op">)</span></span>
 <span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>   <span class="co">// この具体例では一見発生しなさそうに見えるが，WriteLine がIOExceptionを投げる可能性がある．</span></span>
-<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 私は未確認だが，標準出力が/dev/fullにリダイレクトされている場合？</span></span>
-<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>   <span class="co">// （参考： https://blog.sunfishcode.online/bugs-in-hello-world/ ）</span></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>    <span class="co">// この具体例では一見発生しなさそうに見えるが，WriteLine がIOExceptionを投げる可能性がある．</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 私は未確認だが，標準出力が/dev/fullにリダイレクトされている場合？</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>    <span class="co">// （参考： &lt;https://blog.sunfishcode.online/bugs-in-hello-world/&gt; ）</span></span>
 <span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>   <span class="co">// Exceptionが起きたときの処理</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Exceptionが起きたときの処理</span></span>
 <span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>このとき，より特定（より派生側の）の例外に対する<code>catch</code>をより先頭に書く．そうでない場合はC#ではコンパイルエラーとなる．もし，そのような場合が許されたならば，最初の<code>catch</code>で例外が捕捉されてしまうので，後段のcatchが使われなくなる．</p>
 </section>
@@ -432,9 +438,7 @@ Visual Studioを使っている方は設定が必要になる．</p>
 <p>の値を調べればよい．</p>
 <p>なお，もう少し正確に言えばコマンドラインから<code>dotnet run</code>を実行する場合は，プロジェクトルートでなくそのコマンドを実行したフォルダが作業フォルダになる．</p>
 <p>Visual Studioを利用している場合は特に何も設定しなければ実行ファイルがあるフォルダが作業フォルダとなる．これはさすがに不便だと思うので，必要に応じて.csprojの<code>&lt;PropertyGroup&gt;...&lt;/PropertyGroup&gt;</code>内に以下の行を追加することで作業フォルダを.csprojファイルのあるフォルダとするのがよいだろう．</p>
-<blockquote>
 <div class="sourceCode" id="cb13"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">StartWorkingDirectory</span>&gt;$(MSBuildProjectDirectory)&lt;/<span class="kw">StartWorkingDirectory</span>&gt;</span></code></pre></div>
-</blockquote>
 <p>Visual Studioで.csprojファイルを編集するには「ソリューションエクスプローラー」/「ソリューション」で当該プロジェクト名を右クリックし「プロジェクト ファイルの編集」を選ぶ．</p>
 </div>
 <section id="ファイルからの入力" class="level3">
@@ -512,12 +516,12 @@ Visual Studioを使っている方は設定が必要になる．</p>
 <span id="cb14-70"><a href="#cb14-70" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb14-71"><a href="#cb14-71" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>MyText.txt の中身</p>
-<pre><code>りんご
+<pre class="text"><code>りんご
 オレンジ
 バナナ
 みかん</code></pre>
 <p>出力結果</p>
-<pre><code>一気に全部読む（結果を文字列に）
+<pre class="text"><code>一気に全部読む（結果を文字列に）
 りんご
 オレンジ
 バナナ
@@ -540,26 +544,32 @@ Visual Studioを使っている方は設定が必要になる．</p>
 <section id="上で使用したメソッドなど" class="level4">
 <h4>上で使用したメソッドなど</h4>
 <table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">名前</th>
+<th style="text-align: left;">説明</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><code>File.ReadAllText(string)</code></td>
-<td>static メソッド．与えられたパスのファイルを開いて読んで閉じ，中身をstringとして返す．</td>
+<td style="text-align: left;"><code>File.ReadAllText(string)</code></td>
+<td style="text-align: left;">static メソッド．与えられたパスのファイルを開いて読んで閉じ，中身をstringとして返す．</td>
 </tr>
 <tr class="even">
-<td><code>File.ReadAllLines(string)</code></td>
-<td>static メソッド．与えられたパスのファイルを開いて読んで閉じ，中身を各行毎のstringの配列として返す．</td>
+<td style="text-align: left;"><code>File.ReadAllLines(string)</code></td>
+<td style="text-align: left;">static メソッド．与えられたパスのファイルを開いて読んで閉じ，中身を各行毎のstringの配列として返す．</td>
 </tr>
 <tr class="odd">
-<td><code>File.OpenText(string)</code></td>
-<td>static メソッド．与えられたパスのファイルを開き，そこから読みだすための<code>StreamReader</code>オブジェクトを返す</td>
+<td style="text-align: left;"><code>File.OpenText(string)</code></td>
+<td style="text-align: left;">static メソッド．与えられたパスのファイルを開き，そこから読みだすための<code>StreamReader</code>オブジェクトを返す</td>
 </tr>
 <tr class="even">
-<td><code>StreamReader.ReadLine()</code></td>
-<td>ストリームから一行読み，その文字列を返す．ファイルの末尾なら <code>null</code> を返す．</td>
+<td style="text-align: left;"><code>StreamReader.ReadLine()</code></td>
+<td style="text-align: left;">ストリームから一行読み，その文字列を返す．ファイルの末尾なら <code>null</code> を返す．</td>
 </tr>
 <tr class="odd">
-<td><code>StreamReader.Peek()</code></td>
-<td>ストリームから次に読める文字（<code>char</code>の意味で）を表す整数（<code>int</code>）を返す．ファイルの末尾なら <code>-1</code>を返す．</td>
+<td style="text-align: left;"><code>StreamReader.Peek()</code></td>
+<td style="text-align: left;">ストリームから次に読める文字（<code>char</code>の意味で）を表す整数（<code>int</code>）を返す．ファイルの末尾なら <code>-1</code>を返す．</td>
 </tr>
 </tbody>
 </table>
@@ -621,29 +631,35 @@ Visual Studioを使っている方は設定が必要になる．</p>
 <span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>上記プログラムを実行すると，実行したディレクトリにMyText1.txt，MyText2.txt および MyText3.txt というファイルが作成される．いずれも以下のような内容だが，MyText1.txt は最終行に終端の改行がない．</p>
-<pre><code>りんご
+<pre class="text"><code>りんご
 オレンジ
 バナナ
 みかん</code></pre>
 <section id="上で使用したメソッドなど-1" class="level4">
 <h4>上で使用したメソッドなど</h4>
 <table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">名前</th>
+<th style="text-align: left;">説明</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><code>File.WriteAllText(string,string)</code></td>
-<td>static メソッド．与えられたパスのファイルを開いて，与えられた文字列で上書きして閉じる．パスにファイルが存在してなければ作成する．</td>
+<td style="text-align: left;"><code>File.WriteAllText(string,string)</code></td>
+<td style="text-align: left;">static メソッド．与えられたパスのファイルを開いて，与えられた文字列で上書きして閉じる．パスにファイルが存在してなければ作成する．</td>
 </tr>
 <tr class="even">
-<td><code>File.WriteAllLines(string,string[])</code></td>
-<td>static メソッド．与えられたパスのファイルを開いて，各行の中身が与えられた文字列の配列になるように上書きして閉じる．パスにファイルが存在してなければ作成する．</td>
+<td style="text-align: left;"><code>File.WriteAllLines(string,string[])</code></td>
+<td style="text-align: left;">static メソッド．与えられたパスのファイルを開いて，各行の中身が与えられた文字列の配列になるように上書きして閉じる．パスにファイルが存在してなければ作成する．</td>
 </tr>
 <tr class="odd">
-<td><code>File.CreateText(string)</code></td>
-<td>static メソッド．与えられたパスのファイルを上書きモードで開き，そこへ書きこむための<code>StreamWriter</code>オブジェクトを返す．パスにファイルが存在してなければ作成する．</td>
+<td style="text-align: left;"><code>File.CreateText(string)</code></td>
+<td style="text-align: left;">static メソッド．与えられたパスのファイルを上書きモードで開き，そこへ書きこむための<code>StreamWriter</code>オブジェクトを返す．パスにファイルが存在してなければ作成する．</td>
 </tr>
 <tr class="even">
-<td><code>StreamWriter.WriteLine(string)</code></td>
-<td>ストリームへ与えられた文字列を出力する．</td>
+<td style="text-align: left;"><code>StreamWriter.WriteLine(string)</code></td>
+<td style="text-align: left;">ストリームへ与えられた文字列を出力する．</td>
 </tr>
 </tbody>
 </table>
@@ -732,7 +748,7 @@ Visual Studioを使っている方は設定が必要になる．</p>
 <span id="cb19-78"><a href="#cb19-78" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb19-79"><a href="#cb19-79" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>上の実行結果</p>
-<pre><code>apple|orange|banana
+<pre class="text"><code>apple|orange|banana
 
 &quot;apple|orange|banana&quot;.Split('|'):
         &quot;apple&quot; &quot;orange&quot; &quot;banana&quot;
@@ -756,42 +772,48 @@ cdef
 <section id="上で使用したstringのメソッドなど" class="level4">
 <h4>上で使用した<code>string</code>のメソッドなど</h4>
 <table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">名前</th>
+<th style="text-align: left;">説明</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><code>Join(string, string[])</code></td>
-<td>staticメソッド．文字列の配列を与えられた区切りを中に入れて連接する．</td>
+<td style="text-align: left;"><code>Join(string, string[])</code></td>
+<td style="text-align: left;">staticメソッド．文字列の配列を与えられた区切りを中に入れて連接する．</td>
 </tr>
 <tr class="even">
-<td><code>Split(char)</code></td>
-<td>文字列を与えられた区切り文字で分割した配列を返す．</td>
+<td style="text-align: left;"><code>Split(char)</code></td>
+<td style="text-align: left;">文字列を与えられた区切り文字で分割した配列を返す．</td>
 </tr>
 <tr class="odd">
-<td><code>Split(string)</code></td>
-<td>文字列を与えられた区切り文字列で分割した配列を返す．</td>
+<td style="text-align: left;"><code>Split(string)</code></td>
+<td style="text-align: left;">文字列を与えられた区切り文字列で分割した配列を返す．</td>
 </tr>
 <tr class="even">
-<td><code>Split()</code></td>
-<td>文字列を空白文字（改行やタブ文字や非ASCII空白も含む）で分割した配列を返す．</td>
+<td style="text-align: left;"><code>Split()</code></td>
+<td style="text-align: left;">文字列を空白文字（改行やタブ文字や非ASCII空白も含む）で分割した配列を返す．</td>
 </tr>
 <tr class="odd">
-<td><code>StartsWith(string)</code></td>
-<td>文字列が与えられた文字列で始まっているか判定する．</td>
+<td style="text-align: left;"><code>StartsWith(string)</code></td>
+<td style="text-align: left;">文字列が与えられた文字列で始まっているか判定する．</td>
 </tr>
 <tr class="even">
-<td><code>IndexOf(string)</code></td>
-<td>与えられた文字列が文字列中で最初に出現するインデックスを返す．</td>
+<td style="text-align: left;"><code>IndexOf(string)</code></td>
+<td style="text-align: left;">与えられた文字列が文字列中で最初に出現するインデックスを返す．</td>
 </tr>
 <tr class="odd">
-<td><code>Substring(int)</code></td>
-<td>与えられたインデックス以降からなる文字列を返す．</td>
+<td style="text-align: left;"><code>Substring(int)</code></td>
+<td style="text-align: left;">与えられたインデックス以降からなる文字列を返す．</td>
 </tr>
 <tr class="even">
-<td><code>Substring(int,int)</code></td>
-<td>与えられたインデックス以降で指定された長さの文字列を返す．</td>
+<td style="text-align: left;"><code>Substring(int,int)</code></td>
+<td style="text-align: left;">与えられたインデックス以降で指定された長さの文字列を返す．</td>
 </tr>
 <tr class="odd">
-<td><code>Trim()</code></td>
-<td>文字列の先頭および末尾から連続した空白を取り除いた文字列を返す．</td>
+<td style="text-align: left;"><code>Trim()</code></td>
+<td style="text-align: left;">文字列の先頭および末尾から連続した空白を取り除いた文字列を返す．</td>
 </tr>
 </tbody>
 </table>
@@ -800,19 +822,10 @@ cdef
 <p>Note</p>
 </div>
 <p><code>Substring</code>や<code>IndexOf</code>で指定するindexや長さは<code>string</code>を<code>char</code>の配列として見たときのものである．このことは以下のように絵文字等の扱いで直感に反することがある．</p>
-<pre><code>using System;
-
-class StringPitfall
-{
-  static void Main() {
-
-     Console.WriteLine(&quot;😱&quot;.Length);              // 2 
-     Console.WriteLine(&quot;0x{0:X}&quot;, (int) &quot;😱&quot;[0]); // 0xD83D 
-     Console.WriteLine(&quot;0x{0:X}&quot;, (int) &quot;😱&quot;[1]); // 0xDE31
-  }
-}</code></pre>
-<p>これは，charがunicodeのコードポイントを表すのに十分でないためである．charは0〜65535の範囲しか表すことができない一方，
-unicodeのコードポイントの最大値は 0x10FFFF = 1114111 となる．実際に絵文字等のcharの範囲で表わせないコードポイントはcharのペアとして表わされる（<a href="https://datatracker.ietf.org/doc/html/rfc2781#section-2">参考： UTF-16, an encoding of ISO 10646</a>）．</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;😱&quot;</span><span class="op">.</span><span class="fu">Length</span><span class="op">);</span>              <span class="co">// 2 </span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;0x{0:X}&quot;</span><span class="op">,</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="st">&quot;😱&quot;</span><span class="op">[</span><span class="dv">0</span><span class="op">]);</span> <span class="co">// 0xD83D </span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;0x{0:X}&quot;</span><span class="op">,</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="st">&quot;😱&quot;</span><span class="op">[</span><span class="dv">1</span><span class="op">]);</span> <span class="co">// 0xDE31</span></span></code></pre></div>
+<p>これは，charがunicodeのコードポイントを表すのに十分でないためである．charは0〜65535の範囲しか表すことができない一方，unicodeのコードポイントの最大値は 0x10FFFF = 1114111 となる．実際に絵文字等のcharの範囲で表わせないコードポイントはcharのペアとして表わされる（参考：<a href="https://datatracker.ietf.org/doc/html/rfc2781#section-2">UTF-16, an encoding of ISO 10646</a>）．</p>
 <p>また，コードポイント自体も「文字」とは対応しない場合がある．たとえば，「🇯🇵」という一文字は二つのコードポイント（U+1F1EF U+1F1F5）で表現される．</p>
 </div>
 </section>
