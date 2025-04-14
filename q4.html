@@ -41,7 +41,7 @@
                <h1>第4回 課題 (2025 改訂中）</h1>
              
             
-               <p class="last-update">最終更新: 2025-04-14 19:16:46</p> 
+               <p class="last-update">最終更新: 2025-04-14 19:38:21</p> 
             
             <div class="qnav">
               <ul>
@@ -395,7 +395,7 @@ Chips, 0</code></pre></li>
 </section>
 <section id="その2" class="level3">
 <h3>その2</h3>
-<p>基本課題その1で作成したプログラムの<code>ProcFile</code>を変更し，ファイルのオープンおよびファイルからの読取時に発生した例外を適切に捕捉し，ファイルが正常に開けなかった旨を標準出力に通知するようにせよ．少なくとも以下は捕捉するようにする．</p>
+<p>基本課題その1で作成したプログラムの<code>procFile</code>を変更し，ファイルのオープンおよびファイルからの読取時に発生した例外を適切に捕捉し，ファイルが正常に開けなかった旨を標準出力に通知するようにせよ．少なくとも以下は捕捉するようにする．</p>
 <ul>
 <li><code>ArgumentException</code></li>
 <li><code>UnauthorizedAccessException</code></li>
@@ -405,14 +405,8 @@ Chips, 0</code></pre></li>
 <div class="title">
 <p>Tip</p>
 </div>
-<p><code>File.ReadAllLines()</code>や<code>File.OpenText</code>，<code>StreamReader.ReadLine</code>が発生する可能性のある例外を捕捉する．どんな例外が発生しうるかは当該メソッドの以下のリファレンスを参照：</p>
-<ul>
-<li><a href="https://learn.microsoft.com/en-us/dotnet/api/system.io.file.readalllines?view=net-8.0#system-io-file-readalllines(system-string)" class="uri">https://learn.microsoft.com/en-us/dotnet/api/system.io.file.readalllines?view=net-8.0#system-io-file-readalllines(system-string)</a></li>
-<li><a href="https://learn.microsoft.com/en-us/dotnet/api/system.io.file.opentext?view=net-8.0" class="uri">https://learn.microsoft.com/en-us/dotnet/api/system.io.file.opentext?view=net-8.0</a></li>
-<li><a href="https://learn.microsoft.com/en-us/dotnet/api/system.io.streamreader.readline?view=net-8.0#system-io-streamreader-readline" class="uri">https://learn.microsoft.com/en-us/dotnet/api/system.io.streamreader.readline?view=net-8.0#system-io-streamreader-readline</a></li>
-</ul>
+<p><a href="https://learn.microsoft.com/en-us/dotnet/api/system.io.file.readalllines?view=net-8.0#system-io-file-readalllines(system-string)"><code>File.ReadAllLines()</code></a>で発生する可能性のある例外を捕捉する</p>
 </div>
-<p><strong>注意：<code>readDictionaryFromFile(string)</code>ではこれらの例外は捕捉しない</strong>（発展課題においてもそう）．</p>
 <section id="動作確認の例" class="level4">
 <h4>動作確認の例</h4>
 <p>以下のようなパスを与えてみるとよい</p>
@@ -436,7 +430,7 @@ Chips, 0</code></pre></li>
 </div>
 <p>本課題を完了できたのならば本課題の解答のみを提出すればよく，基本課題の解答は提出する必要はない．</p>
 </div>
-<p>基本課題で作成した<code>readDictionaryFromFile(string)</code>を以下のように拡張せよ（選択式ではなく両方行う）．</p>
+<p>基本課題で作成した<code>readDictionary</code>に以下の二つの拡張を行え．</p>
 <ul>
 <li><p>引数として渡すテキストファイルに同じ品目が数含まれていた場合にそれらの個数を合計するようにせよ．</p>
 <div class="tip">
@@ -447,15 +441,21 @@ Chips, 0</code></pre></li>
 <div class="sourceCode" id="cb15"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>dict<span class="op">.</span><span class="fu">ContainsKey</span><span class="op">(</span> k <span class="op">)</span> </span></code></pre></div>
 <p>の評価結果は<code>k</code>が<code>dict</code>に含まれていれば<code>true</code>，そうでなければ<code>false</code>である．</p>
 </div></li>
-<li><p>入力テキストファイルにコメントや余計な空白，空行が入っていても正常に読みこめるようにせよ．品目名は空白で始まったり終わったりはしなかったことを思い出してほしい（途中に空白を含んでいてもよい）．ここで，"#"で始まる行をコメントとする（<em>"#"が行頭でない場合はコメントでない</em>のに注意）．また，空行は空白を含んでいてもよい．また，ある行において指定されたフォーマットで解釈することに失敗した場合には，<code>readDictionaryFromFile(string)</code>はその行以前までの行を読み取った結果から得られる辞書を返すようにする．ここで，指定されたフォーマットで解釈できない行とは，たとえば以下のようなものである．</p>
+<li><p>入力テキストファイルにコメントや余計な空白，空行が入っていても正常に読みこめるようにせよ．品目名は空白で始まったり終わったりはしなかったことを思い出してほしい（途中に空白を含んでいてもよい）．ここで，"#"で始まる行をコメントとする（<em>"#"が行頭でない場合はコメントでない</em>のに注意）．また，空行は空白を含んでいてもよい．また，ある行において指定されたフォーマットで解釈することに失敗した場合には，<code>readDictionary</code>はその行以前までの行を読み取った結果から得られる辞書を返すようにする．ここで，指定されたフォーマットで解釈できない行とは，たとえば以下のようなものである．</p>
 <ul>
 <li><p>コメント行ではない行で<code>,</code>を含まない，あるいは2個以上含む行．たとえば：</p>
 <pre class="text"><code>   #コメントでなくコンマを含まない行</code></pre>
 <pre class="text"><code>Chocolate , 12, Candy , 34 </code></pre></li>
 <li><p>コメント行ではない行で<code>,</code>を厳密に1つ含んでいるが，<code>,</code>の右側に整数以外が来ている．たとえば：</p>
 <pre class="text"><code>Candy, Three</code></pre>
-<p>ここで整数以外とは<code>Int32.Parse()</code>が失敗するものとする．</p></li>
-</ul></li>
+<p>ここで整数以外とは<code>int.Parse()</code>が失敗するものとする．</p></li>
+</ul>
+<div class="tip">
+<div class="title">
+<p>Tip</p>
+</div>
+<p>空行かどうかの判定には<a href="https://learn.microsoft.com/en-us/dotnet/api/system.string.isnullorwhitespace?view=net-8.0#system-string-isnullorwhitespace(system-string)"><code>string.IsNullOrWhiteSpace(string)</code></a>が利用できる．あるいは<code>Trim()</code>してから<code>Length</code>が0かどうかチェックしてもよい．</p>
+</div></li>
 </ul>
 <section id="期待される動作例" class="level3">
 <h3>期待される動作例</h3>
