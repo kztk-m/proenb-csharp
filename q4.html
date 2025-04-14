@@ -41,7 +41,7 @@
                <h1>第4回 課題 (2025 改訂中）</h1>
              
             
-               <p class="last-update">最終更新: 2025-04-11 23:20:13</p> 
+               <p class="last-update">最終更新: 2025-04-14 19:16:46</p> 
             
             <div class="qnav">
               <ul>
@@ -110,90 +110,114 @@ Candy,5</code></pre>
 Chips,4
 Chocolate,2</code></pre>
 <p>ような出力を行いたい．</p>
-<p>そのために，<code>Dictionary&lt;string, int&gt;</code>を用いることを考える．より具体的には，上記のファイルを読んで</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dict<span class="op">[</span><span class="st">&quot;Chocolate&quot;</span><span class="op">]</span> <span class="op">=</span> <span class="dv">2</span><span class="op">;</span> </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>dict<span class="op">[</span><span class="st">&quot;Chips&quot;</span><span class="op">]</span>     <span class="op">=</span> <span class="dv">4</span><span class="op">;</span> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>dict<span class="op">[</span><span class="st">&quot;Candy&quot;</span><span class="op">]</span>     <span class="op">=</span> <span class="dv">5</span><span class="op">;</span> </span></code></pre></div>
-<p>としたのと同等の<code>Dictionary</code>を作成し，その後で</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// LINQのextension methodを使うともうすこし簡潔に書ける</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> sortedKeys <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;(</span>dict<span class="op">.</span><span class="fu">Keys</span><span class="op">);</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>sortedKeys<span class="op">.</span><span class="fu">Sort</span><span class="op">(</span> <span class="op">(</span>k1<span class="op">,</span> k2<span class="op">)</span> <span class="op">=&gt;</span> dict<span class="op">[</span>k2<span class="op">].</span><span class="fu">CompareTo</span><span class="op">(</span>dict<span class="op">[</span>k1<span class="op">])</span> <span class="op">);</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> <span class="op">(</span><span class="dt">var</span> k <span class="kw">in</span> sortedKeys<span class="op">)</span> </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>   Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;{0}, {1}&quot;</span><span class="op">,</span> k<span class="op">,</span> dict<span class="op">[</span>k<span class="op">]);</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>を行うことにより個数の降順で出力を行うことを考える．</p>
-<p>上記を達成するため，以下のプログラムの空欄を埋めて完成させよ．</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">// あなたの学籍番号</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">// あなたの名前</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">.</span><span class="fu">IO</span><span class="op">;</span> </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">.</span><span class="fu">Collections</span><span class="op">.</span><span class="fu">Generic</span><span class="op">;</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Program</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>   <span class="kw">static</span> Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> <span class="fu">readDictionaryFromFile</span><span class="op">(</span><span class="dt">string</span> filepath<span class="op">)</span> </span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>      Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> dict <span class="op">=</span> <span class="kw">new</span> Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;();</span> </span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>      <span class="co">// 実装する．</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>      <span class="co">//</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>      <span class="co">// 与えられたパス filepath にファイルが存在し，そのファイルの中身が，各行が</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>      <span class="co">// </span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>      <span class="co">//    アイテム名,個数</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>      <span class="co">//</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>      <span class="co">// という形式であるようなテキストファイルになっているときに，</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>      <span class="co">// 各行に含まれているアイテム名と個数の対応をディクショナリ dict に追加する．</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>      <span class="co">// ファイルの中身のより詳細な形式については後述</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>      <span class="co">//</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>      <span class="co">// *ファイルのI/Oに関する例外はこのメソッドでは処理しない*</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> dict<span class="op">;</span> </span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 変更しない</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>   <span class="kw">static</span> <span class="dt">void</span> <span class="fu">printItemsDescending</span><span class="op">(</span>Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> dict<span class="op">)</span> </span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>      <span class="co">// LINQのextension methodを使うともうすこし簡潔に書ける</span></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>      <span class="dt">var</span> sortedKeys <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;(</span>dict<span class="op">.</span><span class="fu">Keys</span><span class="op">);</span> </span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>      sortedKeys<span class="op">.</span><span class="fu">Sort</span><span class="op">(</span> <span class="op">(</span>k1<span class="op">,</span> k2<span class="op">)</span> <span class="op">=&gt;</span> dict<span class="op">[</span>k2<span class="op">].</span><span class="fu">CompareTo</span><span class="op">(</span>dict<span class="op">[</span>k1<span class="op">])</span> <span class="op">);</span> </span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>      <span class="kw">foreach</span> <span class="op">(</span><span class="dt">var</span> k <span class="kw">in</span> sortedKeys<span class="op">)</span> </span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>      <span class="op">{</span></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>         Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;{0}, {1}&quot;</span><span class="op">,</span> k<span class="op">,</span> dict<span class="op">[</span>k<span class="op">]);</span></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>   <span class="kw">static</span> <span class="dt">void</span> <span class="fu">ProcFile</span><span class="op">(</span><span class="dt">string</span> filepath<span class="op">)</span></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>      <span class="co">// 当然，args[0]が開けなければ例外が発生するが *その1では*無視</span></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>      <span class="fu">printDescending</span><span class="op">(</span> <span class="fu">readDictionaryFromFile</span><span class="op">(</span> filepath <span class="op">)</span> <span class="op">);</span> </span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 変更しない</span></span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>   <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">(</span><span class="dt">string</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>      <span class="kw">if</span> <span class="op">(</span>args<span class="op">.</span><span class="fu">Length</span> <span class="op">&lt;</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>         Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;引数の数が不足しています：ファイルパスが必要です．&quot;</span><span class="op">);</span></span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>         <span class="kw">return</span><span class="op">;</span></span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>      <span class="fu">ProcFile</span><span class="op">(</span> args<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">);</span></span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>そのために，一旦<code>Dictionary&lt;string, int&gt;</code>を作成し，その各要素をバリューが降順になるようなキーの順で標準出力に出力することを考える．後者の処理については，この課題のスコープではないのでこちらで用意した以下を使うものとする．</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// DictionaryHelper.cs</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Program.csと同じディレクトリに置く</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">// このファイルの中身は変更しない．また，提出物に含めない</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">.</span><span class="fu">Collections</span><span class="op">.</span><span class="fu">Generic</span><span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">// staticクラスはインスタンスを持たないようなクラス…ただの名前空間の切り分け</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="kw">static</span> <span class="kw">class</span> DictionaryHelper</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// KとVでパラメタ化されたジェネリックメソッド</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">//</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 辞書の中身をバリューの降順で表示する．実装の詳細は説明しない．</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">static</span> <span class="dt">void</span> PrintByDescendingValues<span class="op">&lt;</span>K<span class="op">,</span> V<span class="op">&gt;(</span>Dictionary<span class="op">&lt;</span>K<span class="op">,</span> V<span class="op">&gt;</span> dict<span class="op">)</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 直感的にはKやVは順序比較可能であることを制約している</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        where K <span class="op">:</span> IComparable <span class="co">// キーに対する CompareTo のため</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        where V <span class="op">:</span> IComparable <span class="co">// バリューに対する CompareTo のため</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>        <span class="co">// LINQの提供するextension methodを使うともうすこし簡潔に書ける</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>        <span class="dt">var</span> sortedKeys <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span>K<span class="op">&gt;(</span>dict<span class="op">.</span><span class="fu">Keys</span><span class="op">);</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="co">// sortedKeysを実際にソートする</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 比較関数として匿名関数式を利用．匿名関数式については次回少し触れる</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>        sortedKeys<span class="op">.</span><span class="fu">Sort</span><span class="op">((</span>k1<span class="op">,</span> k2<span class="op">)</span> <span class="op">=&gt;</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>            <span class="dt">int</span> res <span class="op">=</span> dict<span class="op">[</span>k2<span class="op">].</span><span class="fu">CompareTo</span><span class="op">(</span>dict<span class="op">[</span>k1<span class="op">]);</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>            <span class="co">// 個数が同じ場合は品目名の順</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>            <span class="kw">if</span> <span class="op">(</span>res <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span> <span class="kw">return</span> k1<span class="op">.</span><span class="fu">CompareTo</span><span class="op">(</span>k2<span class="op">);</span> <span class="op">}</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>            <span class="kw">return</span> res<span class="op">;</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        <span class="op">});</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ソート済みのキーの順に辞書の中身を表示</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>        <span class="kw">foreach</span> <span class="op">(</span><span class="dt">var</span> k <span class="kw">in</span> sortedKeys<span class="op">)</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;{0}, {1}&quot;</span><span class="op">,</span> k<span class="op">,</span> dict<span class="op">[</span>k<span class="op">]);</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>前者の処理を実現するため，以下のプログラムの空欄を埋めて完成させよ．</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// あなたの学籍番号</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">// あなたの名前</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">.</span><span class="fu">IO</span><span class="op">;</span> </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">.</span><span class="fu">Collections</span><span class="op">.</span><span class="fu">Generic</span><span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Program</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> <span class="fu">readDictionary</span><span class="op">(</span>IEnumerable<span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;</span> lines<span class="op">)</span> </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;</span> dict <span class="op">=</span> <span class="kw">new</span> Dictionary<span class="op">&lt;</span><span class="dt">string</span><span class="op">,</span> <span class="dt">int</span><span class="op">&gt;();</span> </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 実装する．</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="co">//</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="co">// linesには入力ファイルの各行が格納されている．</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">// linesの各要素から品目名と個数の対応を読みとり，ディクショナリ dict に追加する．</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 各行の詳細なフォーマットについては後述</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 以下のようにlinesについてはforeachが使える．</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>        <span class="co">// linesについてこのメソッドで行うことはこれで十分．</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>        <span class="co">//</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 実装方針によっては，この処理の前後に何か書くかもしれないし，</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        <span class="co">// この処理を何かで囲むこともあるかもしれないし，あるいはそのまま使うかもしれない．</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        <span class="kw">for</span><span class="op">(</span><span class="dt">var</span> line <span class="kw">in</span> lines<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>            <span class="co">// ...</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> dict<span class="op">;</span> </span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">procFile</span><span class="op">(</span><span class="dt">string</span> filepath<span class="op">)</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 当然，filepathが開けなければ例外が発生するが *その1では*無視</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>        <span class="dt">var</span> lines <span class="op">=</span> File<span class="op">.</span><span class="fu">ReadAllLines</span><span class="op">(</span>filepath<span class="op">);</span>        </span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>        DictionaryHelper<span class="op">.</span><span class="fu">PrintByDescendingValues</span><span class="op">(</span><span class="fu">readDictionary</span><span class="op">(</span>lines<span class="op">));</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 変更しない</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">(</span><span class="dt">string</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(</span>args<span class="op">.</span><span class="fu">Length</span> <span class="op">&lt;</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;引数の数が不足しています：ファイルパスが必要です．&quot;</span><span class="op">);</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>            <span class="kw">return</span><span class="op">;</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>        <span class="fu">procFile</span><span class="op">(</span> args<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">);</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <section id="動作確認例" class="level4">
 <h4>動作確認例</h4>
 <div class="Instructions">
 <ol type="1">
-<li><p>まず，<code>items.txt</code>を準備する．VSCodeで以下の中身の<code>items.txt</code>を<code>.csproj</code>と同じフォルダに作成する．</p>
+<li><p>まず，入力ファイルを準備する（<code>items.txt</code>という名前だとする）．VSCodeで以下の中身の<code>items.txt</code>を<code>.csproj</code>と同じフォルダに作成する．</p>
 <pre class="text"><code>Chocolate,2
 Chips,0
-Candy,5</code></pre></li>
-<li><p><code>.csproj</code>と同じフォルダに移動し，以下を行う．<code>$</code>はプロンプトを表し，そこから右がユーザが入力する部分を表す（<code>$</code>自体は入力しない）．</p>
+Candy,5</code></pre>
+<p>コマンドラインに慣れている人は<a href="./q4_items1.txt">q4_items1.txt</a>を<code>curl</code>か何かで取ってきたのでよい．</p></li>
+<li><p><code>.csproj</code>と同じフォルダで以下を行う．<code>$</code>はプロンプトを表し，そこから右がユーザが入力する部分を表す（<code>$</code>自体は入力しない）．</p>
 <pre class="console"><code>$ dotnet run -- items.txt
 Candy, 5
 Chocolate, 2
 Chips, 0</code></pre></li>
 </ol>
 </div>
-<p><strong>自身がプログラムの動作確認に使用した入力ファイル（上記の<code>items.txt</code>）も一つ以上提出物に含めること（発展課題も同じ）</strong>．ファイル名は<code>items.txt</code>あるいは<code>items1.txt</code>や<code>items2.txt</code>等とする．</p>
+<p><strong>自身がプログラムの動作確認に使用した入力ファイル（上記の<code>items.txt</code>）も一つ以上提出物に含めること（発展課題も同じ）</strong>．動作利便性および環境由来のトラブル回避のため，ファイル名の拡張子を除いた部分に使用してよい文字は英語アルファベット小文字，<code>_</code>，数字のみとする．</p>
+<ul>
+<li>OKな例：<code>q4_items20.txt</code>，<code>q4_ex1.txt</code>など</li>
+<li>NGな例：<code>Q4.txt</code>，<code>課題4.txt</code>など</li>
+</ul>
 </section>
 <section id="入力ファイルの形式" class="level4">
 <h4>入力ファイルの形式</h4>
@@ -202,16 +226,60 @@ Chips, 0</code></pre></li>
 <li><p>各行が</p>
 <pre class="text"><code>品目名,個数</code></pre>
 <p>という形になっている．基本課題においては，品目名，<code>,</code>，および個数の前後に余計な空白は含まれない（発展課題で変更あり）</p></li>
-<li><p>個数は<code>int</code>で表現可能な数に比べて十分に小さいとする（オーバフローを考える必要はない）．<em>簡便のため負数や0は許すことにする</em>．</p></li>
+<li><p>個数は<code>int</code>で表現可能な数に比べて十分に小さいとする（個数の処理でオーバフローを考える必要はない）．<em>簡便のため負数や0は許すことにする</em>．</p></li>
 <li><p>品目名は<code>,</code>および前後の空白は含まない．たとえば<code></code>（空白文字からなる文字列）や<code>X</code>（空白文字，'X'，空白文字からなる文字列）などはここで言う品目名ではない．途中の（非改行）空白は含んでもよい（例：<code>Ruby Chocolate</code>）．</p></li>
 <li><p>基本課題では各行の品目名に重複を許さない．</p></li>
-<li><p>基本課題では上記の形式でないファイルが与えられたときの挙動は考えなくてよい．</p></li>
+<li><p>基本課題では上記の形式でないファイルが与えられたときの挙動は考えなくてよい（上記を満たす入力ファイルについて正しく動けばよい）．</p></li>
 </ul>
 <div class="note">
 <div class="title">
 <p>Note</p>
 </div>
-<p>上記においてプログラムにコマンドライン引数を渡すために，<code>dotnet run</code>コマンドを利用していたが，同様のことをVSCodeで行うのは少々大変である．</p>
+<p>上記においてプログラムにコマンドライン引数を渡すために<code>dotnet run</code>コマンドを利用していたが，同様のことをVSCodeで行うのは少々大変である．</p>
+<div class="Instructions">
+<ol type="1">
+<li><p>アクティビティーバー（ウィンドウ一番左に表示されるアイコンの並んだバー）の虫のついた再生ボタンをクリックして，サイドバーを「実行とデバッグ」に切り替える．</p></li>
+<li><p>サイドバー内の「launch.jsonファイルを作成します」（create a launch.json file）の部分がクリック可能なのでクリックする．</p></li>
+<li><p>その後の「デバッガの選択」ではC#を選ぶ</p></li>
+<li><p>launch.jsonファイルがエディタで開かれ，カーソルが<code>"configurations"</code>の<code>:</code>の後の<code>[``]</code>内のところに来ているはず．そこで，<code>core</code>まで打つといろいろ補完されるので，候補から
+<code>.NET: Launch Executable File (Console)</code>を選ぶ．</p></li>
+<li><p><code>[</code>と<code>]</code>の内に以下のようなテンプレートが挿入されるので，<code>&lt;target-framework&gt;</code>と<code>&lt;project-name.dll&gt;</code>を適切に置換える．</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;.NET Core Launch (console)&quot;</span><span class="fu">,</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;coreclr&quot;</span><span class="fu">,</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;request&quot;</span><span class="fu">:</span> <span class="st">&quot;launch&quot;</span><span class="fu">,</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;preLaunchTask&quot;</span><span class="fu">:</span> <span class="st">&quot;build&quot;</span><span class="fu">,</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;program&quot;</span><span class="fu">:</span> <span class="st">&quot;${workspaceFolder}/bin/Debug/&lt;target-framework&gt;/&lt;project-name.dll&gt;&quot;</span><span class="fu">,</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;args&quot;</span><span class="fu">:</span> <span class="ot">[]</span><span class="fu">,</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;cwd&quot;</span><span class="fu">:</span> <span class="st">&quot;${workspaceFolder}&quot;</span><span class="fu">,</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;stopAtEntry&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;console&quot;</span><span class="fu">:</span> <span class="st">&quot;internalConsole&quot;</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<ul>
+<li><code>&lt;target-framework&gt;</code>は<code>.csproj</code>内の<code>TargetFramework</code>の記述と合わせる．<code>net8.0</code>など．</li>
+<li><code>&lt;project-name.dll&gt;</code>は「プロジェクト名.dll」に置換える．<code>.csproj</code>ファイルのベースがプロジェクト名になっているはずなので，<code>Q4.csproj</code>という名前なら<code>Q4.dll</code>とする．</li>
+</ul></li>
+<li><p><code>"preLaunchTask"</code>を<code>"build"</code>から<code>"dotnet: build"</code>に書き換える．ファイルは以下のようになっているはず（プロジェクト名が<code>Q4</code>の場合）．</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;.NET Core Launch (console)&quot;</span><span class="fu">,</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;coreclr&quot;</span><span class="fu">,</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;request&quot;</span><span class="fu">:</span> <span class="st">&quot;launch&quot;</span><span class="fu">,</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;preLaunchTask&quot;</span><span class="fu">:</span> <span class="st">&quot;dotnet: build&quot;</span><span class="fu">,</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;program&quot;</span><span class="fu">:</span> <span class="st">&quot;${workspaceFolder}/bin/Debug/net8.0/Q4.dll&quot;</span><span class="fu">,</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;args&quot;</span><span class="fu">:</span> <span class="ot">[]</span><span class="fu">,</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;cwd&quot;</span><span class="fu">:</span> <span class="st">&quot;${workspaceFolder}&quot;</span><span class="fu">,</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;stopAtEntry&quot;</span><span class="fu">:</span> <span class="kw">false</span><span class="fu">,</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&quot;console&quot;</span><span class="fu">:</span> <span class="st">&quot;internalConsole&quot;</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div></li>
+<li><p><code>"args"</code>にコマンドライン引数をjsonリストとして記述する．たとえば<code>[ "items.txt" ]</code>などとする．これで，"F5"で実行する場合は<code>args</code>に指定されたコマンドライン引数が実行プログラムに渡されるようになる．ターミナルから実行するのに比べたこの方法の利点は"C# Dev Kit"の提供するデバッグ機能が使用できることである．一方で，異なる引数をプログラムに渡すためには都度<code>launch.json</code>の修正が必要．</p></li>
+</ol>
+<div class="caution">
+<div class="title">
+<p>Caution</p>
+</div>
+<p>この方法でも，エディタで<code>.cs</code>ファイルを開いたときに右上に表示される実行ボタンではコマンドライン引数が渡されない．ざっと調べた限りではこちらの設定方法が見付からなかったので，もしこちらの設定の変更方法をご存知の方がいらっしゃればお伺いできればと思います．</p>
+</div>
+</div>
 </div>
 <!-- 
 > [!NOTE]
@@ -233,46 +301,46 @@ Chips, 0</code></pre></li>
 <div class="title">
 <p>Tip</p>
 </div>
-<p>個数の部分を処理するには，<code>Int32.Parse(string)</code>を使うとよい．</p>
-<p>この関数の使い方は以下のプログラムを参考にせよ．</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">// 参考：https://docs.microsoft.com/en-us/dotnet/api/system.int32.parse?view=net-6.0#system-int32-parse(system-string)</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Int32Example </span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">TryParseInt</span><span class="op">(</span><span class="dt">string</span> s<span class="op">)</span> </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span>           </span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">try</span> </span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>            <span class="dt">int</span> n <span class="op">=</span> Int32<span class="op">.</span><span class="fu">Parse</span><span class="op">(</span>s<span class="op">);</span> </span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>s <span class="op">+</span> <span class="st">&quot; ==&gt; &quot;</span> <span class="op">+</span> n<span class="op">);</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">catch</span><span class="op">(</span>FormatException e<span class="op">)</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>s <span class="op">+</span> <span class="st">&quot;: ill-formed&quot;</span><span class="op">);</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>        <span class="kw">catch</span><span class="op">(</span>OverflowException e<span class="op">)</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>s <span class="op">+</span> <span class="st">&quot;: overflow&quot;</span><span class="op">);</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>        <span class="kw">catch</span><span class="op">(</span>ArgumentNullException e<span class="op">)</span> </span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;the input is null&quot;</span><span class="op">);</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span> </span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="st">&quot;1234&quot;</span><span class="op">);</span></span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="st">&quot;-1234&quot;</span><span class="op">);</span></span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="st">&quot;0xbeef&quot;</span><span class="op">);</span></span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="st">&quot;+34&quot;</span><span class="op">);</span></span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="st">&quot;3e10&quot;</span><span class="op">);</span></span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="st">&quot;011&quot;</span><span class="op">);</span> </span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="st">&quot;1,000&quot;</span><span class="op">);</span></span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TryParseInt</span><span class="op">(</span><span class="dt">string</span><span class="op">.</span><span class="fu">Join</span><span class="op">(</span><span class="st">&quot;&quot;</span><span class="op">,</span> <span class="kw">new</span> <span class="dt">string</span><span class="op">[]</span> <span class="op">{</span> <span class="st">&quot;1&quot;</span><span class="op">,</span> <span class="st">&quot;000&quot;</span><span class="op">,</span> <span class="st">&quot;000&quot;</span><span class="op">,</span> <span class="st">&quot;000&quot;</span><span class="op">,</span> <span class="st">&quot;000&quot;</span> <span class="op">}));</span></span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>個数の部分を処理するには，<code>int.Parse(string)</code>あるいは<code>int.TryParse(string, out int)</code>を利用するとよい．</p>
+<p><code>int.Parse(string)</code>の使い方は以下のプログラムを参考にせよ．</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">// 参考：https://docs.microsoft.com/en-us/dotnet/api/system.int32.parse?view=net-6.0#system-int32-parse(system-string)</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> IntParseExample </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">TestIntParse</span><span class="op">(</span><span class="dt">string</span> s<span class="op">)</span> </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span>           </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        <span class="kw">try</span> </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>            <span class="dt">int</span> n <span class="op">=</span> <span class="dt">int</span><span class="op">.</span><span class="fu">Parse</span><span class="op">(</span>s<span class="op">);</span> </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>s <span class="op">+</span> <span class="st">&quot; ==&gt; &quot;</span> <span class="op">+</span> n<span class="op">);</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>        <span class="kw">catch</span><span class="op">(</span>FormatException e<span class="op">)</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>s <span class="op">+</span> <span class="st">&quot;: ill-formed&quot;</span><span class="op">);</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>        <span class="kw">catch</span><span class="op">(</span>OverflowException e<span class="op">)</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>s <span class="op">+</span> <span class="st">&quot;: overflow&quot;</span><span class="op">);</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>        <span class="kw">catch</span><span class="op">(</span>ArgumentNullException e<span class="op">)</span> </span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;the input is null&quot;</span><span class="op">);</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span> </span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TestIntParse</span><span class="op">(</span><span class="st">&quot;1234&quot;</span><span class="op">);</span></span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TestIntParse</span><span class="op">(</span><span class="st">&quot;-1234&quot;</span><span class="op">);</span></span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TestIntParse</span><span class="op">(</span><span class="st">&quot;0xbeef&quot;</span><span class="op">);</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TestIntParse</span><span class="op">(</span><span class="st">&quot;+34&quot;</span><span class="op">);</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TestIntParse</span><span class="op">(</span><span class="st">&quot;3e10&quot;</span><span class="op">);</span></span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TestIntParse</span><span class="op">(</span><span class="st">&quot;011&quot;</span><span class="op">);</span> </span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TestIntParse</span><span class="op">(</span><span class="st">&quot;1,000&quot;</span><span class="op">);</span></span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TestIntParse</span><span class="op">(</span><span class="dt">string</span><span class="op">.</span><span class="fu">Join</span><span class="op">(</span><span class="st">&quot;&quot;</span><span class="op">,</span> <span class="kw">new</span> <span class="dt">string</span><span class="op">[]</span> <span class="op">{</span> <span class="st">&quot;1&quot;</span><span class="op">,</span> <span class="st">&quot;000&quot;</span><span class="op">,</span> <span class="st">&quot;000&quot;</span><span class="op">,</span> <span class="st">&quot;000&quot;</span><span class="op">,</span> <span class="st">&quot;000&quot;</span> <span class="op">}));</span></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>上のコードの出力</p>
 <pre class="text"><code>1234 ==&gt; 1234
 -1234 ==&gt; -1234
@@ -282,6 +350,46 @@ Chips, 0</code></pre></li>
 011 ==&gt; 11
 1,000: ill-formed
 1000000000000: overflow</code></pre>
+<p><code>int.TryParse(string, out int)</code>の使用例は以下．例外ではなくパースの成否が真偽値として返ってくるのは便利かもしれないが，<code>out</code>修飾子なる本演習の範囲外の概念が出てくる．</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> IntTryParseExample </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">TestTryParse</span><span class="op">(</span><span class="dt">string</span> s<span class="op">)</span> </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(</span><span class="dt">int</span><span class="op">.</span><span class="fu">TryParse</span><span class="op">(</span>s<span class="op">,</span> <span class="kw">out</span> <span class="dt">int</span> res<span class="op">))</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>s <span class="op">+</span> <span class="st">&quot; ==&gt; &quot;</span> <span class="op">+</span> res<span class="op">);</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span>    </span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        <span class="kw">else</span> </span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>s <span class="op">+</span> <span class="st">&quot;: TryParse failed.&quot;</span><span class="op">);</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ここもresのスコープ内．以下をコメントアウトしてみよう．</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Console.WriteLine(&quot;res = &quot; + res);</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span> </span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TestTryParse</span><span class="op">(</span><span class="st">&quot;1234&quot;</span><span class="op">);</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TestTryParse</span><span class="op">(</span><span class="st">&quot;-1234&quot;</span><span class="op">);</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TestTryParse</span><span class="op">(</span><span class="st">&quot;0xbeef&quot;</span><span class="op">);</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TestTryParse</span><span class="op">(</span><span class="st">&quot;+34&quot;</span><span class="op">);</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TestTryParse</span><span class="op">(</span><span class="st">&quot;3e10&quot;</span><span class="op">);</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TestTryParse</span><span class="op">(</span><span class="st">&quot;011&quot;</span><span class="op">);</span> </span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TestTryParse</span><span class="op">(</span><span class="st">&quot;1,000&quot;</span><span class="op">);</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>        <span class="fu">TestTryParse</span><span class="op">(</span><span class="dt">string</span><span class="op">.</span><span class="fu">Join</span><span class="op">(</span><span class="st">&quot;&quot;</span><span class="op">,</span> <span class="kw">new</span> <span class="dt">string</span><span class="op">[]</span> <span class="op">{</span> <span class="st">&quot;1&quot;</span><span class="op">,</span> <span class="st">&quot;000&quot;</span><span class="op">,</span> <span class="st">&quot;000&quot;</span><span class="op">,</span> <span class="st">&quot;000&quot;</span><span class="op">,</span> <span class="st">&quot;000&quot;</span> <span class="op">}));</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>上のコードの出力</p>
+<pre class="text"><code>1234 ==&gt; 1234
+-1234 ==&gt; -1234
+0xbeef: TryParse failed.
++34 ==&gt; 34
+3e10: TryParse failed.
+011 ==&gt; 11
+1,000: TryParse failed.
+1000000000000: TryParse failed.</code></pre>
 </div>
 </section>
 </section>
@@ -336,7 +444,7 @@ Chips, 0</code></pre></li>
 <p>Tip</p>
 </div>
 <p>ディクショナリにキーが含まれているかどうかを確認するには<code>ContainsKey(TKey)</code>メソッドを用いることができる．たとえば式</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>dict<span class="op">.</span><span class="fu">ContainsKey</span><span class="op">(</span> k <span class="op">)</span> </span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>dict<span class="op">.</span><span class="fu">ContainsKey</span><span class="op">(</span> k <span class="op">)</span> </span></code></pre></div>
 <p>の評価結果は<code>k</code>が<code>dict</code>に含まれていれば<code>true</code>，そうでなければ<code>false</code>である．</p>
 </div></li>
 <li><p>入力テキストファイルにコメントや余計な空白，空行が入っていても正常に読みこめるようにせよ．品目名は空白で始まったり終わったりはしなかったことを思い出してほしい（途中に空白を含んでいてもよい）．ここで，"#"で始まる行をコメントとする（<em>"#"が行頭でない場合はコメントでない</em>のに注意）．また，空行は空白を含んでいてもよい．また，ある行において指定されたフォーマットで解釈することに失敗した場合には，<code>readDictionaryFromFile(string)</code>はその行以前までの行を読み取った結果から得られる辞書を返すようにする．ここで，指定されたフォーマットで解釈できない行とは，たとえば以下のようなものである．</p>
@@ -359,7 +467,7 @@ Chips, 0</code></pre></li>
 <thead>
 <tr>
 <th>
-入力テキストファイルの中身
+入力テキストファイルとその中身
 </th>
 <th>
 期待される出力
@@ -369,6 +477,7 @@ Chips, 0</code></pre></li>
 <tbody>
 <tr>
 <td>
+<p><a href="./q4_items2.txt">q4_items2.txt</a></p>
 <pre>
 Chocolate,2
 Chips,14
@@ -387,6 +496,7 @@ Chips, 0
 </tr>
 <tr>
 <td>
+<p><a href="./q4_items3.txt">q4_items3.txt</a></p>
 <pre>
 #コメント行
 Chocolate,  2
@@ -406,6 +516,7 @@ Candy, 5
 </tr>
 <tr>
 <td>
+<p><a href="./q4_items4.txt">q4_items4.txt</a></p>
 <pre>
 # コメント行
 Chocolate,  2
@@ -428,6 +539,7 @@ Candy, 5
 </tr>
 <tr>
 <td>
+<p><a href="./q4_items5.txt">q4_items5.txt</a></p>
 <pre>
 # 品目名は空白を含んでいてよい
 Ruby Chocolate, 6
