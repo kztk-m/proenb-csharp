@@ -41,7 +41,7 @@
                <h1>第1回 C#にさわってみよう</h1>
              
             
-               <p class="last-update">最終更新: 2025-04-10 14:22:52</p> 
+               <p class="last-update">最終更新: 2025-04-15 10:20:30</p> 
             
             <div class="qnav">
               <ul>
@@ -213,7 +213,7 @@
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>c<span class="op">.</span><span class="fu">count</span><span class="op">.</span><span class="fu">ToString</span><span class="op">());</span> </span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>が，これは<em>あまりよくないコード</em>である．なぜならば，<code>Counter</code>はカウンターを実装するということが関心事であるのにそれ以外の処理を行っているためである．さらには，<code>Counter</code>は直接カウンターへのアクセスを防ぐために<code>count</code>をprivateフィールドにしたので，そのアクセス制限を台無しにしている．</p>
+<p>が，これは<em>あまりよくないコード</em>である．なぜならば，<code>Counter</code>はカウンターを実装するということが関心事であるのにそれ以外の処理を行っているためである．さらには，<code>Counter</code>は直接カウンターへのアクセスを防ぐために<code>count</code>をprivateフィールドにしたので，そのアクセス制限を台無しにしている．また，エントリポイントが<code>Counter</code>の中にあるということは実質的に<code>Counter</code>はクラスの外から使えないということでもある．</p>
 </div>
 </section>
 <section id="メソッドの追加" class="level4">
@@ -316,16 +316,16 @@ d.GetCount() = 7</code></pre>
 <p>Note</p>
 </div>
 <p>大雑把には，<code>Counter</code>クラスはアクセス制御子等を無視すればCにおける以下の構造体定義と関数のあつまりと似たようなものであるように理解できる．</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> counter <span class="op">{</span> <span class="dt">int</span> count<span class="op">;</span> <span class="op">}</span> </span>
+<div class="sourceCode" id="cb13"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> counter <span class="op">{</span> <span class="dt">int</span> count<span class="op">;</span> <span class="op">};</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> counter<span class="op">*</span> new_counter<span class="op">()</span> <span class="op">{</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">struct</span> counter<span class="op">*</span> p <span class="op">=</span> new malloc<span class="op">(</span> <span class="kw">sizeof</span><span class="op">(</span><span class="kw">struct</span> counter<span class="op">)</span> <span class="op">);</span> </span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    construct_counter<span class="op">(</span>p<span class="op">);</span> </span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> p<span class="op">;</span> </span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> construct_counter<span class="op">(</span><span class="kw">struct</span> counter<span class="op">*</span> p<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    p<span class="op">-&gt;</span>count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> construct_counter<span class="op">(</span><span class="kw">struct</span> counter<span class="op">*</span> p<span class="op">,</span> <span class="dt">int</span> c<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    p<span class="op">-&gt;</span>count <span class="op">=</span> c<span class="op">;</span> </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> counter<span class="op">*</span> new_counter<span class="op">(</span><span class="dt">int</span> c<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">struct</span> counter<span class="op">*</span> p <span class="op">=</span> <span class="op">(</span><span class="kw">struct</span> counter<span class="op">*)</span> malloc<span class="op">(</span> <span class="kw">sizeof</span><span class="op">(</span><span class="kw">struct</span> counter<span class="op">)</span> <span class="op">);</span> </span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    construct_counter<span class="op">(</span>p<span class="op">,</span> c<span class="op">);</span> </span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> p<span class="op">;</span> </span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> increment<span class="op">(</span><span class="kw">struct</span> counter<span class="op">*</span> p<span class="op">)</span> <span class="op">{</span></span>
