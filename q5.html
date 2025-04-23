@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja">
     <head>
-        <title>第5回 課題 (2024；大幅改訂予定) - 東北大学プログラミング演習B (C#)</title>
+        <title>第5回 課題 (2025 改訂中) - 東北大学プログラミング演習B (C#)</title>
         <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -38,10 +38,10 @@
             </nav>
 
             
-               <h1>第5回 課題 (2024；大幅改訂予定)</h1>
+               <h1>第5回 課題 (2025 改訂中)</h1>
              
             
-               <p class="last-update">最終更新: 2025-04-21 22:48:35</p> 
+               <p class="last-update">最終更新: 2025-04-23 21:29:35</p> 
             
             <div class="qnav">
               <ul>
@@ -104,11 +104,18 @@ VSCodeで作成したフォルダを開く．そして，VSCode内のターミ�
 </section>          
             <section id="基本課題" class="level2">
 <h2>基本課題</h2>
+<p>コラッツ予想は，正整数 <span class="math inline"><em>n</em></span> が与えられたときに，</p>
+<ul>
+<li><span class="math inline"><em>n</em></span> が奇数なら <span class="math inline">3<em>n</em> + 1</span> とする</li>
+<li><span class="math inline"><em>n</em></span> が偶数なら2で割る</li>
+</ul>
+<p>ことを繰り返すと必ず最終的に1に至るというものである．たとえば，77から始めると現れる数は77, 232, 116, 58, 29, 88, 44, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1のとなる．こうした数列のことを本課題では便宜上<em>コラッツ列</em>と呼ぶことにする．</p>
+<p>本課題の目標はコラッツ列の計算・表示を行ってくれるアプリケーションを作成することである．</p>
 <section id="その1" class="level3">
 <h3>その1</h3>
 <p>ラベルを</p>
 <pre class="text asciiart"><code>Label</code></pre>
-<p>ボタンを</p>
+<p>ボタン（そのボタンテキストが<code>Button</code>）を</p>
 <pre class="text asciiart"><code>(Button)</code></pre>
 <p>テキストボックスを</p>
 <pre class="text asciiart"><code>[          ]</code></pre>
@@ -120,7 +127,7 @@ VSCodeで作成したフォルダを開く．そして，VSCode内のターミ�
 <p>というアスキーアートとして図示することにする．</p>
 <p>このとき，Eto.Formsを用いて以下のようにコントロールが配置されているウィンドウを作成しなさい．
 <strong>ただし，テンプレートから生成されたコードのうち，MainForm.cs のみ変更すること．</strong></p>
-<pre class="text asciiart"><code>File: [                       ]  (Load) 
+<pre class="text asciiart"><code>Start Number: [           ]  (Compute!) 
 +-------------------------------------+
 |                                     |
 |                                     |
@@ -131,16 +138,25 @@ VSCodeで作成したフォルダを開く．そして，VSCode内のターミ�
 Ready</code></pre>
 <p>ただし，以下を満たすこと．</p>
 <ul>
-<li>"File:"，"Ready"の部分は<code>Label</code>を用いて実現</li>
-<li>"File:" の右のテキストボックスは<code>TextBox</code>を用いて実現</li>
-<li>"(Load)"の部分は<code>Button</code>を用いて実現</li>
-<li>中央のテキストエリアは<code>TextArea</code>を用いて実現</li>
-<li>ウィンドウのサイズは十分に大きい（たとえば400x300程）</li>
-<li>TextBoxの部分にはプレースホルダーテキストを設定してもよいし，しなくてもよい
+<li>"Start Number:"および"Ready"の部分は<code>Label</code>を用いて実現</li>
+<li>上部のテキストボックスは<code>TextBox</code>を用いて実現
+<ul>
+<li><code>NumericMaskedTextBox&lt;T&gt;</code>を利用してもよい（この場合も0が入力できてしまうし，<code>BigInteger</code>には対応していない）が，しなくてもよい</li>
+</ul></li>
+<li>"(Compute!)"の部分は<code>Button</code>を用いて実現
+<ul>
+<li><code>(</code>や<code>)</code>の部分はボタンのラベルに含めない</li>
+</ul></li>
+<li>中央のテキストエリアは<code>TextArea</code>を用いて実現
+<ul>
+<li>表示用で入力用でないので<code>ReadOnly</code>プロパティを<code>true</code>に設定したほうがよいが，しなくてもよい</li>
+</ul></li>
+<li>ウィンドウのサイズは十分に大きい（たとえば500x400程）</li>
+<li>テキストボックスにはプレースホルダーテキストを設定してもよいし，しなくてもよい
 <ul>
 <li><code>PlaceholderText</code>プロパティ（<code>string</code>型）を用いると設定できる．</li>
 </ul></li>
-<li>ウィンドウサイズの変更に伴い，TextBoxの部分の幅，TextAreaの部分の高さと幅が伸長するように</li>
+<li>ウィンドウサイズの変更に伴い，テキストボックスの幅，テキストエリアの高さと幅が伸縮するように</li>
 </ul>
 </section>
 <section id="その2" class="level3">
@@ -148,59 +164,35 @@ Ready</code></pre>
 <p>便宜上，上記で"Ready"と書かれている部分を「ステータス行」と呼ぶことにする．</p>
 <p>上記のアプリケーションに以下の機能を実装せよ．</p>
 <ul>
-<li>"Load"ボタンが押されたら，テキストボックスに入力されたパスにあるファイルが<em>もし存在していれば</em>開き，その内容を中央のテキストエリアに表示する．
+<li>"Compute!"ボタンが押された（クリックされた）ら以下の処理を行う
 <ul>
-<li>読み込みに成功したら，ステータス行に"Load ok"と表示する．</li>
-<li>ファイルが存在していなければ，その旨をステータス行に表示する．</li>
-<li>本課題では，ファイルを開いたり読みこんだりしたときに例外が発生した場合の挙動については規定しない．</li>
+<li>もし，テキストボックスに入力されたの正整数<span class="math inline"><em>n</em></span>を表す文字列であったなら
+<ul>
+<li>テキストエリアの中身が<span class="math inline"><em>n</em></span>から始まるコラッツ列になるようにする．数の間は改行で区切るものとする．最後の改行の有無は問わない．</li>
+<li>そのコラッツ列の長さをステータス行に表示する（たとえば，冒頭の77の例だと23）</li>
+</ul></li>
+<li>簡単のためテキストボックスに正整数以外が入力されることは考えないことにする
+<ul>
+<li>そうでない場合の処理は本課題では評価の対象にしない．本来は例外処理するか，あるいはそもそもそういう文字列は入力できないようにするのが望ましい．</li>
+</ul></li>
 </ul></li>
 </ul>
-<p>ただし，相対パスを用いて「ドキュメント」内（Windowsの場合．Windows 8以前は「マイ ドキュメント」）や「書類」（<code>~/Documents</code>）内（Mac等の場合で.NET 8以降．7以前はホームディレクトリ．以降の説明は.NET 8以降を想定）のファイルを開けるようにするために，以下を<code>MainForm</code>のコンストラクタに含めるなどせよ（フォームの関心毎ではないので<code>Main</code>等で実行すべきだが，3箇所のファイルを修正するのは大変なので）．</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 現在の（作業）ディレクトリを，プラットフォーム毎の「ドキュメント」的なディレクトリに設定する</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Windowsだと「ドキュメント」，Macで.NET 8以降だと「書類」（~/Documents/），7以前はホームディレクトリ．他の環境は未確認．</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">// </span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">// より安全には，Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) が空文字列かどうか</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">// を検査してから Environment.CurrentDirectory に代入したほうがよい．</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>Environment<span class="op">.</span><span class="fu">CurrentDirectory</span> <span class="op">=</span> Environment<span class="op">.</span><span class="fu">GetFolderPath</span><span class="op">(</span>Environment<span class="op">.</span><span class="fu">SpecialFolder</span><span class="op">.</span><span class="fu">MyDocuments</span><span class="op">);</span></span></code></pre></div>
-<p>上記の設定により，「ドキュメント」フォルダ（Windowsの場合）や「書類」（Macの場合）フォルダの直下のファイルにファイル名のみでアクセスできるようになる（より正確には相対パスの基準がこれらのフォルダになる）．より具体的には：</p>
-<ul>
-<li><p>Windows 10/11であれば，「ドキュメント」（エクスプローラーの左サイドバーの「クイックアクセス」か「PC」以下から見付かるはず）フォルダ直下に<code>test.txt</code>を適当な内容で用意し，作成するアプリケーションのテキストボックスに<code>test.txt</code>を入力して"Load"ボタンを押せばその内容が表示されるようになる．</p></li>
-<li><p>Macであれば，Finderの左サイドバーの「よく使う項目」の「書類」（<code>~/Documents</code>）直下に<code>test.txt</code>を適当な内容で用意し，作成するアプリケーションのテキストボックスに<code>test.txt</code>を入力して"Load"ボタンを押せばその内容が表示されるようになる．</p></li>
-</ul>
-<div class="tip">
-<div class="title">
-<p>Tip</p>
-</div>
-<p>ファイルを置く場所を確認してみるには以下を実行してみるのもよい．</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span>Environment<span class="op">.</span><span class="fu">GetFolderPath</span><span class="op">(</span>Environment<span class="op">.</span><span class="fu">SpecialFolder</span><span class="op">.</span><span class="fu">MyDocuments</span><span class="op">));</span></span></code></pre></div>
-<p>当方の環境（Mac）では以下が表示される．</p>
-<pre class="text"><code>/Users/kztk/Documents</code></pre>
-<p>当該パスはホームディレクトリを表す<code>~</code>を用いて書くと<code>~/Documents/</code>．</p>
-</div>
-<div class="caution">
-<div class="title">
-<p>Caution</p>
-</div>
-<p>Mac含めUnix環境では.NET 8以降とそれ以前で挙動が異なるので注意（参考：<a href="https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/8.0/getfolderpath-unix" class="uri">https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/8.0/getfolderpath-unix</a>）</p>
-</div>
+<p>たとえば，テキストボックスに"8"を入力して"Compute!"ボタンを押すと以下のようになる．</p>
+<pre class="text asciiart"><code>[ 8                       ]  (Compute!) 
++-------------------------------------+
+| 8                                   |
+| 4                                   |
+| 2                                   |
+| 1                                   |
+|                                     |
++-------------------------------------+
+4</code></pre>
+<p><code>int</code>や<code>uint</code>を使うと，比較的小さい数についても計算途中でオーバフローする（<code>int</code>だと<code>113383</code>，<code>uint</code>だと<code>159487</code>で起こるはず）が，それは今回の主旨ではないので本課題では問わないことにする．気になるようであれば<code>long</code>や<code>ulong</code>を使うともっと先まで計算できる．<code>long</code>だと<code>8528817511</code>まで，<code>ulong</code>だと<code>12327829503</code>まで計算できるはず（参考：<a href="https://www.ericr.nl/wondrous/pathrecs.html">3x + 1 Path Records</a>）．それ以上先を計算したければ<code>BigInteger</code>を使用する．</p>
 <div class="tip">
 <div class="title">
 <p>Tip</p>
 </div>
 <p>テキストボックスに入力されたテキストを取得するには<code>Text</code>プロパティを用いる．テキストエリアにテキストを設定するには，当該オブジェクトの<code>Text</code>を用いる．</p>
-<p>例外処理については<a href="./w4.html">前回</a>参照．</p>
-</div>
-<div class="tip">
-<div class="title">
-<p>Tip</p>
-</div>
-<p>ファイルが存在するかどうかを確認するには <code>File</code> クラスの static メソッド <code>Exists(string)</code> を利用する．より具体的には，<code>File.Exists(path)</code> は <code>path</code> が有効なパスで，指す先にファイルが存在しているときに，<code>true</code>を返し，そうでないときには<code>false</code>を返す．（指す先に存在しているのがディレクトリであるときも<code>false</code>となることに注意する．）</p>
-</div>
-<div class="note">
-<div class="title">
-<p>Note</p>
-</div>
-<p>なお，<code>File.Exists(path)</code> が <code>true</code> を返した場合にも，ファイルの読み取りが行えない場合はある．たとえば，当該ファイルの read パーミッション がない場合には<code>UnauthorizedAccessException</code>が発生する．</p>
 </div>
 </section>
 </section>
@@ -212,32 +204,236 @@ Ready</code></pre>
 </div>
 <p>本課題を完了できたのならば本課題の解答のみを提出すればよく，基本課題の解答は提出する必要はない．</p>
 </div>
-<p>上記アプリケーションを拡張し，"Save"ボタンを追加せよ．コントロールの配置は以下のようにせよ．</p>
-<pre class="text asciiart"><code>File: [                ]  (Load) (Save)
-+-------------------------------------+
-|                                     |
-|                                     |
-|                                     |
-|                                     |
-|                                     |
-+-------------------------------------+
-Ready</code></pre>
-<p>"Save"ボタンが押されたときには，その時点でのテキストエリアの内容を，その時点でのテキストボックスに入力されたパスのファイルとして保存する機能を実装せよ．ただし，</p>
-<ul>
-<li><p>もしファイルが見付からなければそのファイルを作成するようにし，ファイルが見付かったならばそのファイルを上書きするようにする．</p></li>
-<li><p>何らかの理由で与えられたパスのファイルを作成したり開いたりできない場合は，ステータス行に読込や保存に失敗した旨を表示</p></li>
-<li><p>書き込みに成功したら，ステータス行に"Save ok"と表示する</p></li>
-</ul>
+<p>今度はコラッツ列そのものではなく，その長さと列の途中でどのぐらい大きな数になるのかに興味があるとする．つまり，「初期値」，「その初期値から始まるコラッツ列の長さ」，「その列に出現する数の最大値」に興味がある．最初の10個の正整数についてはこれらは以下のようになる．</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">初期値</th>
+<th style="text-align: right;">列の長さ</th>
+<th style="text-align: right;">列中に出現する数の最大値</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">52</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">52</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">16</td>
+</tr>
+</tbody>
+</table>
+<p>本課題では便宜上この，「初期値」，「その初期値から始まるコラッツ列の長さ」，「その列に出現する数の最大値」の3つ組を，<span class="math inline"><em>k</em></span>が初期値であるときに<span class="math inline"><em>C</em>(<em>k</em>)</span>と書くことにする．たとえば，<span class="math inline"><em>C</em>(3) = (3, 8, 16)</span>である．<span class="math inline"><em>k</em> = 1</span>から順に<span class="math inline"><em>C</em>(<em>k</em>)</span>を計算していくと興味のある数にたどりつくまでに時間がかかるので，数の範囲を定めて，その範囲に含まれるそれぞれの数<span class="math inline"><em>k</em></span>について<span class="math inline"><em>C</em>(<em>k</em>)</span>を求めることを考える．</p>
+<p>発展課題の目的は上記の計算を行うアプリケーションを作成することである．ただし，<strong>基本課題で作成したウィンドウの中身（画面領域，ペイン等と呼ぶ）と，発展課題で作成する<span class="math inline"><em>C</em>(<em>k</em>)</span>の計算のための画面領域はタブを使って切り替えられるようにする</strong>．</p>
 <div class="tip">
 <div class="title">
 <p>Tip</p>
 </div>
-<p><code>File.WriteAllText</code>を実行し，適当な例外処理をしたので十分．どんな例外が発生しうるかは，
-<a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file.writealltext?view=net-6.0#system-io-file-writealltext(system-string-system-string)">当該メソッドのリファレンス</a>を参照．</p>
-<p>もっと親切なエラーメッセージをステータス行に表示したい場合は
-<code>File.Exists</code> や <code>Directory.Exists</code> や，<code>File.GetAttributes</code> などを利用するとよいかもしれない（参考：<a href="https://docs.microsoft.com/en-us/dotnet/api/system.io.file?view=net-6.0">.NET API リファレンスのFlieクラスの説明</a>）</p>
-<p><em>注意（2022-05-25追記）</em>：どうやらWindows環境（.NET 5.0.408，6.0.201で確認）では，<code>ArgumentException</code>や<code>PathTooLongException</code>が上記リファレンスの記述通りには発生しない模様．また，<code>FileInfo</code>のコンストラクタも記述通りの例外を投げない模様．たとえば，<code>fi = new FileInfo("./test???.txt")</code>は例外を投げず，<code>fi.CreateText()</code>などとしたときに<code>IOException</code>が発生する．</p>
+<p>タブを実現するためには<a href="https://pages.picoe.ca/docs/api/html/T_Eto_Forms_TabControl.htm"><code>TabControl</code></a>を利用する．このコンテナはたとえば以下のように利用する．</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 基本課題で作成した画面領域をpane1とする．</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 要は基本課題で Content = ... とした ... の部分である．</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">// また，発展課題で作成する画面領域をpane2とする．</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> tabs <span class="op">=</span> <span class="kw">new</span> TabControl <span class="op">{</span> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    Pages <span class="op">=</span> <span class="op">{</span> </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">new</span> <span class="fu">TabPage</span><span class="op">(</span>pane1<span class="op">)</span> <span class="op">{</span> Text <span class="op">=</span> <span class="st">&quot;Basic&quot;</span> <span class="op">},</span>    <span class="co">// &quot;Basic&quot;はタブのラベル，pane1はタブの中身</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">new</span> <span class="fu">TabPage</span><span class="op">(</span>pane2<span class="op">)</span> <span class="op">{</span> Text <span class="op">=</span> <span class="st">&quot;Advanced&quot;</span> <span class="op">}</span>  <span class="co">// &quot;Advanced&quot;はタブのラベル，pane2はタブの中身</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 </div>
+<p><span class="math inline"><em>C</em>(<em>k</em>)</span>の計算を行う画面領域のコントロールの配置は以下のようにせよ．</p>
+<pre class="text asciiart"><code>Start of range: [            ]
+Range size:     [            ]
+
+         (Compute!)
+
++----------------------------+
+|                            |
+|                            |
+|                            |
+|                            |
+|                            |
+|                            |
++----------------------------+</code></pre>
+<ul>
+<li>2つのテキストボックスは左端および右端が揃うようにし，また画面領域が横に伸縮するにしたがって横に伸縮するようにする．</li>
+<li>2つのラベル（<code>Start of range:</code>と<code>Range size:</code>）は左端が揃うようにする</li>
+<li>"Compute!"ボタンは水平方向には画面領域の中央になるようにする
+<ul>
+<li>ボタンの上下のスペースについては問わない（評価対象にしない）</li>
+</ul></li>
+<li>テキストエリアは画面領域が伸縮するのに合わせて縦にも横にも伸縮するするようにする</li>
+<li>"Compute!"ボタンが押された（クリックされた）ら以下の処理を行う
+<ul>
+<li>上のテキストボックスに正整数<span class="math inline"><em>n</em></span>を表す文字列が入力され，下のテキストボックスに正整数<span class="math inline"><em>m</em></span>を表す文字列が入力されたら
+<ul>
+<li><p>テキストエリアの中身を，<span class="math inline"><em>k</em> = <em>n</em></span>から<span class="math inline"><em>k</em> = <em>n</em> + <em>m</em> − 1</span>まで順に各行に<span class="math inline"><em>C</em>(<em>k</em>)</span>を並べたものに変更する．ただし，<span class="math inline"><em>C</em>(<em>k</em>)</span>の3つの数はスペースで区切るものとする．たとえば，<span class="math inline"><em>n</em> = 20</span>で<span class="math inline"><em>m</em> = 10</span>のときはテキストエリアの中身は以下となる．</p>
+<pre class="text"><code>20 8 20
+21 8 64
+22 16 52
+23 16 160
+24 11 24
+25 24 88
+26 11 40
+27 112 9232
+28 19 52
+29 19 88</code></pre></li>
+</ul></li>
+<li>基本課題と同様に「上のテキストボックスに正整数<span class="math inline"><em>n</em></span>を表す文字列が入力され，下のテキストボックスに正整数<span class="math inline"><em>m</em></span>を表す文字列が入力され」なかった場合の挙動は規定しない．</li>
+</ul></li>
+</ul>
+<div class="important">
+<div class="title">
+<p>Important</p>
+</div>
+<p>「列の長さ」はそう大きくならない（8528817511に対しても1000以下）なので愚直に計算したので十分．</p>
+</div>
+<section id="動作確認用" class="level3">
+<h3>動作確認用</h3>
+<p><span class="math inline"><em>C</em>(1)</span>から<span class="math inline"><em>C</em>(100)</span>までは以下．</p>
+<pre class="text"><code>1 1 1
+2 2 2
+3 8 16
+4 3 4
+5 6 16
+6 9 16
+7 17 52
+8 4 8
+9 20 52
+10 7 16
+11 15 52
+12 10 16
+13 10 40
+14 18 52
+15 18 160
+16 5 16
+17 13 52
+18 21 52
+19 21 88
+20 8 20
+21 8 64
+22 16 52
+23 16 160
+24 11 24
+25 24 88
+26 11 40
+27 112 9232
+28 19 52
+29 19 88
+30 19 160
+31 107 9232
+32 6 32
+33 27 100
+34 14 52
+35 14 160
+36 22 52
+37 22 112
+38 22 88
+39 35 304
+40 9 40
+41 110 9232
+42 9 64
+43 30 196
+44 17 52
+45 17 136
+46 17 160
+47 105 9232
+48 12 48
+49 25 148
+50 25 88
+51 25 232
+52 12 52
+53 12 160
+54 113 9232
+55 113 9232
+56 20 56
+57 33 196
+58 20 88
+59 33 304
+60 20 160
+61 20 184
+62 108 9232
+63 108 9232
+64 7 64
+65 28 196
+66 28 100
+67 28 304
+68 15 68
+69 15 208
+70 15 160
+71 103 9232
+72 23 72
+73 116 9232
+74 23 112
+75 15 340
+76 23 88
+77 23 232
+78 36 304
+79 36 808
+80 10 80
+81 23 244
+82 111 9232
+83 111 9232
+84 10 84
+85 10 256
+86 31 196
+87 31 592
+88 18 88
+89 31 304
+90 18 136
+91 93 9232
+92 18 160
+93 18 280
+94 106 9232
+95 106 9232
+96 13 96
+97 119 9232
+98 26 148
+99 26 448
+100 26 100</code></pre>
+</section>
 </section>
           </section>
         </main>
