@@ -1,5 +1,0 @@
-Chocolate,2
-Chips,14
-Candy,5
-Chocolate,40
-Chips,-14
