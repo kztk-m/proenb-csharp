@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <title>第3回 課題 (2025) - 東北大学プログラミング演習B (C#)</title>
+        <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="./css/cs.css">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz@20" rel="stylesheet">
+<script type="text/javascript" src="./js/preprocess.js"></script>
+    </head>
+    <body>
+        <header>
+                      <nav>
+              <ul>
+                <li class="top"><a href="./">ホーム</a></li>
+                <!-- <li><a href="./setup.html">環境構築1</a></li> -->
+                <!-- <li><a href="./setup_gui.html">環境構築2</a></li> -->
+                <li class="dd"><span class="ddt">環境構築</span>
+                  <ul>
+                    <li><a href="./setup.html">環境構築1（C#/F#共通）</a></li>
+                    <li><a href="./setup_gui.html">環境構築2（C#演習用）</a></li>
+                    <li><a href="./setup_q.html">確認用課題</a></li>
+                  </ul>
+                </li>
+                <li class="dd"><span class="ddt">講義資料</span>
+                  <ul> 
+                    <li><a href="./w1.html">第1回資料</a><a href="./q1.html">第1回課題</a></li>
+                    <li><a href="./w2.html">第2回資料</a><a href="./q2.html">第2回課題</a></li>
+                    <li><a href="./w3.html">第3回資料</a><a href="./q3.html">第3回課題</a></li>
+                    <li><a href="./w4.html">第4回資料</a><a href="./q4.html">第4回課題</a></li>
+                    <li><a href="./w5.html">第5回資料</a><a href="./q5.html">第5回課題</a></li>
+                    <li><a href="./w6.html">第6回資料</a><a href="./q6.html">第6回課題</a></li>
+                  </ul>
+                </li>
+                <li><a href="./links.html">参考書など</a></li>
+             </ul>
+            </nav>
+
+            
+               <h1>第3回 課題 (2025)</h1>
+             
+            
+               <p class="last-update">最終更新: 2025-04-16 14:53:49</p> 
+            
+            <div class="qnav">
+              <ul>
+                <li><a href="w3.html">講義資料</a></li><li><a href="q3.html">課題</a></li>
+              </ul>
+            </div>   
+        </header>
+
+        <main role="main" class="with-right-nav">
+          <nav class="toc">
+            <ul>
+              <li><a href="#課題の進め方">課題の進め方</a> </li>
+              <li><a href="#基本課題">基本課題</a></li>
+              <li><a href="#発展課題">発展課題</a> </li>
+            </ul>
+          </nav>
+          <section class="mainbody">
+            <section id="課題の進め方" class="level2">
+<h2>課題の進め方</h2>
+<p>基本的には適当なプロジェクト/ソリューションを作って課題を進めた上で，<code>Program.cs</code>のみ（特に他に指示がなければ）を提出する．</p>
+<p><strong>他の人（受講者・非受講者両方）に解答内容（一部でも）を見せない</strong>，そして<strong>他の人の解答内容（一部でも）を見ない</strong>ようお願いします．特に，<strong>公開の場所に解答を置かないようお願いします．</strong>githubやbitbucket等は使える人は使えばよいと思いますが，<strong>privateレポジトリにする</strong>ようにお願いします．</p>
+<section id="プロジェクトソリューションの作成" class="level3">
+<h3>プロジェクト/ソリューションの作成</h3>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>再掲：プロジェクトは一つの実行形式やライブラリを作成するためのコード等を全てまとめたものであり，ソリューションは関連するプロジェクトをまとめたもの（参考：<a href="https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2022">What are solutions and projects in Visual Studio</a>）．</p>
+</div>
+<p>適当な名前（たとえば課題3の解答なので<code>Q3</code>にするなど）のフォルダを適当な場所に作成し，
+VSCodeで作成したフォルダを開く．そして，VSCode内のターミナルで以下を実行する．</p>
+<pre class="text"><code>dotnet new console -o .</code></pre>
+</section>
+<section id="課題の実施" class="level3">
+<h3>課題の実施</h3>
+<p><code>Program.cs</code>を問題文の指示の通りに編集する（課題によっては他のファイルも．ただし<strong>提出・採点手続きの簡略化のため提出する.csファイルは<code>Program.cs</code>のみ</strong>）．作成した.csファイルには先頭部分に<strong>学籍番号と名前をコメントとして含める</strong>こと．なので，たとえば学籍番号Z0TB9999の東北 大学さんの提出ファイルは</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Z0TB9999</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 東北 大学</span></span></code></pre></div>
+<p>という行から始まる．</p>
+</section>
+<section id="提出" class="level3">
+<h3>提出</h3>
+<p>できあがった <code>Program.cs</code>をClassroom内の当該回の「課題」より提出する．最初のステップで作成したフォルダにあるはず．また問題文に指示がある場合はそのファイル（例：課題4のitems.txt）も提出する．提出前には以下を確認しよう．</p>
+<ul class="task-list">
+<li><label><input type="checkbox" />提出プログラムコードのファイル名は<code>Program.cs</code>になっているか</label></li>
+<li><label><input type="checkbox" />提出するファイルに<em>学籍番号と名前</em>がコメントとして含まれているか</label></li>
+<li><label><input type="checkbox" />文献やWebサイトを参考にした場合は<em>文献の情報やURLおよびアクセス日</em>に加えて<em>元文献のどの部分を参考にしたのか</em>が<em>コードの当該箇所</em>付近のコメントとして記述されているか</label></li>
+<li><label><input type="checkbox" />友人と相談した・された場合はその<em>友人の名前</em>および<em>大雑把な相談の内容</em>がコメントとして書かれているか</label>
+<ul>
+<li>ただし，友人の解答を見ない（一部でも），そして友人に解答を見せない（一部でも）ようお願いします</li>
+</ul></li>
+<li><label><input type="checkbox" />TA・教員と相談した場合は，その旨と<em>大雑把な相談の内容</em>がコメントとして書かれているか</label></li>
+</ul>
+</section>
+</section>          
+            <section id="基本課題" class="level2">
+<h2>基本課題</h2>
+<p>以下の内容の<code>Item.cs</code>を用意し，<code>Program.cs</code>と同じフォルダに置く．</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Item.cs</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">// このファイルは提出しない．また，以下の内容は変更しない．</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Item <span class="op">:</span> System<span class="op">.</span><span class="fu">IEquatable</span><span class="op">&lt;</span>Item<span class="op">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 商品名</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="dt">string</span> Name <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 値段</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="dt">int</span> Price <span class="op">{</span> <span class="kw">get</span><span class="op">;</span> <span class="op">}</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="fu">Item</span><span class="op">(</span><span class="dt">string</span> s<span class="op">,</span> <span class="dt">int</span> p<span class="op">)</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>      Name <span class="op">=</span> s<span class="op">;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      Price <span class="op">=</span> p<span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>   <span class="co">// デバッグ用．課題で直接は使用しない．</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">override</span> <span class="dt">string</span> <span class="fu">ToString</span><span class="op">()</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>      <span class="co">// {Name = Chocolate, Price = 250} みたいな文字列に</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="st">&quot;{Name = &quot;</span> <span class="op">+</span> Name <span class="op">+</span> <span class="st">&quot;, Price = &quot;</span> <span class="op">+</span> Price <span class="op">+</span> <span class="st">&quot;}&quot;</span><span class="op">;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 以下はItemオブジェクト同士の等価性検査を行えるようにするためのもの．</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 本課題を進める上で理解する必要はない．</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>   <span class="co">// </span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 参考： https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/statements-expressions-operators/how-to-define-value-equality-for-a-type</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>   <span class="co">// ここに書かれている通り，C#的にはclassでなくrecordを使うべきではある．</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>   <span class="co">// object.Equals のオーバライド</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>   <span class="co">// ジェネリックでないコレクションはこっちを使う場合がある？</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>   <span class="co">// ?が付いているのはnull許容（参照）型</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">override</span> <span class="dt">bool</span> <span class="fu">Equals</span><span class="op">(</span><span class="dt">object</span><span class="op">?</span> o<span class="op">)</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>      <span class="co">// e as T は (T) e に近いが， (T) eと異なり T へのキャストが失敗したらnullとなる．</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>      <span class="co">// null はどこも指していない参照．</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="fu">Equals</span><span class="op">(</span>o <span class="kw">as</span> Item<span class="op">);</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>   <span class="co">// インタフェース System.IEquatable&lt;Item&gt; のメソッド Equals の定義</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>   <span class="co">// List&lt;Item&gt;やLinkedList&lt;Item&gt;のRemove等はこっちを使う</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="dt">bool</span> <span class="fu">Equals</span><span class="op">(</span>Item<span class="op">?</span> o<span class="op">)</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>      <span class="co">// &amp;&amp;の短絡を利用．oがnull のときは o.Name や o.Price は 評価されない．</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>      <span class="co">// (object?)がないと，二つ下で定義した演算子が呼ばれ無限ループする</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="op">(</span><span class="dt">object</span><span class="op">?)</span> o <span class="op">!=</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> Name <span class="op">==</span> o<span class="op">.</span><span class="fu">Name</span> <span class="op">&amp;&amp;</span> Price <span class="op">==</span> o<span class="op">.</span><span class="fu">Price</span><span class="op">;</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>   <span class="co">// aとbがItem型であるときに a == bと書いたときに呼ばれる．</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>   <span class="co">// aとbがItem型であるときにも a.Equals(b) は a が Itemの派生型のインスタンスであるときには</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 上のメソッドは呼ばれない場合がある．対し，a == b はこのメソッドが呼ばれることに注意．</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="kw">operator</span> <span class="op">==(</span>Item a<span class="op">,</span> Item b<span class="op">)</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>      <span class="kw">if</span> <span class="op">((</span><span class="dt">object</span><span class="op">)</span> a <span class="op">==</span> <span class="kw">null</span><span class="op">)</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>      <span class="op">{</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>            <span class="kw">return</span> <span class="op">(</span><span class="dt">object</span><span class="op">)</span> b <span class="op">==</span> <span class="kw">null</span><span class="op">;</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> a<span class="op">.</span><span class="fu">Equals</span><span class="op">(</span>b<span class="op">);</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">static</span> <span class="dt">bool</span> <span class="kw">operator</span> <span class="op">!=(</span>Item a<span class="op">,</span> Item b<span class="op">)</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="op">!(</span>a <span class="op">==</span> b<span class="op">);</span></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>   <span class="co">// 今回は関係ないが GetHashCode も実装しないと </span></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>   <span class="co">// HashSet や Dictionary につっこんだときの挙動が変になる．</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="kw">override</span> <span class="dt">int</span> <span class="fu">GetHashCode</span><span class="op">()</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>      <span class="kw">return</span> <span class="op">(</span>Name<span class="op">,</span> Price<span class="op">).</span><span class="fu">GetHashCode</span><span class="op">();</span></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>このとき，<code>Item</code>で表される商品を扱うためのショッピングカートを表すクラス<code>Cart</code>を<code>Program.cs</code>内に作成せよ．</p>
+<p>カートは以下の2種類の情報を管理する．</p>
+<ul>
+<li>カート内の商品：ユーザは商品（<code>Item</code>）を追加したり削除したりできる</li>
+<li>予算：作成時に指定し，予算を超えるときは商品をカートに追加することはできない</li>
+</ul>
+<p>また，以下のpublicなコンストラクタ，メソッド，およびプロパティを持つ．</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">メンバ</th>
+<th style="text-align: left;">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>Cart(int budget)</code></td>
+<td style="text-align: left;">予算が<code>budget</code>であるような空のショッピングカートを作成するコンストラクタ．</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>void Add(Item i)</code></td>
+<td style="text-align: left;">商品<code>i</code>のカートへの追加を試みるメソッド．ただし，<code>i</code>を追加することでカート内の商品の金額の合計が予算を超えるのならば追加しない．</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>void Remove(Item i)</code></td>
+<td style="text-align: left;">商品<code>i</code>をカートから一つ取り除くメソッド．カートに商品<code>i</code>が入っていなければ何も起こらない．</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>void Report()</code></td>
+<td style="text-align: left;">カート内の全商品，合計金額，購入した場合の予算の残額を標準出力に出力するメソッド．</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>int Budget</code></td>
+<td style="text-align: left;">予算を確認するためのread-only（<code>Cart</code>の外から見て）なプロパティ．予算はカート作成後は変化しない．</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>int Remaining</code></td>
+<td style="text-align: left;">予算の残額を確認するためのread-only（<code>Cart</code>の外から見て）なプロパティ．カートの内容によって値が変化．</td>
+</tr>
+</tbody>
+</table>
+<p>ただし，<strong><code>Report()</code>や<code>int Remaining</code>の実装にあたっては，<code>for</code>文，<code>while</code>文（資料では紹介していないが<code>do</code>文も）を使わない</strong>こととする．</p>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>残額は<code>Add(Item i)</code>や<code>Remove(Item i)</code>が呼び出される都度計算してもよいし，そうしなくてもよい．前者のほうが効率的だが，カートの中身と残額が対応しないというバグの可能性を生むことになる．</p>
+</div>
+<p>提出するプログラムファイル（<code>Program.cs</code>）は以下の動作確認用のクラスを含むこと．</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Program</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>   <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">()</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>      <span class="co">// 商品</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>      Item chocolate <span class="op">=</span> <span class="kw">new</span> <span class="fu">Item</span><span class="op">(</span><span class="st">&quot;チョコレート&quot;</span><span class="op">,</span> <span class="dv">120</span><span class="op">);</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      Item chip <span class="op">=</span> <span class="kw">new</span> <span class="fu">Item</span><span class="op">(</span><span class="st">&quot;チップ&quot;</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      Item popCorn <span class="op">=</span> <span class="kw">new</span> <span class="fu">Item</span><span class="op">(</span><span class="st">&quot;ポップコーン&quot;</span><span class="op">,</span> <span class="dv">110</span><span class="op">);</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      Item candy <span class="op">=</span> <span class="kw">new</span> <span class="fu">Item</span><span class="op">(</span><span class="st">&quot;キャンディ&quot;</span><span class="op">,</span> <span class="dv">20</span><span class="op">);</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>      <span class="co">// 予算300のカート</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>      Cart sc <span class="op">=</span> <span class="kw">new</span> <span class="fu">Cart</span><span class="op">(</span><span class="dv">300</span><span class="op">);</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>chocolate<span class="op">);</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>chip<span class="op">);</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>popCorn<span class="op">);</span> <span class="co">// 予算オーバ追加できず</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Remove</span><span class="op">(</span>chip<span class="op">);</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>candy<span class="op">);</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>      Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>popCorn<span class="op">);</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>      Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>      <span class="co">// 名前と値段の両方が同じ商品は等価として扱われる</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Remove</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Item</span><span class="op">(</span><span class="st">&quot;チョコレート&quot;</span><span class="op">,</span> <span class="dv">120</span><span class="op">));</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>      Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>      <span class="co">// カートに入ってないものを除いても何も起こらない</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Remove</span><span class="op">(</span>chocolate<span class="op">);</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>      Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span>candy<span class="op">);</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Item</span><span class="op">(</span><span class="st">&quot;キャンディ&quot;</span><span class="op">,</span> <span class="dv">40</span><span class="op">));</span> <span class="co">// 同じ名前の商品でも値段が違うことがある</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Add</span><span class="op">(</span><span class="kw">new</span> <span class="fu">Item</span><span class="op">(</span><span class="st">&quot;チュロス&quot;</span><span class="op">,</span> <span class="dv">110</span><span class="op">));</span>  <span class="co">// 当然，異なる二つの商品が同じ値段なこともある</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>      Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>      sc<span class="op">.</span><span class="fu">Report</span><span class="op">();</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>      <span class="co">// 以下をアンコメントするとエラーになる（ようにする）</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>      <span class="co">// sc.Budget += 1000 </span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>      <span class="co">// 別のカートを作成．予算は120．</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>      Cart sc2 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Cart</span><span class="op">(</span><span class="dv">120</span><span class="op">);</span> </span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>      <span class="co">// キャンディを買えるだけカートに入れる</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>      <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> p <span class="op">=</span> candy<span class="op">.</span><span class="fu">Price</span><span class="op">;</span> p <span class="op">&lt;=</span> sc2<span class="op">.</span><span class="fu">Budget</span> <span class="op">;</span> p <span class="op">+=</span> candy<span class="op">.</span><span class="fu">Price</span><span class="op">)</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>      <span class="op">{</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>         sc2<span class="op">.</span><span class="fu">Add</span><span class="op">(</span> candy <span class="op">);</span> </span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>      Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span> </span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>      sc2<span class="op">.</span><span class="fu">Report</span><span class="op">();</span> </span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>      <span class="co">// さらに別のカートを作成．予算は128．</span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>      Cart sc3 <span class="op">=</span> <span class="kw">new</span> <span class="fu">Cart</span><span class="op">(</span><span class="dv">128</span><span class="op">);</span> </span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>      <span class="co">// キャンディを買えるだけカートに入れる—別のやり方</span></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>      <span class="kw">while</span><span class="op">(</span> sc3<span class="op">.</span><span class="fu">Remaining</span> <span class="op">&gt;=</span> candy<span class="op">.</span><span class="fu">Price</span> <span class="op">)</span> </span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>      <span class="op">{</span></span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>         sc3<span class="op">.</span><span class="fu">Add</span><span class="op">(</span> candy <span class="op">);</span> </span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>      <span class="op">}</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>      Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">();</span> </span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>      sc3<span class="op">.</span><span class="fu">Report</span><span class="op">();</span> </span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>このとき以下の出力が得られるようにする（ただしカートの中身の出力順は異なっていてもよい）．</p>
+<pre class="text"><code>チョコレート: 120
+チップ: 100
+合計: 220
+残額: 80
+
+チョコレート: 120
+キャンディ: 20
+合計: 140
+残額: 160
+
+チョコレート: 120
+キャンディ: 20
+ポップコーン: 110
+合計: 250
+残額: 50
+
+キャンディ: 20
+ポップコーン: 110
+合計: 130
+残額: 170
+
+キャンディ: 20
+ポップコーン: 110
+合計: 130
+残額: 170
+
+キャンディ: 20
+ポップコーン: 110
+キャンディ: 20
+キャンディ: 40
+チュロス: 110
+合計: 300
+残額: 0
+
+キャンディ: 20
+キャンディ: 20
+キャンディ: 20
+キャンディ: 20
+キャンディ: 20
+キャンディ: 20
+合計: 120
+残額: 0
+
+キャンディ: 20
+キャンディ: 20
+キャンディ: 20
+キャンディ: 20
+キャンディ: 20
+キャンディ: 20
+合計: 120
+残額: 8</code></pre>
+<div class="tip">
+<div class="title">
+<p>Tip</p>
+</div>
+<p>VS Codeだとデフォルトの設定ではデバッグコンソールにおいて同じ行がまとめて表示される．これをしないようにするには，設定項目のCollapse Identical Linesのチェックをはずす．</p>
+</div>
+</section>
+<section id="発展課題" class="level2">
+<h2>発展課題</h2>
+<div class="important">
+<div class="title">
+<p>Important</p>
+</div>
+<p>本課題を完了できたのならば本課題の解答のみを提出すればよく，基本課題の解答は提出する必要はない．</p>
+</div>
+<p><code>Cart</code>クラスの<code>Report()</code>メソッドを変更しカートの中身を表示する際に同じ商品はまとめて表示するようにせよ．なお，ここで「同じ商品」とは商品名と値段の両方が同じ商品のことを指すものとする．具体的には以下のような出力が得られるようにせよ．ただし，基本課題のときと同様，カートの中身の出力順は異なっていてもよい．</p>
+<section id="実行例" class="level3">
+<h3>実行例</h3>
+<pre class="text"><code>チョコレート: 120 x 1
+チップ: 100 x 1
+合計: 220
+残額: 80
+
+チョコレート: 120 x 1
+キャンディ: 20 x 1
+合計: 140
+残額: 160
+
+チョコレート: 120 x 1
+キャンディ: 20 x 1
+ポップコーン: 110 x 1
+合計: 250
+残額: 50
+
+キャンディ: 20 x 1
+ポップコーン: 110 x 1
+合計: 130
+残額: 170
+
+キャンディ: 20 x 1
+ポップコーン: 110 x 1
+合計: 130
+残額: 170
+
+キャンディ: 20 x 2
+ポップコーン: 110 x 1
+キャンディ: 40 x 1
+チュロス: 110 x 1
+合計: 300
+残額: 0
+
+キャンディ: 20 x 6
+合計: 120
+残額: 0
+
+キャンディ: 20 x 6
+合計: 120
+残額: 8</code></pre>
+<div class="hint">
+<p><em>ヒント</em>：
+<code>List&lt;Item&gt;</code>を使って，既に表示した商品かどうかを管理し，既に表示した商品ならば何もせず，そうでなければカートの中その商品の数を数えるとよいう方法で実装できる．与えられた要素がリストに含まれているかの検査を <code>foreach</code> で書くのは難しくないが，<code>List&lt;T&gt;.Contains(T)</code> メソッドを使うことができる（<a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.contains?view=net-6.0#system-collections-generic-list-1-contains(-0)">当該メソッドの詳細</a>）．</p>
+<p>ただ，第3回では紹介しなかったが連想配列を表すクラス<code>Dictionary&lt;Item, int&gt;</code>を使うのがより自然だろう．このクラスがどのようなコンストラクタかメソッドを知るには<a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2?view=net-6.0%3E">.NET API リファレンスの当該クラスのページ</a>を見るとよい．<a href="./w4.html">次回</a>の演習でも少し紹介する．</p>
+</div>
+</section>
+</section>
+          </section>
+        </main>
+
+        <footer>
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </footer>
+    </body>
+</html>

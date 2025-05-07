@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="ja">
+    <head>
+        <title>第5回 課題 (2025) - 東北大学プログラミング演習B (C#)</title>
+        <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="./css/cs.css">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz@20" rel="stylesheet">
+<script type="text/javascript" src="./js/preprocess.js"></script>
+    </head>
+    <body>
+        <header>
+                      <nav>
+              <ul>
+                <li class="top"><a href="./">ホーム</a></li>
+                <!-- <li><a href="./setup.html">環境構築1</a></li> -->
+                <!-- <li><a href="./setup_gui.html">環境構築2</a></li> -->
+                <li class="dd"><span class="ddt">環境構築</span>
+                  <ul>
+                    <li><a href="./setup.html">環境構築1（C#/F#共通）</a></li>
+                    <li><a href="./setup_gui.html">環境構築2（C#演習用）</a></li>
+                    <li><a href="./setup_q.html">確認用課題</a></li>
+                  </ul>
+                </li>
+                <li class="dd"><span class="ddt">講義資料</span>
+                  <ul> 
+                    <li><a href="./w1.html">第1回資料</a><a href="./q1.html">第1回課題</a></li>
+                    <li><a href="./w2.html">第2回資料</a><a href="./q2.html">第2回課題</a></li>
+                    <li><a href="./w3.html">第3回資料</a><a href="./q3.html">第3回課題</a></li>
+                    <li><a href="./w4.html">第4回資料</a><a href="./q4.html">第4回課題</a></li>
+                    <li><a href="./w5.html">第5回資料</a><a href="./q5.html">第5回課題</a></li>
+                    <li><a href="./w6.html">第6回資料</a><a href="./q6.html">第6回課題</a></li>
+                  </ul>
+                </li>
+                <li><a href="./links.html">参考書など</a></li>
+             </ul>
+            </nav>
+
+            
+               <h1>第5回 課題 (2025)</h1>
+             
+            
+               <p class="last-update">最終更新: 2025-05-07 13:48:24</p> 
+            
+            <div class="qnav">
+              <ul>
+                <li><a href="w5.html">講義資料</a></li><li><a href="q5.html">課題</a></li>
+              </ul>
+            </div>   
+        </header>
+
+        <main role="main" class="with-right-nav">
+          <nav class="toc">
+            <ul>
+              <li><a href="#課題の進め方">課題の進め方</a> </li>
+              <li><a href="#基本課題">基本課題</a></li>
+              <li><a href="#発展課題">発展課題</a> </li>
+            </ul>
+          </nav>
+          <section class="mainbody">
+            <section id="課題の進め方" class="level2">
+<h2>課題の進め方</h2>
+<p>基本的には適当なプロジェクト/ソリューションを作って課題を進めた上で，<code>MainForm.cs</code>を提出する．</p>
+<p>採点はコマンドラインから<code>dotnet new etoapp</code>を実行した上で<code>MainForm.cs</code>を提出されたもので上書きすることにより行う．
+<em>採点者は基本的に採点者自身の環境で動作確認を行うことに注意する．</em></p>
+<p>第6回課題において<code>MainForm.cs</code>以外に提出に含めたいものがある場合（たとえば画像ファイル等）は事前にメール（メールアドレスはClassroom内「受講者用案内」を参照）で相談のこと．</p>
+<p><strong>他の人（受講者・非受講者両方）に解答内容（一部でも）を見せない</strong>，そして<strong>他の人の解答内容（一部でも）を見ない</strong>ようお願いします．特に，
+<strong>公開の場所に解答を置かないようお願いします．</strong>githubやbitbucket等は使える人は使えばよいと思いますが，<strong>privateレポジトリにする</strong>ようにお願いします．</p>
+<section id="プロジェクトソリューションの作成" class="level3">
+<h3>プロジェクト/ソリューションの作成</h3>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>再掲：プロジェクトは一つの実行形式やライブラリを作成するためのコード等を全てまとめたものであり，ソリューションは関連するプロジェクトをまとめたもの（参考：<a href="https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2022">What are solutions and projects in Visual Studio?</a>）．</p>
+</div>
+<p><strong>指定された名前（課題5では<code>Q5</code>，課題6では<code>Q6</code>とする）</strong>の空のフォルダを適当な場所に新規作成し，
+VSCodeで作成したフォルダを開く．そして，VSCode内のターミナルで以下を実行する．</p>
+<pre class="text"><code>dotnet new etoapp -sln</code></pre>
+</section>
+<section id="課題の実施" class="level3">
+<h3>課題の実施</h3>
+<p><code>MainForm.cs</code> を問題文の指示の通りに編集する（<strong>提出・採点手続きの簡略化のため提出する.csファイルは一つのみ</strong>）．作成した.csファイルには先頭部分に<strong>学籍番号と名前をコメントとして含める</strong>こと．また，自身のプログラムの動作確認を行ったプラットフォームの情報（Mac, Gtk, Wpfの別．複数可．わからないならOS名）も含めるものとする．こちらの情報はあくまで念のためであり，基本的には採点者は自身の環境で動作確認を行う．なので，たとえば学籍番号Z0TB9999の東北 大学さんの提出ファイルは，もし当人が動作確認を<code><span class="metaname">プロジェクト名</span>.Mac</code>を用いて行ったのであれば</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Z0TB9999</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 東北 大学</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">// 動作確認：Mac </span></span></code></pre></div>
+<p>という行から始まる．</p>
+<p>また，<code><span class="metaname">プロジェクト名</span>.csproj</code>に変更を加えた場合は，<strong>その旨と具体的な変更内容を上記の後にコメントとして含める</strong>ものとする．たとえば，<code>Q5.csproj</code>というプロジェクトファイルにおいて<code>PropertyGroup</code>以下にある<code>TargetFramework</code>を<code>net8.0</code>に変更したのであれば，以下のような行を含める．</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Q5.csproj の /Project/PropertyGroup/Target の内容を net8.0 に変更した</span></span></code></pre></div>
+</section>
+<section id="提出" class="level3">
+<h3>提出</h3>
+<p>できあがった <code>MainForm.cs</code>をClassroom内の当該回の「課題」より提出する．また問題文に指示がある場合はそのファイル（例：課題6で提出物に含めたいリソースがある場合）も提出する．提出前には以下を確認しよう．</p>
+<ul class="task-list">
+<li><label><input type="checkbox" />提出プログラムコードのファイル名は<code>MainForm.cs</code>になっているか</label></li>
+<li><label><input type="checkbox" />提出するファイルに<em>学籍番号と名前</em>がコメントとして含まれているか</label></li>
+<li><label><input type="checkbox" />文献やWebサイトを参考にした場合は<em>文献の情報やURLおよびアクセス日</em>に加えて<em>元文献のどの部分を参考にしたのか</em>が<em>コードの当該箇所</em>付近のコメントとして記述されているか</label></li>
+<li><label><input type="checkbox" />友人と相談した・された場合はその<em>友人の名前</em>および<em>大雑把な相談の内容</em>がコメントとして書かれているか</label>
+<ul>
+<li>ただし，友人の解答を見ない（一部でも），そして友人に解答を見せない（一部でも）ようお願いします</li>
+</ul></li>
+<li><label><input type="checkbox" />TA・教員と相談した場合は，その旨と<em>大雑把な相談の内容</em>がコメントとして書かれているか</label></li>
+</ul>
+</section>
+</section>          
+            <section id="基本課題" class="level2">
+<h2>基本課題</h2>
+<p>コラッツ予想は，正整数 <span class="math inline"><em>n</em></span> が与えられたときに，</p>
+<ul>
+<li><span class="math inline"><em>n</em></span> が奇数なら <span class="math inline">3<em>n</em> + 1</span> とする</li>
+<li><span class="math inline"><em>n</em></span> が偶数なら2で割る</li>
+</ul>
+<p>ことを繰り返すと必ず最終的に1に至るというものである．たとえば，77から始めると現れる数は77, 232, 116, 58, 29, 88, 44, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 2, 1のとなる．こうした数列のことを本課題では便宜上<em>コラッツ列</em>と呼ぶことにする．</p>
+<p>本課題の目標はコラッツ列の計算・表示を行ってくれるアプリケーションを作成することである．</p>
+<section id="その1" class="level3">
+<h3>その1</h3>
+<p>ラベルを</p>
+<pre class="text asciiart"><code>Label</code></pre>
+<p>ボタン（そのボタンテキストが<code>Button</code>）を</p>
+<pre class="text asciiart"><code>(Button)</code></pre>
+<p>テキストボックスを</p>
+<pre class="text asciiart"><code>[          ]</code></pre>
+<p>テキストエリアを</p>
+<pre class="text asciiart"><code>+-------------+
+|             |
+|             |
++-------------+</code></pre>
+<p>というアスキーアートとして図示することにする．</p>
+<p>このとき，Eto.Formsを用いて以下のようにコントロールが配置されているウィンドウを作成しなさい．
+<strong>ただし，テンプレートから生成されたコードのうち，MainForm.cs のみ変更すること．</strong></p>
+<pre class="text asciiart"><code>Start Number: [           ]  (Compute!) 
++-------------------------------------+
+|                                     |
+|                                     |
+|                                     |
+|                                     |
+|                                     |
++-------------------------------------+</code></pre>
+<p>ただし，以下を満たすこと．</p>
+<ul>
+<li>"Start Number:"の部分は<code>Label</code>を用いて実現</li>
+<li>上部のテキストボックスは<code>TextBox</code>を用いて実現
+<ul>
+<li><code>NumericMaskedTextBox&lt;T&gt;</code>を利用してもよい（この場合も0が入力できてしまうし，<code>BigInteger</code>には対応していない）が，しなくてもよい</li>
+</ul></li>
+<li>"(Compute!)"の部分は<code>Button</code>を用いて実現
+<ul>
+<li><code>(</code>や<code>)</code>の部分はボタンのラベルに含めない</li>
+</ul></li>
+<li>中央のテキストエリアは<code>TextArea</code>を用いて実現
+<ul>
+<li>表示用で入力用でないので<code>ReadOnly</code>プロパティを<code>true</code>に設定したほうがよいが，しなくてもよい</li>
+</ul></li>
+<li>ウィンドウのサイズは十分に大きい（たとえば500x400程）</li>
+<li>テキストボックスにはプレースホルダーテキストを設定してもよいし，しなくてもよい
+<ul>
+<li><code>PlaceholderText</code>プロパティ（<code>string</code>型）を用いると設定できる．</li>
+</ul></li>
+<li>ウィンドウサイズの変更に伴い，テキストボックスの幅，テキストエリアの高さと幅が伸縮するように</li>
+</ul>
+</section>
+<section id="その2" class="level3">
+<h3>その2</h3>
+<p>上記のアプリケーションに以下の機能を実装せよ．</p>
+<ul>
+<li>"Compute!"ボタンが押された（クリックされた）ら以下の処理を行う
+<ul>
+<li>もし，テキストボックスに入力されたの正整数<span class="math inline"><em>n</em></span>を表す文字列であったなら
+<ul>
+<li>テキストエリアの中身が<span class="math inline"><em>n</em></span>から始まるコラッツ列になるようにする．数の間は改行で区切るものとする．最後の改行の有無は問わない．</li>
+</ul></li>
+<li>簡単のためテキストボックスに正整数以外が入力されることは考えないことにする
+<ul>
+<li>そうでない場合の処理は本課題では評価の対象にしない．本来は例外処理するか，あるいはそもそもそういう文字列は入力できないようにするのが望ましい．</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>たとえば，テキストボックスに"8"を入力して"Compute!"ボタンを押すと以下のようになる．</p>
+<pre class="text asciiart"><code>Start Number: [ 8         ]  (Compute!) 
++-------------------------------------+
+| 8                                   |
+| 4                                   |
+| 2                                   |
+| 1                                   |
+|                                     |
++-------------------------------------+</code></pre>
+<p><code>int</code>や<code>uint</code>を使うと，比較的小さい数についても計算途中でオーバフローする（<code>int</code>だと<code>113383</code>，<code>uint</code>だと<code>159487</code>で起こるはず）が，それは今回の主旨ではないので本課題では問わないことにする．気になるようであれば<code>long</code>や<code>ulong</code>を使うともっと先まで計算できる．<code>long</code>だと<code>8528817511</code>まで，<code>ulong</code>だと<code>12327829503</code>まで計算できるはず（参考：<a href="https://www.ericr.nl/wondrous/pathrecs.html">3x + 1 Path Records</a>）．それ以上先を計算したければ<code>BigInteger</code>を使用する．</p>
+<div class="tip">
+<div class="title">
+<p>Tip</p>
+</div>
+<p>テキストボックスに入力されたテキストを取得するには<code>Text</code>プロパティを用いる．テキストエリアにテキストを設定するには，当該オブジェクトの<code>Text</code>を用いる．</p>
+</div>
+</section>
+</section>
+<section id="発展課題" class="level2">
+<h2>発展課題</h2>
+<div class="important">
+<div class="title">
+<p>Important</p>
+</div>
+<p>本課題を完了できたのならば本課題の解答のみを提出すればよく，基本課題の解答は提出する必要はない．</p>
+</div>
+<p>今度はコラッツ列そのものではなく，その長さと列の途中でどのぐらい大きな数になるのかに興味があるとする．つまり，「初期値」，「その初期値から始まるコラッツ列の長さ」，「その列に出現する数の最大値」に興味がある．最初の10個の正整数についてはこれらは以下のようになる．</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">初期値</th>
+<th style="text-align: right;">列の長さ</th>
+<th style="text-align: right;">列中に出現する数の最大値</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">52</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">52</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">16</td>
+</tr>
+</tbody>
+</table>
+<p>本課題では便宜上この，「初期値」，「その初期値から始まるコラッツ列の長さ」，「その列に出現する数の最大値」の3つ組を，<span class="math inline"><em>k</em></span>が初期値であるときに<span class="math inline"><em>C</em>(<em>k</em>)</span>と書くことにする．たとえば，<span class="math inline"><em>C</em>(3) = (3, 8, 16)</span>である．<span class="math inline"><em>k</em> = 1</span>から順に<span class="math inline"><em>C</em>(<em>k</em>)</span>を計算していくと興味のある数にたどりつくまでに時間がかかるので，数の範囲を定めて，その範囲に含まれるそれぞれの数<span class="math inline"><em>k</em></span>について<span class="math inline"><em>C</em>(<em>k</em>)</span>を求めることを考える．</p>
+<p>発展課題の目的は上記の計算を行うアプリケーションを作成することである．ただし，<strong>基本課題で作成したウィンドウの中身（画面領域，ペイン等と呼ぶ）と，発展課題で作成する<span class="math inline"><em>C</em>(<em>k</em>)</span>の計算のための画面領域はタブを使って切り替えられるようにする</strong>．</p>
+<div class="tip">
+<div class="title">
+<p>Tip</p>
+</div>
+<p>タブを実現するためには<a href="https://pages.picoe.ca/docs/api/html/T_Eto_Forms_TabControl.htm"><code>TabControl</code></a>を利用する．このコンテナはたとえば以下のように利用する．</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// 基本課題で作成した画面領域をpane1とする．</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">// 要は基本課題で Content = ... とした ... の部分である．</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">// また，発展課題で作成する画面領域をpane2とする．</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> tabs <span class="op">=</span> <span class="kw">new</span> TabControl <span class="op">{</span> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    Pages <span class="op">=</span> <span class="op">{</span> </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">new</span> TabPage <span class="op">{</span> Content <span class="op">=</span> pane1<span class="op">,</span> Text <span class="op">=</span> <span class="st">&quot;Sequence&quot;</span> <span class="op">},</span>   <span class="co">// Contentはタブの中身，Textはタブのラベル</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">new</span> TabPage <span class="op">{</span> Content <span class="op">=</span> pane2<span class="op">,</span> Text <span class="op">=</span> <span class="st">&quot;Length/Max&quot;</span> <span class="op">}</span>  <span class="co">// 同上</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<p>フォームの中身を<code>TabControl</code>にする場合は少しパディングを設定したほうが見栄えがよいかもしれない（採点対象外）．</p>
+</div>
+<p><span class="math inline"><em>C</em>(<em>k</em>)</span>の計算を行う画面領域のコントロールの配置は以下のようにせよ．</p>
+<pre class="text asciiart"><code>    Start of range: [            ]    
+    Range size:     [            ]    
+
+             (Compute!)               
+
++------------------------------------+
+|                                    |
+|                                    |
+|                                    |
+|                                    |
+|                                    |
+|                                    |
++------------------------------------+</code></pre>
+<ul>
+<li>2つのテキストボックスは左端および右端が揃うようにする．</li>
+<li>2つのラベル（<code>Start of range:</code>と<code>Range size:</code>）は左端が揃うようにする</li>
+<li>上記の入力部分および"Compute!"ボタンは水平方向には画面領域の中央になるようにする
+<ul>
+<li>ボタンの上下のスペースについては問わない（評価対象にしない）</li>
+</ul></li>
+<li>テキストエリアは画面領域が伸縮するのに合わせて縦にも横にも伸縮するするようにする</li>
+<li>"Compute!"ボタンが押された（クリックされた）ら以下の処理を行う
+<ul>
+<li>上のテキストボックスに正整数<span class="math inline"><em>n</em></span>を表す文字列が入力され，下のテキストボックスに正整数<span class="math inline"><em>m</em></span>を表す文字列が入力されたら
+<ul>
+<li><p>テキストエリアの中身を，<span class="math inline"><em>k</em> = <em>n</em></span>から<span class="math inline"><em>k</em> = <em>n</em> + <em>m</em> − 1</span>まで順に各行に<span class="math inline"><em>C</em>(<em>k</em>)</span>を並べたものに変更する．ただし，<span class="math inline"><em>C</em>(<em>k</em>)</span>の3つの数はスペースで区切るものとする．たとえば，<span class="math inline"><em>n</em> = 20</span>で<span class="math inline"><em>m</em> = 10</span>のときはテキストエリアの中身は以下となる．</p>
+<pre class="text"><code>20 8 20
+21 8 64
+22 16 52
+23 16 160
+24 11 24
+25 24 88
+26 11 40
+27 112 9232
+28 19 52
+29 19 88</code></pre></li>
+</ul></li>
+<li>基本課題と同様に「上のテキストボックスに正整数<span class="math inline"><em>n</em></span>を表す文字列が入力され，下のテキストボックスに正整数<span class="math inline"><em>m</em></span>を表す文字列が入力され」なかった場合の挙動は規定しない．</li>
+</ul></li>
+</ul>
+<div class="important">
+<div class="title">
+<p>Important</p>
+</div>
+<p>「列の長さ」はそう大きくならない（8528817511に対しても1000以下）なので愚直に計算したので十分．より（時間的に）効率的に計算するには，<span class="math inline"><em>k</em></span>から<span class="math inline"><em>C</em>(<em>k</em>)</span>を計算する関数をメモ化（最初の計算で入力と出力の対応を憶えておき，二回目以降の計算では実際には計算せずに憶えたおいた出力を返すようにすること）する．</p>
+</div>
+<section id="動作確認用" class="level3">
+<h3>動作確認用</h3>
+<p><span class="math inline"><em>C</em>(1)</span>から<span class="math inline"><em>C</em>(100)</span>までは以下．</p>
+<pre class="text"><code>1 1 1
+2 2 2
+3 8 16
+4 3 4
+5 6 16
+6 9 16
+7 17 52
+8 4 8
+9 20 52
+10 7 16
+11 15 52
+12 10 16
+13 10 40
+14 18 52
+15 18 160
+16 5 16
+17 13 52
+18 21 52
+19 21 88
+20 8 20
+21 8 64
+22 16 52
+23 16 160
+24 11 24
+25 24 88
+26 11 40
+27 112 9232
+28 19 52
+29 19 88
+30 19 160
+31 107 9232
+32 6 32
+33 27 100
+34 14 52
+35 14 160
+36 22 52
+37 22 112
+38 22 88
+39 35 304
+40 9 40
+41 110 9232
+42 9 64
+43 30 196
+44 17 52
+45 17 136
+46 17 160
+47 105 9232
+48 12 48
+49 25 148
+50 25 88
+51 25 232
+52 12 52
+53 12 160
+54 113 9232
+55 113 9232
+56 20 56
+57 33 196
+58 20 88
+59 33 304
+60 20 160
+61 20 184
+62 108 9232
+63 108 9232
+64 7 64
+65 28 196
+66 28 100
+67 28 304
+68 15 68
+69 15 208
+70 15 160
+71 103 9232
+72 23 72
+73 116 9232
+74 23 112
+75 15 340
+76 23 88
+77 23 232
+78 36 304
+79 36 808
+80 10 80
+81 23 244
+82 111 9232
+83 111 9232
+84 10 84
+85 10 256
+86 31 196
+87 31 592
+88 18 88
+89 31 304
+90 18 136
+91 93 9232
+92 18 160
+93 18 280
+94 106 9232
+95 106 9232
+96 13 96
+97 119 9232
+98 26 148
+99 26 448
+100 26 100</code></pre>
+</section>
+</section>
+          </section>
+        </main>
+
+        <footer>
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </footer>
+    </body>
+</html>
