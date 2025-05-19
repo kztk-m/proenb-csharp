@@ -41,7 +41,7 @@
                <h1>第5回 GUIプログラミング</h1>
              
             
-               <p class="last-update">最終更新: 2024-05-17 12:13:11</p> 
+               <p class="last-update">最終更新: 2025-05-19 14:57:40</p> 
             
             <div class="qnav">
               <ul>
@@ -53,13 +53,15 @@
         <main role="main" class="with-right-nav">
             <nav class="toc">
 <ul>
-<li><a href="#formクラス" id="toc-formクラス"><code>Form</code>クラス</a></li>
+<li><a href="#eto.formsのプロジェクトテンプレート" id="toc-eto.formsのプロジェクトテンプレート">Eto.Formsのプロジェクトテンプレート</a></li>
 <li><a href="#コントロールgui部品" id="toc-コントロールgui部品">コントロール（GUI部品）</a></li>
 <li><a href="#コンテナコントロールを保持するもの" id="toc-コンテナコントロールを保持するもの">コンテナ（コントロールを保持するもの）</a></li>
 <li><a href="#レイアウト" id="toc-レイアウト">レイアウト</a>
 <ul>
 <li><a href="#stacklayoutの例" id="toc-stacklayoutの例"><code>StackLayout</code>の例</a></li>
+<li><a href="#stack-layoutの練習問題" id="toc-stack-layoutの練習問題"><code>Stack Layout</code>の練習問題</a></li>
 <li><a href="#tablelayoutの例" id="toc-tablelayoutの例"><code>TableLayout</code>の例</a></li>
+<li><a href="#table-layoutの練習問題" id="toc-table-layoutの練習問題"><code>Table Layout</code>の練習問題</a></li>
 <li><a href="#レイアウトを組み合せる" id="toc-レイアウトを組み合せる">レイアウトを組み合せる</a></li>
 </ul></li>
 <li><a href="#ボタンを押したときの動作" id="toc-ボタンを押したときの動作">ボタンを押したときの動作</a>
@@ -70,12 +72,11 @@
 </ul>
 </nav>
 <section class="mainbody"><p>オープンソースかつクロスプラットフォームのGUIライブラリ<a href="https://github.com/picoe/Eto">Eto.Forms</a>を用いて，GUIプログラムを作成してみよう．この演習をすすめる前には<a href="./setup_gui.html">環境構築2</a>を完了させておこう．</p>
-<section id="formクラス" class="level2">
-<h2><code>Form</code>クラス</h2>
-<p>いわゆるウィンドウを表すクラス．</p>
+<section id="eto.formsのプロジェクトテンプレート" class="level2">
+<h2>Eto.Formsのプロジェクトテンプレート</h2>
 <p>Eto.Formsのテンプレートからデフォルト設定で生成されるコードは，以下のように，</p>
 <ul>
-<li>Formの派生クラスを定義するコードと，</li>
+<li><code>Form</code>（いわゆるウィンドウを表すクラス）の派生クラスを定義するコードと，</li>
 <li>そのフォームからなるGUIアプリケーションを実行するコード（バックエンド毎．デフォルトだとMac，Wpf，GTKの3つ）</li>
 </ul>
 <p>の二つの部分からなっている．</p>
@@ -89,7 +90,7 @@
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">namespace</span> PROJECTNAME </span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// partialはMainFormの定義を分割可能にする．ここでは不要</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// publicは必要．コンパイル単位が異なるため．</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// publicは必要．`Main`メソッドを含むクラスとコンパイル単位が異なるため．</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="kw">partial</span> <span class="kw">class</span> MainForm <span class="op">:</span> Form </span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>       <span class="kw">public</span> <span class="fu">MainForm</span><span class="op">()</span> </span>
@@ -123,31 +124,43 @@
 <p>本演習では後者はの部分は変更せずに，前者の<code>MainForm.cs</code>を拡張することで進めていく．すなわち，作成する<code>Form</code>に様々なGUI部品（コントロールと呼ばれる）を追加することになる．</p>
 <p>その際は以下のプロパティを適切に設定することが有用であろう．</p>
 <table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">プロパティ</th>
+<th style="text-align: left;">説明</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><code>public string Title</code></td>
-<td>ウィンドウのタイトルを表すプロパティ</td>
+<td style="text-align: left;"><code>public string Title</code></td>
+<td style="text-align: left;">ウィンドウのタイトルを表すプロパティ</td>
 </tr>
 <tr class="even">
-<td><code>public Control Content</code></td>
-<td>ウィンドウの中身となるGUI部品</td>
+<td style="text-align: left;"><code>public Control Content</code></td>
+<td style="text-align: left;">ウィンドウの中身となるGUI部品</td>
 </tr>
 <tr class="odd">
-<td><code>public Size ClientSize</code></td>
-<td>中身のサイズ（ボーダーやタイトルバーを除いたサイズ）</td>
+<td style="text-align: left;"><code>public Size ClientSize</code></td>
+<td style="text-align: left;">ウィンドウの中身のサイズ（ボーダーやタイトルバーを除いたサイズ）</td>
 </tr>
 </tbody>
 </table>
 <p>またテンプレート生成されたコードでは，以下のプロパティが用いられている．</p>
 <table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">プロパティ</th>
+<th style="text-align: left;">説明</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><code>public MenuBar Menu</code></td>
-<td>メニューバーを表す（Macだとウィンドウの中じゃなくて上の部分）</td>
+<td style="text-align: left;"><code>public MenuBar Menu</code></td>
+<td style="text-align: left;">メニューバーを表す（Macだとウィンドウの中でなくデスクトップ画面上部）</td>
 </tr>
 <tr class="even">
-<td><code>public ToolBar ToolBar</code></td>
-<td>ツールバーを表す</td>
+<td style="text-align: left;"><code>public ToolBar ToolBar</code></td>
+<td style="text-align: left;">ツールバーを表す</td>
 </tr>
 </tbody>
 </table>
@@ -161,8 +174,10 @@
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    Content <span class="op">=</span> <span class="kw">new</span> <span class="fu">Label</span><span class="op">()</span> <span class="op">{</span> Text <span class="op">=</span> <span class="st">&quot;Hello, World!&quot;</span> <span class="op">};</span> </span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>以下のようなウィンドウが表示されたことだろう（以下はMacにおける例）</p>
-<p><img src="images/eto/hello_world.png" alt="image" /></p>
-<p>ところで，Macにおいては左上の「閉じる」ボタンを押してもアプリケーションが終了しないことに気付いたかもしれない．これはいささか不便である．幸いなことに空のMenuBarをMenuに代入すると Mac 環境ではいろいろなアイテムを Eto.Forms が追加してくれる．</p>
+<p><img src="images/eto/hello_world.png" alt="タイトルが&quot;Hello World&quot;で，中身が&quot;Hello, World&quot;というラベルのみのウィンドウ" /><br />
+</p>
+<p>ところで，Macにおいては左上の「閉じる」ボタンを押してもアプリケーションが終了しないことに気付いたかもしれない．これはいささか不便である．幸いなことに空のMenuBarをMenuに代入すると Mac
+環境ではいろいろなアイテムを Eto.Forms が追加してくれる．</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="fu">MainForm</span><span class="op">()</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    Title <span class="op">=</span> <span class="st">&quot;Hello World&quot;</span><span class="op">;</span> </span>
@@ -174,94 +189,89 @@
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">// すると，Mac環境においてはMenuプロパティのsetterがいろいろなアイテムを追加してくれる．</span></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    Menu <span class="op">=</span> <span class="kw">new</span> <span class="fu">MenuBar</span><span class="op">();</span> </span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>これで，Command + Q等の標準的な操作でアプリケーションを終了することができるようになる（WpfやGtkだと「閉じる」ボタンで，終了する）．</p>
+<p>これで，Command +
+Q等の標準的な操作でアプリケーションを終了することができるようになる（WpfやGtkだと「閉じる」ボタンで，終了する）．</p>
 <p><em>オブジェクト初期化子があれば，引数なしのコンストラクタの括弧は省略できる．</em>たとえば，上の<code>Content =</code>の行は</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Content <span class="op">=</span> <span class="kw">new</span> Label <span class="op">{</span> Text <span class="op">=</span> <span class="st">&quot;Hello, World!&quot;</span> <span class="op">};</span> </span></code></pre></div>
 <p>とも書ける．</p>
 </section>
 <section id="コントロールgui部品" class="level2">
 <h2>コントロール（GUI部品）</h2>
-<p>さて，上記にあった <code>Label</code> は単に与えられたテキストを表示するという<strong>コントロール</strong>（GUI部品）である．たとえば，よく使うコントロールは <code>Label</code>を含め以下のようなものであろう．</p>
+<p>さて，上記にあった <code>Label</code> は単に与えられたテキストを表示するという<strong>コントロール</strong>（GUI部品）である．たとえば，以下は<code>Eto.Forms</code>が提供する比較的よく使うコントロールの一例である．</p>
 <table>
 <thead>
 <tr class="header">
-<th>コントロール（を表すクラス）</th>
-<th>説明</th>
+<th style="text-align: left;">コントロール（を表すクラス）</th>
+<th style="text-align: left;">説明</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>Label</code></td>
-<td>テキストを画面に表示する</td>
+<td style="text-align: left;"><code>Label</code></td>
+<td style="text-align: left;">テキストを画面に表示する</td>
 </tr>
 <tr class="even">
-<td><code>Button</code></td>
-<td>その名の通りボタン</td>
+<td style="text-align: left;"><code>Button</code></td>
+<td style="text-align: left;">その名の通りボタン</td>
 </tr>
 <tr class="odd">
-<td><code>TextBox</code></td>
-<td>一行のテキストを入力できる欄</td>
+<td style="text-align: left;"><code>TextBox</code></td>
+<td style="text-align: left;">一行のテキストを入力できる欄</td>
 </tr>
 <tr class="even">
-<td><code>TextArea</code></td>
-<td>複数行のテキストを入力できる欄．スクロールバー付き</td>
+<td style="text-align: left;"><code>TextArea</code></td>
+<td style="text-align: left;">複数行のテキストを入力できる欄．スクロールバー付き</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>CheckBox</code></td>
+<td style="text-align: left;">ラベル付きのチェックボックス</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>RadioButton</code></td>
+<td style="text-align: left;">ラジオボタン（一個 on にすると他が off になるボタン）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>DropDown</code></td>
+<td style="text-align: left;">ドロップダウンリスト</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>ImageView</code></td>
+<td style="text-align: left;">画像の表示</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Slider</code></td>
+<td style="text-align: left;">「つまみ」を縦か横に動かして値を決める部品</td>
 </tr>
 </tbody>
 </table>
-<p>Eto.Formsでは他にも様々なコントロールが提供されている．たとえば以下など．</p>
-<table>
-<thead>
-<tr class="header">
-<th>コントロール（を表すクラス）</th>
-<th>説明</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>CheckBox</code></td>
-<td>ラベル付きのチェックボックス</td>
-</tr>
-<tr class="even">
-<td><code>RadioButton</code></td>
-<td>ラジオボタン（一個 on にすると他が off になるボタン）</td>
-</tr>
-<tr class="odd">
-<td><code>DropDown</code></td>
-<td>ドロップダウンリスト</td>
-</tr>
-<tr class="even">
-<td><code>ImageView</code></td>
-<td>画像の表示</td>
-</tr>
-<tr class="odd">
-<td><code>Slider</code></td>
-<td>「つまみ」を縦か横に動かして値を決める部品</td>
-</tr>
-</tbody>
-</table>
+<p>本講義では全てを説明はしない．また，Eto.Formsでは他にも様々なコントロールを提供している．</p>
 </section>
 <section id="コンテナコントロールを保持するもの" class="level2">
 <h2>コンテナ（コントロールを保持するもの）</h2>
-<p>コントロールを複数個（1個のみのときもある）保持するコントロールは<strong>コンテナ</strong>と呼ばれる．</p>
-<p>スクロールを可能にする<code>Scrollable</code>，タブでコントロールを切り替えられる<code>TabControl</code>，二つのコントロールを区切り線で分ける<code>Splitter</code>や次項で説明するレイアウトがある．また，<code>Form</code>もコントロールを一個保持するようなコンテナの一つである．</p>
+<p>コントロールを複数個（1個のみのときもある）保持するコントロールは<strong>コンテナ</strong>と呼ばれる．コンテナにはスクロールを可能にする<code>Scrollable</code>，タブでコントロールを切り替えられる<code>TabControl</code>，二つのコントロールを区切り線で分ける<code>Splitter</code>や次項で説明するレイアウトがある．また，前述の<code>Form</code>もコントロールを一個保持するようなコンテナの一つである．</p>
 </section>
 <section id="レイアウト" class="level2">
 <h2>レイアウト</h2>
-<p><strong>レイアウト</strong>はコンテナの一種であり，コントロールを適切な位置に並べてくれる．
-Eto.Formsの提供する代表的なレイアウトに以下のようなものがある．</p>
+<p><strong>レイアウト</strong>はコンテナの一種であり，コントロールを適切な位置に並べてくれる．Eto.Formsの提供する代表的なレイアウトに以下のようなものがある．</p>
 <table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">レイアウト</th>
+<th style="text-align: left;">説明</th>
+</tr>
+</thead>
 <tbody>
 <tr class="odd">
-<td><code>StackLayout</code></td>
-<td>横または縦の一方向にコントロールを並べるレイアウト</td>
+<td style="text-align: left;"><code>StackLayout</code></td>
+<td style="text-align: left;">横または縦の一方向にコントロールを並べるレイアウト</td>
 </tr>
 <tr class="even">
-<td><code>TableLayout</code></td>
-<td>表のセルのようにコントロールを配置するレイアウト</td>
+<td style="text-align: left;"><code>TableLayout</code></td>
+<td style="text-align: left;">表のセルのようにコントロールを配置するレイアウト</td>
 </tr>
 <tr class="odd">
-<td><code>DynamicLayout</code></td>
-<td>縦と横を切り替えつつコントロールを並べるレイアウト</td>
+<td style="text-align: left;"><code>DynamicLayout</code></td>
+<td style="text-align: left;">縦と横を切り替えつつコントロールを並べるレイアウト</td>
 </tr>
 </tbody>
 </table>
@@ -298,42 +308,40 @@ Eto.Formsの提供する代表的なレイアウトに以下のようなもの�
 <span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    Content <span class="op">=</span> stackLayout<span class="op">;</span></span>
 <span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>上記の実行例（Macの場合）</p>
-<p><img src="images/eto/stack_layout.png" alt="image" /></p>
+<p><img src="images/eto/stack_layout.png" alt="ウィンドウ．中身はラベル，ボタン，テキストエリア，テキストボックスがこの順で縦にならんでいる．" /><br />
+</p>
 <p>上のプログラムでは下記のプロパティを使った．</p>
 <table>
 <thead>
 <tr class="header">
-<th>プロパティ名</th>
-<th>大雑把な説明</th>
+<th style="text-align: left;">プロパティ名</th>
+<th style="text-align: left;">大雑把な説明</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>Padding</code></td>
-<td>StackLayout自体とその中身の間のスペース</td>
+<td style="text-align: left;"><code>Padding</code></td>
+<td style="text-align: left;">StackLayout自体とその中身の間のスペース</td>
 </tr>
 <tr class="even">
-<td><code>Spacing</code></td>
-<td>StackLayoutに含まれる各コントロール間のスペース（<code>int</code>型）</td>
+<td style="text-align: left;"><code>Spacing</code></td>
+<td style="text-align: left;">StackLayoutに含まれる各コントロール間のスペース（<code>int</code>型）</td>
 </tr>
 <tr class="odd">
-<td><code>Orientation</code></td>
-<td>StackLayoutの方向．<code>Orientation.Vertical</code>か<code>Orientation.Horizontal</code>か．</td>
+<td style="text-align: left;"><code>Orientation</code></td>
+<td style="text-align: left;">StackLayoutの方向．<code>Orientation.Vertical</code>か<code>Orientation.Horizontal</code>か．</td>
 </tr>
 <tr class="even">
-<td><p><code>HorizontalContentAlignment</code></p></td>
-<td><p><code>Orientation</code>が <code>Orientation.Vertical</code>のときの各コントロールの水平位置
-<code>HorizontalAlignment.Left</code>，<code>HorizontalAlignment.Right</code>，
-<code>HorizontalAlignment.Center</code>，<code>HorizontalAlignment.Stretch</code>のいずれか</p></td>
+<td style="text-align: left;"><code>HorizontalContentAlignment</code></td>
+<td style="text-align: left;"><code>Orientation</code>が <code>Orientation.Vertical</code>のときの各コントロールの水平位置 <code>HorizontalAlignment.Left</code>，<code>HorizontalAlignment.Right</code>， <code>HorizontalAlignment.Center</code>，<code>HorizontalAlignment.Stretch</code>のいずれか</td>
 </tr>
 <tr class="odd">
-<td><p><code>VerticalContentAlignment</code></p></td>
-<td><p>上の縦版．<code>VerticalAlignment.Top</code>，<code>VerticalAlignment.Bottom</code>，
-<code>VerticalAlignment.Center</code>，<code>VerticalAlignment.Stretch</code>のいずれか</p></td>
+<td style="text-align: left;"><code>VerticalContentAlignment</code></td>
+<td style="text-align: left;">上の縦版．<code>VerticalAlignment.Top</code>，<code>VerticalAlignment.Bottom</code>， <code>VerticalAlignment.Center</code>，<code>VerticalAlignment.Stretch</code>のいずれか</td>
 </tr>
 <tr class="even">
-<td><code>Items</code></td>
-<td>保持するコントロールのコレクション．読み出し専用（代入できないという意味）</td>
+<td style="text-align: left;"><code>Items</code></td>
+<td style="text-align: left;">保持するコントロールのコレクション．読み出し専用（代入できないという意味）</td>
 </tr>
 </tbody>
 </table>
@@ -357,19 +365,23 @@ Eto.Formsの提供する代表的なレイアウトに以下のようなもの�
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>         Orientation <span class="op">=</span> Orientation<span class="op">.</span><span class="fu">Vertical</span><span class="op">,</span></span>
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>         HorizontalContentAlignment <span class="op">=</span> HorizontalAlignment<span class="op">.</span><span class="fu">Stretch</span><span class="op">,</span></span>
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>         <span class="co">// Items は read-only プロパティだが，オブジェクト初期化子中に</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>         <span class="co">// Items = {a, b, c, d} と書くことで Items.Add(a), Items.Add(b), Items.Add(c), Items.Add(d) </span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>         <span class="co">// をオブジェクト生成後に呼ぶことができる</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>         Items <span class="op">=</span> <span class="op">{</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>             <span class="kw">new</span> Label  <span class="op">{</span> Text <span class="op">=</span> <span class="st">&quot;Label. 日本語も書けるよ！&quot;</span> <span class="op">},</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>             <span class="kw">new</span> Button <span class="op">{</span> Text <span class="op">=</span> <span class="st">&quot;Button&quot;</span> <span class="op">},</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>             <span class="kw">new</span> <span class="fu">StackLayoutItem</span> <span class="op">(</span> <span class="kw">new</span> TextArea <span class="op">{</span> Text <span class="op">=</span> <span class="st">&quot;1</span><span class="sc">\n</span><span class="st">22</span><span class="sc">\n</span><span class="st">333&quot;</span> <span class="op">},</span> <span class="kw">true</span> <span class="op">),</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>             <span class="kw">new</span> TextBox <span class="op">{</span> PlaceholderText <span class="op">=</span> <span class="st">&quot;なにか入力&quot;</span> <span class="op">}</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>         <span class="op">}</span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>     <span class="op">};</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a> <span class="op">}</span></span></code></pre></div>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>         <span class="co">//     Items = {a, b, c, d} </span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>         <span class="co">// と書くことで Items.Add(a), Items.Add(b), Items.Add(c), Items.Add(d) </span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>         <span class="co">// をオブジェクト生成後に実行することができる．</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>         <span class="co">//</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>         <span class="co">// =を用いているが代入や初期化ではないのに注意</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>         Items <span class="op">=</span> <span class="op">{</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>             <span class="kw">new</span> Label  <span class="op">{</span> Text <span class="op">=</span> <span class="st">&quot;Label. 日本語も書けるよ！&quot;</span> <span class="op">},</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>             <span class="kw">new</span> Button <span class="op">{</span> Text <span class="op">=</span> <span class="st">&quot;Button&quot;</span> <span class="op">},</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>             <span class="kw">new</span> <span class="fu">StackLayoutItem</span> <span class="op">(</span> <span class="kw">new</span> TextArea <span class="op">{</span> Text <span class="op">=</span> <span class="st">&quot;1</span><span class="sc">\n</span><span class="st">22</span><span class="sc">\n</span><span class="st">333&quot;</span> <span class="op">},</span> <span class="kw">true</span> <span class="op">),</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>             <span class="kw">new</span> TextBox <span class="op">{</span> PlaceholderText <span class="op">=</span> <span class="st">&quot;なにか入力&quot;</span> <span class="op">}</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>         <span class="op">}</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>     <span class="op">};</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a> <span class="op">}</span></span></code></pre></div>
 </div>
-<section id="練習問題" class="level4">
-<h4>練習問題</h4>
+</section>
+<section id="stack-layoutの練習問題" class="level3">
+<h3><code>Stack Layout</code>の練習問題</h3>
 <p>上記のプログラムを少し改変してみて挙動の変化を確認してみよう．たとえば，以下等をしてみるとよい．</p>
 <ul>
 <li><code>Orientation</code> を変えてみる</li>
@@ -380,10 +392,10 @@ Eto.Formsの提供する代表的なレイアウトに以下のようなもの�
 <li>あるいは，コントロール<code>c</code>を追加する際に<code>Add(c)</code>を<code>Add(new StackLayoutItem (c, true)</code>としてみる</li>
 </ul>
 </section>
-</section>
 <section id="tablelayoutの例" class="level3">
 <h3><code>TableLayout</code>の例</h3>
-<p><code>TableLayout</code>は Eto.Forms の提供するレイアウトのうち基本となるものであり（<code>StackLayout</code>や<code>DynamicLayout</code>も内部でTableLayoutを使用している），表組みのようなレイアウトを実現する．</p>
+<p><code>TableLayout</code>は Eto.Forms
+の提供するレイアウトのうち基本となるものであり（<code>StackLayout</code>や<code>DynamicLayout</code>も内部でTableLayoutを使用している），表組みのようなレイアウトを実現する．</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="fu">MainForm</span><span class="op">()</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    Title <span class="op">=</span> <span class="st">&quot;TableLayout Example&quot;</span><span class="op">;</span></span>
@@ -405,7 +417,7 @@ Eto.Formsの提供する代表的なレイアウトに以下のようなもの�
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>                     <span class="kw">new</span> TextArea <span class="op">{</span> <span class="op">},</span></span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>                     <span class="co">// TableLayout.AutoSized は中の要素が伸長しないセルを作る（このセルは伸長する行に置かれている）</span></span>
 <span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>                     TableLayout<span class="op">.</span><span class="fu">AutoSized</span><span class="op">(</span><span class="kw">new</span> DropDown <span class="op">{</span> Items <span class="op">=</span> <span class="op">{</span> <span class="st">&quot;Item 1&quot;</span><span class="op">,</span> <span class="st">&quot;Item 2&quot;</span><span class="op">,</span> <span class="st">&quot;Item 3&quot;</span> <span class="op">}</span> <span class="op">}))</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>        <span class="co">// この行は伸長する							 </span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>        <span class="co">// この行は伸長する                          </span></span>
 <span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span> ScaleHeight <span class="op">=</span> <span class="kw">true</span> <span class="op">});</span></span>
 <span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    tableLayout<span class="op">.</span><span class="fu">Rows</span><span class="op">.</span><span class="fu">Add</span><span class="op">(</span></span>
 <span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>        <span class="kw">new</span> <span class="fu">TableRow</span><span class="op">(</span><span class="kw">new</span> Label <span class="op">{</span> Text <span class="op">=</span> <span class="st">&quot;Tuna&quot;</span> <span class="op">},</span></span>
@@ -419,27 +431,28 @@ Eto.Formsの提供する代表的なレイアウトに以下のようなもの�
 <span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    Content <span class="op">=</span> tableLayout<span class="op">;</span></span>
 <span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>上記の実行例（Macの場合）</p>
-<p><img src="images/eto/table_layout.png" alt="image" /></p>
+<p><img src="images/eto/table_layout.png" alt="ウィンドウ．ラベル等がタイル上に配置されている．中央の行および列がウィンドウのサイズの伸縮に合わせて伸縮する．" /><br />
+</p>
 <p>上のプログラムでは下記の<code>TableLayout</code>のプロパティを使った．</p>
 <table>
 <thead>
 <tr class="header">
-<th>プロパティ名</th>
-<th>大雑把な説明</th>
+<th style="text-align: left;">プロパティ名</th>
+<th style="text-align: left;">大雑把な説明</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>Padding</code></td>
-<td>TableLayout自体とその中身の間のスペース</td>
+<td style="text-align: left;"><code>Padding</code></td>
+<td style="text-align: left;">TableLayout自体とその中身の間のスペース</td>
 </tr>
 <tr class="even">
-<td><code>Spacing</code></td>
-<td>TableLayoutに含まれる各コントロール間のスペース（<code>Size</code>型）</td>
+<td style="text-align: left;"><code>Spacing</code></td>
+<td style="text-align: left;">TableLayoutに含まれる各コントロール間のスペース（<code>Size</code>型）</td>
 </tr>
 <tr class="odd">
-<td><code>Rows</code></td>
-<td>各要素がTableRowであるコレクション（読み出し専用）</td>
+<td style="text-align: left;"><code>Rows</code></td>
+<td style="text-align: left;">各要素がTableRowであるコレクション（読み出し専用）</td>
 </tr>
 </tbody>
 </table>
@@ -447,25 +460,26 @@ Eto.Formsの提供する代表的なレイアウトに以下のようなもの�
 <table>
 <thead>
 <tr class="header">
-<th>メンバ名</th>
-<th>大雑把な説明</th>
+<th style="text-align: left;">メンバ名</th>
+<th style="text-align: left;">大雑把な説明</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>TableRow(TableCell c1, ..., TableCell cn)</code></td>
-<td>セル <code>c1</code>, ... , <code>cn</code> を含んだ行を作るコンストラクタ</td>
+<td style="text-align: left;"><code>TableRow(TableCell c1, ..., TableCell cn)</code></td>
+<td style="text-align: left;">セル <code>c1</code>, ... , <code>cn</code> を含んだ行を作るコンストラクタ</td>
 </tr>
 <tr class="even">
-<td><code>ScaleHeight</code></td>
-<td>行が伸長可能かどうか</td>
+<td style="text-align: left;"><code>ScaleHeight</code></td>
+<td style="text-align: left;">行が伸長可能かどうか</td>
 </tr>
 </tbody>
 </table>
 <p><code>StackLayoutItem</code>のときと同様に<code>Control</code>から<code>TableCell</code>への暗黙の型変換が定義されている．そのため，それを利用することで，<code>Control</code>型の<code>new Label { Text = "Apple" }</code>等をそのまま<code>TableRow</code>コンストラクタの引数に渡すことができる．セルの横幅を伸長可能にしたい場合は上記のようにコンストラクタ<code>TableCell(Control, bool)</code>を使用する．</p>
-<p><code>TableLayout.AutoSized</code> というstatic メソッドは伸長するセルの中に伸長したくないコントロールを配置するのに使う．</p>
-<section id="練習問題-1" class="level4">
-<h4>練習問題</h4>
+<p><code>TableLayout.AutoSized</code> というstaticメソッドは伸長するセルの中に伸長したくないコントロールを配置するのに使う．</p>
+</section>
+<section id="table-layoutの練習問題" class="level3">
+<h3><code>Table Layout</code>の練習問題</h3>
 <p>上記のプログラムを少し改変してみて挙動の変化を確認してみよう．たとえば，以下等をしてみるとよい．</p>
 <ul>
 <li>「以下をアンコメントしたらどうなる？」に従ってみる</li>
@@ -474,7 +488,6 @@ Eto.Formsの提供する代表的なレイアウトに以下のようなもの�
 <li>同じコントロールを複数追加してみる</li>
 <li><code>StackLayout</code>のときのように，オブジェクト初期化子をできるだけ活用する形にプログラムを変更してみる</li>
 </ul>
-</section>
 </section>
 <section id="レイアウトを組み合せる" class="level3">
 <h3>レイアウトを組み合せる</h3>
@@ -515,7 +528,8 @@ Label</code></pre>
 <span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    Content <span class="op">=</span> mainPart<span class="op">;</span></span>
 <span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>上記の実行例（Macの場合）</p>
-<p><img src="./images/eto/combined_layout.png" alt="image" /></p>
+<p><img src="./images/eto/combined_layout.png" alt="ウィンドウ．最上段には「戻る」「進む」「再読込」というボタンの後にテキストボックスが並んでいる．中段にはテキストエリアが表示されている．最下段には「ステータスバー」と書かれたラベルが表示されている" /><br />
+</p>
 </section>
 </section>
 <section id="ボタンを押したときの動作" class="level2">
@@ -541,22 +555,23 @@ Label</code></pre>
 <span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    Content <span class="op">=</span> stackLayout<span class="op">;</span></span>
 <span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>上記の実行例（Macの場合）</p>
-<p><img src="./images/eto/button_layout_only.png" alt="image" /></p>
+<p><img src="./images/eto/button_layout_only.png" alt="「0」と書かれたラベルと「Count」と書かれたボタンが表示されたウィンドウ" /><br />
+</p>
 <section id="イベントハンドラの登録" class="level3">
 <h3>イベントハンドラの登録</h3>
 <p>ボタン<code>button</code>を押したときに，なにかをさせたい場合は以下のように<code>button.Click</code>イベントにハンドラを登録すればよい．</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// クリックされたときに YOUR_METHOD(イベント発生させたオブジェクト，EventArgs型のオブジェクト) が呼び出される</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>button<span class="op">.</span><span class="fu">Click</span> <span class="op">+=</span> YOUR_METHOD<span class="op">;</span> </span></code></pre></div>
-<p>C#ではクラスやオブジェクトはイベント（のハンドラを格納するもの）を持つことができる．実際に<code>Click</code>は</p>
+<p>C#ではクラスやオブジェクトは<strong>イベント</strong>（のハンドラを格納するもの）を持つことができる．実際に<code>Click</code>は</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// EventHandlerについては https://docs.microsoft.com/dotnet/api/system.eventhandler-1 参照</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">event</span> EventHandler<span class="op">&lt;</span>EventArgs<span class="op">&gt;</span> Click<span class="op">;</span> </span></code></pre></div>
 <p>という<code>Button</code>の（インスタンス）メンバとして宣言されている．</p>
-<p>イベントはフィールドやプロパティとは異なり，その当該のクラスからしか発生させる（イベントハンドラを呼び出す）ことができない（なので，派生クラスからイベントを発生させたい場合は，基底クラスのほうでイベント発生をラップする protected ないし public なメソッドを用意する必要がある）．ただし，イベントはそのクラスの外でも購読（イベントハンドラを登録する）ことができる．上記の<code>+=</code>は<code>button.Click</code>というイベントを購読する（あるいは"button.Click"というイベントに対するイベントハンドラを登録する）ための構文である．また，イベントの購読解除も行うことができ，対応する構文は<code>-=</code>である．</p>
-<p>さて，上記の<code>YOUR_METHOD</code>の部分はstatic メソッドでもそうでない通常のメソッド（インスタンスメソッド）でもよいが，今回の目的でもっとも簡潔なのは以下に紹介する<strong>ラムダ式</strong>を使う方法である．</p>
+<p>イベントはフィールドやプロパティとは異なり，その当該のクラスからしか発生させる（イベントハンドラを呼び出す）ことができない（なので，派生クラスからイベントを発生させたい場合は，基底クラスのほうでイベント発生をラップするprotected ないし public なメソッドを用意する必要がある）．ただし，イベントはそのクラスの外でも<strong>購読</strong>（イベントハンドラを登録する）ことができる．上記の<code>+=</code>は<code>button.Click</code>というイベントを購読する（あるいは"button.Click"というイベントに対するイベントハンドラを登録する）ための構文である．また，イベントの購読解除も行うことができ，対応する構文は<code>-=</code>である．</p>
+<p>さて，上記の<code>YOUR_METHOD</code>の部分はstaticメソッドでもインスタンスメソッドでもよいが，今回の目的でもっとも簡潔なのは以下に紹介する<strong>ラムダ式</strong>を使う方法である．ラムダ式は匿名の関数を作成するための式である．</p>
 </section>
 <section id="匿名関数ラムダ式" class="level3">
 <h3>匿名関数（ラムダ式）</h3>
-<p>匿名関数を作成するため式（ラムダ式）の基本的な構文は以下である．</p>
+<p>匿名関数を作成するための式（ラムダ式）の基本的な構文は以下である．</p>
 <pre style="line-height:1.3">
 (<span class="metaname">引数の列</span>) => 
 {
@@ -600,78 +615,90 @@ Label</code></pre>
 <span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>    Content <span class="op">=</span> stackLayout<span class="op">;</span></span>
 <span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>これにより「Count」と書かれたボタンをクリックすることでラベルに表示された整数を1ずつ増やしていくことができる．これは，ボタンがクリックされるたびに，</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>s<span class="op">,</span> e<span class="op">)</span> <span class="op">=&gt;</span> <span class="op">{</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    cnt<span class="op">++;</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    countLabel<span class="op">.</span><span class="fu">Text</span> <span class="op">=</span> cnt<span class="op">.</span><span class="fu">ToString</span><span class="op">();</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>という関数が適切な引数で呼び出されるためである．</p>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>オブジェクト初期化子の中でイベントを購読することは<a href="https://github.com/dotnet/csharplang/discussions/8650">まだできない</a>．</p>
+</div>
 <div class="note">
 <div class="title">
 <p>Note</p>
 </div>
 <p>インスタンスメソッドを使った場合は，たとえば，<code>MainForm</code>のインスタンスを用いる場合は</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> MainForm <span class="op">:</span> Form</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> cnt <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> Label countLabel<span class="op">;</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">countUp</span><span class="op">(</span><span class="dt">object</span> sender<span class="op">,</span> EventArgs e<span class="op">)</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>        cnt<span class="op">++;</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>        countLabel<span class="op">.</span><span class="fu">Text</span> <span class="op">=</span> cnt<span class="op">.</span><span class="fu">ToString</span><span class="op">();</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">MainForm</span><span class="op">()</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>        Title <span class="op">=</span> <span class="st">&quot;Button Example&quot;</span><span class="op">;</span></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>        ClientSize <span class="op">=</span> <span class="kw">new</span> <span class="fu">Size</span><span class="op">(</span><span class="dv">200</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>        Menu <span class="op">=</span> <span class="kw">new</span> <span class="fu">MenuBar</span><span class="op">();</span></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>        Button countButton <span class="op">=</span> <span class="kw">new</span> Button <span class="op">{</span> Text <span class="op">=</span> <span class="st">&quot;Count&quot;</span> <span class="op">};</span></span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>        countLabel <span class="op">=</span> <span class="kw">new</span> Label <span class="op">{</span> Text <span class="op">=</span> <span class="st">&quot;0&quot;</span> <span class="op">};</span></span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>        countButton<span class="op">.</span><span class="fu">Click</span> <span class="op">+=</span> <span class="kw">this</span><span class="op">.</span><span class="fu">countUp</span><span class="op">;</span></span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>        StackLayout stackLayout <span class="op">=</span> <span class="kw">new</span> <span class="fu">StackLayout</span><span class="op">();</span></span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>        stackLayout<span class="op">.</span><span class="fu">Padding</span> <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>        stackLayout<span class="op">.</span><span class="fu">HorizontalContentAlignment</span> <span class="op">=</span> HorizontalAlignment<span class="op">.</span><span class="fu">Stretch</span><span class="op">;</span></span>
-<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>        stackLayout<span class="op">.</span><span class="fu">Items</span><span class="op">.</span><span class="fu">Add</span><span class="op">(</span><span class="kw">new</span> <span class="fu">StackLayoutItem</span><span class="op">(</span>countLabel<span class="op">,</span> <span class="kw">true</span><span class="op">));</span></span>
-<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>        stackLayout<span class="op">.</span><span class="fu">Items</span><span class="op">.</span><span class="fu">Add</span><span class="op">(</span>countButton<span class="op">);</span></span>
-<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>        Content <span class="op">=</span> stackLayout<span class="op">;</span></span>
-<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>となり，あるいはカウントやラベルの情報を格納するためだけのクラスを作る場合は</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> MainForm <span class="op">:</span> Form</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="kw">class</span> countUpClass</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">private</span> <span class="dt">int</span> count<span class="op">;</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">private</span> Label label<span class="op">;</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">public</span> <span class="fu">countUpClass</span><span class="op">(</span><span class="dt">int</span> c<span class="op">,</span> Label l<span class="op">)</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>            count <span class="op">=</span> c<span class="op">;</span> label <span class="op">=</span> l<span class="op">;</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">countUp</span><span class="op">(</span><span class="dt">object</span> sender<span class="op">,</span> EventArgs e<span class="op">)</span></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>            count<span class="op">++;</span></span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>            label<span class="op">.</span><span class="fu">Text</span> <span class="op">=</span> count<span class="op">.</span><span class="fu">ToString</span><span class="op">();</span></span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">MainForm</span><span class="op">()</span></span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>        Title <span class="op">=</span> <span class="st">&quot;Button Example&quot;</span><span class="op">;</span></span>
-<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>        ClientSize <span class="op">=</span> <span class="kw">new</span> <span class="fu">Size</span><span class="op">(</span><span class="dv">200</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
-<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>        Menu <span class="op">=</span> <span class="kw">new</span> <span class="fu">MenuBar</span><span class="op">();</span></span>
-<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>        Button countButton <span class="op">=</span> <span class="kw">new</span> Button <span class="op">{</span> Text <span class="op">=</span> <span class="st">&quot;Count&quot;</span> <span class="op">};</span></span>
-<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>        Label countLabel <span class="op">=</span> <span class="kw">new</span> Label <span class="op">{</span> Text <span class="op">=</span> <span class="st">&quot;0&quot;</span> <span class="op">};</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> cnt <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> Label countLabel<span class="op">;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">void</span> <span class="fu">countUp</span><span class="op">(</span><span class="dt">object</span> sender<span class="op">,</span> EventArgs e<span class="op">)</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>        cnt<span class="op">++;</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>        countLabel<span class="op">.</span><span class="fu">Text</span> <span class="op">=</span> cnt<span class="op">.</span><span class="fu">ToString</span><span class="op">();</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">MainForm</span><span class="op">()</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>        Title <span class="op">=</span> <span class="st">&quot;Button Example&quot;</span><span class="op">;</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>        ClientSize <span class="op">=</span> <span class="kw">new</span> <span class="fu">Size</span><span class="op">(</span><span class="dv">200</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>        Menu <span class="op">=</span> <span class="kw">new</span> <span class="fu">MenuBar</span><span class="op">();</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>        Button countButton <span class="op">=</span> <span class="kw">new</span> Button <span class="op">{</span> Text <span class="op">=</span> <span class="st">&quot;Count&quot;</span> <span class="op">};</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>        countLabel <span class="op">=</span> <span class="kw">new</span> Label <span class="op">{</span> Text <span class="op">=</span> <span class="st">&quot;0&quot;</span> <span class="op">};</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>        countButton<span class="op">.</span><span class="fu">Click</span> <span class="op">+=</span> <span class="kw">this</span><span class="op">.</span><span class="fu">countUp</span><span class="op">;</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>        StackLayout stackLayout <span class="op">=</span> <span class="kw">new</span> <span class="fu">StackLayout</span><span class="op">();</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>        stackLayout<span class="op">.</span><span class="fu">Padding</span> <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>        stackLayout<span class="op">.</span><span class="fu">HorizontalContentAlignment</span> <span class="op">=</span> HorizontalAlignment<span class="op">.</span><span class="fu">Stretch</span><span class="op">;</span></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>        stackLayout<span class="op">.</span><span class="fu">Items</span><span class="op">.</span><span class="fu">Add</span><span class="op">(</span><span class="kw">new</span> <span class="fu">StackLayoutItem</span><span class="op">(</span>countLabel<span class="op">,</span> <span class="kw">true</span><span class="op">));</span></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>        stackLayout<span class="op">.</span><span class="fu">Items</span><span class="op">.</span><span class="fu">Add</span><span class="op">(</span>countButton<span class="op">);</span></span>
 <span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>        countButton<span class="op">.</span><span class="fu">Click</span> <span class="op">+=</span> <span class="kw">new</span> <span class="fu">countUpClass</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> countLabel<span class="op">).</span><span class="fu">countUp</span><span class="op">;</span></span>
-<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a>        StackLayout stackLayout <span class="op">=</span> <span class="kw">new</span> <span class="fu">StackLayout</span><span class="op">();</span></span>
-<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>        stackLayout<span class="op">.</span><span class="fu">Padding</span> <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>        stackLayout<span class="op">.</span><span class="fu">HorizontalContentAlignment</span> <span class="op">=</span> HorizontalAlignment<span class="op">.</span><span class="fu">Stretch</span><span class="op">;</span></span>
-<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>        stackLayout<span class="op">.</span><span class="fu">Items</span><span class="op">.</span><span class="fu">Add</span><span class="op">(</span><span class="kw">new</span> <span class="fu">StackLayoutItem</span><span class="op">(</span>countLabel<span class="op">,</span> <span class="kw">true</span><span class="op">));</span></span>
-<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>        stackLayout<span class="op">.</span><span class="fu">Items</span><span class="op">.</span><span class="fu">Add</span><span class="op">(</span>countButton<span class="op">);</span></span>
-<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-35"><a href="#cb17-35" aria-hidden="true" tabindex="-1"></a>        Content <span class="op">=</span> stackLayout<span class="op">;</span></span>
-<span id="cb17-36"><a href="#cb17-36" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb17-37"><a href="#cb17-37" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>        Content <span class="op">=</span> stackLayout<span class="op">;</span></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>となり，あるいはカウントやラベルの情報を格納するためだけのクラスを作る場合は</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">class</span> MainForm <span class="op">:</span> Form</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="kw">class</span> countUpClass</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">private</span> <span class="dt">int</span> count<span class="op">;</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>        <span class="kw">private</span> Label label<span class="op">;</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">public</span> <span class="fu">countUpClass</span><span class="op">(</span><span class="dt">int</span> c<span class="op">,</span> Label l<span class="op">)</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>            count <span class="op">=</span> c<span class="op">;</span> label <span class="op">=</span> l<span class="op">;</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">countUp</span><span class="op">(</span><span class="dt">object</span> sender<span class="op">,</span> EventArgs e<span class="op">)</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>        <span class="op">{</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>            count<span class="op">++;</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>            label<span class="op">.</span><span class="fu">Text</span> <span class="op">=</span> count<span class="op">.</span><span class="fu">ToString</span><span class="op">();</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> <span class="fu">MainForm</span><span class="op">()</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>        Title <span class="op">=</span> <span class="st">&quot;Button Example&quot;</span><span class="op">;</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>        ClientSize <span class="op">=</span> <span class="kw">new</span> <span class="fu">Size</span><span class="op">(</span><span class="dv">200</span><span class="op">,</span> <span class="dv">100</span><span class="op">);</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>        Menu <span class="op">=</span> <span class="kw">new</span> <span class="fu">MenuBar</span><span class="op">();</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>        Button countButton <span class="op">=</span> <span class="kw">new</span> Button <span class="op">{</span> Text <span class="op">=</span> <span class="st">&quot;Count&quot;</span> <span class="op">};</span></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>        Label countLabel <span class="op">=</span> <span class="kw">new</span> Label <span class="op">{</span> Text <span class="op">=</span> <span class="st">&quot;0&quot;</span> <span class="op">};</span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>        countButton<span class="op">.</span><span class="fu">Click</span> <span class="op">+=</span> <span class="kw">new</span> <span class="fu">countUpClass</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> countLabel<span class="op">).</span><span class="fu">countUp</span><span class="op">;</span></span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>        StackLayout stackLayout <span class="op">=</span> <span class="kw">new</span> <span class="fu">StackLayout</span><span class="op">();</span></span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>        stackLayout<span class="op">.</span><span class="fu">Padding</span> <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>        stackLayout<span class="op">.</span><span class="fu">HorizontalContentAlignment</span> <span class="op">=</span> HorizontalAlignment<span class="op">.</span><span class="fu">Stretch</span><span class="op">;</span></span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>        stackLayout<span class="op">.</span><span class="fu">Items</span><span class="op">.</span><span class="fu">Add</span><span class="op">(</span><span class="kw">new</span> <span class="fu">StackLayoutItem</span><span class="op">(</span>countLabel<span class="op">,</span> <span class="kw">true</span><span class="op">));</span></span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>        stackLayout<span class="op">.</span><span class="fu">Items</span><span class="op">.</span><span class="fu">Add</span><span class="op">(</span>countButton<span class="op">);</span></span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>        Content <span class="op">=</span> stackLayout<span class="op">;</span></span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>のようになる．</p>
 </div>
 </section>
