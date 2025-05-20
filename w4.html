@@ -41,7 +41,7 @@
                <h1>第4回 ファイル入出力と例外処理</h1>
              
             
-               <p class="last-update">最終更新: 2025-04-11 18:36:05</p> 
+               <p class="last-update">最終更新: 2025-05-20 10:55:39</p> 
             
             <div class="qnav">
               <ul>
@@ -202,7 +202,7 @@ Banana -&gt; 2</code></pre>
 </section>
 <section id="オブジェクト初期化子object-initializer" class="level2">
 <h2>オブジェクト初期化子（object initializer）</h2>
-<p>ディクショナリは<strong>オブジェクト初期化子</strong>やコレクション初期化子（<code>前回参照 &lt;./w3.html&gt;</code>__）を用いることで下記のように初期値を指定することができる．</p>
+<p>ディクショナリは<strong>オブジェクト初期化子</strong>やコレクション初期化子（<a href="./w3.html">前回参照</a>）を用いることで下記のように初期値を指定することができる．</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">.</span><span class="fu">Collections</span><span class="op">.</span><span class="fu">Generic</span><span class="op">;</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -821,10 +821,11 @@ cdef
 <div class="title">
 <p>Note</p>
 </div>
-<p><code>Substring</code>や<code>IndexOf</code>で指定するindexや長さは<code>string</code>を<code>char</code>の配列として見たときのものである．このことは以下のように絵文字等の扱いで直感に反することがある．</p>
+<p><code>Substring</code>などで指定するindexや長さは<code>string</code>を<code>char</code>の配列として見たときのものである．このことは以下のように絵文字等の扱いで直感に反することがある．</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;😱&quot;</span><span class="op">.</span><span class="fu">Length</span><span class="op">);</span>              <span class="co">// 2 </span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;0x{0:X}&quot;</span><span class="op">,</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="st">&quot;😱&quot;</span><span class="op">[</span><span class="dv">0</span><span class="op">]);</span> <span class="co">// 0xD83D </span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;0x{0:X}&quot;</span><span class="op">,</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="st">&quot;😱&quot;</span><span class="op">[</span><span class="dv">1</span><span class="op">]);</span> <span class="co">// 0xDE31</span></span></code></pre></div>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;0x{0:X}&quot;</span><span class="op">,</span> <span class="op">(</span><span class="dt">int</span><span class="op">)</span> <span class="st">&quot;😱&quot;</span><span class="op">[</span><span class="dv">1</span><span class="op">]);</span> <span class="co">// 0xDE31</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;&lt;&quot;</span> <span class="op">+</span> <span class="st">&quot;😱&quot;</span><span class="op">.</span><span class="fu">Substring</span><span class="op">(</span><span class="dv">1</span><span class="op">)</span> <span class="op">+</span> <span class="st">&quot;&gt;&quot;</span><span class="op">);</span> <span class="co">// &lt;�&gt;</span></span></code></pre></div>
 <p>これは，charがunicodeのコードポイントを表すのに十分でないためである．charは0〜65535の範囲しか表すことができない一方，unicodeのコードポイントの最大値は 0x10FFFF = 1114111 となる．実際に絵文字等のcharの範囲で表わせないコードポイントはcharのペアとして表わされる（参考：<a href="https://datatracker.ietf.org/doc/html/rfc2781#section-2">UTF-16, an encoding of ISO 10646</a>）．</p>
 <p>また，コードポイント自体も「文字」とは対応しない場合がある．たとえば，「🇯🇵」という一文字は二つのコードポイント（U+1F1EF U+1F1F5）で表現される．</p>
 </div>
