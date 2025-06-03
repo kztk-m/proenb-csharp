@@ -41,7 +41,7 @@
                <h1>第6回 課題 (2025)</h1>
              
             
-               <p class="last-update">最終更新: 2025-05-21 17:59:48</p> 
+               <p class="last-update">最終更新: 2025-06-03 11:27:06</p> 
             
             <div class="qnav">
               <ul>
@@ -78,6 +78,7 @@
 <p><strong>指定された名前（課題5では<code>Q5</code>，課題6では<code>Q6</code>とする）</strong>の空のフォルダを適当な場所に新規作成し，
 VSCodeで作成したフォルダを開く．そして，VSCode内のターミナルで以下を実行する．</p>
 <pre class="text"><code>dotnet new etoapp -sln</code></pre>
+<p>作成したプログラムの実行方法については<a href="./setup_gui.html#check">「第0回 環境構築2（C#演習用）」の「動作確認」</a>の手順2以降を参照．</p>
 </section>
 <section id="課題の実施" class="level3">
 <h3>課題の実施</h3>
@@ -141,9 +142,8 @@ VSCodeで作成したフォルダを開く．そして，VSCode内のターミ�
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>   <span class="kw">if</span> <span class="op">(</span> me<span class="op">.</span><span class="fu">Buttons</span><span class="op">.</span><span class="fu">HasFlag</span><span class="op">(</span> MouseButtons<span class="op">.</span><span class="fu">Primary</span> <span class="op">)</span> <span class="op">)</span> <span class="op">{</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>       <span class="co">// 主ボタンが押されたままマウスが移動したときの処理</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>   <span class="op">}</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>`MouseMove`はマウスが動かないと発生しない点に注意．指定された挙動を実現するためには他のイベントも購読する必要があるだろう．</span></code></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<p><code>MouseMove</code>はマウスが動かないと発生しない点に注意．指定された挙動を実現するためには他のイベントも購読する必要があるだろう．</p>
 </div>
 <div class="tip">
 <div class="title">
