@@ -41,7 +41,7 @@
                <h1>第1回 C#にさわってみよう</h1>
              
             
-               <p class="last-update">最終更新: 2025-04-15 10:20:30</p> 
+               <p class="last-update">最終更新: 2026-04-03 13:42:42</p> 
             
             <div class="qnav">
               <ul>
@@ -57,6 +57,7 @@
 <li><a href="#クラスのとても基本的な構造" id="toc-クラスのとても基本的な構造">クラスのとても基本的な構造</a>
 <ul>
 <li><a href="#例カウンター" id="toc-例カウンター">例：カウンター</a></li>
+<li><a href="#練習問題" id="toc-練習問題">練習問題</a></li>
 <li><a href="#フィールド宣言の基本的な形" id="toc-フィールド宣言の基本的な形">フィールド宣言の基本的な形</a></li>
 <li><a href="#コンストラクタ宣言の基本的な形" id="toc-コンストラクタ宣言の基本的な形">コンストラクタ宣言の基本的な形</a></li>
 <li><a href="#メソッド宣言の基本的な形" id="toc-メソッド宣言の基本的な形">メソッド宣言の基本的な形</a></li>
@@ -74,7 +75,7 @@
 <ul>
 <li><a href="#メソッド呼出" id="toc-メソッド呼出">メソッド呼出</a></li>
 <li><a href="#オブジェクト生成式new" id="toc-オブジェクト生成式new">オブジェクト生成式（<code>new</code>）</a></li>
-<li><a href="#インクリメントとデクリメント-" id="toc-インクリメントとデクリメント-">インクリメント（<code>++</code>）とデクリメント（<code>-</code>）</a></li>
+<li><a href="#インクリメントとデクリメント--" id="toc-インクリメントとデクリメント--">インクリメント（<code>++</code>）とデクリメント（<code>--</code>）</a></li>
 <li><a href="#四則演算" id="toc-四則演算">四則演算</a></li>
 <li><a href="#文字列の連接" id="toc-文字列の連接">文字列の連接</a></li>
 <li><a href="#比較演算" id="toc-比較演算">比較演算</a></li>
@@ -218,7 +219,7 @@
 </section>
 <section id="メソッドの追加" class="level4">
 <h4>メソッドの追加</h4>
-<p>では，<code>Counter</code>クラスに<strong>（インスタンス）メソッド</strong>を追加してもっと面白くしてみよう．（インスタンス）メソッド<code>Method</code>はオブジェクト<code>o</code>に対し，<code>o.Method(arg1, arg2)</code>のよう形で呼出すことができる関数のようなものである．具体的にはカウンタをインクリメントするメソッド<code>Inc()</code>，リセットするメソッド<code>Reset()</code>，取得するメソッド<code>GetCount()</code>を定義してみよう．</p>
+<p>では，<code>Counter</code>クラスに<strong>（インスタンス）メソッド</strong>を追加してもっと面白くしてみよう．（インスタンス）メソッド<code>Method</code>はオブジェクト<code>o</code>に対し，<code>o.Method(arg1, arg2)</code>のような形で呼出すことができる関数のようなものである．具体的にはカウンタをインクリメントするメソッド<code>Inc()</code>，リセットするメソッド<code>Reset()</code>，取得するメソッド<code>GetCount()</code>を定義してみよう．</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Counter </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">private</span> <span class="dt">int</span> count<span class="op">;</span> </span>
@@ -304,7 +305,7 @@ c.GetCount() = 2
 c.GetCount() = 0
 c.GetCount() = 1
 d.GetCount() = 7</code></pre>
-<p>メソッド<code>Inc()</code>等が，<code>obj.Inc()</code>の形で呼び出されていることを確認しよう．また，（インスタンス）メソッド<code>Inc()</code>の定義において（インスタンス）フィールド<code>count</code>が参照されていることにも注意する．大雑把には，この<code>count</code>は，メソッド<code>Inc()</code>が属するインスタンスの同名のフィールドを差している．</p>
+<p>メソッド<code>Inc()</code>等が，<code>obj.Inc()</code>の形で呼び出されていることを確認しよう．また，（インスタンス）メソッド<code>Inc()</code>の定義において（インスタンス）フィールド<code>count</code>が参照されていることにも注意する．大雑把には，この<code>count</code>は，メソッド<code>Inc()</code>が属するインスタンスの同名のフィールドを指している．</p>
 <div class="note">
 <div class="title">
 <p>Note</p>
@@ -359,7 +360,7 @@ d.GetCount() = 7</code></pre>
 <section id="staticメソッドの追加" class="level4">
 <h4>staticメソッドの追加</h4>
 <p>さらに<code>Counter</code>を便利なものにするために，<code>"12"</code>や<code>"-34"</code>といった文字列からカウンターを作成することを考えてみよう．</p>
-<p>このような処理はコンストラクタとしても実装可能である．が，カウンターオブジェクトの生成という関心事からいささか複雑すぎるので，今回はそのようなアプローチは取らないことにする．一方で，このような処理を<code>Counter</code>クラスの（インスタンス）メソッドとして実装することはできない．これは，<em>インタンスメソッドはインタンスに属する</em>ものであるが，行いたい処理の時点では<em>インスタンスはまだ生成されていない</em>ためである．実際に，構文上においても，インスタンス<code>o</code>に対するインスタンスメソッド<code>Method</code>の呼出しは<code>o.Method(arg1, arg2)</code>となっていて，インスタンスが与えられなければインスタンスメソッドを呼び出すことができない．</p>
+<p>このような処理はコンストラクタとしても実装可能である．が，カウンターオブジェクトの生成という関心事からいささか複雑すぎるので，今回はそのようなアプローチは取らないことにする．一方で，このような処理を<code>Counter</code>クラスの（インスタンス）メソッドとして実装することはできない．これは，<em>インスタンスメソッドはインスタンスに属する</em>ものであるが，行いたい処理の時点では<em>インスタンスはまだ生成されていない</em>ためである．実際に，構文上においても，インスタンス<code>o</code>に対するインスタンスメソッド<code>Method</code>の呼出しは<code>o.Method(arg1, arg2)</code>となっていて，インスタンスが与えられなければインスタンスメソッドを呼び出すことができない．</p>
 <p><strong>staticメソッド</strong>を用いればこの問題を解決することができる．staticメソッドはざっくりと説明するならば，
 <em>インスタンスではなくクラスに属するメソッド</em>（この言い方は少し正確でない．C#だと構造体型がありそちらもstaticメソッドを持てるので）である．そのため，インスタンスが与えられなくても呼び出すことが可能である．具体的には以下の形のメソッドを追加する．</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">static</span> Counter <span class="fu">Parse</span><span class="op">(</span><span class="dt">string</span> s<span class="op">)</span> </span>
@@ -368,7 +369,7 @@ d.GetCount() = 7</code></pre>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p><em>static修飾子</em>はこのメソッドがstaticメソッドであることを表している．</p>
 <p>さて，この関数の実装であるが，
-<code>Int32.Parse</code>メソッド（参考：<a href="https://docs.microsoft.com/en-us/dotnet/api/?view=net-6.0%3E">.NETのAPIリファレンス</a>）を用いることで実装できる．</p>
+<code>Int32.Parse</code>メソッド（参考：<a href="https://learn.microsoft.com/en-us/dotnet/api/?view=net-10.0">.NETのAPIリファレンス</a>）を用いることで実装できる．</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> <span class="kw">static</span> Counter <span class="fu">Parse</span><span class="op">(</span><span class="dt">string</span> s<span class="op">)</span> </span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> i <span class="op">=</span> Int32<span class="op">.</span><span class="fu">Parse</span><span class="op">(</span>s<span class="op">);</span> </span>
@@ -424,6 +425,41 @@ c.GetCount() = 5</code></pre>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>直観的には<code>Parse</code>はクラスに属するメソッドであるので，インスタンスに属するフィールド<code>count</code>をオブジェクト経由なしにアクセスすることができないためである．</p>
 </section>
+</section>
+<section id="練習問題" class="level3 q_in_class">
+<h3 class="q_in_class">練習問題</h3>
+<div class="important">
+<div class="title">
+<p>Important</p>
+</div>
+<p>本演習を実施の際はCopilot等のAI支援機能をオフにしてください．</p>
+</div>
+<div class="caution">
+<div class="title">
+<p>Caution</p>
+</div>
+<p>練習問題の解答は提出しない．講義中にトライしわからない点を質問するのに使うとよい．</p>
+</div>
+<p>カウンターの例を実際に手元で動かして動作を確認してみよう．また，以下の<code>public</code>メソッドを追加してみよう．</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">メソッド</th>
+<th style="text-align: left;">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>void SetCount(int n)</code></td>
+<td style="text-align: left;"><code>count</code>を<code>n</code>に設定する</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>void IncMany(int n)</code></td>
+<td style="text-align: left;"><code>n</code>回<code>Inc()</code>する</td>
+</tr>
+</tbody>
+</table>
+<p>以降に記載の情報も参考にするとよい．どのように動作を確認するかも考えてみよう．</p>
 </section>
 <section id="フィールド宣言の基本的な形" class="level3">
 <h3>フィールド宣言の基本的な形</h3>
@@ -616,7 +652,7 @@ c.GetCount() = 5</code></pre>
 <span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> <span class="kw">false</span><span class="op">;</span></span>
 <span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>上のようなコードは冗長で，もっと簡潔に</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">return</span> <span class="op">(</span>a <span class="op">&lt;</span> b<span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="kw">return</span> <span class="op">(</span>a <span class="op">&lt;</span> b<span class="op">);</span></span></code></pre></div>
 <p>のように書ける．</p>
 </div>
 <div class="note">
@@ -690,8 +726,8 @@ c.GetCount() = 5</code></pre>
 <div class="sourceCode" id="cb49"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="kw">new</span> <span class="fu">Counter</span><span class="op">(</span><span class="dv">0</span><span class="op">).</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">()</span></span></code></pre></div>
 </div>
 </section>
-<section id="インクリメントとデクリメント-" class="level3">
-<h3>インクリメント（<code>++</code>）とデクリメント（<code>-</code>）</h3>
+<section id="インクリメントとデクリメント--" class="level3">
+<h3>インクリメント（<code>++</code>）とデクリメント（<code>--</code>）</h3>
 <ul>
 <li><code>++x</code>は <code>x</code>を1増やす．増やした後の値がこの式の評価結果となる．</li>
 <li><code>--x</code>は <code>x</code>を1減らす．減らした後の値がこの式の評価結果となる．</li>

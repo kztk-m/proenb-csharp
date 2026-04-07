@@ -41,7 +41,7 @@
                <h1>第3回 コレクション・ジェネリクス</h1>
              
             
-               <p class="last-update">最終更新: 2025-04-03 14:37:01</p> 
+               <p class="last-update">最終更新: 2026-04-03 21:15:21</p> 
             
             <div class="qnav">
               <ul>
@@ -224,7 +224,7 @@
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>これは<code>a</code>や<code>b</code>が配列そのものではなく配列への参照であり，<code>int[] b = a</code>によりそれぞれの値が同じ配列への参照になっているためである．C#においては，こうした，その型の値が実体そのものでなく実体への参照であるような型を参照型（reference type）といい，たとえば配列型やクラス型，そして文字列型は参照型である．一方で，<code>int</code>や<code>bool</code>等はその型の値は実体（整数や真偽値）そのものである（ように振る舞う）．そのような型を値型（value type）という．</p>
-<p>複合的な型やユーザ定義型が必ずしも参照型ということはなく，組型（tuple type）や構造体型（structure type）は値型となる（いずれも本演習では未登場）．本演習ではこの区別には深入りしないが，興味のある人は<a href="https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/types/" class="uri">https://docs.microsoft.com/en-us/dotnet/csharp/fundamentals/types/</a>や，そこから辿れる文章等を調べてみるとよい．</p>
+<p>複合的な型やユーザ定義型が必ずしも参照型ということはなく，組型（tuple type）や構造体型（structure type）は値型となる（いずれも本演習では未登場）．本演習ではこの区別には深入りしないが，興味のある人は<a href="https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/" class="uri">https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/</a>や，そこから辿れる文章等を調べてみるとよい．</p>
 </div>
 </section>
 <section id="プロパティproperty" class="level2">
@@ -377,7 +377,7 @@
 </tr>
 </tbody>
 </table>
-<p><a href="./w2.html%3E">前回</a>，<a href="./w1.html">前々回</a>でいくつかのクラスは<code>T GetXXX()</code>や<code>void SetXXX(T x)</code>といったメソッドを持っていたが，こういったメソッドはプロパティとして実装することができる．</p>
+<p><a href="./w2.html">前回</a>，<a href="./w1.html">前々回</a>でいくつかのクラスは<code>T GetXXX()</code>や<code>void SetXXX(T x)</code>といったメソッドを持っていたが，こういったメソッドはプロパティとして実装することができる．</p>
 </section>
 <section id="list-t" class="level2">
 <h2><code>List &lt;T&gt;</code></h2>
@@ -549,8 +549,8 @@
 </div>
 <p>ジェネリクスもポリモーフィズムを実現する重要な言語機能の一つである．</p>
 </section>
-<section id="練習問題" class="level2">
-<h2>練習問題</h2>
+<section id="練習問題" class="level2 q_in_class">
+<h2 class="q_in_class">練習問題</h2>
 <p>プレイリストを管理するためのクラス <code>PlayList</code> を作成しなさい．このクラスは曲名のリスト（<code>List&lt;T&gt;</code>を用いて実装する必要はないが，してもよい）を管理し，以下のpublicなコンストラクタ・メソッドを持つ．</p>
 <table>
 <thead>
@@ -562,7 +562,7 @@
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><code>PlayList(string[] titles)</code></td>
-<td style="text-align: left;">曲目が<code>titles</code>で与えらるようなプレイリストを作成するコンストラクタ．</td>
+<td style="text-align: left;">曲目が<code>titles</code>で与えられるようなプレイリストを作成するコンストラクタ．</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>void PrintTrack(int i)</code></td>
@@ -605,7 +605,7 @@
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> </span></code></pre></div>
 <p>のように<code>var</code>を使うのが楽であろう．</p>
 <p>直感的には<code>foreach (var x in xs) { ... }</code>はコレクション<code>xs</code>の各要素を<code>x</code>として<code>...</code>内の処理を繰り返す．</p>
-<p>より正確な言い方をすれば，<code>foreach</code>を使用するには<code>in</code>の右に書くオブジェクトが，<code>System.Collections.Generics.IEnumerable&lt;T&gt;</code> インタフェース （か，その非ジェネリック版の<code>System.Collections.IEnumerable</code>）を実装している型である必要がある．</p>
+<p>より正確な言い方をすれば，<code>foreach</code>を使用するには<code>in</code>の右に書くオブジェクトが，<code>System.Collections.Generic.IEnumerable&lt;T&gt;</code> インタフェース （か，その非ジェネリック版の<code>System.Collections.IEnumerable</code>）を実装している型である必要がある．</p>
 <div class="caution">
 <div class="title">
 <p>Caution</p>
@@ -618,14 +618,14 @@
 </section>
 <section id="インタフェース" class="level2">
 <h2>インタフェース</h2>
-<p><strong>インタフェース</strong>は，大雑把にはオブジェクトが持っているべきインスタンスメソッドやフィールド等を規定するものである．クラスが，これらのインタフェースの規定するメソッドやフィールドを実装しているとき，そのクラスが当該インタフェースを<strong>実装している</strong>と言う．ユーザはクラスがどのインタフェースを実装しているかを陽に与えなければならない．クラスはたかだか一つのクラスを継承できるが，インタフェースは複数実装可能である．</p>
+<p><strong>インタフェース</strong>は，大雑把にはオブジェクトが持っているべきインスタンスメソッドやプロパティ等を規定するものである．クラスが，これらのインタフェースの規定するメソッドやプロパティを実装しているとき，そのクラスが当該インタフェースを<strong>実装している</strong>と言う．ユーザはクラスがどのインタフェースを実装しているかを陽に与えなければならない．クラスはたかだか一つのクラスを継承できるが，インタフェースは複数実装可能である．</p>
 <p>実装の際は単に基底クラスと同様に<code>:</code>の右にインタフェース名を書けばよい．</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> A <span class="op">:</span> BaseClass<span class="op">,</span> Interface1<span class="op">,</span> Interface2 </span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ...</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>インタフェースも継承と同じく再利用性と高める．たとえば<code>foreach</code>文はよい例であり，<code>IEnumerable&lt;T&gt;</code>（か，その非ジェネリック版の<code>IEnumerable</code>）を実装している型ならばどんな型に対しても<code>foreach</code>文を利用可能である．</p>
-<p><code>List&lt;T&gt;</code>の<code>Remove(T)</code>メソッドもインタフェースを利用している．与えられた引数が<code>IEquatable&lt;T&gt;</code>を実装しているクラスのインスタンスであれば，そのインタフェースで規定されているメソッド<code>Equals(T)</code>を使って要素の等価性を判定する．そうでなければ，仮想メソッドである<code>Object.Equals</code> メソッドが用いられる（<a href="https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.remove?view=net-6.0#system-collections-generic-list-1-remove(-0)">参考</a>）．</p>
+<p>インタフェースも継承と同じく再利用性を高める．たとえば<code>foreach</code>文はよい例であり，<code>IEnumerable&lt;T&gt;</code>（か，その非ジェネリック版の<code>IEnumerable</code>）を実装している型ならばどんな型に対しても<code>foreach</code>文を利用可能である．</p>
+<p><code>List&lt;T&gt;</code>の<code>Remove(T)</code>メソッドもインタフェースを利用している．与えられた引数が<code>IEquatable&lt;T&gt;</code>を実装しているクラスのインスタンスであれば，そのインタフェースで規定されているメソッド<code>Equals(T)</code>を使って要素の等価性を判定する．そうでなければ，仮想メソッドである<code>Object.Equals</code> メソッドが用いられる（<a href="https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.remove?view=net-10.0#system-collections-generic-list-1-remove(-0)">参考</a>）．</p>
 <p>インタフェースを適切に用いることでメソッドの再利用を高めることができる．たとえば，<code>f(IEnumerable&lt;int&gt;)</code>には<code>int[]</code>型の値も，<code>List&lt;int&gt;</code>型や<code>LinkedList&lt;int&gt;</code>型の値も渡すことができる．本演習ではインタフェースにはこれ以上はあまり立ち入らない．</p>
 </section>
 <section id="コレクション初期化子" class="level2">
@@ -633,7 +633,7 @@
 <p><code>List&lt;T&gt;</code>など，<code>Add</code>メソッドを持ち，なおかつ<code>IEnumerable</code>を実装しているクラス（<code>IEnumerable&lt;T&gt;</code>でもよい）に対しては，
 <strong>コレクション初期化子</strong>を利用することができる．</p>
 <p>たとえば，</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">// コレクション初期化子を伴う場合は，引数なしコンストラクタの()は省略化</span></span>
+<div class="sourceCode" id="cb14"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">// コレクション初期化子を伴う場合は，引数なしコンストラクタの()は省略可</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>List<span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;</span> ns <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;</span> <span class="op">{</span> <span class="st">&quot;apple&quot;</span><span class="op">,</span> <span class="st">&quot;orange&quot;</span><span class="op">,</span> <span class="st">&quot;banana&quot;</span> <span class="op">};</span></span></code></pre></div>
 <p>のようにすることで，</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>List<span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;</span> ns <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;();</span></span>
@@ -657,7 +657,7 @@
 </section>
 <section id="名前空間" class="level2">
 <h2>名前空間</h2>
-<p>（読みとばしてもよい．）</p>
+<p>（本演習では深入りしないため，読みとばしてもよい．）</p>
 <p>さて，先程 <code>using System.Collections.Generic;</code>という<code>using System;</code>以外の<code>using</code>が出てきたので，<strong>名前空間</strong>について説明しておく．</p>
 <p>C#において，クラス名やメソッド名などの名前はいずれかの名前空間に属している．たとえば，<code>Console</code>は<code>System</code>という名前空間に属している．また，上記の<code>MyPair</code>や<code>ArrayExample</code>等は「空」の名前空間（グローバル名前空間）に属している．名前空間は名前空間を含むことができる．たとえば，<code>System</code>は<code>Collections</code>という名前空間を含んでいて，その<code>Collections</code>は
 <code>Generic</code>という名前空間を含んでいる．上記の<code>List&lt;T&gt;</code>はその<code>Generic</code>に含まれている．</p>

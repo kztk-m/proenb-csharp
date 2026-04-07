@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="ja">
     <head>
-        <title>第4回 課題 (2025) - 東北大学プログラミング演習B (C#)</title>
+        <title>第4回 課題 (2026) - 東北大学プログラミング演習B (C#)</title>
         <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -38,10 +38,10 @@
             </nav>
 
             
-               <h1>第4回 課題 (2025)</h1>
+               <h1>第4回 課題 (2026)</h1>
              
             
-               <p class="last-update">最終更新: 2025-05-20 10:54:49</p> 
+               <p class="last-update">最終更新: 2026-04-07 16:35:51</p> 
             
             <div class="qnav">
               <ul>
@@ -149,7 +149,7 @@ Chocolate,2</code></pre>
 <span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>前者の処理を実現するため，以下のプログラムの空欄を埋めて完成させよ．</p>
+<p>そのため，あなたのタスクは前者の，ファイルを読んでその内容から<code>Dictionary&lt;string, int&gt;</code>を作成することである．この処理を実現するため，以下のプログラムの空欄を埋めて完成させよ．</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// あなたの学籍番号</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">// あなたの名前</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -175,45 +175,56 @@ Chocolate,2</code></pre>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        <span class="co">// この処理を何かで囲むこともあるかもしれないし，あるいはそのまま使うかもしれない．</span></span>
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>        <span class="kw">foreach</span><span class="op">(</span><span class="dt">var</span> line <span class="kw">in</span> lines<span class="op">)</span> <span class="op">{</span></span>
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>            <span class="co">// ...</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> dict<span class="op">;</span> </span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">procFile</span><span class="op">(</span><span class="dt">string</span> filepath<span class="op">)</span></span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 当然，filepathが開けなければ例外が発生するが *その1では*無視</span></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>        <span class="dt">var</span> lines <span class="op">=</span> File<span class="op">.</span><span class="fu">ReadAllLines</span><span class="op">(</span>filepath<span class="op">);</span>        </span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>        DictionaryHelper<span class="op">.</span><span class="fu">PrintByDescendingValues</span><span class="op">(</span><span class="fu">readDictionary</span><span class="op">(</span>lines<span class="op">));</span></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 変更しない</span></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">(</span><span class="dt">string</span><span class="op">[]</span> args<span class="op">)</span></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(</span>args<span class="op">.</span><span class="fu">Length</span> <span class="op">&lt;</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;引数の数が不足しています：ファイルパスが必要です．&quot;</span><span class="op">);</span></span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>            <span class="kw">return</span><span class="op">;</span></span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>        <span class="fu">procFile</span><span class="op">(</span> args<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">);</span></span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>            <span class="co">// この中でlinesを変更しない．そもそも参照する必要はないはず．</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>        <span class="kw">return</span> dict<span class="op">;</span> </span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">procFile</span><span class="op">(</span><span class="dt">string</span> filepath<span class="op">)</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 当然，filepathが開けなければ例外が発生するが *その1では*無視</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>        <span class="dt">var</span> lines <span class="op">=</span> File<span class="op">.</span><span class="fu">ReadAllLines</span><span class="op">(</span>filepath<span class="op">);</span>        </span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>        <span class="co">// linesから辞書を作成し，その辞書をバリューが降順になるようなキーの順で標準出力に出力する</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 前者をするのが readDictionary．この実装の完成が課題．</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 後者をするのが DictionaryHelper.PrintByDescendingValues．こちらは所与．</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>        DictionaryHelper<span class="op">.</span><span class="fu">PrintByDescendingValues</span><span class="op">(</span><span class="fu">readDictionary</span><span class="op">(</span>lines<span class="op">));</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>    <span class="co">// 変更しない</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    <span class="kw">static</span> <span class="dt">void</span> <span class="fu">Main</span><span class="op">(</span><span class="dt">string</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    <span class="op">{</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>        <span class="kw">if</span> <span class="op">(</span>args<span class="op">.</span><span class="fu">Length</span> <span class="op">&lt;</span> <span class="dv">1</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;引数の数が不足しています：ファイルパスが必要です．&quot;</span><span class="op">);</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>            <span class="kw">return</span><span class="op">;</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>        <span class="fu">procFile</span><span class="op">(</span> args<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">);</span></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <section id="動作確認例" class="level4">
 <h4>動作確認例</h4>
 <div class="Instructions">
 <ol type="1">
-<li><p>まず，入力ファイルを準備する（<code>items.txt</code>という名前だとする）．VSCodeで以下の中身の<code>items.txt</code>を<code>.csproj</code>と同じフォルダに作成する．</p>
+<li><p>まず，入力ファイルを準備する（<code>q4_items1.txt</code>という名前だとする）．VSCodeで以下の中身の<code>q4_items1.txt</code>を<code>.csproj</code>と同じフォルダに作成する．</p>
 <pre class="text"><code>Chocolate,2
 Chips,0
 Candy,5</code></pre>
 <p>コマンドラインに慣れている人は<a href="./q4_items1.txt">q4_items1.txt</a>を<code>curl</code>か何かで取ってきたのでよい．</p></li>
 <li><p><code>.csproj</code>と同じフォルダで以下を行う．<code>$</code>はプロンプトを表し，そこから右がユーザが入力する部分を表す（<code>$</code>自体は入力しない）．</p>
-<pre class="console"><code>$ dotnet run -- items.txt
+<pre class="console"><code>$ dotnet run -- q4_items1.txt
 Candy, 5
 Chocolate, 2
 Chips, 0</code></pre></li>
 </ol>
+<div class="important">
+<div class="title">
+<p>Important</p>
 </div>
-<p><strong>自身がプログラムの動作確認に使用した入力ファイル（上記の<code>items.txt</code>）も一つ以上提出物に含めること（発展課題も同じ）</strong>．動作利便性および環境由来のトラブル回避のため，ファイル名の拡張子を除いた部分に使用してよい文字は英語アルファベット小文字，<code>_</code>，数字のみとする．</p>
+<p><code>dotnet run</code>を実行する前に，編集中のプログラムファイルに未保存の変更がないかを確認し，あれば（そしてそれが意図通りでなければ）保存する．そうでなければ，書いているものと実行しているものが違うことになる．</p>
+</div>
+</div>
+<p><strong>自身がプログラムの動作確認に使用した入力ファイル（上記の<code>q4_items1.txt</code>）も一つ以上提出物に含めること（発展課題も同じ）</strong>．動作利便性および環境由来のトラブル回避のため，ファイル名の拡張子を除いた部分に使用してよい文字は英語アルファベット小文字，<code>_</code>，数字のみとする．</p>
 <ul>
 <li>OKな例：<code>q4_items20.txt</code>，<code>q4_ex1.txt</code>など</li>
 <li>NGな例：<code>Q4.txt</code>，<code>課題4.txt</code>など</li>
@@ -226,7 +237,7 @@ Chips, 0</code></pre></li>
 <pre class="text"><code>品目名,個数</code></pre>
 <p>という形になっている．基本課題においては，品目名，<code>,</code>，および個数の前後に余計な空白は含まれない（発展課題で変更あり）</p></li>
 <li><p>個数は<code>int</code>で表現可能な数に比べて十分に小さいとする（個数の処理でオーバフローを考える必要はない）．<em>簡便のため負数や0は許すことにする</em>．</p></li>
-<li><p>品目名は<code>,</code>および前後の空白は含まない．たとえば<code> </code>（空白文字からなる文字列）や<code> X </code>（空白文字，'X'，空白文字からなる文字列）などはここで言う品目名ではない．途中の（非改行）空白は含んでもよい（例：<code>Ruby Chocolate</code>）．</p></li>
+<li><p>品目名は<code>,</code>を含まず，さらに先頭も末尾も空白でない．また改行も含まない．たとえば<code> </code>（空白文字からなる文字列）や<code> X </code>（空白文字，'X'，空白文字からなる文字列）などはここで言う品目名ではない．先頭末尾以外の（非改行）空白は含んでもよい（例：<code>Ruby Chocolate</code>，<code>Café au lait</code>）．なお，<em>空文字列も有効な品目名である</em>ことに注意（<code>,</code>を含まず，先頭も末尾も空白でないので）．大文字小文字は区別する．</p></li>
 <li><p>基本課題では各行の品目名に重複を許さない．</p></li>
 <li><p>基本課題では上記の形式でないファイルが与えられたときの挙動は考えなくてよい（上記を満たす入力ファイルについて正しく動けばよい）．</p></li>
 </ul>
@@ -408,6 +419,7 @@ Chips, 0</code></pre></li>
 <li><code>UnauthorizedAccessException</code></li>
 <li><code>IOException</code></li>
 </ul>
+<p>「ファイルが正常に開けなかった旨」は最低「ファイルが正常に開けませんでした」と表示したのでもよい．例外あるいは例外の型そのままを出力するのは避ける．それはこれらがC#の実装の詳細であるためである．ユーザの立場での原因が分かるのならばその情報を表示したほうが親切である．</p>
 <div class="tip">
 <div class="title">
 <p>Tip</p>
@@ -480,7 +492,8 @@ Chips, 0</code></pre></li>
 <div class="sourceCode" id="cb21"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>dict<span class="op">.</span><span class="fu">ContainsKey</span><span class="op">(</span> k <span class="op">)</span> </span></code></pre></div>
 <p>の評価結果は<code>k</code>が<code>dict</code>に含まれていれば<code>true</code>，そうでなければ<code>false</code>である．</p>
 </div></li>
-<li><p>入力テキストファイルにコメントや余計な空白，空行が入っていても正常に読みこめるようにせよ．品目名は空白で始まったり終わったりはしなかったことを思い出してほしい（途中に空白を含んでいてもよい）．ここで，"#"で始まる行をコメントとする（<em>"#"が行頭でない場合はコメントでない</em>のに注意）．また，空行は空白を含んでいてもよい．また，ある行において指定されたフォーマットで解釈することに失敗した場合には，<code>readDictionary</code>はその行以前までの行を読み取った結果から得られる辞書を返すようにする．ここで，指定されたフォーマットで解釈できない行とは，たとえば以下のようなものである．</p>
+<li><p>入力テキストファイルにコメントや余計な空白，空行が入っていても正常に読みこめるようにせよ．品目名は空白で始まったり終わったりはしなかったことを思い出してほしい（途中に空白を含んでいてもよい）．ここで，"#"で始まる行をコメントとする（<em>"#"が行頭でない場合はコメントでない</em>のに注意）．また，空行は空白を含んでいてもよい．また，ある行において指定されたフォーマットで解釈することに失敗した場合には，<code>readDictionary</code>はその行以前までの行を読み取った結果から得られる辞書を返すようにする．</p>
+<p>ここで，指定されたフォーマットで解釈できない行とは，たとえば以下のようなものである．</p>
 <ul>
 <li><p>コメント行ではない行で<code>,</code>を含まない，あるいは2個以上含む行．たとえば：</p>
 <pre class="text"><code>   #コメントでなくコンマを含まない行</code></pre>
@@ -498,89 +511,76 @@ Chips, 0</code></pre></li>
 </ul>
 <section id="期待される動作例" class="level3">
 <h3>期待される動作例</h3>
-<!-- markdownlint-disable MD032 -->
-<!-- markdownlint-disable MD009 -->
 <div class="scroll-wrapper horizontal table">
 <div class="scroll-box horizontal">
-<table>
-<thead>
-<tr>
-<th>
-入力テキストファイルとその中身
-</th>
-<th>
-期待される出力
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<p><a href="./q4_items2.txt">q4_items2.txt</a></p>
-<pre>
-Chocolate,2
+<div class="io-examples">
+<figure>
+<figcaption>
+入力ファイル：<a href="./q4_items2.txt">q4_items2.txt</a>
+</figcaption>
+<pre class="text"><code>Chocolate,2
 Chips,14
 Candy,5
 Chocolate,40
-Chips,-14
-</pre>
-</td>
-<td>
-<pre>
-Chocolate, 42
+Chips,-14</code></pre>
+</figure>
+<figure>
+<figcaption>
+出力
+</figcaption>
+<pre class="text"><code>Chocolate, 42
 Candy, 5
-Chips, 0
-</pre>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="./q4_items3.txt">q4_items3.txt</a></p>
-<pre>
-#コメント行
-Chocolate,  2
+Chips, 0</code></pre>
+</figure>
+<figure>
+<figcaption>
+入力ファイル：<a href="./q4_items3.txt">q4_items3.txt</a>
+</figcaption>
+<pre class="text"><code>#コメント行
+Chocolate,2
    Chips ,14  
 
 Candy,5
-Chocolate,40
-</pre>
-</td>
-<td>
-<pre>
-Chocolate, 42
+  Chocolate ,  40</code></pre>
+</figure>
+<figure>
+<figcaption>
+出力
+</figcaption>
+<pre class="text"><code>Chocolate, 42
 Chips, 14
-Candy, 5
-</pre>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="./q4_items4.txt">q4_items4.txt</a></p>
-<pre>
-# コメント行
+Candy, 5</code></pre>
+</figure>
+<figure>
+<figcaption>
+入力ファイル：<a href="./q4_items4.txt">q4_items4.txt</a>
+</figcaption>
+<pre class="text"><code># コメント行
 Chocolate,  2
    Chips ,14  
 # 空行は空白を含んでいてもよい
       
+# なお, コメント行はコンマを含んでいてもよい
+# X, 3 
+# ↑もコメント行
 Candy,5
 Chocolate,40
       #コメントでない行
-Candy,25
-</pre>
-</td>
-<td>
-<pre>
-Chocolate, 42
+Candy,25</code></pre>
+</figure>
+<figure>
+<figcaption>
+出力
+</figcaption>
+<pre class="text"><code>Chocolate, 42
 Chips, 14
-Candy, 5
-</pre>
-</td>
-</tr>
-<tr>
-<td>
-<p><a href="./q4_items5.txt">q4_items5.txt</a></p>
-<pre>
-# 品目名は空白を含んでいてよい
+Candy, 5</code></pre>
+</figure>
+<figure>
+<figcaption>
+入力ファイル：<a href="./q4_items5.txt">q4_items5.txt</a>
+</figcaption>
+<pre class="text"><code># 品目名は先頭末尾以外の空白を含んでいてよい
 Ruby Chocolate, 6
 # 品目名が数字なのは許される
 100 , 5
@@ -588,24 +588,40 @@ Ruby Chocolate, 6
  ####  , 9
  # なのでこれも正しく処理できる行, 3
 # 個数の部分にはInt32.Parse()が失敗するようなものは許さない
-something,ten
-</pre>
-</td>
-<td>
-<pre>
-####, 9
+something,10ten</code></pre>
+</figure>
+<figure>
+<figcaption>
+出力
+</figcaption>
+<pre class="text"><code>####, 9
 Ruby Chocolate, 6
 100, 5
-# なのでこれも正しく処理できる行, 3
-</pre>
-</td>
-</tr>
-</tbody>
-</table>
+# なのでこれも正しく処理できる行, 3</code></pre>
+</figure>
+<figure>
+<figcaption>
+入力ファイル：<a href="./q4_items6.txt">q4_items6.txt</a>
+</figcaption>
+<pre class="text"><code># コーナーケース．
+# 以下は通る
+, 2
+# 以下についても同様
+   , 4
+# 以下は通らない
+X, 23, sometext
+# なので，この行以下は無視される
+, 10</code></pre>
+</figure>
+<figure>
+<figcaption>
+出力
+</figcaption>
+<pre class="text"><code>, 6</code></pre>
+</figure>
 </div>
 </div>
-<!-- markdownlint-enable MD009 -->
-<!-- markdownlint-enable MD032 -->
+</div>
 </section>
 </section>
           </section>
