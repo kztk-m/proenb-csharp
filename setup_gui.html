@@ -41,7 +41,7 @@
                <h1>第0回 環境構築2（C#演習用）</h1>
              
             
-               <p class="last-update">最終更新: 2026-04-07 19:36:02</p> 
+               <p class="last-update">最終更新: 2026-04-10 20:25:25</p> 
             
             <div class="qnav">
               <ul>
@@ -111,7 +111,8 @@ Eto Panel, Dialog or Form  etofile   [C#],F#,VB  Cross Platform/Eto</code></pre>
 HelloEto/     HelloEto.Gtk/ HelloEto.Mac/ HelloEto.Wpf/ HelloEto.sln</code></pre></li>
 </ol></li>
 <li><p>ビルドおよび実行してみる．</p>
-<p>Windowsの場合は<code>HelloEto.Wpf</code>以下の<code>Program.cs</code>，Macの場合は<code>HelloEto.Mac</code>以下の<code>Program.cs</code>を開き（サイドバーからファイルを選択する）， エディタ<strong>右上</strong>（アクティビティーバーにあるアイコンではない）の「再生ボタンの右下に虫がついたアイコン」（デバッグ実行を表す）をクリックする．</p>
+<p>Windowsの場合は<code>HelloEto.Wpf</code>以下の<code>Program.cs</code>，Macの場合は<code>HelloEto.Mac</code>以下の<code>Program.cs</code>を開き（サイドバーからファイルを選択する）， エディタ<strong>右上</strong>（アクティビティーバーにあるアイコンではない）の「再生ボタンの右下に虫がついたアイコン」（デバッグ実行を表す）をクリックする．ただし，Macの場合は<code>HelloEto.Mac</code>直下にある<code>HelloEto.Mac.csproj</code>の<code>PropertyGroup</code>内に以下の行を追加する必要があるかもしれない．</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">StartWorkingDirectory</span>&gt;./&lt;/<span class="kw">StartWorkingDirectory</span>&gt;</span></code></pre></div>
 <p>あるいは，VSCode上のターミナルから，Windowsの場合は</p>
 <pre class="console"><code>dotnet run --project HelloEto.Wpf</code></pre>
 <p>を，Macの場合は</p>
