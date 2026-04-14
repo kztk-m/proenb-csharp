@@ -41,7 +41,7 @@
                <h1>第0回 環境構築2（C#演習用）</h1>
              
             
-               <p class="last-update">最終更新: 2026-04-10 20:25:25</p> 
+               <p class="last-update">最終更新: 2026-04-14 14:22:04</p> 
             
             <div class="qnav">
               <ul>
@@ -103,16 +103,53 @@ Eto Panel, Dialog or Form  etofile   [C#],F#,VB  Cross Platform/Eto</code></pre>
 <ol type="1">
 <li><p>Eto.Formsプロジェクトを作成し，VSCodeで開く．以下は「VSCodeでフォルダを開いた後に，VSCode内のターミナルからプロジェクト/ソリューションを作成する」流れを紹介しているが，<a href="./setup.html">環境構築1</a>で紹介した通り「ターミナルで予めプロジェクト/ソリューションを作成し，その後VSCodeでソリューションを開く」を行ってもよい．</p>
 <ol type="i">
-<li><p>適当なフォルダ（<code>HelloEto</code>とする）を作成し，VSCodeでそのフォルダを開く．</p></li>
+<li><p>適当なフォルダ（<code>HelloEto</code>とする）を作成する．ただし，<em>プロジェクトフォルダ</em>の中を避ける．そして，VSCodeでそのフォルダを開く．</p>
+<div class="caution">
+<div class="title">
+<p>Caution</p>
+</div>
+<p>プロジェクトフォルダはネストさせない．</p>
+</div></li>
 <li><p>VSCode上のターミナル（メニューバーより「表示」→「ターミナル」あるいはJapanese Language Packを入れていないなら"View"→"Terminal"）を開き，以下のコマンドを実行する．<code>-sln</code>は不要だが，どうせC# Dev Kitが生成することになるので先に生成しても同じ．</p>
 <pre class="console"><code>dotnet new etoapp -sln </code></pre>
 <p>その後<code>ls -F</code>（Windowsだと<code>dir</code>）してみると以下のようなフォルダおよびファイルが生成されたことがわかる（Windowsだと表示は異なるが作成されるフォルダ・ファイルは同じ）．</p>
 <pre class="console"><code>$ ls -F 
 HelloEto/     HelloEto.Gtk/ HelloEto.Mac/ HelloEto.Wpf/ HelloEto.sln</code></pre></li>
 </ol></li>
+<li><p>Eto.Forms 2.11.0の不具合のワークアラウンドを実施する．<strong>この作業はプロジェクト作成ごとに必要</strong>になる．新しいバージョンでは解消されているかもしれない．変更する場所は<code>HelloEto</code>以下は以下の構造になっているので，Windowsの場合は<code>HelloEto.Wpf.csproj</code>，Macの場合は<code>HelloEto.Mac.csproj</code>である．</p>
+<div class="directorylist">
+<ul>
+<li><code>HelloEto</code>
+<ul>
+<li><code>HelloEto</code>
+<ul>
+<li>...</li>
+</ul></li>
+<li><code>HelloEto.Wpf</code>
+<ul>
+<li><code>HelloEto.Wpf.csproj</code>（<strong>← Windowsの場合はこれを変更</strong>）</li>
+<li>...</li>
+</ul></li>
+<li><code>HelloEto.Mac</code>
+<ul>
+<li><code>HelloEto.Mac.csproj</code>（<strong>← Macの場合はこれを変更</strong>）</li>
+<li>...</li>
+</ul></li>
+<li>...</li>
+</ul></li>
+</ul>
+</div>
+<ul>
+<li><p>Windowsの場合，<code>HelloEto.Wpf</code>直下の<code>HelloEto.Wpf.csproj</code>を開き，<code>PropertyGroup</code>内の以下の箇所</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">TargetPlatform</span>&gt;net10.0&lt;/<span class="kw">TargetPlatform</span>&gt;</span></code></pre></div>
+<p>を下記のものに変更する（<code>net10.0</code>の部分はインストールしたSDKのバージョンに合わせる）．要は，<code>-windows</code>を追加する．</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">TargetPlatform</span>&gt;net10.0-windows&lt;/<span class="kw">TargetPlatform</span>&gt;</span></code></pre></div></li>
+<li><p>また，Macの場合は，<code>HelloEto.Mac</code>直下にある<code>HelloEto.Mac.csproj</code>を開き，<code>PropertyGroup</code>内に以下の行を追加する．</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">StartWorkingDirectory</span>&gt;./&lt;/<span class="kw">StartWorkingDirectory</span>&gt;</span></code></pre></div>
+<p>ターミナルからのみ実行する場合はこの作業は不要．</p></li>
+</ul></li>
 <li><p>ビルドおよび実行してみる．</p>
-<p>Windowsの場合は<code>HelloEto.Wpf</code>以下の<code>Program.cs</code>，Macの場合は<code>HelloEto.Mac</code>以下の<code>Program.cs</code>を開き（サイドバーからファイルを選択する）， エディタ<strong>右上</strong>（アクティビティーバーにあるアイコンではない）の「再生ボタンの右下に虫がついたアイコン」（デバッグ実行を表す）をクリックする．ただし，Macの場合は<code>HelloEto.Mac</code>直下にある<code>HelloEto.Mac.csproj</code>の<code>PropertyGroup</code>内に以下の行を追加する必要があるかもしれない．</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode xml"><code class="sourceCode xml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">StartWorkingDirectory</span>&gt;./&lt;/<span class="kw">StartWorkingDirectory</span>&gt;</span></code></pre></div>
+<p>Windowsの場合は<code>HelloEto.Wpf</code>以下の<code>Program.cs</code>，Macの場合は<code>HelloEto.Mac</code>以下の<code>Program.cs</code>を開き（サイドバーからファイルを選択する）， エディタ<strong>右上</strong>（アクティビティーバーにあるアイコンではない）の「再生ボタンの右下に虫がついたアイコン」（デバッグ実行を表す）をクリックする．</p>
 <p>あるいは，VSCode上のターミナルから，Windowsの場合は</p>
 <pre class="console"><code>dotnet run --project HelloEto.Wpf</code></pre>
 <p>を，Macの場合は</p>
