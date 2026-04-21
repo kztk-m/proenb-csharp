@@ -41,7 +41,7 @@
                <h1>第1回 C#にさわってみよう</h1>
              
             
-               <p class="last-update">最終更新: 2026-04-03 13:42:42</p> 
+               <p class="last-update">最終更新: 2026-04-21 10:16:19</p> 
             
             <div class="qnav">
               <ul>
@@ -150,8 +150,7 @@
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        count <span class="op">=</span> c0<span class="op">;</span> </span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<p>ここで，<code>private int count;</code>の部分が<strong>フィールド宣言</strong>である．これはカウンターオブジェクトが<code>count</code>という<code>int</code>型のフィールドを持っていることを表している．また，<em>private修飾子</em>はこのフィールドがこのクラスの外からはアクセスできないことを表している．<code>public Counter(int c0) {…}</code>の部分はこのクラスの
-<strong>コンストラクタ</strong>を定義している．コンストラクタはオブジェクトを生成する際に呼ばれ，ここではフィールド<code>count</code>を<code>c0</code>で初期化している．コンストラクタはクラスと同じ名前である必要がある．<em>public修飾子</em>はこのコンストラクタが <code>Counter</code> クラスの外からアクセスできることを表している．</p>
+<p>ここで，<code>private int count;</code>の部分が<strong>フィールド宣言</strong>である．これはカウンターオブジェクトが<code>count</code>という<code>int</code>型のフィールドを持っていることを表している．また，<em>private修飾子</em>はこのフィールドがこのクラスの外からはアクセスできないことを表している．<code>public Counter(int c0) {…}</code>の部分はこのクラスの<strong>コンストラクタ</strong>を定義している．コンストラクタはオブジェクトを生成する際に呼ばれ，ここではフィールド<code>count</code>を<code>c0</code>で初期化している．コンストラクタはクラスと同じ名前である必要がある．<em>public修飾子</em>はこのコンストラクタが <code>Counter</code> クラスの外からアクセスできることを表している．</p>
 <p>カウンターオブジェクトの作成，より正確な言い方をすれば<code>Counter</code>クラスの<strong>インスタンス</strong>（オブジェクトのことをインスタンスと呼ぶことがある）は <code>new</code>式を用いることで行うことができる．</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Counter c <span class="op">=</span> <span class="kw">new</span> <span class="fu">Counter</span><span class="op">(</span><span class="dv">0</span><span class="op">);</span> </span></code></pre></div>
 <p>この文の実行後，<code>c</code>は<code>new Counter (0)</code>によって作成された<code>Counter</code>クラスのインスタンスを指すこととなる．すなわち大雑把には以下のような状況になる．</p>
@@ -713,7 +712,7 @@ c.GetCount() = 5</code></pre>
 <div class="sourceCode" id="cb45"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>c<span class="op">.</span><span class="fu">Inc</span><span class="op">()</span> </span></code></pre></div>
 <p>メソッド呼び出し式において<code>.</code>の左側には識別子のみならず式も来ることができる．またメソッド呼び出し式も式なので別の式の一部としても使うことができる．</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>c<span class="op">.</span><span class="fu">GetCount</span><span class="op">().</span><span class="fu">ToString</span><span class="op">()</span> </span></code></pre></div>
-<div class="sourceCode" id="cb47"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="op">(</span><span class="dv">1</span> <span class="op">+</span> <span class="dv">2</span><span class="op">).</span><span class="fu">ToString</span><span class="op">()</span> <span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="op">(</span><span class="dv">1</span> <span class="op">+</span> <span class="dv">2</span><span class="op">).</span><span class="fu">ToString</span><span class="op">()</span> <span class="op">)</span></span></code></pre></div>
 </div>
 </section>
 <section id="オブジェクト生成式new" class="level3">
