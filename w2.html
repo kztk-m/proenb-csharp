@@ -41,7 +41,7 @@
                <h1>第2回 継承</h1>
              
             
-               <p class="last-update">最終更新: 2026-04-03 17:00:14</p> 
+               <p class="last-update">最終更新: 2026-04-28 10:44:51</p> 
             
             <div class="qnav">
               <ul>
@@ -344,10 +344,10 @@ EMail: nobody@example.com</code></pre>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="op">((</span>Phone<span class="op">)</span> o<span class="op">).</span><span class="fu">Call</span><span class="op">();</span> <span class="co">// Called! </span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co">// 以下は例外発生</span></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="op">((</span>MobilePhone<span class="op">)</span> o<span class="op">).</span><span class="fu">Mail</span><span class="op">();</span> </span></code></pre></div>
-<p>なお，暗黙の型変換が行える場合にもキャストを用いて陽に行ってもよい．</p>
 </div>
 <div class="example">
 <p><span class="title">例</span></p>
+<p>なお，暗黙の型変換が行える場合にもキャストを用いて陽に行ってもよい．</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span>  i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> </span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="dt">long</span> l <span class="op">=</span> <span class="op">(</span><span class="dt">long</span><span class="op">)</span> i<span class="op">;</span> </span></code></pre></div>
 </div>
@@ -393,6 +393,12 @@ EMail: nobody@example.com</code></pre>
 </div>
 <p>余裕があれば次も試してみよう：<code>f(Phone)</code>と<code>f(MobilePhone)</code>とオーバロードされた関数があるときに，
 <code>MobilePhone</code>のインスタンスを渡すとどちらの関数が呼ばれるか？<code>Phone</code>にキャストするとどうなるか．</p>
+</div>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>さらに余裕のある人は<code>override</code>を付けなかったときにどのような挙動になるか確認してみよう．</p>
 </div>
 </section></section>
 

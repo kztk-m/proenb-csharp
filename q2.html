@@ -41,7 +41,7 @@
                <h1>第2回 課題 (2026)</h1>
              
             
-               <p class="last-update">最終更新: 2026-04-07 19:51:51</p> 
+               <p class="last-update">最終更新: 2026-04-28 10:42:45</p> 
             
             <div class="qnav">
               <ul>
@@ -297,7 +297,7 @@ ComplexFunc(3) is 7</code></pre>
 <p><code>App.Start</code>にたとえば以下のような記述を追加し動作確認するとよい（既存の処理を削除してはならない）．</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> App</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Start</span><span class="op">(</span><span class="dt">string</span><span class="op">[]</span> args<span class="op">)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> <span class="dt">void</span> <span class="fu">Start</span><span class="op">()</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>   <span class="op">{</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>         <span class="co">// … 基本課題と同じ部分については省略 …</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
@@ -326,6 +326,29 @@ ComplexFunc(3) is 7</code></pre>
 <span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <div class="hint">
 <p><em>ヒント</em>： オーバライドを使う？</p>
+</div>
+<div class="note">
+<div class="title">
+<p>Note</p>
+</div>
+<p>基本クラス<code>B</code>とその派生クラス<code>D</code>に引数の型・数が同じ同名のメソッドがあった場合に，そのメソッドが<code>B</code>の仮想メソッドで<code>D</code>がそれをオーバライドしているわけではない場合には，インスタンスの静的な型によって呼び出されるメソッドが決まる．</p>
+<p>たとえば，以下のようなクラス<code>B</code>と<code>D</code>があったとする．</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> B </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">f</span><span class="op">()</span> <span class="op">{</span> Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;B&quot;</span><span class="op">);</span> <span class="op">}</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> D <span class="op">:</span> B</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="kw">public</span> <span class="dt">void</span> <span class="fu">f</span><span class="op">()</span> <span class="op">{</span> Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;D&quot;</span><span class="op">);</span> <span class="op">}</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>このとき以下のような挙動になる．</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">new</span> <span class="fu">B</span><span class="op">().</span><span class="fu">f</span><span class="op">();</span> <span class="co">// Bが表示される</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">new</span> <span class="fu">D</span><span class="op">().</span><span class="fu">f</span><span class="op">();</span> <span class="co">// Dが表示される</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>B b <span class="op">=</span> <span class="kw">new</span> <span class="fu">D</span><span class="op">();</span> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>b<span class="op">.</span><span class="fu">f</span><span class="op">();</span> <span class="co">// Bが表示される</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="op">((</span>B<span class="op">)</span> <span class="kw">new</span> <span class="fu">D</span><span class="op">()).</span><span class="fu">f</span><span class="op">();</span> <span class="co">// Bが表示される </span></span></code></pre></div>
 </div>
 </section>
           </section>
