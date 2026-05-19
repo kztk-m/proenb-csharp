@@ -41,7 +41,7 @@
                <h1>第3回 コレクション・ジェネリクス</h1>
              
             
-               <p class="last-update">最終更新: 2026-04-03 21:15:21</p> 
+               <p class="last-update">最終更新: 2026-05-19 11:03:39</p> 
             
             <div class="qnav">
               <ul>
@@ -69,7 +69,7 @@
 </nav>
 <section class="mainbody"><section id="配列" class="level2">
 <h2>配列</h2>
-<p>いくつかのデータをひとまとめ（コレクション）にして取り扱いたいことはよくある．
+<p>複数個のデータをひとまとめ（コレクション）にして取り扱いたいことはよくある．
 <strong>配列</strong>は同じ型のデータを固定個まとめて扱うことを可能にする．</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">using</span> System<span class="op">;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -409,49 +409,50 @@
 <span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ns[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ns<span class="op">[</span>i<span class="op">]</span> <span class="op">);</span></span>
 <span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
 <span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 指定された要素を取り除くことができる</span></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ただし，O(Count - 要素のインデックス)時間かかる</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>        ns<span class="op">.</span><span class="fu">Remove</span><span class="op">(</span><span class="st">&quot;mikan&quot;</span><span class="op">);</span></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;After ns.Remove(</span><span class="sc">\&quot;</span><span class="st">mikan</span><span class="sc">\&quot;</span><span class="st">)&quot;</span><span class="op">);</span></span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>        <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> ns<span class="op">.</span><span class="fu">Count</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ns[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ns<span class="op">[</span>i<span class="op">]</span> <span class="op">);</span></span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 指定されたインデックスの要素を取り除ける</span></span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ただし，O(Count - 要素のインデックス)時間かかる</span></span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>        ns<span class="op">.</span><span class="fu">RemoveAt</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;After ns.RemoveAt(1)&quot;</span><span class="op">);</span></span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>        <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> ns<span class="op">.</span><span class="fu">Count</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ns[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ns<span class="op">[</span>i<span class="op">]</span> <span class="op">);</span></span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 指定されたインデックスの要素を追加できる</span></span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ただし，最良でもO(Count - 要素のインデックス)時間，最悪O(Count)時間かかる．</span></span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>        ns<span class="op">.</span><span class="fu">Insert</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="st">&quot;melon&quot;</span><span class="op">);</span></span>
-<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;After ns.Insert(0,</span><span class="sc">\&quot;</span><span class="st">melon</span><span class="sc">\&quot;</span><span class="st">)&quot;</span><span class="op">);</span></span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>        <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> ns<span class="op">.</span><span class="fu">Count</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ns[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ns<span class="op">[</span>i<span class="op">]</span> <span class="op">);</span></span>
-<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 要素がintであるようなListを作成．</span></span>
-<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>        List<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> ms1 <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> <span class="op">();</span></span>
-<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>        List<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> ms2<span class="op">;</span></span>
-<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 作成時の要素を指定可能</span></span>
-<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>        ms2 <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">};</span></span>
-<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>        <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> ms2<span class="op">.</span><span class="fu">Count</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ms2[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ms2<span class="op">[</span>i<span class="op">]</span> <span class="op">);</span></span>
-<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
-<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 配列のときと異なり以下のような宣言の書き方はできない（以下はエラーになる）</span></span>
-<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>        <span class="co">// List&lt;int&gt; ms3 = {1, 2, 3};</span></span>
-<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 一方，コレクション式による初期化は可能</span></span>
-<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>        List<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> ms4 <span class="op">=</span> <span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">];</span> </span>
-<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>        List<span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;</span> ms5 <span class="op">=</span> <span class="op">[</span><span class="st">&quot;apple&quot;</span><span class="op">,</span> <span class="st">&quot;orange&quot;</span><span class="op">,</span> <span class="st">&quot;banana&quot;</span><span class="op">];</span></span>
-<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 指定された要素を取り除くことができる．</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 指定された要素が複数出現する場合は最初のものを取り除く．</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ただし，O(max(要素のインデックス,Count - 要素のインデックス))時間かかる</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>        ns<span class="op">.</span><span class="fu">Remove</span><span class="op">(</span><span class="st">&quot;mikan&quot;</span><span class="op">);</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;After ns.Remove(</span><span class="sc">\&quot;</span><span class="st">mikan</span><span class="sc">\&quot;</span><span class="st">)&quot;</span><span class="op">);</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>        <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> ns<span class="op">.</span><span class="fu">Count</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ns[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ns<span class="op">[</span>i<span class="op">]</span> <span class="op">);</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 指定されたインデックスの要素を取り除ける</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ただし，O(Count - 要素のインデックス)時間かかる</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>        ns<span class="op">.</span><span class="fu">RemoveAt</span><span class="op">(</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;After ns.RemoveAt(1)&quot;</span><span class="op">);</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>        <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> ns<span class="op">.</span><span class="fu">Count</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ns[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ns<span class="op">[</span>i<span class="op">]</span> <span class="op">);</span></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 指定されたインデックスの要素を追加できる</span></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ただし，最良でもO(Count - 要素のインデックス)時間，最悪O(Count)時間かかる．</span></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>        ns<span class="op">.</span><span class="fu">Insert</span><span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="st">&quot;melon&quot;</span><span class="op">);</span></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>        Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span><span class="st">&quot;After ns.Insert(0,</span><span class="sc">\&quot;</span><span class="st">melon</span><span class="sc">\&quot;</span><span class="st">)&quot;</span><span class="op">);</span></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>        <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> ns<span class="op">.</span><span class="fu">Count</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ns[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ns<span class="op">[</span>i<span class="op">]</span> <span class="op">);</span></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 要素がintであるようなListを作成．</span></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>        List<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> ms1 <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> <span class="op">();</span></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>        List<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> ms2<span class="op">;</span></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 作成時の要素を指定可能</span></span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>        ms2 <span class="op">=</span> <span class="kw">new</span> List<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> <span class="op">{</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">};</span></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>        <span class="kw">for</span> <span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> ms2<span class="op">.</span><span class="fu">Count</span><span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>            Console<span class="op">.</span><span class="fu">WriteLine</span><span class="op">(</span> <span class="st">&quot;ms2[&quot;</span> <span class="op">+</span> i <span class="op">+</span> <span class="st">&quot;] = &quot;</span> <span class="op">+</span> ms2<span class="op">[</span>i<span class="op">]</span> <span class="op">);</span></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>        <span class="op">}</span></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 配列のときと異なり以下のような宣言の書き方はできない（以下はエラーになる）</span></span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>        <span class="co">// List&lt;int&gt; ms3 = {1, 2, 3};</span></span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>        <span class="co">// 一方，コレクション式による初期化は可能</span></span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>        List<span class="op">&lt;</span><span class="dt">int</span><span class="op">&gt;</span> ms4 <span class="op">=</span> <span class="op">[</span><span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">];</span> </span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>        List<span class="op">&lt;</span><span class="dt">string</span><span class="op">&gt;</span> ms5 <span class="op">=</span> <span class="op">[</span><span class="st">&quot;apple&quot;</span><span class="op">,</span> <span class="st">&quot;orange&quot;</span><span class="op">,</span> <span class="st">&quot;banana&quot;</span><span class="op">];</span></span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <section id="上記で出てきたメソッドプロパティコンストラクタのまとめ" class="level3">
 <h3>上記で出てきたメソッド，プロパティ，コンストラクタのまとめ</h3>
 <table>
@@ -472,7 +473,7 @@
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><code>bool Remove(T)</code></td>
-<td style="text-align: left;">与えられた要素と同じ要素のうちもっとも最初に出現するものを取り除く．返り値は削除に成功した場合は<code>true</code>，そうでなければ（典型的には与えられた要素がリストに存在しない 場合）<code>false</code>．</td>
+<td style="text-align: left;">与えられた要素と同じ要素のうちもっとも最初に出現するものを取り除く．返り値は削除に成功した場合は<code>true</code>，そうでなければ（典型的には与えられた要素がリストに存在しない場合）<code>false</code>．</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>void RemoveAt(int)</code></td>
