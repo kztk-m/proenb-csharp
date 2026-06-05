@@ -41,7 +41,7 @@
                <h1>第6回 課題 (2026)</h1>
              
             
-               <p class="last-update">最終更新: 2026-05-26 19:46:36</p> 
+               <p class="last-update">最終更新: 2026-06-05 21:23:11</p> 
             
             <div class="qnav">
               <ul>
@@ -221,7 +221,7 @@ VSCodeで作成したフォルダを開く．そして，VSCode内のターミ�
 <div class="title">
 <p>Tip</p>
 </div>
-<p>保存や読込機能の実装にはそれぞれ <code>OpenFileDialog</code> と <code>SaveFileDialog</code> を使うとよい．以下に<code>SaveFileDialog</code>の使用例を示すが，<code>OpenFileDialog</code>も同様．</p>
+<p>読込機能や保存機能の実装にはそれぞれ <code>OpenFileDialog</code> と <code>SaveFileDialog</code> を使うとよい．以下に<code>SaveFileDialog</code>の使用例を示すが，<code>OpenFileDialog</code>も同様．</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode cs"><code class="sourceCode cs"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">var</span> dialog <span class="op">=</span> <span class="kw">new</span> SaveFileDialog <span class="op">{</span> Filters <span class="op">=</span> <span class="op">{</span><span class="st">&quot;png or jpg|png;jpg&quot;</span><span class="op">}</span> <span class="op">}</span> <span class="op">;</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="op">(</span>dialog<span class="op">.</span><span class="fu">ShowDialog</span><span class="op">(</span><span class="kw">this</span><span class="op">)</span> <span class="op">==</span> DialogResult<span class="op">.</span><span class="fu">Ok</span><span class="op">)</span> <span class="op">{</span> <span class="co">// MainForm内なら．そうでなければthisの代わりに</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">var</span> filepath <span class="op">=</span> dialog<span class="op">.</span><span class="fu">FileName</span><span class="op">;</span> </span>
